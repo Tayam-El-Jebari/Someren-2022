@@ -10,16 +10,16 @@ namespace SomerenLogic
 {
     public class RoomService
     {
-        RoomDAO studentdb;
+        private RoomDAO roomdb;
 
         public RoomService()
         {
-            studentdb = new RoomDAO();
+            roomdb = new RoomDAO();
         }
 
         public List<Room> GetRooms()
         {
-            List<Room> rooms = studentdb.GetAllRooms();
+            List<Room> rooms = roomdb.GetAllRooms();
             return rooms;
         }
     }

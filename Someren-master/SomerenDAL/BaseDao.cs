@@ -9,7 +9,6 @@ namespace SomerenDAL
     {
         private SqlDataAdapter adapter;
         private SqlConnection conn;
-
         public BaseDao()
         {
             // DO NOT FORGET TO INSERT YOUR CONNECTION STRING NAMED 'SOMEREN DATABASE' IN YOUR APP.CONFIG!!
