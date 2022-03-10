@@ -11,7 +11,7 @@ namespace SomerenLogic
     {
         public void WriteLog(string message)
         {
-            string filename = "LogFile.txt";
+            string filename = "...\\...\\...\\LogFile.txt";
             StreamWriter writer = new StreamWriter(filename, true);
 
             if (File.Exists(filename))

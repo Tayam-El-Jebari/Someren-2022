@@ -67,6 +67,7 @@ namespace SomerenUI
                 catch (Exception e)
                 {
                     MessageBox.Show("Something went wrong while loading the students: " + e.Message);
+                    logService.WriteLog(e.Message);
                 }
             }
             else if(panelName == "Teachers")
@@ -137,7 +138,7 @@ namespace SomerenUI
                             li.SubItems.Add(room.Capacity.ToString());
                             li.SubItems.Add(room.Type);
                             listViewRoom.Items.Add(li);
-                        }   
+                        }
 
                     }
                     catch (Exception e)
@@ -218,7 +219,6 @@ namespace SomerenUI
         private void TeachersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Teachers");
-            TeachersToolStripMenuItem.MouseHover = Color.Aqua;
         }
     }
 }
