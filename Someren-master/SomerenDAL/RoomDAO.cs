@@ -22,7 +22,7 @@ namespace SomerenDAL
             }
             catch (Exception e)
             {
-
+                // within this exception show te user that something went wrong. 
                 throw new Exception("Rooms could not be loaded properly. Please try again" + e.Message);
             }
 

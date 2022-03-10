@@ -16,8 +16,8 @@ namespace SomerenLogic
 
             if (File.Exists(filename))
             {
-                writer.WriteLine($"{DateTime.Now} --- error occured. Please read the pop up that appeared on your screen and try again. " +
-                    $"If the problem can't be solved, feel free to reach out on us. ");
+                writer.WriteLine($"{DateTime.Now} --- error occured. Please read the pop-up message that appeared on your screen and try again. " +
+                    $"If the problem can't be resolved, feel free to reach out on us. ");
             }
             else
             {
