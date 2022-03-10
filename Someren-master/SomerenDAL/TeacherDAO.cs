@@ -11,6 +11,7 @@ namespace SomerenDAL
 {
     public class TeacherDAO : BaseDao
     {
+        const int FirstActivityNumber = 300;
         public List<Teacher>GetAllTeachers()
         {
             string query = "SELECT teacherID, firstname, lastname, activityNumber FROM [Teacher]";
@@ -27,9 +28,10 @@ namespace SomerenDAL
                 teacher.TeacherID = (int)dr["teacherID"];
                 teacher.FirstName = (string)dr["firstName"];
                 teacher.LastName = (string)dr["lastName"];
+                // try catch because an int cannot be null. If it is null, teacher has no group assigned, thus the teacher is no supervisor.
                 try
                 {
-                    if ((int)dr["activityNumber"] >= 300)
+                    if ((int)dr["activityNumber"] >= FirstActivityNumber)
                     {
                         teacher.Supervisor = true;
                     }
