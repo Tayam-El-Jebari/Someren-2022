@@ -26,7 +26,16 @@ namespace SomerenUI
             dashboardToolStripMenuItem.ForeColor = Color.White;
             dashboardToolStripMenuItem.BackColor = Color.Black; 
         }
-
+        private void ColorListView(ListView listview)
+        {
+            for (int i = 0; i < listview.Items.Count; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    listview.Items[i].BackColor = Color.LightBlue;
+                }
+            }
+        }
         private void showPanel(string panelName)
         {
 
@@ -41,6 +50,7 @@ namespace SomerenUI
                 pnlDashboard.Show();
                 imgDashboard.Show();
             }
+
             else if (panelName == "Students")
             {
 
@@ -76,6 +86,8 @@ namespace SomerenUI
                         li.SubItems.Add(s.DateOfBirth.ToString("yyyy/MM/dd"));
                         listViewStudents.Items.Add(li);
                     }
+
+                    ColorListView(listViewStudents);
                 }
                 catch (Exception e)
                 {
@@ -112,7 +124,7 @@ namespace SomerenUI
                     listViewTeachers.Items.Add(li);
                 }
 
-
+                ColorListView(listViewTeachers);
             }
 
             try
@@ -153,17 +165,7 @@ namespace SomerenUI
                             listViewRoom.Items.Add(li);
                             
                         }
-                        for (int j = 0; j < listViewRoom.Items.Count; j++)
-                        {
-                            for (int i = 0; i < listViewRoom.Items[i].SubItems.Count; i++)
-                            {
-                                if (j % 2 == 0)
-                                {
-                                    listViewRoom.Items[j].SubItems[i].BackColor = Color.LightBlue;
-                                }
-                            }
-                        }
-                        
+                        ColorListView(listViewRoom);
 
                     }
                     catch (Exception e)
