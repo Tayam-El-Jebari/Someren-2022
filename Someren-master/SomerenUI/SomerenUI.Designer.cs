@@ -88,6 +88,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(1283, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // dashboardToolStripMenuItem
             // 
@@ -246,7 +247,7 @@
             this.listViewRoom.Location = new System.Drawing.Point(21, 52);
             this.listViewRoom.Margin = new System.Windows.Forms.Padding(4);
             this.listViewRoom.Name = "listViewRoom";
-            this.listViewRoom.Size = new System.Drawing.Size(1020, 377);
+            this.listViewRoom.Size = new System.Drawing.Size(991, 500);
             this.listViewRoom.TabIndex = 5;
             this.listViewRoom.UseCompatibleStateImageBehavior = false;
             this.listViewRoom.SelectedIndexChanged += new System.EventHandler(this.listViewRoom_SelectedIndexChanged);
@@ -281,9 +282,9 @@
             this.labelRoomTitle.Location = new System.Drawing.Point(13, 12);
             this.labelRoomTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRoomTitle.Name = "labelRoomTitle";
-            this.labelRoomTitle.Size = new System.Drawing.Size(93, 33);
+            this.labelRoomTitle.Size = new System.Drawing.Size(108, 33);
             this.labelRoomTitle.TabIndex = 3;
-            this.labelRoomTitle.Text = "Room";
+            this.labelRoomTitle.Text = "Rooms";
             // 
             // SomerenUI
             // 

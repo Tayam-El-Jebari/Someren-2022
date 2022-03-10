@@ -14,6 +14,7 @@ namespace SomerenUI
 {
     public partial class SomerenUI : Form
     {
+        LogService logService = new LogService();
         public SomerenUI()
         {
             InitializeComponent();
@@ -56,19 +57,9 @@ namespace SomerenUI
                     // clear the listview before filling it again
                     listViewStudents.Clear();
 
-
-                    listViewStudents.View = View.Details;
-                    listViewStudents.Columns.Add("StudentId", 120);
-                    listViewStudents.Columns.Add("FirstName");
-                    listViewStudents.Columns.Add("LastName");
-                    listViewStudents.Columns.Add("DateOfBirth", 120);
-
                     foreach (Student s in studentList)
                     {
-                        ListViewItem li = new ListViewItem(s.StudentId.ToString());
-                        li.SubItems.Add(s.FirstName);
-                        li.SubItems.Add(s.LastName);
-                        li.SubItems.Add(s.DateOfBirth.ToString("yyyy/MM/dd"));
+                        ListViewItem li = new ListViewItem(s.Name);
                         listViewStudents.Items.Add(li);
                     }
                 }
@@ -113,12 +104,13 @@ namespace SomerenUI
                             li.SubItems.Add(room.Capacity.ToString());
                             li.SubItems.Add(room.Type);
                             listViewRoom.Items.Add(li);
-                        }
+                        }   
 
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show("Listview could not be loaded properly." + e.Message);
+                        MessageBox.Show("Listview could not be loaded properly.");
+                        logService.WriteLog(e.Message);
                     }
                 }
             }
@@ -157,12 +149,6 @@ namespace SomerenUI
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Students");
-            studentsToolStripMenuItem.ForeColor = Color.White;
-            studentsToolStripMenuItem.BackColor = Color.Black;
-
-            roomsToolStripMenuItem.ForeColor = default(Color);
-            roomsToolStripMenuItem.BackColor = default(Color);
-
 
         }
 
@@ -170,14 +156,7 @@ namespace SomerenUI
         {
             // within this method I want to show what happens when 'Rooms' is clicked
             showPanel("Rooms");
-            roomsToolStripMenuItem.ForeColor = Color.White;
-            roomsToolStripMenuItem.BackColor = Color.Black;
-
-            studentsToolStripMenuItem.ForeColor = default(Color);
-            studentsToolStripMenuItem.BackColor = default(Color);
-
         }
-
 
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -187,6 +166,16 @@ namespace SomerenUI
         private void listViewRoom_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            
+        }
+
+        private void menuStrip1_MouseHover(object sender, EventArgs e)
+        {
+            this.menuStrip1.BackColor = Color.Red;
         }
     }
 }

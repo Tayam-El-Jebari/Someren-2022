@@ -13,28 +13,46 @@ namespace SomerenDAL
     {
         public List<Room>GetAllRooms()
         {
-            // change attributes from Room, give them the right name. 
-            string query = "SELECT roomNumber, capacity, type FROM [Room]";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            try
+            {
+                // change attributes from Room, give them the right name. 
+                string query = "SELECT roomNumber, capacity, type FROM [Room]";
+                SqlParameter[] sqlParameters = new SqlParameter[0];
+                return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception("Rooms could not be loaded properly. Please try again" + e.Message);
+            }
+
         }
 
         private List<Room> ReadTables(DataTable dataTable)
         {
-            List<Room> rooms = new List<Room>();
-
-            foreach (DataRow dr in dataTable.Rows)
+            try
             {
-                Room room = new Room()
+                List<Room> rooms = new List<Room>();
+
+                foreach (DataRow dr in dataTable.Rows)
                 {
-                    // studentID en teacherID? 
-                    Number = (int)dr["roomNumber"],
-                    Capacity = (int)dr["capacity"],
-                    Type = (string)dr["type"]
-                };
-                rooms.Add(room);
+                    Room room = new Room()
+                    {
+                        // studentID en teacherID? 
+                        Number = (int)dr["roomNumber"],
+                        Capacity = (int)dr["capacity"],
+                        Type = (string)dr["type"]
+                    };
+                    rooms.Add(room);
+                }
+                return rooms;
             }
-            return rooms;
+            catch (Exception e)
+            {
+
+                throw new Exception("Data could not be retrieved from the database. Please try agian" + e.Message);
+            }
+
         }
     }
 }
