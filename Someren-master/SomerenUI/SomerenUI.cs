@@ -207,6 +207,7 @@ namespace SomerenUI
         private void TeachersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Teachers");
+            TeachersToolStripMenuItem.MouseHover = Color.Aqua;
         }
     }
 }
