@@ -65,12 +65,11 @@ namespace SomerenUI
 
 
                     listViewStudents.View = View.Details;
-
-                    listViewStudents.Columns.Add("StudentId", 120);
-                    listViewStudents.Columns.Add("First name");
-                    listViewStudents.Columns.Add("Last name");
-                    listViewStudents.Columns.Add("Date of birth", 120);
-                    listViewStudents.Columns.Add("Room number", 120);
+                    listViewStudents.Columns.Add("Student id", 80);
+                    listViewStudents.Columns.Add("First name", 150);
+                    listViewStudents.Columns.Add("Last name", 150);
+                    listViewStudents.Columns.Add("Date of birth", 100);
+                    listViewStudents.Columns.Add("Room number", 80);
 
                     foreach (Student s in studentList)
                     {
@@ -137,8 +136,8 @@ namespace SomerenUI
                         listViewRoom.Clear();
 
                         listViewRoom.View = View.Details;
-                        listViewRoom.Columns.Add("Number", 120);
-                        listViewRoom.Columns.Add("Capacity", 120);
+                        listViewRoom.Columns.Add("Number", 80);
+                        listViewRoom.Columns.Add("Capacity", 80);
                         listViewRoom.Columns.Add("Type", 120);
                     
                         foreach (Room room in roomList)
