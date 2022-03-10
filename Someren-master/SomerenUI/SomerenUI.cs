@@ -14,6 +14,7 @@ namespace SomerenUI
 {
     public partial class SomerenUI : Form
     {
+        LogService logService = new LogService();
         public SomerenUI()
         {
             InitializeComponent();
@@ -108,7 +109,8 @@ namespace SomerenUI
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show("Listview could not be loaded properly." + e.Message);
+                        MessageBox.Show("Listview could not be loaded properly.");
+                        logService.WriteLog(e.Message);
                     }
                 }
             }
@@ -147,6 +149,7 @@ namespace SomerenUI
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Students");
+
         }
 
         private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -154,7 +157,6 @@ namespace SomerenUI
             // within this method I want to show what happens when 'Rooms' is clicked
             showPanel("Rooms");
         }
-
 
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -164,6 +166,16 @@ namespace SomerenUI
         private void listViewRoom_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            
+        }
+
+        private void menuStrip1_MouseHover(object sender, EventArgs e)
+        {
+            this.menuStrip1.BackColor = Color.Red;
         }
     }
 }
