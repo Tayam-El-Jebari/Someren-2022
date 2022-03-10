@@ -14,11 +14,12 @@ namespace SomerenModel
 
         public string LastName { get; set; }
 
-        public int ActivityNumber { get; set; }
+        public int RoomNumber {get; set;}
         public bool Supervisor {
             get;
             set;
         }
+        
 
     }
 }
