@@ -151,7 +151,10 @@ namespace SomerenUI
                             li.SubItems.Add(room.Capacity.ToString());
                             li.SubItems.Add(room.Type);
                             listViewRoom.Items.Add(li);
+                            
                         }
+
+                        
 
                     }
                     catch (Exception e)
@@ -221,10 +224,6 @@ namespace SomerenUI
             Application.Exit();
         }
 
-        private void listViewRoom_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void menuStrip1_MouseHover(object sender, EventArgs e)
         {
