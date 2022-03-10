@@ -71,7 +71,6 @@ namespace SomerenUI
                     listViewStudents.Columns.Add("Date Of Birth", 100);
                     listViewStudents.Columns.Add("Room Number", 80);
 
-
                     foreach (Student s in studentList)
                     {
                         ListViewItem li = new ListViewItem(s.StudentId.ToString());
@@ -101,16 +100,18 @@ namespace SomerenUI
                 List<Teacher> teacherList = teacherService.GetTeachers();
 
                 listViewTeachers.View = View.Details;
-                listViewTeachers.Columns.Add("TeacherID",80);
-                listViewTeachers.Columns.Add("First Name", 120);
-                listViewTeachers.Columns.Add("Last Name", 120);
-                listViewTeachers.Columns.Add("Supervisor", 80);
 
+                listViewTeachers.Columns.Add("Teacher id",80);
+                listViewTeachers.Columns.Add("First name", 120);
+                listViewTeachers.Columns.Add("Last name", 120);
+                listViewTeachers.Columns.Add("Room number", 80);
+                listViewTeachers.Columns.Add("Supervisor", 80); 
                 foreach (Teacher teacher in teacherList)
                 {
                     ListViewItem li = new ListViewItem(teacher.TeacherID.ToString());
                     li.SubItems.Add(teacher.FirstName);
                     li.SubItems.Add(teacher.LastName);
+                    li.SubItems.Add(teacher.RoomNumber.ToString());
                     li.SubItems.Add(teacher.Supervisor.ToString());
                     listViewTeachers.Items.Add(li);
                 }

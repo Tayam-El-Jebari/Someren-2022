@@ -14,7 +14,7 @@ namespace SomerenDAL
         const int FirstActivityNumber = 300;
         public List<Teacher>GetAllTeachers()
         {
-            string query = "SELECT teacherID, firstname, lastname, activityNumber FROM [Teacher]";
+            string query = "SELECT teacherID, firstname, lastname, activityNumber, roomNumber FROM [Teacher]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -28,6 +28,7 @@ namespace SomerenDAL
                 teacher.TeacherID = (int)dr["teacherID"];
                 teacher.FirstName = (string)dr["firstName"];
                 teacher.LastName = (string)dr["lastName"];
+                teacher.RoomNumber = (int)dr["roomNumber"];
                 // try catch because an int cannot be null. If it is null, teacher has no group assigned, thus the teacher is no supervisor.
                 try
                 {
