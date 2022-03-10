@@ -182,10 +182,15 @@ namespace SomerenUI
         {
             // panelen van kleur laten veranderen wanneer je erop drukt
             showPanel("Dashboard");
+            ResetToolStripMenu();
             dashboardToolStripMenuItem.ForeColor = Color.White;
             dashboardToolStripMenuItem.BackColor = Color.Black;
-
-            studentsToolStripMenuItem.ForeColor = default(Color);
+        }
+        private void ResetToolStripMenu()
+        {
+            dashboardToolStripMenuItem.ForeColor = default(Color);
+            dashboardToolStripMenuItem.BackColor = default(Color);
+           studentsToolStripMenuItem.ForeColor = default(Color);
             studentsToolStripMenuItem.BackColor = default(Color);
             roomsToolStripMenuItem.ForeColor = default(Color);
             roomsToolStripMenuItem.BackColor = default(Color);
@@ -194,7 +199,6 @@ namespace SomerenUI
             activitiesToolStripMenuItem.ForeColor = default(Color);
             activitiesToolStripMenuItem.BackColor = default(Color);
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
