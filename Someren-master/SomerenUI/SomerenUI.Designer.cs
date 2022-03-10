@@ -391,6 +391,9 @@
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1283, 622);
             this.Controls.Add(this.menuStrip1);
+
+            this.Controls.Add(this.pnlDashboard);
+            this.Controls.Add(this.pnlRoomPanel);
             this.Controls.Add(this.pnlStudents);
             this.Controls.Add(this.pnlTeacherPanel);
             this.Controls.Add(this.pnlRoomPanel);
