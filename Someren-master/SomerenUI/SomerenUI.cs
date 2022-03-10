@@ -65,11 +65,11 @@ namespace SomerenUI
 
 
                     listViewStudents.View = View.Details;
-                    listViewStudents.Columns.Add("StudentID", 80);
-                    listViewStudents.Columns.Add("First Name", 150);
-                    listViewStudents.Columns.Add("Last Name", 150);
-                    listViewStudents.Columns.Add("Date Of Birth", 100);
-                    listViewStudents.Columns.Add("Room Number", 80);
+                    listViewStudents.Columns.Add("Student id", 80);
+                    listViewStudents.Columns.Add("First name", 150);
+                    listViewStudents.Columns.Add("Last name", 150);
+                    listViewStudents.Columns.Add("Date of birth", 100);
+                    listViewStudents.Columns.Add("Room number", 80);
 
                     foreach (Student s in studentList)
                     {
