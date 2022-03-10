@@ -23,6 +23,8 @@ namespace SomerenUI
         private void SomerenUI_Load(object sender, EventArgs e)
         {
             showPanel("Dashboard");
+            dashboardToolStripMenuItem.ForeColor = Color.White;
+            dashboardToolStripMenuItem.BackColor = Color.Black;
         }
 
         private void showPanel(string panelName)
