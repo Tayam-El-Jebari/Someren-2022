@@ -262,7 +262,7 @@ namespace SomerenUI
             showPanel("Rooms");
         }
 
-        private void TeachersToolStripMenuItem_Click(object sender, EventArgs e)
+        private void teachersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Teachers");
             Console.WriteLine("colin je stinkt");
@@ -278,8 +278,7 @@ namespace SomerenUI
             dashboardToolStripMenuItem.ForeColor = default(Color);
             dashboardToolStripMenuItem.BackColor = default(Color);
         }
-
-        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void activitiesToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             showPanel("Activities");
             activitiesToolStripMenuItem.ForeColor = Color.White;

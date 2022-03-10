@@ -141,13 +141,14 @@
             this.teachersToolStripMenuItem.Name = "teachersToolStripMenuItem";
             this.teachersToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.teachersToolStripMenuItem.Text = "Teachers";
-            this.teachersToolStripMenuItem.Click += new System.EventHandler(this.TeachersToolStripMenuItem_Click);
+            this.teachersToolStripMenuItem.Click += new System.EventHandler(this.teachersToolStripMenuItem_Click);
             // 
             // activitiesToolStripMenuItem
             // 
             this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
             this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.activitiesToolStripMenuItem.Text = "Activities";
+            this.activitiesToolStripMenuItem.Click += new System.EventHandler(this.activitiesToolStripMenuItem_Click_1);
             // 
             // roomsToolStripMenuItem
             // 
