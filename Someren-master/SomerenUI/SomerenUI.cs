@@ -98,10 +98,10 @@ namespace SomerenUI
                 List<Teacher> teacherList = teacherService.GetTeachers();
 
                 listViewTeachers.View = View.Details;
-                listViewTeachers.Columns.Add("TeacherID");
-                listViewTeachers.Columns.Add("First Name");
-                listViewTeachers.Columns.Add("Last Name");
-                listViewTeachers.Columns.Add("supervisor");
+                listViewTeachers.Columns.Add("TeacherID",80);
+                listViewTeachers.Columns.Add("First Name", 120);
+                listViewTeachers.Columns.Add("Last Name", 120);
+                listViewTeachers.Columns.Add("supervisor", 80);
 
                 foreach (Teacher teacher in teacherList)
                 {
@@ -130,7 +130,6 @@ namespace SomerenUI
 
                         // clear the listview before filling it again
                         listViewRoom.Clear();
-
 
                         listViewRoom.View = View.Details;
                         listViewRoom.Columns.Add("Number", 120);
