@@ -53,15 +53,7 @@ namespace SomerenUI
 
             else if (panelName == "Students")
             {
-
-                // hide all other panels
-                pnlDashboard.Hide();
-                imgDashboard.Hide();
-                pnlRoomPanel.Hide();
-
-                // show students
-                pnlStudents.Show();
-
+                ShowCorrectPannel(pnlStudents);
                 try
                 {
                     // fill the students listview within the students panel with a list of students
@@ -97,12 +89,8 @@ namespace SomerenUI
             }
             else if(panelName == "Teachers")
             {
-                pnlDashboard.Hide();
-                imgDashboard.Hide();
-                pnlStudents.Hide();
-                pnlRoomPanel.Hide();
+                ShowCorrectPannel(pnlTeacherPanel);
 
-                pnlTeacherPanel.Show();
 
                 listViewTeachers.Clear();
 
@@ -123,7 +111,6 @@ namespace SomerenUI
                     li.SubItems.Add(teacher.Supervisor.ToString());
                     listViewTeachers.Items.Add(li);
                 }
-
                 ColorListView(listViewTeachers);
             }
 
@@ -132,14 +119,7 @@ namespace SomerenUI
                 //(VOID aanmaken voor hide panels?)
                 if (panelName == "Rooms")
                 {
-                    // hide all other panels
-                    pnlDashboard.Hide();
-                    imgDashboard.Hide();
-                    pnlStudents.Hide();
-                    pnlTeacherPanel.Hide();
-
-                    // show rooms
-                    pnlRoomPanel.Show();
+                    ShowCorrectPannel(pnlRoomPanel);
 
                     try
                     {
@@ -181,7 +161,16 @@ namespace SomerenUI
                 MessageBox.Show("Panel could not be loaded properly." + e.Message);
             }            
         }
+        private void ShowCorrectPannel(Panel panel)
+        {
+            pnlDashboard.Hide();
+            imgDashboard.Hide();
+            pnlStudents.Hide();
+            pnlRoomPanel.Hide();
+            pnlTeacherPanel.Hide();
 
+            panel.Show();
+        }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
