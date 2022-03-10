@@ -168,11 +168,6 @@ namespace SomerenUI
             }            
         }
 
-        private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
