@@ -22,7 +22,7 @@ namespace SomerenLogic
             {
                 throw new Exception($"Could not find the file {filename}. Please try again!");
             }
-            // close writer
+            // close writer //
             writer.Close();
             
         }
