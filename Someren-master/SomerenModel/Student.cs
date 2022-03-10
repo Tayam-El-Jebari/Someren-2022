@@ -13,5 +13,7 @@ namespace SomerenModel
 
         public int StudentId { get; set; } // StudentNumber, e.g. 474791
         public DateTime DateOfBirth { get; set; }
+
+        public int RoomNumber { get; set; }
     }
 }

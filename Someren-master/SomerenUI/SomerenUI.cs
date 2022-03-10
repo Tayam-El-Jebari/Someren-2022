@@ -65,9 +65,9 @@ namespace SomerenUI
 
 
                     listViewStudents.View = View.Details;
-                    listViewStudents.Columns.Add("StudentId", 120);
-                    listViewStudents.Columns.Add("FirstName");
-                    listViewStudents.Columns.Add("LastName");
+                    listViewStudents.Columns.Add("StudentID", 120);
+                    listViewStudents.Columns.Add("First Name");
+                    listViewStudents.Columns.Add("Last Name");
                     listViewStudents.Columns.Add("Date Of Birth", 120);
                     listViewStudents.Columns.Add("Room Number", 120);
 
@@ -78,6 +78,7 @@ namespace SomerenUI
                         li.SubItems.Add(s.FirstName);
                         li.SubItems.Add(s.LastName);
                         li.SubItems.Add(s.DateOfBirth.ToString("yyyy/MM/dd"));
+                        li.SubItems.Add(s.RoomNumber.ToString());
                         listViewStudents.Items.Add(li);
                     }
 
@@ -103,7 +104,7 @@ namespace SomerenUI
                 listViewTeachers.Columns.Add("TeacherID",80);
                 listViewTeachers.Columns.Add("First Name", 120);
                 listViewTeachers.Columns.Add("Last Name", 120);
-                listViewTeachers.Columns.Add("supervisor", 80);
+                listViewTeachers.Columns.Add("Supervisor", 80);
 
                 foreach (Teacher teacher in teacherList)
                 {
