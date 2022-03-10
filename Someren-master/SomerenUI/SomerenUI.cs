@@ -157,13 +157,19 @@ namespace SomerenUI
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Students");
-            studentsToolStripMenuItem.BackColor = Color.Red;
+            studentsToolStripMenuItem.BackColor = Color.Black;
+            roomsToolStripMenuItem.BackColor = Color.White;
+
+            studentsToolStripMenuItem.ForeColor = Color.White;
+            roomsToolStripMenuItem.ForeColor = Color.Black;
         }
 
         private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // within this method I want to show what happens when 'Rooms' is clicked
             showPanel("Rooms");
+            studentsToolStripMenuItem.BackColor = Color.White;
+            roomsToolStripMenuItem.BackColor = Color.Yellow;
         }
 
 
