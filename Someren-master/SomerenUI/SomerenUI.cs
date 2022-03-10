@@ -157,6 +157,7 @@ namespace SomerenUI
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Students");
+            studentsToolStripMenuItem.BackColor = Color.Red;
         }
 
         private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
