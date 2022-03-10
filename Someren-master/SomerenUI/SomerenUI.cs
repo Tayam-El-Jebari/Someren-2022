@@ -153,7 +153,16 @@ namespace SomerenUI
                             listViewRoom.Items.Add(li);
                             
                         }
-
+                        for (int j = 0; j < listViewRoom.Items.Count; j++)
+                        {
+                            for (int i = 0; i < listViewRoom.Items[i].SubItems.Count; i++)
+                            {
+                                if (j % 2 == 0)
+                                {
+                                    listViewRoom.Items[j].SubItems[i].BackColor = Color.LightBlue;
+                                }
+                            }
+                        }
                         
 
                     }

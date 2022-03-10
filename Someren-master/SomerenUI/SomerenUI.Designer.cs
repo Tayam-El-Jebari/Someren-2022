@@ -255,7 +255,7 @@
             this.lbl_Students.Location = new System.Drawing.Point(13, 12);
             this.lbl_Students.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Students.Name = "lbl_Students";
-            this.lbl_Students.Size = new System.Drawing.Size(151, 39);
+            this.lbl_Students.Size = new System.Drawing.Size(146, 38);
             this.lbl_Students.TabIndex = 3;
             this.lbl_Students.Text = "Students";
             // 
@@ -318,7 +318,7 @@
             this.labelTitleTeachers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitleTeachers.Name = "labelTitleTeachers";
             this.labelTitleTeachers.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.labelTitleTeachers.Size = new System.Drawing.Size(159, 39);
+            this.labelTitleTeachers.Size = new System.Drawing.Size(154, 38);
             this.labelTitleTeachers.TabIndex = 3;
             this.labelTitleTeachers.Text = "Teachers";
             // 
@@ -330,7 +330,7 @@
             this.labelRoomTitle.Location = new System.Drawing.Point(13, 12);
             this.labelRoomTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRoomTitle.Name = "labelRoomTitle";
-            this.labelRoomTitle.Size = new System.Drawing.Size(125, 39);
+            this.labelRoomTitle.Size = new System.Drawing.Size(121, 38);
             this.labelRoomTitle.TabIndex = 3;
             this.labelRoomTitle.Text = "Rooms";
             // 
@@ -391,13 +391,10 @@
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1283, 622);
             this.Controls.Add(this.menuStrip1);
-
             this.Controls.Add(this.pnlDashboard);
-            this.Controls.Add(this.pnlRoomPanel);
             this.Controls.Add(this.pnlStudents);
             this.Controls.Add(this.pnlTeacherPanel);
             this.Controls.Add(this.pnlRoomPanel);
-            this.Controls.Add(this.pnlDashboard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
