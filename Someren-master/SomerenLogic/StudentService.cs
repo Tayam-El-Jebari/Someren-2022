@@ -10,7 +10,7 @@ namespace SomerenLogic
 {
     public class StudentService
     {
-        StudentDao studentdb;
+        private StudentDao studentdb;
 
         public StudentService()
         {

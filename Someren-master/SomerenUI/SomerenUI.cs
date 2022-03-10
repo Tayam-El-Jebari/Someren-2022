@@ -33,6 +33,7 @@ namespace SomerenUI
                 // hide all other panels
                 pnlStudents.Hide();
                 pnlRoomPanel.Hide();
+                pnlTeacherPanel.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -44,7 +45,7 @@ namespace SomerenUI
                 pnlDashboard.Hide();
                 imgDashboard.Hide();
                 pnlRoomPanel.Hide();
-
+                pnlTeacherPanel.Hide();
                 // show students
                 pnlStudents.Show();
 
@@ -68,6 +69,37 @@ namespace SomerenUI
                     MessageBox.Show("Something went wrong while loading the students: " + e.Message);
                 }
             }
+            else if(panelName == "Teachers")
+            {
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlStudents.Hide();
+                pnlRoomPanel.Hide();
+
+                pnlTeacherPanel.Show();
+
+                listViewTeachers.Clear();
+
+                TeacherService teacherService = new TeacherService();
+                List<Teacher> teacherList = teacherService.GetTeachers();
+
+                listViewTeachers.View = View.Details;
+                listViewTeachers.Columns.Add("TeacherID");
+                listViewTeachers.Columns.Add("First Name");
+                listViewTeachers.Columns.Add("Last Name");
+                listViewTeachers.Columns.Add("supervisor");
+
+                foreach (Teacher teacher in teacherList)
+                {
+                    ListViewItem li = new ListViewItem(teacher.TeacherID.ToString());
+                    li.SubItems.Add(teacher.FirstName);
+                    li.SubItems.Add(teacher.LastName);
+                    li.SubItems.Add(teacher.Supervisor.ToString());
+                    listViewTeachers.Items.Add(li);
+                }
+
+
+            }
 
             try
             {
@@ -78,6 +110,7 @@ namespace SomerenUI
                     pnlDashboard.Hide();
                     imgDashboard.Hide();
                     pnlStudents.Hide();
+                    pnlTeacherPanel.Hide();
 
                     // show rooms
                     pnlRoomPanel.Show();
@@ -176,6 +209,16 @@ namespace SomerenUI
         private void menuStrip1_MouseHover(object sender, EventArgs e)
         {
             this.menuStrip1.BackColor = Color.Red;
+        }
+        private void pnlTeacher_Paint(object sender, PaintEventArgs e)
+        {
+            showPanel("Rooms");
+        }
+
+        private void TeachersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Teachers");
+            TeachersToolStripMenuItem.MouseHover = Color.Aqua;
         }
     }
 }
