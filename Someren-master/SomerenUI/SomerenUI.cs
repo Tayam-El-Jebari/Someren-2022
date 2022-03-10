@@ -169,7 +169,19 @@ namespace SomerenUI
 
         private void dashboardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            // panelen van kleur laten veranderen wanneer je erop drukt
             showPanel("Dashboard");
+            dashboardToolStripMenuItem.ForeColor = Color.White;
+            dashboardToolStripMenuItem.BackColor = Color.Black;
+
+            studentsToolStripMenuItem.ForeColor = default(Color);
+            studentsToolStripMenuItem.BackColor = default(Color);
+            roomsToolStripMenuItem.ForeColor = default(Color);
+            roomsToolStripMenuItem.BackColor = default(Color);
+            teachersToolStripMenuItem.ForeColor = default(Color);
+            teachersToolStripMenuItem.BackColor = default(Color);
+            activitiesToolStripMenuItem.ForeColor = default(Color);
+            activitiesToolStripMenuItem.BackColor = default(Color);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -185,13 +197,34 @@ namespace SomerenUI
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Students");
+            studentsToolStripMenuItem.ForeColor = Color.White;
+            studentsToolStripMenuItem.BackColor = Color.Black;
 
+            roomsToolStripMenuItem.ForeColor = default(Color);
+            roomsToolStripMenuItem.BackColor = default(Color);
+            teachersToolStripMenuItem.ForeColor = default(Color);
+            teachersToolStripMenuItem.BackColor = default(Color);
+            activitiesToolStripMenuItem.ForeColor = default(Color);
+            activitiesToolStripMenuItem.BackColor = default(Color);
+            dashboardToolStripMenuItem.ForeColor = default(Color);
+            dashboardToolStripMenuItem.BackColor = default(Color);
         }
 
         private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // within this method I want to show what happens when 'Rooms' is clicked
             showPanel("Rooms");
+            roomsToolStripMenuItem.ForeColor = Color.White;
+            roomsToolStripMenuItem.BackColor = Color.Black;
+
+            studentsToolStripMenuItem.ForeColor = default(Color);
+            studentsToolStripMenuItem.BackColor = default(Color);
+            teachersToolStripMenuItem.ForeColor = default(Color);
+            teachersToolStripMenuItem.BackColor = default(Color);
+            activitiesToolStripMenuItem.ForeColor = default(Color);
+            activitiesToolStripMenuItem.BackColor = default(Color);
+            dashboardToolStripMenuItem.ForeColor = default(Color);
+            dashboardToolStripMenuItem.BackColor = default(Color);
         }
 
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -221,6 +254,34 @@ namespace SomerenUI
         private void TeachersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Teachers");
+            Console.WriteLine("colin je stinkt");
+            teachersToolStripMenuItem.ForeColor = Color.White;
+            teachersToolStripMenuItem.BackColor = Color.Black;
+
+            studentsToolStripMenuItem.ForeColor = default(Color);
+            studentsToolStripMenuItem.BackColor = default(Color);
+            roomsToolStripMenuItem.ForeColor = default(Color);
+            roomsToolStripMenuItem.BackColor = default(Color);
+            activitiesToolStripMenuItem.ForeColor = default(Color);
+            activitiesToolStripMenuItem.BackColor = default(Color);
+            dashboardToolStripMenuItem.ForeColor = default(Color);
+            dashboardToolStripMenuItem.BackColor = default(Color);
+        }
+
+        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Activities");
+            activitiesToolStripMenuItem.ForeColor = Color.White;
+            activitiesToolStripMenuItem.BackColor = Color.Black;
+
+            studentsToolStripMenuItem.ForeColor = default(Color);
+            studentsToolStripMenuItem.BackColor = default(Color);
+            roomsToolStripMenuItem.ForeColor = default(Color);
+            roomsToolStripMenuItem.BackColor = default(Color);
+            teachersToolStripMenuItem.ForeColor = default(Color);
+            teachersToolStripMenuItem.BackColor = default(Color);
+            dashboardToolStripMenuItem.ForeColor = default(Color);
+            dashboardToolStripMenuItem.BackColor = default(Color);
         }
     }
 }
