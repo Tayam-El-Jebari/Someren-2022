@@ -39,7 +39,6 @@
             this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlDashboard = new System.Windows.Forms.Panel();
-            this.lbl_dashboard_shortcuts = new System.Windows.Forms.Label();
             this.lbl_Dashboard_welcome = new System.Windows.Forms.Label();
             this.imgDashboard = new System.Windows.Forms.PictureBox();
             this.pnlStudents = new System.Windows.Forms.Panel();
@@ -151,7 +150,6 @@
             // pnlDashboard
             // 
             this.pnlDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
-            this.pnlDashboard.Controls.Add(this.lbl_dashboard_shortcuts);
             this.pnlDashboard.Controls.Add(this.lbl_Dashboard_welcome);
             this.pnlDashboard.Controls.Add(this.imgDashboard);
             this.pnlDashboard.Location = new System.Drawing.Point(13, 35);
@@ -159,18 +157,6 @@
             this.pnlDashboard.Name = "pnlDashboard";
             this.pnlDashboard.Size = new System.Drawing.Size(1251, 574);
             this.pnlDashboard.TabIndex = 2;
-            // 
-            // lbl_dashboard_shortcuts
-            // 
-            this.lbl_dashboard_shortcuts.AutoSize = true;
-            this.lbl_dashboard_shortcuts.Font = new System.Drawing.Font("MS Reference Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_dashboard_shortcuts.ForeColor = System.Drawing.Color.Snow;
-            this.lbl_dashboard_shortcuts.Location = new System.Drawing.Point(527, 343);
-            this.lbl_dashboard_shortcuts.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_dashboard_shortcuts.Name = "lbl_dashboard_shortcuts";
-            this.lbl_dashboard_shortcuts.Size = new System.Drawing.Size(158, 38);
-            this.lbl_dashboard_shortcuts.TabIndex = 2;
-            this.lbl_dashboard_shortcuts.Text = "shortcuts";
             // 
             // lbl_Dashboard_welcome
             // 
@@ -390,9 +376,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1283, 622);
+            this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnlRoomPanel);
-            this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlStudents);
             this.Controls.Add(this.pnlTeacherPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -457,7 +443,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Panel pnlRoomPanel;
-        private System.Windows.Forms.Label lbl_dashboard_shortcuts;
     }
 }
 
