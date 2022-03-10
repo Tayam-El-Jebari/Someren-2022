@@ -24,7 +24,7 @@ namespace SomerenUI
         {
             showPanel("Dashboard");
             dashboardToolStripMenuItem.ForeColor = Color.White;
-            dashboardToolStripMenuItem.BackColor = Color.Black;
+            dashboardToolStripMenuItem.BackColor = Color.Black; 
         }
 
         private void showPanel(string panelName)
@@ -247,11 +247,6 @@ namespace SomerenUI
 
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-            
-        }
-
         private void menuStrip1_MouseHover(object sender, EventArgs e)
         {
             this.menuStrip1.BackColor = Color.Red;
@@ -264,7 +259,6 @@ namespace SomerenUI
         private void teachersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Teachers");
-            Console.WriteLine("colin je stinkt");
             teachersToolStripMenuItem.ForeColor = Color.White;
             teachersToolStripMenuItem.BackColor = Color.Black;
 
@@ -292,5 +286,21 @@ namespace SomerenUI
             dashboardToolStripMenuItem.ForeColor = default(Color);
             dashboardToolStripMenuItem.BackColor = default(Color);
         }
+
+        private void pictureBoxSomerenTeacher_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Volgens mij werkt dit nu wel");
+        }
+
+        private void pictureBoxSomerenRoom_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("De rooms waren vast heel erg");
+        }
+
+        private void pictureBoxSomerenStudent_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Volgens mij werkt dit nu wel");
+        }
+
     }
 }
