@@ -173,7 +173,7 @@ namespace SomerenUI
 
                     try
                     {
-                        //AANPASSEN EN METHODES AANMAKEN. 
+                        //AANPASSEN EN METHODES AANMAKEN.  
                         // fill the drinks listview within the rooms panel with a list of drinks
                         DrinkService drinkService = new DrinkService();
                         List<Drink> drinkList = drinkService.GetDrinks();
@@ -182,12 +182,14 @@ namespace SomerenUI
                         listViewDrink.Clear();
 
                         listViewDrink.View = View.Details;
-                        listViewDrink.Columns.Add("OrderID", 80);
+                        listViewDrink.FullRowSelect = true;
+                        listViewDrink.Columns.Add("OrderID", 70);
                         listViewDrink.Columns.Add("Drink name", 80);
-                        listViewDrink.Columns.Add("Stock", 80);
-                        listViewDrink.Columns.Add("Sales Value", 120);
-                        listViewDrink.Columns.Add("Number of drinks sold", 100);
+                        listViewDrink.Columns.Add("Stock", 70);
+                        listViewDrink.Columns.Add("Sales Value", 80);
+                        listViewDrink.Columns.Add("Number of drinks sold", 120);
 
+                        
                         foreach (Drink drink in drinkList)
                         {
                             ListViewItem li = new ListViewItem(drink.OrderID.ToString());
@@ -320,6 +322,21 @@ namespace SomerenUI
             ChangeToolStripMenu(drinksToolStripMenuItem);
             labelRoomTitle.Hide();
             labelDrink.Show();
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
