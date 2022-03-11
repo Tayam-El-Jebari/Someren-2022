@@ -16,7 +16,7 @@ namespace SomerenDAL
             try
             {
                 // change attributes from Room, give them the right name. 
-                string query = "SELECT stock, salesValue, numberOfDrinkSold FROM [Drink]";
+                string query = "SELECT orderID, drinkName, stock, salesValue, numberOfDrinkSold FROM [Drink]";
                 SqlParameter[] sqlParameters = new SqlParameter[0];
                 return ReadTables(ExecuteSelectQuery(query, sqlParameters));
             }
@@ -38,6 +38,8 @@ namespace SomerenDAL
                 {
                     Drink drink = new Drink()
                     {
+                        OrderID = (int)dr["orderID"],
+                        DrinkName = (string)dr["drinkName"],
                         StockAmount = (int)dr["stock"],
                         SalesValue = (double)dr["salesValue"],
                         NumberOfDrinksSold = (int)dr["numberOfDrinkSold"]

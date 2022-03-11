@@ -57,7 +57,7 @@
             this.pictureBoxSomerenTeacher = new System.Windows.Forms.PictureBox();
             this.labelTitleTeachers = new System.Windows.Forms.Label();
             this.labelRoomTitle = new System.Windows.Forms.Label();
-            this.listViewDrinks = new System.Windows.Forms.ListView();
+            this.listViewRoom = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -69,7 +69,7 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelDrink = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
@@ -96,7 +96,7 @@
             this.drinksToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1283, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1283, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -114,19 +114,19 @@
             // dashboardToolStripMenuItem1
             // 
             this.dashboardToolStripMenuItem1.Name = "dashboardToolStripMenuItem1";
-            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(165, 26);
             this.dashboardToolStripMenuItem1.Text = "Dashboard";
             this.dashboardToolStripMenuItem1.Click += new System.EventHandler(this.dashboardToolStripMenuItem1_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(162, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -161,7 +161,7 @@
             // drinksToolStripMenuItem
             // 
             this.drinksToolStripMenuItem.Name = "drinksToolStripMenuItem";
-            this.drinksToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.drinksToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
             this.drinksToolStripMenuItem.Text = "Drinks";
             this.drinksToolStripMenuItem.Click += new System.EventHandler(this.drinksToolStripMenuItem_Click);
             // 
@@ -340,17 +340,17 @@
             // 
             // listViewRoom
             // 
-            this.listViewDrinks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewRoom.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
-            this.listViewDrinks.HideSelection = false;
-            this.listViewDrinks.Location = new System.Drawing.Point(21, 52);
-            this.listViewDrinks.Margin = new System.Windows.Forms.Padding(4);
-            this.listViewDrinks.Name = "listViewRoom";
-            this.listViewDrinks.Size = new System.Drawing.Size(991, 500);
-            this.listViewDrinks.TabIndex = 5;
-            this.listViewDrinks.UseCompatibleStateImageBehavior = false;
+            this.listViewRoom.HideSelection = false;
+            this.listViewRoom.Location = new System.Drawing.Point(21, 52);
+            this.listViewRoom.Margin = new System.Windows.Forms.Padding(4);
+            this.listViewRoom.Name = "listViewRoom";
+            this.listViewRoom.Size = new System.Drawing.Size(991, 500);
+            this.listViewRoom.TabIndex = 5;
+            this.listViewRoom.UseCompatibleStateImageBehavior = false;
             // 
             // columnHeader1
             // 
@@ -367,7 +367,7 @@
             // pnlRoomPanel
             // 
             this.pnlRoomPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
-            this.pnlRoomPanel.Controls.Add(this.listViewDrinks);
+            this.pnlRoomPanel.Controls.Add(this.listViewRoom);
             this.pnlRoomPanel.Controls.Add(this.pictureBoxSomerenRoom);
             this.pnlRoomPanel.Controls.Add(this.labelRoomTitle);
             this.pnlRoomPanel.Location = new System.Drawing.Point(2, 28);
@@ -393,7 +393,7 @@
             this.pnlDrinksPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
             this.pnlDrinksPanel.Controls.Add(this.listViewPanel);
             this.pnlDrinksPanel.Controls.Add(this.pictureBox1);
-            this.pnlDrinksPanel.Controls.Add(this.label1);
+            this.pnlDrinksPanel.Controls.Add(this.labelDrink);
             this.pnlDrinksPanel.Location = new System.Drawing.Point(0, 28);
             this.pnlDrinksPanel.Margin = new System.Windows.Forms.Padding(4);
             this.pnlDrinksPanel.Name = "pnlDrinksPanel";
@@ -437,18 +437,18 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // labelDrink
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(13, 12);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(111, 38);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Drinks";
+            this.labelDrink.AutoSize = true;
+            this.labelDrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDrink.ForeColor = System.Drawing.Color.Snow;
+            this.labelDrink.Location = new System.Drawing.Point(13, 12);
+            this.labelDrink.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDrink.Name = "labelDrink";
+            this.labelDrink.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.labelDrink.Size = new System.Drawing.Size(111, 38);
+            this.labelDrink.TabIndex = 3;
+            this.labelDrink.Text = "Drinks";
             // 
             // SomerenUI
             // 
@@ -458,9 +458,9 @@
             this.ClientSize = new System.Drawing.Size(1283, 622);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnlDashboard);
-            this.Controls.Add(this.pnlRoomPanel);
             this.Controls.Add(this.pnlStudents);
             this.Controls.Add(this.pnlTeacherPanel);
+            this.Controls.Add(this.pnlRoomPanel);
             this.Controls.Add(this.pnlDrinksPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -522,7 +522,7 @@
         private System.Windows.Forms.Label labelTitleTeachers;
         private System.Windows.Forms.Label labelRoomTitle;
         private System.Windows.Forms.PictureBox pictureBoxSomerenRoom;
-        private System.Windows.Forms.ListView listViewDrinks;
+        private System.Windows.Forms.ListView listViewRoom;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -534,7 +534,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelDrink;
     }
 }
 

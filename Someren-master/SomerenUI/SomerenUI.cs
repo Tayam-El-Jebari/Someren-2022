@@ -133,22 +133,22 @@ namespace SomerenUI
                         List<Room> roomList = roomService.GetRooms();
 
                         // clear the listview before filling it again
-                        listViewDrinks.Clear();
+                        listViewRoom.Clear();
 
-                        listViewDrinks.View = View.Details;
-                        listViewDrinks.Columns.Add("Number", 80);
-                        listViewDrinks.Columns.Add("Capacity", 80);
-                        listViewDrinks.Columns.Add("Type", 120);
+                        listViewRoom.View = View.Details;
+                        listViewRoom.Columns.Add("Number", 80);
+                        listViewRoom.Columns.Add("Capacity", 80);
+                        listViewRoom.Columns.Add("Type", 120);
                     
                         foreach (Room room in roomList)
                         {
                             ListViewItem li = new ListViewItem(room.Number.ToString());
                             li.SubItems.Add(room.Capacity.ToString());
                             li.SubItems.Add(room.Type);
-                            listViewDrinks.Items.Add(li);
+                            listViewRoom.Items.Add(li);
                             
                         }
-                        ColorListView(listViewDrinks);
+                        ColorListView(listViewRoom);
 
                     }
                     catch (Exception e)
@@ -174,27 +174,31 @@ namespace SomerenUI
                     try
                     {
                         //AANPASSEN EN METHODES AANMAKEN. 
-                        // fill the rooms listview within the rooms panel with a list of rooms
+                        // fill the drinks listview within the rooms panel with a list of drinks
                         DrinkService drinkService = new DrinkService();
                         List<Drink> drinkList = drinkService.GetDrinks();
 
                         // clear the listview before filling it again
-                        listViewDrinks.Clear();
+                        listViewRoom.Clear();
 
-                        listViewDrinks.View = View.Details;
-                        listViewDrinks.Columns.Add("Stock", 80);
-                        listViewDrinks.Columns.Add("Sales Value", 120);
-                        listViewDrinks.Columns.Add("Number of drinks sold", 120);
+                        listViewRoom.View = View.Details;
+                        listViewRoom.Columns.Add("OrderID", 80);
+                        listViewRoom.Columns.Add("Drink name", 80);
+                        listViewRoom.Columns.Add("Stock", 80);
+                        listViewRoom.Columns.Add("Sales Value", 120);
+                        listViewRoom.Columns.Add("Number of drinks sold", 100);
 
                         foreach (Drink drink in drinkList)
                         {
-                            ListViewItem li = new ListViewItem(drink.StockAmount.ToString());
+                            ListViewItem li = new ListViewItem(drink.OrderID.ToString());
+                            li.SubItems.Add(drink.DrinkName);
+                            li.SubItems.Add(drink.StockAmount.ToString());
                             li.SubItems.Add(drink.SalesValue.ToString());
                             li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
-                            listViewDrinks.Items.Add(li);
+                            listViewRoom.Items.Add(li);
 
                         }
-                        ColorListView(listViewDrinks);
+                        ColorListView(listViewRoom);
 
                     }
                     catch (Exception e)
@@ -313,6 +317,8 @@ namespace SomerenUI
         {
             showPanel("Drinks");
             ChangeToolStripMenu(drinksToolStripMenuItem);
+            labelRoomTitle.Hide();
+            labelDrink.Show();
         }
     }
 }
