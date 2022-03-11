@@ -133,22 +133,22 @@ namespace SomerenUI
                         List<Room> roomList = roomService.GetRooms();
 
                         // clear the listview before filling it again
-                        listViewRoom.Clear();
+                        listViewDrinks.Clear();
 
-                        listViewRoom.View = View.Details;
-                        listViewRoom.Columns.Add("Number", 80);
-                        listViewRoom.Columns.Add("Capacity", 80);
-                        listViewRoom.Columns.Add("Type", 120);
+                        listViewDrinks.View = View.Details;
+                        listViewDrinks.Columns.Add("Number", 80);
+                        listViewDrinks.Columns.Add("Capacity", 80);
+                        listViewDrinks.Columns.Add("Type", 120);
                     
                         foreach (Room room in roomList)
                         {
                             ListViewItem li = new ListViewItem(room.Number.ToString());
                             li.SubItems.Add(room.Capacity.ToString());
                             li.SubItems.Add(room.Type);
-                            listViewRoom.Items.Add(li);
+                            listViewDrinks.Items.Add(li);
                             
                         }
-                        ColorListView(listViewRoom);
+                        ColorListView(listViewDrinks);
 
                     }
                     catch (Exception e)
@@ -162,7 +162,53 @@ namespace SomerenUI
             {
 
                 MessageBox.Show("Panel could not be loaded properly." + e.Message);
-            }            
+            }
+
+            try
+            {
+                //(VOID aanmaken voor hide panels?)
+                if (panelName == "Drinks")
+                {
+                    ShowCorrectPannel(pnlRoomPanel);
+
+                    try
+                    {
+                        //AANPASSEN EN METHODES AANMAKEN. 
+                        // fill the rooms listview within the rooms panel with a list of rooms
+                        DrinkService drinkService = new DrinkService();
+                        List<Drink> drinkList = drinkService.GetDrinks();
+
+                        // clear the listview before filling it again
+                        listViewDrinks.Clear();
+
+                        listViewDrinks.View = View.Details;
+                        listViewDrinks.Columns.Add("Stock", 80);
+                        listViewDrinks.Columns.Add("Sales Value", 120);
+                        listViewDrinks.Columns.Add("Number of drinks sold", 120);
+
+                        foreach (Drink drink in drinkList)
+                        {
+                            ListViewItem li = new ListViewItem(drink.StockAmount.ToString());
+                            li.SubItems.Add(drink.SalesValue.ToString());
+                            li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
+                            listViewDrinks.Items.Add(li);
+
+                        }
+                        ColorListView(listViewDrinks);
+
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("Listview could not be loaded properly.");
+                        logService.WriteLog(e.Message);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Panel could not be loaded properly." + e.Message);
+            }
         }
         private void ShowCorrectPannel(Panel panel)
         {
@@ -261,6 +307,12 @@ namespace SomerenUI
         private void pictureBoxSomerenStudent_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Een leuke tekst als je op de foto drukt");
+        }
+
+        private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Drinks");
+            ChangeToolStripMenu(drinksToolStripMenuItem);
         }
     }
 }

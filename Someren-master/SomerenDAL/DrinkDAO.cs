@@ -16,7 +16,7 @@ namespace SomerenDAL
             try
             {
                 // change attributes from Room, give them the right name. 
-                string query = "SELECT stockAmount, salesPrice, salesValue, numberOfDrinksSold FROM [Drink]";
+                string query = "SELECT stock, salesValue, numberOfDrinkSold FROM [Drink]";
                 SqlParameter[] sqlParameters = new SqlParameter[0];
                 return ReadTables(ExecuteSelectQuery(query, sqlParameters));
             }
@@ -36,12 +36,11 @@ namespace SomerenDAL
 
                 foreach (DataRow dr in dataTable.Rows)
                 {
-                    Drink drink = new Drink();
+                    Drink drink = new Drink()
                     {
-                        /*StockAmount = (int)dr["stockAmount"],
-                        SalesPrice = (bool)dr["salesPrice"],
+                        StockAmount = (int)dr["stock"],
                         SalesValue = (double)dr["salesValue"],
-                        NumberOfDrinksSold = (int)dr["numberOfDrinksSold"]*/
+                        NumberOfDrinksSold = (int)dr["numberOfDrinkSold"]
                     };
                     drinks.Add(drink);
                 }
