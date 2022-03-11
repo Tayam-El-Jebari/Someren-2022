@@ -250,17 +250,17 @@ namespace SomerenUI
 
         private void pictureBoxSomerenTeacher_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Volgens mij werkt dit nu wel");
+            MessageBox.Show("Een leuke tekst als je op de foto drukt");
         }
 
         private void pictureBoxSomerenRoom_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("De rooms waren vast heel erg");
+            MessageBox.Show("Een leuke tekst als je op de foto drukt");
         }
 
         private void pictureBoxSomerenStudent_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Volgens mij werkt dit nu wel");
+            MessageBox.Show("Een leuke tekst als je op de foto drukt");
         }
     }
 }
