@@ -62,6 +62,14 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlRoomPanel = new System.Windows.Forms.Panel();
             this.pictureBoxSomerenRoom = new System.Windows.Forms.PictureBox();
+            this.drinksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlDrinksPanel = new System.Windows.Forms.Panel();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
@@ -71,6 +79,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSomerenTeacher)).BeginInit();
             this.pnlRoomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSomerenRoom)).BeginInit();
+            this.pnlDrinksPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -82,7 +92,8 @@
             this.studentsToolStripMenuItem,
             this.teachersToolStripMenuItem,
             this.activitiesToolStripMenuItem,
-            this.roomsToolStripMenuItem});
+            this.roomsToolStripMenuItem,
+            this.drinksToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1283, 30);
@@ -173,7 +184,7 @@
             // 
             // imgDashboard
             // 
-            this.imgDashboard.Image = global::SomerenUI.Properties.Resources.csm_heide_tot_aan_de_horizon_natiopnale_beeldbank_e7ebebd92d;
+            this.imgDashboard.Image = ((System.Drawing.Image)(resources.GetObject("imgDashboard.Image")));
             this.imgDashboard.Location = new System.Drawing.Point(-57, 31);
             this.imgDashboard.Margin = new System.Windows.Forms.Padding(4);
             this.imgDashboard.Name = "imgDashboard";
@@ -370,14 +381,83 @@
             this.pictureBoxSomerenRoom.TabStop = false;
             this.pictureBoxSomerenRoom.Click += new System.EventHandler(this.pictureBoxSomerenRoom_Click);
             // 
+            // drinksToolStripMenuItem
+            // 
+            this.drinksToolStripMenuItem.Name = "drinksToolStripMenuItem";
+            this.drinksToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
+            this.drinksToolStripMenuItem.Text = "Drinks";
+            // 
+            // pnlDrinksPanel
+            // 
+            this.pnlDrinksPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.pnlDrinksPanel.Controls.Add(this.listView1);
+            this.pnlDrinksPanel.Controls.Add(this.pictureBox1);
+            this.pnlDrinksPanel.Controls.Add(this.label1);
+            this.pnlDrinksPanel.Location = new System.Drawing.Point(0, 0);
+            this.pnlDrinksPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlDrinksPanel.Name = "pnlDrinksPanel";
+            this.pnlDrinksPanel.Size = new System.Drawing.Size(1251, 574);
+            this.pnlDrinksPanel.TabIndex = 8;
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9});
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(21, 52);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(1020, 377);
+            this.listView1.TabIndex = 5;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "ID";
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Name";
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Date of Birth";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SomerenUI.Properties.Resources.someren;
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(1073, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(173, 151);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Snow;
+            this.label1.Location = new System.Drawing.Point(13, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label1.Size = new System.Drawing.Size(111, 38);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Drinks";
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1283, 622);
-            this.Controls.Add(this.pnlDashboard);
+            this.Controls.Add(this.pnlDrinksPanel);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlRoomPanel);
             this.Controls.Add(this.pnlStudents);
             this.Controls.Add(this.pnlTeacherPanel);
@@ -403,6 +483,9 @@
             this.pnlRoomPanel.ResumeLayout(false);
             this.pnlRoomPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSomerenRoom)).EndInit();
+            this.pnlDrinksPanel.ResumeLayout(false);
+            this.pnlDrinksPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,6 +526,14 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Panel pnlRoomPanel;
+        private System.Windows.Forms.ToolStripMenuItem drinksToolStripMenuItem;
+        private System.Windows.Forms.Panel pnlDrinksPanel;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
