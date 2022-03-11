@@ -64,7 +64,7 @@
             this.pnlRoomPanel = new System.Windows.Forms.Panel();
             this.pictureBoxSomerenRoom = new System.Windows.Forms.PictureBox();
             this.pnlDrinksPanel = new System.Windows.Forms.Panel();
-            this.listViewPanel = new System.Windows.Forms.ListView();
+            this.listViewDrink = new System.Windows.Forms.ListView();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -391,7 +391,7 @@
             // pnlDrinksPanel
             // 
             this.pnlDrinksPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
-            this.pnlDrinksPanel.Controls.Add(this.listViewPanel);
+            this.pnlDrinksPanel.Controls.Add(this.listViewDrink);
             this.pnlDrinksPanel.Controls.Add(this.pictureBox1);
             this.pnlDrinksPanel.Controls.Add(this.labelDrink);
             this.pnlDrinksPanel.Location = new System.Drawing.Point(0, 28);
@@ -400,19 +400,19 @@
             this.pnlDrinksPanel.Size = new System.Drawing.Size(1251, 574);
             this.pnlDrinksPanel.TabIndex = 8;
             // 
-            // listViewPanel
+            // listViewDrink
             // 
-            this.listViewPanel.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewDrink.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader7,
             this.columnHeader8,
             this.columnHeader9});
-            this.listViewPanel.HideSelection = false;
-            this.listViewPanel.Location = new System.Drawing.Point(21, 52);
-            this.listViewPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.listViewPanel.Name = "listViewPanel";
-            this.listViewPanel.Size = new System.Drawing.Size(1020, 377);
-            this.listViewPanel.TabIndex = 5;
-            this.listViewPanel.UseCompatibleStateImageBehavior = false;
+            this.listViewDrink.HideSelection = false;
+            this.listViewDrink.Location = new System.Drawing.Point(21, 52);
+            this.listViewDrink.Margin = new System.Windows.Forms.Padding(4);
+            this.listViewDrink.Name = "listViewDrink";
+            this.listViewDrink.Size = new System.Drawing.Size(1020, 377);
+            this.listViewDrink.TabIndex = 5;
+            this.listViewDrink.UseCompatibleStateImageBehavior = false;
             // 
             // columnHeader7
             // 
@@ -529,7 +529,7 @@
         private System.Windows.Forms.Panel pnlRoomPanel;
         private System.Windows.Forms.ToolStripMenuItem drinksToolStripMenuItem;
         private System.Windows.Forms.Panel pnlDrinksPanel;
-        private System.Windows.Forms.ListView listViewPanel;
+        private System.Windows.Forms.ListView listViewDrink;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;

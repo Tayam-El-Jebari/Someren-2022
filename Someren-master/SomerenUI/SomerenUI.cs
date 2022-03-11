@@ -169,7 +169,7 @@ namespace SomerenUI
                 //(VOID aanmaken voor hide panels?)
                 if (panelName == "Drinks")
                 {
-                    ShowCorrectPannel(pnlRoomPanel);
+                    ShowCorrectPannel(pnlDrinksPanel);
 
                     try
                     {
@@ -179,14 +179,14 @@ namespace SomerenUI
                         List<Drink> drinkList = drinkService.GetDrinks();
 
                         // clear the listview before filling it again
-                        listViewRoom.Clear();
+                        listViewDrink.Clear();
 
-                        listViewRoom.View = View.Details;
-                        listViewRoom.Columns.Add("OrderID", 80);
-                        listViewRoom.Columns.Add("Drink name", 80);
-                        listViewRoom.Columns.Add("Stock", 80);
-                        listViewRoom.Columns.Add("Sales Value", 120);
-                        listViewRoom.Columns.Add("Number of drinks sold", 100);
+                        listViewDrink.View = View.Details;
+                        listViewDrink.Columns.Add("OrderID", 80);
+                        listViewDrink.Columns.Add("Drink name", 80);
+                        listViewDrink.Columns.Add("Stock", 80);
+                        listViewDrink.Columns.Add("Sales Value", 120);
+                        listViewDrink.Columns.Add("Number of drinks sold", 100);
 
                         foreach (Drink drink in drinkList)
                         {
@@ -195,10 +195,10 @@ namespace SomerenUI
                             li.SubItems.Add(drink.StockAmount.ToString());
                             li.SubItems.Add(drink.SalesValue.ToString());
                             li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
-                            listViewRoom.Items.Add(li);
+                            listViewDrink.Items.Add(li);
 
                         }
-                        ColorListView(listViewRoom);
+                        ColorListView(listViewDrink);
 
                     }
                     catch (Exception e)
@@ -221,6 +221,7 @@ namespace SomerenUI
             pnlStudents.Hide();
             pnlRoomPanel.Hide();
             pnlTeacherPanel.Hide();
+            pnlDrinksPanel.Hide();
 
             panel.Show();
         }
