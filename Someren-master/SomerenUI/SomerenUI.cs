@@ -117,7 +117,23 @@ namespace SomerenUI
                 }
                 ColorListView(listViewTeachers);
             }
+            else if (panelName == "Revenue report")
+            {
+                ShowCorrectPannel(pnlRevenueReportPanel);
+                try
+                {
+//                    Sales(total number of drinks sold), Turnover(total[sales * sales price of those drinks]), Number of customers
+//                    (students who purchased at least one drink).The report is refreshed for the period selected by the user
+//                    by way of a calendar interface with a start and end date.The application gives the user feedback if they have chosen
+//                    an invalid date and/or period.The dates used are displayed in order of size (dd-mm-yyyy).
 
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the students: " + e.Message);
+                    logService.WriteLog(e.Message);
+                }
+            }
             try
             {
                 //(VOID aanmaken voor hide panels?)
@@ -166,13 +182,17 @@ namespace SomerenUI
         }
         private void ShowCorrectPannel(Panel panel)
         {
-            pnlDashboard.Hide();
-            imgDashboard.Hide();
-            pnlStudents.Hide();
-            pnlRoomPanel.Hide();
-            pnlTeacherPanel.Hide();
-
-            panel.Show();
+            foreach(Control c in Controls)
+            {
+                if (c != panel && c != menuStrip1)
+                {
+                    c.Hide();
+                }
+                else
+                {
+                    c.Show();
+                }
+            }
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -180,16 +200,11 @@ namespace SomerenUI
         }
         private void ChangeToolStripMenu(ToolStripMenuItem menuItem)
         {
-            dashboardToolStripMenuItem.ForeColor = default(Color);
-            dashboardToolStripMenuItem.BackColor = default(Color);
-            studentsToolStripMenuItem.ForeColor = default(Color);
-            studentsToolStripMenuItem.BackColor = default(Color);
-            roomsToolStripMenuItem.ForeColor = default(Color);
-            roomsToolStripMenuItem.BackColor = default(Color);
-            teachersToolStripMenuItem.ForeColor = default(Color);
-            teachersToolStripMenuItem.BackColor = default(Color);
-            activitiesToolStripMenuItem.ForeColor = default(Color);
-            activitiesToolStripMenuItem.BackColor = default(Color);
+            foreach (ToolStripMenuItem tsmi in menuStrip1.Items)
+            {
+                tsmi.ForeColor = default(Color);
+                tsmi.BackColor = default(Color);
+            }
             menuItem.ForeColor = Color.White;
             menuItem.BackColor = Color.Black;
         }
@@ -247,6 +262,11 @@ namespace SomerenUI
             showPanel("Activities");
             ChangeToolStripMenu(activitiesToolStripMenuItem);
         }
+        private void revenueReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Revenue report");
+            ChangeToolStripMenu(revenueReportToolStripMenuItem);
+        }
 
         private void pictureBoxSomerenTeacher_Click(object sender, EventArgs e)
         {
@@ -262,5 +282,6 @@ namespace SomerenUI
         {
             MessageBox.Show("Een leuke tekst als je op de foto drukt");
         }
+
     }
 }
