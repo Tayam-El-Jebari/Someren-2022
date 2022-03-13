@@ -63,7 +63,7 @@ namespace SomerenDAL
                         ProductID = (int)dr["productID"],
                         DrinkName = (string)dr["drinkName"],
                         StockAmount = (int)dr["stock"],
-                        SalesValue = (double)dr["salesValue"],
+                        SalesValue = (int)dr["salesValue"],
                         NumberOfDrinksSold = (int)dr["numberOfDrinkSold"],
                     };
                     drinks.Add(drink);

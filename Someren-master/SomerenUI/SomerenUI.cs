@@ -183,7 +183,7 @@ namespace SomerenUI
 
                         listViewDrink.View = View.Details;
                         listViewDrink.FullRowSelect = true;
-                        listViewDrink.Columns.Add("OrderID", 70);
+                        listViewDrink.Columns.Add("ProductID", 70);
                         listViewDrink.Columns.Add("Drink name", 80);
                         listViewDrink.Columns.Add("Stock", 70);
                         listViewDrink.Columns.Add("Sales Value", 80);
