@@ -12,6 +12,7 @@ namespace SomerenModel
         public string DrinkName { get; set; }
         public int StockAmount { get; set; } // how many in stock
         public double SalesValue { get; set; } // price of total drinks
-        public int NumberOfDrinksSold { get; set; } // how many of the drinks are sold for each prodcut
+        public int NumberOfDrinksSold { get; set; } // how many of the drinks are sold for each product
+        public bool IsAlcoholic { get; set; }
     }
 }

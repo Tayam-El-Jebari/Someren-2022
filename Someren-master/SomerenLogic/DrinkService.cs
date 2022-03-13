@@ -22,14 +22,14 @@ namespace SomerenLogic
             List<Drink> drinks = drinksdb.GetAllDrinks();
             return drinks;
         }
-        public void AddRowTable(int stock, int salesValue, int numberOfSales, string drinkName)
+        public void AddRowTable(int stock, int salesValue, int numberOfSales, string drinkName, bool isAlcoholic)
         {
-            drinksdb.AddRow(stock, salesValue, numberOfSales, drinkName);
+            drinksdb.AddRow(stock, salesValue, numberOfSales, drinkName, isAlcoholic);
         }
 
-        public void UpdateRowTable(int stock, int salesValue, int numberOfSales, string drinkName)
+        public void UpdateRowTable(int stock, int salesValue, int numberOfSales, string drinkName, bool isAlcoholic)
         {
-            drinksdb.UpdateRow(stock, salesValue, numberOfSales, drinkName);
+            drinksdb.UpdateRow(stock, salesValue, numberOfSales, drinkName, isAlcoholic);
         }
     }
 }

@@ -82,6 +82,8 @@
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelDrink = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxAlcholicDrink = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
@@ -403,6 +405,8 @@
             // pnlDrinksPanel
             // 
             this.pnlDrinksPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.pnlDrinksPanel.Controls.Add(this.textBoxAlcholicDrink);
+            this.pnlDrinksPanel.Controls.Add(this.label6);
             this.pnlDrinksPanel.Controls.Add(this.buttonDelete);
             this.pnlDrinksPanel.Controls.Add(this.buttonUpdate);
             this.pnlDrinksPanel.Controls.Add(this.buttonAdd);
@@ -582,18 +586,35 @@
             this.labelDrink.TabIndex = 3;
             this.labelDrink.Text = "Drinks";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(677, 234);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(136, 17);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Is the drink alcoholic";
+            // 
+            // textBoxAlcholicDrink
+            // 
+            this.textBoxAlcholicDrink.Location = new System.Drawing.Point(845, 236);
+            this.textBoxAlcholicDrink.Name = "textBoxAlcholicDrink";
+            this.textBoxAlcholicDrink.Size = new System.Drawing.Size(100, 22);
+            this.textBoxAlcholicDrink.TabIndex = 15;
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1283, 622);
+            this.Controls.Add(this.pnlDrinksPanel);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlStudents);
             this.Controls.Add(this.pnlTeacherPanel);
             this.Controls.Add(this.pnlRoomPanel);
-            this.Controls.Add(this.pnlDrinksPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -679,6 +700,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxAlcholicDrink;
+        private System.Windows.Forms.Label label6;
     }
 }
 
