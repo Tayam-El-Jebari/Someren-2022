@@ -189,7 +189,7 @@ namespace SomerenUI
                         listViewDrink.Columns.Add("Sales Value", 80);
                         listViewDrink.Columns.Add("Number of drinks sold", 120);
                         listViewDrink.Columns.Add("Drink is alcoholic", 80);
-
+                        Console.WriteLine("depressie");
                         
                         foreach (Drink drink in drinkList)
                         {
