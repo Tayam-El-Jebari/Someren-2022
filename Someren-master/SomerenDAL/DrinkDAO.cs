@@ -15,8 +15,8 @@ namespace SomerenDAL
         { 
             try
             {
-                // change attributes from Room, give them the right name. 
-                string query = "SELECT orderID, drinkName, stock, salesValue, numberOfDrinkSold FROM [Drink]";
+                // change attributes from Drink, give them the right name. 
+                string query = "SELECT productID, drinkName, stock, salesValue, numberOfDrinkSold FROM [Drink]";
                 SqlParameter[] sqlParameters = new SqlParameter[0];
                 return ReadTables(ExecuteSelectQuery(query, sqlParameters));
             }
@@ -27,6 +27,7 @@ namespace SomerenDAL
             }
 
         }
+        // Add Row
         public void AddRow(int stock, int salesValue, int numberOfSales, string drinkName)
         {
             string querry = $"INSERT INTO Drink(stock, salesValue, numberOfDrinkSold, drinkName)VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}')";
@@ -34,12 +35,23 @@ namespace SomerenDAL
             ExecuteEditQuery(querry, sqlParameters);
         }
 
+        // deze werkt nog niet
         public void UpdateRow(int stock, int salesValue, int numberOfSales, string drinkName)
         { 
             string query = $"UPDATE Drink(stock, salesValue, numberOfDrinkSold, drinkName) VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}') WHERE orderID = @orderID";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
 
+            
+        }
+
+
+        // Delete Row
+        public void DeleteRow(int stock, int salesValue, int numberOfSales, string drinkName)
+        {
+            string query = $"DELETE FROM Drink WHERE productID = '@productID' ";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
         }
 
         private List<Drink> ReadTables(DataTable dataTable)
@@ -52,7 +64,7 @@ namespace SomerenDAL
                 {
                     Drink drink = new Drink()
                     {
-                        OrderID = (int)dr["orderID"],
+                        ProductID = (int)dr["productID"],
                         DrinkName = (string)dr["drinkName"],
                         StockAmount = (int)dr["stock"],
                         SalesValue = (double)dr["salesValue"],

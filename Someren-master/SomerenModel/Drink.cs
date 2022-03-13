@@ -8,7 +8,7 @@ namespace SomerenModel
 {
     public class Drink
     {
-        public int OrderID { get; set; } // auto incremented in SQL
+        public int ProductID { get; set; } // auto incremented in SQL
         public string DrinkName { get; set; }
         public int StockAmount { get; set; } // how many in stock
         public double SalesValue { get; set; } // price of total drinks
