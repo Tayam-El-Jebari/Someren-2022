@@ -29,9 +29,17 @@ namespace SomerenDAL
         }
         public void AddRow(int stock, int salesValue, int numberOfSales, string drinkName)
         {
-            string querry = $"INSERT INTO Drink(stock, salesValue, numberOfDrinkSold, drinkName) VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}')";
+            string querry = $"INSERT INTO Drink(stock, salesValue, numberOfDrinkSold, drinkName)VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}')";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(querry, sqlParameters);
+        }
+
+        public void UpdateRow(int stock, int salesValue, int numberOfSales, string drinkName)
+        { 
+            string query = $"UPDATE Drink(stock, salesValue, numberOfDrinkSold, drinkName) VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}') WHERE orderID = @orderID";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+
         }
 
         private List<Drink> ReadTables(DataTable dataTable)

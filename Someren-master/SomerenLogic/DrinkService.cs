@@ -26,5 +26,10 @@ namespace SomerenLogic
         {
             drinksdb.AddRow(stock, salesValue, numberOfSales, drinkName);
         }
+
+        public void UpdateRowTable(int stock, int salesValue, int numberOfSales, string drinkName)
+        {
+            drinksdb.UpdateRow(stock, salesValue, numberOfSales, drinkName);
+        }
     }
 }
