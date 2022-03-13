@@ -15,9 +15,8 @@ namespace SomerenDAL
         { 
             try
             {
-                // change attributes from Room, give them the right name. 
-                string query = "SELECT productID, drinkName, stock, salesValue, numberOfDrinkSold FROM [Drink]";
-
+                // change attributes from Drink, give them the right name. 
+                string query = "SELECT productID, drinkName, stock, salesValue, numberOfDrinkSold, alcoholic FROM [Drink]";
                 SqlParameter[] sqlParameters = new SqlParameter[0];
                 return ReadTables(ExecuteSelectQuery(query, sqlParameters));
             }
@@ -28,19 +27,22 @@ namespace SomerenDAL
             }
 
         }
-
-        public void AddRow(int stock, int salesValue, int numberOfSales, string drinkName)
+        // Add Row
+        public void AddRow(int stock, int salesValue, int numberOfSales, string drinkName, bool isAlcoholic)
         {
-            string querry = $"INSERT INTO Drink(stock, salesValue, numberOfDrinkSold, drinkName)VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}')";
+            string querry = $"INSERT INTO Drink(stock, salesValue, numberOfDrinkSold, drinkName, alcoholic)VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}', 1)";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(querry, sqlParameters);
         }
-        public void UpdateRow(int stock, int salesValue, int numberOfSales, string drinkName)
+
+        // deze werkt nog niet
+        public void UpdateRow(int stock, int salesValue, int numberOfSales, string drinkName, bool isAlcoholic)
         { 
-            string query = $"UPDATE Drink(stock, salesValue, numberOfDrinkSold, drinkName) VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}') WHERE orderID = @orderID";
+            string query = $"UPDATE Drink(stock, salesValue, numberOfDrinkSold, drinkName, alcoholic) VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}', {isAlcoholic}) WHERE orderID = @orderID";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);            
         }
+
 
         // Delete Row
         public void DeleteRow(int stock, int salesValue, int numberOfSales, string drinkName)
@@ -48,6 +50,15 @@ namespace SomerenDAL
             string query = $"DELETE FROM Drink WHERE productID = '@productID' ";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
+        }
+
+        private bool ConvertBitToBool(byte bit) 
+        {
+            if (bit == 0)
+            {
+                return false;
+            }
+            return true;
         }
 
         private List<Drink> ReadTables(DataTable dataTable)
@@ -65,6 +76,7 @@ namespace SomerenDAL
                         StockAmount = (int)dr["stock"],
                         SalesValue = (int)dr["salesValue"],
                         NumberOfDrinksSold = (int)dr["numberOfDrinkSold"],
+                        IsAlcoholic = (bool)dr["alcoholic"]
                     };
                     drinks.Add(drink);
                 }
@@ -72,7 +84,7 @@ namespace SomerenDAL
             }
             catch (Exception e)
             {
-                throw new Exception("Data could not be retrieved from the database. Please try again" + e.Message);
+                throw new Exception("Data could not be retrieved from the database. Please try agian" + e.Message);
             }
         }
     }

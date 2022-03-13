@@ -188,6 +188,8 @@ namespace SomerenUI
                         listViewDrink.Columns.Add("Stock", 70);
                         listViewDrink.Columns.Add("Sales Value", 80);
                         listViewDrink.Columns.Add("Number of drinks sold", 120);
+                        listViewDrink.Columns.Add("Drink is alcoholic", 80);
+
                         
                         foreach (Drink drink in drinkList)
                         {
@@ -196,7 +198,9 @@ namespace SomerenUI
                             li.SubItems.Add(drink.StockAmount.ToString());
                             li.SubItems.Add(drink.SalesValue.ToString());
                             li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
+                            li.SubItems.Add(drink.IsAlcoholic.ToString());
                             listViewDrink.Items.Add(li);
+
                         }
                         ColorListView(listViewDrink);
 
@@ -326,7 +330,7 @@ namespace SomerenUI
         {
             DrinkService drinkService = new DrinkService();
             drinkService.AddRowTable(int.Parse(textBoxStock.Text), int.Parse(textBoxSalesValue.Text), 
-                int.Parse(textBoxNumberOfDrinksSold.Text), textBoxDrinkName.Text);
+                int.Parse(textBoxNumberOfDrinksSold.Text), textBoxDrinkName.Text, bool.Parse(textBoxAlcholicDrink.Text));
             
         }
 
@@ -334,16 +338,12 @@ namespace SomerenUI
         {
             DrinkService drinkService = new DrinkService();
             drinkService.UpdateRowTable(int.Parse(textBoxStock.Text), int.Parse(textBoxSalesValue.Text),
-
+                int.Parse(textBoxNumberOfDrinksSold.Text), textBoxDrinkName.Text, bool.Parse(textBoxAlcholicDrink.Text));
             /*listViewDrink.SelectedItems[0].SubItems[0].Text = textBoxDrinkName.Text;
             listViewDrink.SelectedItems[0].SubItems[1].Text = textBoxStock.Text;
             listViewDrink.SelectedItems[0].SubItems[2].Text = textBoxSalesValue.Text;
             listViewDrink.SelectedItems[0].SubItems[3].Text = textBoxNumberOfDrinksSold.Text;*/
-
-                int.Parse(textBoxNumberOfDrinksSold.Text), textBoxDrinkName.Text);
-
         }
-
         private void buttonDelete_Click(object sender, EventArgs e)
         {
 
