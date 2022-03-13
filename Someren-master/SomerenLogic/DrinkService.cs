@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SomerenLogic
 {
-    public class DrinkService
+    public class DrinkService 
     {
         private DrinkDAO drinksdb;
 
@@ -21,6 +21,10 @@ namespace SomerenLogic
         {
             List<Drink> drinks = drinksdb.GetAllDrinks();
             return drinks;
+        }
+        public void AddRowTable(int stock, int salesValue, int numberOfSales, string drinkName)
+        {
+            drinksdb.AddRow(stock, salesValue, numberOfSales, drinkName);
         }
     }
 }

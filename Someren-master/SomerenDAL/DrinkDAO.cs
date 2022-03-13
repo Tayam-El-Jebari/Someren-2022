@@ -27,6 +27,12 @@ namespace SomerenDAL
             }
 
         }
+        public void AddRow(int stock, int salesValue, int numberOfSales, string drinkName)
+        {
+            string querry = $"INSERT INTO drink VALUES(NULL, {stock}, {salesValue}, {numberOfSales}, '{drinkName}')";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(querry, sqlParameters);
+        }
 
         private List<Drink> ReadTables(DataTable dataTable)
         {

@@ -326,7 +326,8 @@ namespace SomerenUI
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            
+            DrinkService drinkService = new DrinkService();
+            drinkService.AddRowTable(int.Parse(textBoxStock.Text), int.Parse(textBoxSalesValue.Text), int.Parse(textBoxNumberOfDrinksSold.Text), textBoxDrinkName.Text);
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
