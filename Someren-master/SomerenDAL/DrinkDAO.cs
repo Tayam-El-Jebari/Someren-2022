@@ -30,7 +30,7 @@ namespace SomerenDAL
         // Add Row
         public void AddRow(int stock, int salesValue, int numberOfSales, string drinkName, bool isAlcoholic)
         {
-            string querry = $"INSERT INTO Drink(stock, salesValue, numberOfDrinkSold, drinkName, alcoholic)VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}', 1)";
+            string querry = $"INSERT INTO Drink(stock, salesValue, numberOfDrinkSold, drinkName, alcoholic)VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}', {isAlcoholic.ToString()})";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(querry, sqlParameters);
         }
@@ -38,7 +38,7 @@ namespace SomerenDAL
         // deze werkt nog niet
         public void UpdateRow(int stock, int salesValue, int numberOfSales, string drinkName, bool isAlcoholic)
         { 
-            string query = $"UPDATE Drink(stock, salesValue, numberOfDrinkSold, drinkName, alcoholic) VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}', {isAlcoholic}) WHERE orderID = @orderID";
+            string query = $"UPDATE Drink(stock, salesValue, numberOfDrinkSold, drinkName, alcoholic) VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}', {isAlcoholic}) WHERE productID = @productID";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);            
         }
