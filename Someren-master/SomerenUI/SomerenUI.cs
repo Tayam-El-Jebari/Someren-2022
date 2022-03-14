@@ -42,18 +42,12 @@ namespace SomerenUI
             if (panelName == "Dashboard")
             {
                 // hide all other panels
-                pnlStudents.Hide();
-                pnlRoomPanel.Hide();
-                pnlTeacherPanel.Hide();
-
-                // show dashboard
-                pnlDashboard.Show();
-                imgDashboard.Show();
+                ShowCorrectPanel(pnlDashboard);
             }
 
             else if (panelName == "Students")
             {
-                ShowCorrectPannel(pnlStudents);
+                ShowCorrectPanel(pnlStudents);
                 try
                 {
                     // fill the students listview within the students panel with a list of students
@@ -91,7 +85,7 @@ namespace SomerenUI
             }
             else if(panelName == "Teachers")
             {
-                ShowCorrectPannel(pnlTeacherPanel);
+                ShowCorrectPanel(pnlTeacherPanel);
 
 
                 listViewTeachers.Clear();
@@ -123,7 +117,7 @@ namespace SomerenUI
                 //(VOID aanmaken voor hide panels?)
                 if (panelName == "Rooms")
                 {
-                    ShowCorrectPannel(pnlRoomPanel);
+                    ShowCorrectPanel(pnlRoomPanel);
 
                     try
                     {
@@ -169,7 +163,7 @@ namespace SomerenUI
                 //(VOID aanmaken voor hide panels?)
                 if (panelName == "Drinks")
                 {
-                    ShowCorrectPannel(pnlDrinksPanel);
+                    ShowCorrectPanel(pnlDrinksPanel);
 
                     try
                     {
@@ -183,6 +177,7 @@ namespace SomerenUI
 
                         listViewDrink.View = View.Details;
                         listViewDrink.FullRowSelect = true;
+                        listViewDrink.LabelEdit = true;
                         listViewDrink.Columns.Add("Drink name", 80);
                         listViewDrink.Columns.Add("Stock", 70);
                         listViewDrink.Columns.Add("Sales Value", 80);
@@ -210,11 +205,10 @@ namespace SomerenUI
             }
             catch (Exception e)
             {
-
                 MessageBox.Show("Panel could not be loaded properly." + e.Message);
             }
         }
-        private void ShowCorrectPannel(Panel panel)
+        private void ShowCorrectPanel(Panel panel)
         {
             pnlDashboard.Hide();
             imgDashboard.Hide();
@@ -330,34 +324,69 @@ namespace SomerenUI
             int numberOfDrinkSold = int.Parse(textBoxNumberOfDrinksSold.Text);
             string drinkName = textBoxDrinkName.Text;
             bool isAlcoholic = bool.Parse(textBoxAlcholicDrink.Text);
+            try
+            {
+                drinkService.AddRowTable(stock, salesValue, numberOfDrinkSold, drinkName, isAlcoholic);
 
-            drinkService.AddRowTable(stock, salesValue, numberOfDrinkSold, drinkName, isAlcoholic);
-
-            Drink drink = new Drink();
-            ListViewItem li = new ListViewItem(drinkName);
-            li.SubItems.Add(stock.ToString());
-            li.SubItems.Add(salesValue.ToString());
-            li.SubItems.Add(numberOfDrinkSold.ToString());
-            li.SubItems.Add(isAlcoholic.ToString());
-            listViewDrink.Items.Add(li);            
+                Drink drink = new Drink();
+                ListViewItem li = new ListViewItem(drinkName);
+                li.SubItems.Add(stock.ToString());
+                li.SubItems.Add(salesValue.ToString());
+                li.SubItems.Add(numberOfDrinkSold.ToString());
+                li.SubItems.Add(isAlcoholic.ToString());
+                listViewDrink.Items.Add(li);
+            }
+            catch (Exception)
+            {
+                throw new Exception("All fields are required");
+            }
+                       
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
+            listViewDrink.LabelEdit = true;
             DrinkService drinkService = new DrinkService();
-            Drink drink = new Drink();
-          /*  int stock = int.Parse(textBoxStock.Text);
+            int stock = int.Parse(textBoxStock.Text);
             int salesValue = int.Parse(textBoxSalesValue.Text);
             int numberOfDrinkSold = int.Parse(textBoxNumberOfDrinksSold.Text);
             string drinkName = textBoxDrinkName.Text;
             bool isAlcoholic = bool.Parse(textBoxAlcholicDrink.Text);
-            drinkService.UpdateRowTable(stock, salesValue, numberOfDrinkSold, drinkName, isAlcoholic);            
+            try
+            {
+                
+                listViewDrink.SelectedItems[0].SubItems[0].Text = drinkName;
+                listViewDrink.SelectedItems[0].SubItems[1].Text = stock.ToString();
+                listViewDrink.SelectedItems[0].SubItems[2].Text = salesValue.ToString();
+                listViewDrink.SelectedItems[0].SubItems[3].Text = numberOfDrinkSold.ToString();
+                listViewDrink.SelectedItems[0].SubItems[4].Text = isAlcoholic.ToString(); 
+                drinkService.UpdateRowTable(stock, salesValue, numberOfDrinkSold, drinkName, isAlcoholic);
 
-            listViewDrink.SelectedItems[0].SubItems[0].Text = textBoxDrinkName.Text;
-            listViewDrink.SelectedItems[0].SubItems[1].Text = textBoxStock.Text;
-            listViewDrink.SelectedItems[0].SubItems[2].Text = textBoxSalesValue.Text;
-            listViewDrink.SelectedItems[0].SubItems[3].Text = textBoxNumberOfDrinksSold.Text;
-            listViewDrink.SelectedItems[0].SubItems[4].Text = textBoxAlcholicDrink.Text;*/            
+                Drink drink = new Drink();
+                ListViewItem li = new ListViewItem(drinkName);
+                li.SubItems.Add(stock.ToString());
+                li.SubItems.Add(salesValue.ToString());
+                li.SubItems.Add(numberOfDrinkSold.ToString());
+                li.SubItems.Add(isAlcoholic.ToString());
+                listViewDrink.Items.Add(li);              
+            }
+            catch (Exception)
+            {
+                throw new Exception("Updating row failed. ");
+            }
+
+            /*  int stock = int.Parse(textBoxStock.Text);
+              int salesValue = int.Parse(textBoxSalesValue.Text);
+              int numberOfDrinkSold = int.Parse(textBoxNumberOfDrinksSold.Text);
+              string drinkName = textBoxDrinkName.Text;
+              bool isAlcoholic = bool.Parse(textBoxAlcholicDrink.Text);
+              drinkService.UpdateRowTable(stock, salesValue, numberOfDrinkSold, drinkName, isAlcoholic);            
+
+              listViewDrink.SelectedItems[0].SubItems[0].Text = textBoxDrinkName.Text;
+              listViewDrink.SelectedItems[0].SubItems[1].Text = textBoxStock.Text;
+              listViewDrink.SelectedItems[0].SubItems[2].Text = textBoxSalesValue.Text;
+              listViewDrink.SelectedItems[0].SubItems[3].Text = textBoxNumberOfDrinksSold.Text;
+              listViewDrink.SelectedItems[0].SubItems[4].Text = textBoxAlcholicDrink.Text;*/
         }
         private void buttonDelete_Click(object sender, EventArgs e)
         {
@@ -367,8 +396,8 @@ namespace SomerenUI
 
             try
             {
+                // pop up message voor de gebruiker
                 MessageBox.Show("Are you sure you want to delete the whole row from the list?");  
-
                 // Ook nog verwijderen uit de database!!!!
                 drinkService.DeleteRowTable(drinkNameEntered);
                 listViewDrink.Items.Remove(listViewDrink.SelectedItems[0]);
@@ -378,10 +407,6 @@ namespace SomerenUI
                 throw new Exception("Name is not the same as in the database");
             }
             
-
-
         }
-
-
     }
 }
