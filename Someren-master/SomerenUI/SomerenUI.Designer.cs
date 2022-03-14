@@ -111,7 +111,7 @@
             this.drinksToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1283, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1283, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -434,11 +434,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(761, 372);
+            this.label7.Location = new System.Drawing.Point(635, 412);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(316, 17);
+            this.label7.Size = new System.Drawing.Size(432, 17);
             this.label7.TabIndex = 19;
-            this.label7.Text = "Please enter the drink name in the name textbox ";
+            this.label7.Text = "Please select the row you want to delete before pressing the button";
             // 
             // textBoxAlcholicDrink
             // 

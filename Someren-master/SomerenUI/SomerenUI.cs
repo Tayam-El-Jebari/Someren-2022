@@ -362,25 +362,16 @@ namespace SomerenUI
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             DrinkService drinkService = new DrinkService();
-            string drinkNameEntered = textBoxDrinkName.Text;
-            /*List<Drink> drinkList = drinkService.GetDrinks();*/
+            string drinkNameEntered = listViewDrink.SelectedItems[0].Text;
+            List<Drink> drinkList = drinkService.GetDrinks();
 
             try
             {
-                /*foreach (Drink drinkToSearch in drinkList)
-                {
-                    if (drinkToSearch.DrinkName == drinkNameEntered)
-                    {
-                        
-                        
-                        drinkService.DeleteRowTable(drinkNameEntered);
-                    }
-                }*/
-                MessageBox.Show("Are you sure you want to delete the whole row from the list?");
-                listViewDrink.Items.Remove(listViewDrink.SelectedItems[0]);
-                drinkService.DeleteRowTable(drinkNameEntered);
+                MessageBox.Show("Are you sure you want to delete the whole row from the list?");  
 
                 // Ook nog verwijderen uit de database!!!!
+                drinkService.DeleteRowTable(drinkNameEntered);
+                listViewDrink.Items.Remove(listViewDrink.SelectedItems[0]);
             }
             catch (Exception)
             {
