@@ -30,5 +30,9 @@ namespace SomerenLogic
         {
             drinksdb.UpdateRow(stock, salesValue, numberOfSales, drinkName, isAlcoholic);
         }
+        public void DeleteRowTable(string drinkName) 
+        {
+            drinksdb.DeleteRow(drinkName);
+        }
     }
 }

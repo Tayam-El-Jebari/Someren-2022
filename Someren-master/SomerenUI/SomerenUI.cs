@@ -183,27 +183,23 @@ namespace SomerenUI
 
                         listViewDrink.View = View.Details;
                         listViewDrink.FullRowSelect = true;
-                        listViewDrink.Columns.Add("ProductID", 70);
                         listViewDrink.Columns.Add("Drink name", 80);
                         listViewDrink.Columns.Add("Stock", 70);
                         listViewDrink.Columns.Add("Sales Value", 80);
                         listViewDrink.Columns.Add("Number of drinks sold", 120);
                         listViewDrink.Columns.Add("Drink is alcoholic", 80);
-                        Console.WriteLine("depressie");
                         
                         foreach (Drink drink in drinkList)
                         {
-                            ListViewItem li = new ListViewItem(drink.ProductID.ToString());
-                            li.SubItems.Add(drink.DrinkName);
+                            ListViewItem li = new ListViewItem(drink.DrinkName);
+                            li.Tag = drink;
                             li.SubItems.Add(drink.StockAmount.ToString());
                             li.SubItems.Add(drink.SalesValue.ToString());
                             li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
                             li.SubItems.Add(drink.IsAlcoholic.ToString());
                             listViewDrink.Items.Add(li);
-
                         }
                         ColorListView(listViewDrink);
-
                     }
                     catch (Exception e)
                     {
@@ -329,50 +325,72 @@ namespace SomerenUI
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             DrinkService drinkService = new DrinkService();
-            drinkService.AddRowTable(int.Parse(textBoxStock.Text), int.Parse(textBoxSalesValue.Text), 
-                int.Parse(textBoxNumberOfDrinksSold.Text), textBoxDrinkName.Text, bool.Parse(textBoxAlcholicDrink.Text));
-            RefreshListview(listViewDrink);
-            
+            int stock = int.Parse(textBoxStock.Text);
+            int salesValue = int.Parse(textBoxSalesValue.Text);
+            int numberOfDrinkSold = int.Parse(textBoxNumberOfDrinksSold.Text);
+            string drinkName = textBoxDrinkName.Text;
+            bool isAlcoholic = bool.Parse(textBoxAlcholicDrink.Text);
+
+            drinkService.AddRowTable(stock, salesValue, numberOfDrinkSold, drinkName, isAlcoholic);
+
+            Drink drink = new Drink();
+            ListViewItem li = new ListViewItem(drinkName);
+            li.SubItems.Add(stock.ToString());
+            li.SubItems.Add(salesValue.ToString());
+            li.SubItems.Add(numberOfDrinkSold.ToString());
+            li.SubItems.Add(isAlcoholic.ToString());
+            listViewDrink.Items.Add(li);            
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             DrinkService drinkService = new DrinkService();
-            drinkService.UpdateRowTable(int.Parse(textBoxStock.Text), int.Parse(textBoxSalesValue.Text),
-                int.Parse(textBoxNumberOfDrinksSold.Text), textBoxDrinkName.Text, bool.Parse(textBoxAlcholicDrink.Text));
-            /*listViewDrink.SelectedItems[0].SubItems[0].Text = textBoxDrinkName.Text;
+            Drink drink = new Drink();
+          /*  int stock = int.Parse(textBoxStock.Text);
+            int salesValue = int.Parse(textBoxSalesValue.Text);
+            int numberOfDrinkSold = int.Parse(textBoxNumberOfDrinksSold.Text);
+            string drinkName = textBoxDrinkName.Text;
+            bool isAlcoholic = bool.Parse(textBoxAlcholicDrink.Text);
+            drinkService.UpdateRowTable(stock, salesValue, numberOfDrinkSold, drinkName, isAlcoholic);            
+
+            listViewDrink.SelectedItems[0].SubItems[0].Text = textBoxDrinkName.Text;
             listViewDrink.SelectedItems[0].SubItems[1].Text = textBoxStock.Text;
             listViewDrink.SelectedItems[0].SubItems[2].Text = textBoxSalesValue.Text;
-            listViewDrink.SelectedItems[0].SubItems[3].Text = textBoxNumberOfDrinksSold.Text;*/
+            listViewDrink.SelectedItems[0].SubItems[3].Text = textBoxNumberOfDrinksSold.Text;
+            listViewDrink.SelectedItems[0].SubItems[4].Text = textBoxAlcholicDrink.Text;*/            
         }
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Are you sure you want to delete the whole row from the list?");
-        }
-
-        private void RefreshListview(ListView listview) 
-        {
-            // Might be duplicate code. Dont know any other way how this will work. 
-            // fill the drinks listview within the rooms panel with a list of drinks
             DrinkService drinkService = new DrinkService();
-            List<Drink> drinkList = drinkService.GetDrinks();
+            string drinkNameEntered = textBoxDrinkName.Text;
+            /*List<Drink> drinkList = drinkService.GetDrinks();*/
 
-            // clear the listview before filling it again
-            listViewDrink.Clear();
-
-            foreach (Drink drink in drinkList)
+            try
             {
-                ListViewItem li = new ListViewItem(drink.ProductID.ToString());
-                li.SubItems.Add(drink.DrinkName);
-                li.SubItems.Add(drink.StockAmount.ToString());
-                li.SubItems.Add(drink.SalesValue.ToString());
-                li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
-                li.SubItems.Add(drink.IsAlcoholic.ToString());
-                listViewDrink.Items.Add(li);
+                /*foreach (Drink drinkToSearch in drinkList)
+                {
+                    if (drinkToSearch.DrinkName == drinkNameEntered)
+                    {
+                        
+                        
+                        drinkService.DeleteRowTable(drinkNameEntered);
+                    }
+                }*/
+                MessageBox.Show("Are you sure you want to delete the whole row from the list?");
+                listViewDrink.Items.Remove(listViewDrink.SelectedItems[0]);
+                drinkService.DeleteRowTable(drinkNameEntered);
 
+                // Ook nog verwijderen uit de database!!!!
             }
-            ColorListView(listViewDrink);
+            catch (Exception)
+            {
+                throw new Exception("Name is not the same as in the database");
+            }
+            
+
+
         }
+
 
     }
 }
