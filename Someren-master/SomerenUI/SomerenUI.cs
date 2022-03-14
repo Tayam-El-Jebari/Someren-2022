@@ -134,6 +134,43 @@ namespace SomerenUI
                     logService.WriteLog(e.Message);
                 }
             }
+            else if (panelName == "Cash register")
+            {
+                ShowCorrectPannel(pnlCashRegisterPanel);
+                try
+                {
+                    StudentService studService = new StudentService();
+                    List<Student> studentList = studService.GetStudents();
+
+                    foreach (Student s in studentList)
+                    {
+                        studentsComboBox.Items.Add(s.StudentId.ToString());
+                    }
+
+                    studentsListView.View = View.Details;
+                    studentsListView.Columns.Add("Student id", 40);
+                    studentsListView.Columns.Add("First name", 75);
+                    studentsListView.Columns.Add("Last name", 75);
+                    studentsListView.Columns.Add("Date of birth", 50);
+                    studentsListView.Columns.Add("Room number", 40);
+                    foreach (Student s in studentList)
+                    {
+                        ListViewItem li = new ListViewItem(s.StudentId.ToString());
+                        li.SubItems.Add(s.FirstName);
+                        li.SubItems.Add(s.LastName);
+                        li.SubItems.Add(s.DateOfBirth.ToString("yyyy/MM/dd"));
+                        li.SubItems.Add(s.RoomNumber.ToString());
+                        studentsListView.Items.Add(li);
+
+                    }
+                    
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the students: " + e.Message);
+                    logService.WriteLog(e.Message);
+                }
+            }
             try
             {
                 //(VOID aanmaken voor hide panels?)
@@ -283,5 +320,10 @@ namespace SomerenUI
             MessageBox.Show("Een leuke tekst als je op de foto drukt");
         }
 
+        private void CashregistertoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Cash register");
+            ChangeToolStripMenu(CashregistertoolStripMenuItem);
+        }
     }
 }
