@@ -41,11 +41,13 @@
             this.barServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revenueReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlRevenueReportPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.listViewRevenueReport = new System.Windows.Forms.ListView();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelRevenueReportTitle = new System.Windows.Forms.Label();
             this.pnlRoomPanel = new System.Windows.Forms.Panel();
             this.listViewRoom = new System.Windows.Forms.ListView();
@@ -71,10 +73,12 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBoxSomerenTeacher = new System.Windows.Forms.PictureBox();
             this.labelTitleTeachers = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.buttonGenerate = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnlRevenueReportPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlRoomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSomerenRoom)).BeginInit();
             this.pnlDashboard.SuspendLayout();
@@ -98,7 +102,7 @@
             this.barServiceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1283, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1283, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -110,7 +114,7 @@
             this.exitToolStripMenuItem});
             this.dashboardToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(100, 26);
+            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
             this.dashboardToolStripMenuItem.Text = "Application";
             // 
             // dashboardToolStripMenuItem1
@@ -135,28 +139,28 @@
             // studentsToolStripMenuItem
             // 
             this.studentsToolStripMenuItem.Name = "studentsToolStripMenuItem";
-            this.studentsToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
+            this.studentsToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.studentsToolStripMenuItem.Text = "Students";
             this.studentsToolStripMenuItem.Click += new System.EventHandler(this.studentsToolStripMenuItem_Click);
             // 
             // teachersToolStripMenuItem
             // 
             this.teachersToolStripMenuItem.Name = "teachersToolStripMenuItem";
-            this.teachersToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
+            this.teachersToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.teachersToolStripMenuItem.Text = "Teachers";
             this.teachersToolStripMenuItem.Click += new System.EventHandler(this.teachersToolStripMenuItem_Click);
             // 
             // activitiesToolStripMenuItem
             // 
             this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
-            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(83, 26);
+            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.activitiesToolStripMenuItem.Text = "Activities";
             this.activitiesToolStripMenuItem.Click += new System.EventHandler(this.activitiesToolStripMenuItem_Click_1);
             // 
             // roomsToolStripMenuItem
             // 
             this.roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
-            this.roomsToolStripMenuItem.Size = new System.Drawing.Size(69, 26);
+            this.roomsToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.roomsToolStripMenuItem.Text = "Rooms";
             this.roomsToolStripMenuItem.Click += new System.EventHandler(this.roomsToolStripMenuItem_Click);
             // 
@@ -165,7 +169,7 @@
             this.barServiceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.revenueReportToolStripMenuItem});
             this.barServiceToolStripMenuItem.Name = "barServiceToolStripMenuItem";
-            this.barServiceToolStripMenuItem.Size = new System.Drawing.Size(94, 26);
+            this.barServiceToolStripMenuItem.Size = new System.Drawing.Size(94, 24);
             this.barServiceToolStripMenuItem.Text = "Bar service";
             // 
             // revenueReportToolStripMenuItem
@@ -178,63 +182,91 @@
             // pnlRevenueReportPanel
             // 
             this.pnlRevenueReportPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
-            this.pnlRevenueReportPanel.Controls.Add(this.monthCalendar1);
+            this.pnlRevenueReportPanel.Controls.Add(this.buttonGenerate);
+            this.pnlRevenueReportPanel.Controls.Add(this.label4);
+            this.pnlRevenueReportPanel.Controls.Add(this.label3);
+            this.pnlRevenueReportPanel.Controls.Add(this.label2);
+            this.pnlRevenueReportPanel.Controls.Add(this.label1);
+            this.pnlRevenueReportPanel.Controls.Add(this.dateTimePickerEnd);
+            this.pnlRevenueReportPanel.Controls.Add(this.dateTimePickerStart);
             this.pnlRevenueReportPanel.Controls.Add(this.listViewRevenueReport);
-            this.pnlRevenueReportPanel.Controls.Add(this.pictureBox1);
             this.pnlRevenueReportPanel.Controls.Add(this.labelRevenueReportTitle);
             this.pnlRevenueReportPanel.Location = new System.Drawing.Point(2, 25);
             this.pnlRevenueReportPanel.Margin = new System.Windows.Forms.Padding(4);
             this.pnlRevenueReportPanel.Name = "pnlRevenueReportPanel";
-            this.pnlRevenueReportPanel.Size = new System.Drawing.Size(1251, 574);
+            this.pnlRevenueReportPanel.Size = new System.Drawing.Size(1251, 617);
             this.pnlRevenueReportPanel.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(668, 98);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label1.Size = new System.Drawing.Size(274, 32);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Select date and time";
+            // 
+            // dateTimePickerEnd
+            // 
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(897, 189);
+            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerEnd.TabIndex = 7;
+            // 
+            // dateTimePickerStart
+            // 
+            this.dateTimePickerStart.Location = new System.Drawing.Point(673, 189);
+            this.dateTimePickerStart.Name = "dateTimePickerStart";
+            this.dateTimePickerStart.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerStart.TabIndex = 6;
+            this.dateTimePickerStart.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // listViewRevenueReport
             // 
+            this.listViewRevenueReport.BackColor = System.Drawing.Color.White;
             this.listViewRevenueReport.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
             this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9});
+            this.columnHeader8});
+            this.listViewRevenueReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewRevenueReport.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.listViewRevenueReport.HideSelection = false;
-            this.listViewRevenueReport.Location = new System.Drawing.Point(21, 52);
+            this.listViewRevenueReport.Location = new System.Drawing.Point(19, 134);
             this.listViewRevenueReport.Margin = new System.Windows.Forms.Padding(4);
             this.listViewRevenueReport.Name = "listViewRevenueReport";
-            this.listViewRevenueReport.Size = new System.Drawing.Size(1020, 377);
+            this.listViewRevenueReport.Size = new System.Drawing.Size(629, 147);
             this.listViewRevenueReport.TabIndex = 5;
             this.listViewRevenueReport.UseCompatibleStateImageBehavior = false;
             // 
             // columnHeader7
             // 
+            this.columnHeader7.DisplayIndex = 0;
             this.columnHeader7.Text = "ID";
+            this.columnHeader7.Width = 75;
             // 
             // columnHeader8
             // 
+            this.columnHeader8.DisplayIndex = 1;
             this.columnHeader8.Text = "Name";
             // 
             // columnHeader9
             // 
+            this.columnHeader9.DisplayIndex = 2;
             this.columnHeader9.Text = "Date of Birth";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SomerenUI.Properties.Resources.someren;
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(1073, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(173, 151);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // labelRevenueReportTitle
             // 
             this.labelRevenueReportTitle.AutoSize = true;
-            this.labelRevenueReportTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRevenueReportTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRevenueReportTitle.ForeColor = System.Drawing.Color.Snow;
             this.labelRevenueReportTitle.Location = new System.Drawing.Point(13, 12);
             this.labelRevenueReportTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRevenueReportTitle.Name = "labelRevenueReportTitle";
             this.labelRevenueReportTitle.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.labelRevenueReportTitle.Size = new System.Drawing.Size(242, 38);
+            this.labelRevenueReportTitle.Size = new System.Drawing.Size(265, 39);
             this.labelRevenueReportTitle.TabIndex = 3;
             this.labelRevenueReportTitle.Text = "Revenue report";
             // 
@@ -461,11 +493,54 @@
             this.labelTitleTeachers.TabIndex = 3;
             this.labelTitleTeachers.Text = "Teachers";
             // 
-            // monthCalendar1
+            // label2
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(841, 52);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 6;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(11, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(1156, 2);
+            this.label2.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(669, 166);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 20);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Start date";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(893, 166);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 20);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "End date";
+            // 
+            // buttonGenerate
+            // 
+            this.buttonGenerate.BackColor = System.Drawing.Color.White;
+            this.buttonGenerate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGenerate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.buttonGenerate.Location = new System.Drawing.Point(741, 238);
+            this.buttonGenerate.Name = "buttonGenerate";
+            this.buttonGenerate.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.buttonGenerate.Size = new System.Drawing.Size(238, 43);
+            this.buttonGenerate.TabIndex = 12;
+            this.buttonGenerate.Text = "Generate report";
+            this.buttonGenerate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonGenerate.UseVisualStyleBackColor = false;
+            this.buttonGenerate.Click += new System.EventHandler(this.buttonGenerate_Click);
             // 
             // SomerenUI
             // 
@@ -474,8 +549,8 @@
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1283, 622);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlRevenueReportPanel);
+            this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlRoomPanel);
             this.Controls.Add(this.pnlStudents);
             this.Controls.Add(this.pnlTeacherPanel);
@@ -491,7 +566,6 @@
             this.menuStrip1.PerformLayout();
             this.pnlRevenueReportPanel.ResumeLayout(false);
             this.pnlRevenueReportPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlRoomPanel.ResumeLayout(false);
             this.pnlRoomPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSomerenRoom)).EndInit();
@@ -526,7 +600,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelRevenueReportTitle;
         private System.Windows.Forms.Panel pnlRoomPanel;
         private System.Windows.Forms.ListView listViewRoom;
@@ -552,7 +625,13 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.PictureBox pictureBoxSomerenTeacher;
         private System.Windows.Forms.Label labelTitleTeachers;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerEnd;
+        private System.Windows.Forms.DateTimePicker dateTimePickerStart;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonGenerate;
+        private System.Windows.Forms.Label label4;
     }
 }
 

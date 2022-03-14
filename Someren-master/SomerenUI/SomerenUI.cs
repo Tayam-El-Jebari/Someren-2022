@@ -121,39 +121,6 @@ namespace SomerenUI
             {
                 ShowCorrectPannel(pnlRevenueReportPanel);
                 listViewRevenueReport.Clear();
-
-                RevenueReportService revenueReportService = new RevenueReportService();
-                List<RevenueReport> revenueList = revenueReportService.GetRevenueReports();
-                try
-                {
-                    listViewRevenueReport.View = View.Details;
-                    listViewRevenueReport.Columns.Add("total sales", 120);
-                    listViewRevenueReport.Columns.Add("turnover", 120);
-                    listViewRevenueReport.Columns.Add("number of unique customers", 170);
-                    int total = 0;
-                    int turnover = 0;
-
-                    foreach (RevenueReport revenueReportProduct in revenueList)
-                    {
-                        total += revenueReportProduct.sales;
-                        turnover += (revenueReportProduct.sales * revenueReportProduct.price);
-                    }
-                    ListViewItem li = new ListViewItem(total.ToString());
-                    li.SubItems.Add(turnover.ToString());
-                    li.SubItems.Add(revenueList[0].numberOfCustomers.ToString());
-                    listViewRevenueReport.Items.Add(li);
-                    ColorListView(listViewRevenueReport);
-                    //                    Sales(total number of drinks sold), Turnover(total[sales * sales price of those drinks]), Number of customers
-                    //                    (students who purchased at least one drink).The report is refreshed for the period selected by the user
-                    //                    by way of a calendar interface with a start and end date.The application gives the user feedback if they have chosen
-                    //                    an invalid date and/or period.The dates used are displayed in order of size (dd-mm-yyyy).
-
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show("Something went wrong while loading the students: " + e.Message);
-                    logService.WriteLog(e.Message);
-                }
             }
             try
             {
@@ -304,5 +271,46 @@ namespace SomerenUI
             MessageBox.Show("Een leuke tekst als je op de foto drukt");
         }
 
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonGenerate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                listViewRevenueReport.Clear();
+                RevenueReportService revenueReportService = new RevenueReportService();
+                if (dateTimePickerEnd.Value < dateTimePickerStart.Value )
+                {
+                    throw new Exception("Start date cannot be higher than the end date!");
+                }
+                List<RevenueReport> revenueList = revenueReportService.GetRevenueReports(dateTimePickerEnd.Value, dateTimePickerEnd.Value);
+                listViewRevenueReport.View = View.Details;
+                listViewRevenueReport.Columns.Add("total sales", 120);
+                listViewRevenueReport.Columns.Add("turnover", 120);
+                listViewRevenueReport.Columns.Add("number of unique customers", 200);
+                int total = 0;
+                int turnover = 0;
+
+                foreach (RevenueReport revenueReportProduct in revenueList)
+                {
+                    total += revenueReportProduct.sales;
+                    turnover += (revenueReportProduct.sales * revenueReportProduct.price);
+                }
+                ListViewItem li = new ListViewItem(total.ToString());
+                li.SubItems.Add(turnover.ToString());
+                li.SubItems.Add(revenueList[0].numberOfCustomers.ToString());
+                listViewRevenueReport.Items.Add(li);
+                ColorListView(listViewRevenueReport);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                logService.WriteLog(ex.Message);
+            }
+        }
     }
 }

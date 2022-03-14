@@ -11,21 +11,21 @@ namespace SomerenDAL
 {
     public class RevenueReportDAO : BaseDao
     {
-        public List<RevenueReport>GetReport()
+        public List<RevenueReport>GetReport(DateTime startDate, DateTime endDate)
         {
             try
             {
                 // change attributes from Room, give them the right name. 
-                string query = "SELECT D.productId, drinkName, numberOfDrinkSold, salesValue, count( DISTINCT S.studentId) AS customersCount FROM " +
-                    "Drink AS D JOIN [Order] as O ON d.[productId] = O.productId JOIN Student as S ON S.[studentId] = O.studentId GROUP BY " +
-                    "D.productId, drinkName, numberOfDrinkSold, salesvalue, S.studentid";
+                string query = $"SELECT D.productId, drinkName, numberOfDrinkSold, salesValue, count(DISTINCT S.studentId) AS customersCount FROM Drink AS D JOIN[Order] " +
+                    $"as O ON d.[productId] = O.productId JOIN Student as S ON S.[studentId] = O.studentId WHERE O.dateOfPurchase between '{startDate.ToString("yyyy-MM-dd")}' " +
+                    $"and '{endDate.ToString("yyyy-MM-dd")}' GROUP BY D.productId, drinkName, numberOfDrinkSold, salesvalue, S.studentid";
                 SqlParameter[] sqlParameters = new SqlParameter[0];
                 return ReadTables(ExecuteSelectQuery(query, sqlParameters));
             }
             catch (Exception e)
             {
                 // within this exception show te user that something went wrong. 
-                throw new Exception("Rooms could not be loaded properly. Please try again" + e.Message);
+                throw new Exception("Reports could not be loaded properly. Please try again" + e.Message);
             }
 
         }
