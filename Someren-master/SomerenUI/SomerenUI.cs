@@ -347,11 +347,11 @@ namespace SomerenUI
         }
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Are you sure you want to delete the whole row from the list?");
         }
 
         private void RefreshListview(ListView listview) 
-        {
+        {           
             listview.Refresh();
         }
 
