@@ -351,8 +351,27 @@ namespace SomerenUI
         }
 
         private void RefreshListview(ListView listview) 
-        {           
-            listview.Refresh();
+        {
+            // Might be duplicate code. Dont know any other way how this will work. 
+            // fill the drinks listview within the rooms panel with a list of drinks
+            DrinkService drinkService = new DrinkService();
+            List<Drink> drinkList = drinkService.GetDrinks();
+
+            // clear the listview before filling it again
+            listViewDrink.Clear();
+
+            foreach (Drink drink in drinkList)
+            {
+                ListViewItem li = new ListViewItem(drink.ProductID.ToString());
+                li.SubItems.Add(drink.DrinkName);
+                li.SubItems.Add(drink.StockAmount.ToString());
+                li.SubItems.Add(drink.SalesValue.ToString());
+                li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
+                li.SubItems.Add(drink.IsAlcoholic.ToString());
+                listViewDrink.Items.Add(li);
+
+            }
+            ColorListView(listViewDrink);
         }
 
     }
