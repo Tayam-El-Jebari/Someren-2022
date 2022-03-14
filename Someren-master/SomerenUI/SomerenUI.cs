@@ -331,6 +331,7 @@ namespace SomerenUI
             DrinkService drinkService = new DrinkService();
             drinkService.AddRowTable(int.Parse(textBoxStock.Text), int.Parse(textBoxSalesValue.Text), 
                 int.Parse(textBoxNumberOfDrinksSold.Text), textBoxDrinkName.Text, bool.Parse(textBoxAlcholicDrink.Text));
+            RefreshListview(listViewDrink);
             
         }
 
@@ -347,6 +348,11 @@ namespace SomerenUI
         private void buttonDelete_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void RefreshListview(ListView listview) 
+        {
+            listview.Refresh();
         }
 
     }

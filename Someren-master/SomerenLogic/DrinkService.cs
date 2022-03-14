@@ -26,7 +26,6 @@ namespace SomerenLogic
         {
             drinksdb.AddRow(stock, salesValue, numberOfSales, drinkName, isAlcoholic);
         }
-
         public void UpdateRowTable(int stock, int salesValue, int numberOfSales, string drinkName, bool isAlcoholic)
         {
             drinksdb.UpdateRow(stock, salesValue, numberOfSales, drinkName, isAlcoholic);
