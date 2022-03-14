@@ -41,36 +41,37 @@
             this.barServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revenueReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlRevenueReportPanel = new System.Windows.Forms.Panel();
-            this.labelRevenueReportTitle = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listViewRevenueReport = new System.Windows.Forms.ListView();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelRevenueReportTitle = new System.Windows.Forms.Label();
             this.pnlRoomPanel = new System.Windows.Forms.Panel();
-            this.labelRoomTitle = new System.Windows.Forms.Label();
-            this.pictureBoxSomerenRoom = new System.Windows.Forms.PictureBox();
             this.listViewRoom = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pictureBoxSomerenRoom = new System.Windows.Forms.PictureBox();
+            this.labelRoomTitle = new System.Windows.Forms.Label();
             this.pnlDashboard = new System.Windows.Forms.Panel();
-            this.imgDashboard = new System.Windows.Forms.PictureBox();
             this.lbl_Dashboard_welcome = new System.Windows.Forms.Label();
+            this.imgDashboard = new System.Windows.Forms.PictureBox();
             this.pnlStudents = new System.Windows.Forms.Panel();
-            this.lbl_Students = new System.Windows.Forms.Label();
-            this.pictureBoxSomerenStudent = new System.Windows.Forms.PictureBox();
             this.listViewStudents = new System.Windows.Forms.ListView();
             this.studentID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.studentName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.studentDOB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pictureBoxSomerenStudent = new System.Windows.Forms.PictureBox();
+            this.lbl_Students = new System.Windows.Forms.Label();
             this.pnlTeacherPanel = new System.Windows.Forms.Panel();
-            this.labelTitleTeachers = new System.Windows.Forms.Label();
-            this.pictureBoxSomerenTeacher = new System.Windows.Forms.PictureBox();
             this.listViewTeachers = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pictureBoxSomerenTeacher = new System.Windows.Forms.PictureBox();
+            this.labelTitleTeachers = new System.Windows.Forms.Label();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.menuStrip1.SuspendLayout();
             this.pnlRevenueReportPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -109,53 +110,53 @@
             this.exitToolStripMenuItem});
             this.dashboardToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
+            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(100, 26);
             this.dashboardToolStripMenuItem.Text = "Application";
             // 
             // dashboardToolStripMenuItem1
             // 
             this.dashboardToolStripMenuItem1.Name = "dashboardToolStripMenuItem1";
-            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(165, 26);
             this.dashboardToolStripMenuItem1.Text = "Dashboard";
             this.dashboardToolStripMenuItem1.Click += new System.EventHandler(this.dashboardToolStripMenuItem1_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(162, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // studentsToolStripMenuItem
             // 
             this.studentsToolStripMenuItem.Name = "studentsToolStripMenuItem";
-            this.studentsToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.studentsToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
             this.studentsToolStripMenuItem.Text = "Students";
             this.studentsToolStripMenuItem.Click += new System.EventHandler(this.studentsToolStripMenuItem_Click);
             // 
             // teachersToolStripMenuItem
             // 
             this.teachersToolStripMenuItem.Name = "teachersToolStripMenuItem";
-            this.teachersToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.teachersToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
             this.teachersToolStripMenuItem.Text = "Teachers";
             this.teachersToolStripMenuItem.Click += new System.EventHandler(this.teachersToolStripMenuItem_Click);
             // 
             // activitiesToolStripMenuItem
             // 
             this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
-            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
+            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(83, 26);
             this.activitiesToolStripMenuItem.Text = "Activities";
             this.activitiesToolStripMenuItem.Click += new System.EventHandler(this.activitiesToolStripMenuItem_Click_1);
             // 
             // roomsToolStripMenuItem
             // 
             this.roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
-            this.roomsToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
+            this.roomsToolStripMenuItem.Size = new System.Drawing.Size(69, 26);
             this.roomsToolStripMenuItem.Text = "Rooms";
             this.roomsToolStripMenuItem.Click += new System.EventHandler(this.roomsToolStripMenuItem_Click);
             // 
@@ -164,19 +165,20 @@
             this.barServiceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.revenueReportToolStripMenuItem});
             this.barServiceToolStripMenuItem.Name = "barServiceToolStripMenuItem";
-            this.barServiceToolStripMenuItem.Size = new System.Drawing.Size(94, 24);
+            this.barServiceToolStripMenuItem.Size = new System.Drawing.Size(94, 26);
             this.barServiceToolStripMenuItem.Text = "Bar service";
             // 
             // revenueReportToolStripMenuItem
             // 
             this.revenueReportToolStripMenuItem.Name = "revenueReportToolStripMenuItem";
-            this.revenueReportToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.revenueReportToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
             this.revenueReportToolStripMenuItem.Text = "Revenue report";
             this.revenueReportToolStripMenuItem.Click += new System.EventHandler(this.revenueReportToolStripMenuItem_Click);
             // 
             // pnlRevenueReportPanel
             // 
             this.pnlRevenueReportPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.pnlRevenueReportPanel.Controls.Add(this.monthCalendar1);
             this.pnlRevenueReportPanel.Controls.Add(this.listViewRevenueReport);
             this.pnlRevenueReportPanel.Controls.Add(this.pictureBox1);
             this.pnlRevenueReportPanel.Controls.Add(this.labelRevenueReportTitle);
@@ -185,30 +187,6 @@
             this.pnlRevenueReportPanel.Name = "pnlRevenueReportPanel";
             this.pnlRevenueReportPanel.Size = new System.Drawing.Size(1251, 574);
             this.pnlRevenueReportPanel.TabIndex = 9;
-            // 
-            // labelRevenueReportTitle
-            // 
-            this.labelRevenueReportTitle.AutoSize = true;
-            this.labelRevenueReportTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRevenueReportTitle.ForeColor = System.Drawing.Color.Snow;
-            this.labelRevenueReportTitle.Location = new System.Drawing.Point(13, 12);
-            this.labelRevenueReportTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelRevenueReportTitle.Name = "labelRevenueReportTitle";
-            this.labelRevenueReportTitle.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.labelRevenueReportTitle.Size = new System.Drawing.Size(242, 38);
-            this.labelRevenueReportTitle.TabIndex = 3;
-            this.labelRevenueReportTitle.Text = "Revenue report";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SomerenUI.Properties.Resources.someren;
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(1073, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(173, 151);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // listViewRevenueReport
             // 
@@ -236,6 +214,30 @@
             // 
             this.columnHeader9.Text = "Date of Birth";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SomerenUI.Properties.Resources.someren;
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(1073, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(173, 151);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // labelRevenueReportTitle
+            // 
+            this.labelRevenueReportTitle.AutoSize = true;
+            this.labelRevenueReportTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRevenueReportTitle.ForeColor = System.Drawing.Color.Snow;
+            this.labelRevenueReportTitle.Location = new System.Drawing.Point(13, 12);
+            this.labelRevenueReportTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelRevenueReportTitle.Name = "labelRevenueReportTitle";
+            this.labelRevenueReportTitle.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.labelRevenueReportTitle.Size = new System.Drawing.Size(242, 38);
+            this.labelRevenueReportTitle.TabIndex = 3;
+            this.labelRevenueReportTitle.Text = "Revenue report";
+            // 
             // pnlRoomPanel
             // 
             this.pnlRoomPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
@@ -247,30 +249,6 @@
             this.pnlRoomPanel.Name = "pnlRoomPanel";
             this.pnlRoomPanel.Size = new System.Drawing.Size(1251, 574);
             this.pnlRoomPanel.TabIndex = 6;
-            // 
-            // labelRoomTitle
-            // 
-            this.labelRoomTitle.AutoSize = true;
-            this.labelRoomTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRoomTitle.ForeColor = System.Drawing.Color.Snow;
-            this.labelRoomTitle.Location = new System.Drawing.Point(13, 12);
-            this.labelRoomTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelRoomTitle.Name = "labelRoomTitle";
-            this.labelRoomTitle.Size = new System.Drawing.Size(121, 38);
-            this.labelRoomTitle.TabIndex = 3;
-            this.labelRoomTitle.Text = "Rooms";
-            // 
-            // pictureBoxSomerenRoom
-            // 
-            this.pictureBoxSomerenRoom.Image = global::SomerenUI.Properties.Resources.someren;
-            this.pictureBoxSomerenRoom.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxSomerenRoom.InitialImage")));
-            this.pictureBoxSomerenRoom.Location = new System.Drawing.Point(1073, 0);
-            this.pictureBoxSomerenRoom.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxSomerenRoom.Name = "pictureBoxSomerenRoom";
-            this.pictureBoxSomerenRoom.Size = new System.Drawing.Size(173, 151);
-            this.pictureBoxSomerenRoom.TabIndex = 0;
-            this.pictureBoxSomerenRoom.TabStop = false;
-            this.pictureBoxSomerenRoom.Click += new System.EventHandler(this.pictureBoxSomerenRoom_Click);
             // 
             // listViewRoom
             // 
@@ -298,6 +276,30 @@
             // 
             this.columnHeader3.Text = "Date of Birth";
             // 
+            // pictureBoxSomerenRoom
+            // 
+            this.pictureBoxSomerenRoom.Image = global::SomerenUI.Properties.Resources.someren;
+            this.pictureBoxSomerenRoom.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxSomerenRoom.InitialImage")));
+            this.pictureBoxSomerenRoom.Location = new System.Drawing.Point(1073, 0);
+            this.pictureBoxSomerenRoom.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxSomerenRoom.Name = "pictureBoxSomerenRoom";
+            this.pictureBoxSomerenRoom.Size = new System.Drawing.Size(173, 151);
+            this.pictureBoxSomerenRoom.TabIndex = 0;
+            this.pictureBoxSomerenRoom.TabStop = false;
+            this.pictureBoxSomerenRoom.Click += new System.EventHandler(this.pictureBoxSomerenRoom_Click);
+            // 
+            // labelRoomTitle
+            // 
+            this.labelRoomTitle.AutoSize = true;
+            this.labelRoomTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRoomTitle.ForeColor = System.Drawing.Color.Snow;
+            this.labelRoomTitle.Location = new System.Drawing.Point(13, 12);
+            this.labelRoomTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelRoomTitle.Name = "labelRoomTitle";
+            this.labelRoomTitle.Size = new System.Drawing.Size(121, 38);
+            this.labelRoomTitle.TabIndex = 3;
+            this.labelRoomTitle.Text = "Rooms";
+            // 
             // pnlDashboard
             // 
             this.pnlDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
@@ -308,18 +310,6 @@
             this.pnlDashboard.Name = "pnlDashboard";
             this.pnlDashboard.Size = new System.Drawing.Size(1251, 574);
             this.pnlDashboard.TabIndex = 2;
-            // 
-            // imgDashboard
-            // 
-            this.imgDashboard.Image = global::SomerenUI.Properties.Resources.csm_heide_tot_aan_de_horizon_natiopnale_beeldbank_e7ebebd92d;
-            this.imgDashboard.Location = new System.Drawing.Point(-57, 31);
-            this.imgDashboard.Margin = new System.Windows.Forms.Padding(4);
-            this.imgDashboard.Name = "imgDashboard";
-            this.imgDashboard.Size = new System.Drawing.Size(1314, 294);
-            this.imgDashboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgDashboard.TabIndex = 0;
-            this.imgDashboard.TabStop = false;
-            this.imgDashboard.Click += new System.EventHandler(this.imgDashboard_Click);
             // 
             // lbl_Dashboard_welcome
             // 
@@ -334,6 +324,18 @@
             this.lbl_Dashboard_welcome.Text = "Welcome to the Someren Application!";
             this.lbl_Dashboard_welcome.Click += new System.EventHandler(this.label1_Click);
             // 
+            // imgDashboard
+            // 
+            this.imgDashboard.Image = global::SomerenUI.Properties.Resources.csm_heide_tot_aan_de_horizon_natiopnale_beeldbank_e7ebebd92d;
+            this.imgDashboard.Location = new System.Drawing.Point(-57, 31);
+            this.imgDashboard.Margin = new System.Windows.Forms.Padding(4);
+            this.imgDashboard.Name = "imgDashboard";
+            this.imgDashboard.Size = new System.Drawing.Size(1314, 294);
+            this.imgDashboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgDashboard.TabIndex = 0;
+            this.imgDashboard.TabStop = false;
+            this.imgDashboard.Click += new System.EventHandler(this.imgDashboard_Click);
+            // 
             // pnlStudents
             // 
             this.pnlStudents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
@@ -345,30 +347,6 @@
             this.pnlStudents.Name = "pnlStudents";
             this.pnlStudents.Size = new System.Drawing.Size(1251, 574);
             this.pnlStudents.TabIndex = 4;
-            // 
-            // lbl_Students
-            // 
-            this.lbl_Students.AutoSize = true;
-            this.lbl_Students.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Students.ForeColor = System.Drawing.Color.Snow;
-            this.lbl_Students.Location = new System.Drawing.Point(13, 12);
-            this.lbl_Students.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_Students.Name = "lbl_Students";
-            this.lbl_Students.Size = new System.Drawing.Size(146, 38);
-            this.lbl_Students.TabIndex = 3;
-            this.lbl_Students.Text = "Students";
-            // 
-            // pictureBoxSomerenStudent
-            // 
-            this.pictureBoxSomerenStudent.Image = global::SomerenUI.Properties.Resources.someren;
-            this.pictureBoxSomerenStudent.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxSomerenStudent.InitialImage")));
-            this.pictureBoxSomerenStudent.Location = new System.Drawing.Point(1073, 0);
-            this.pictureBoxSomerenStudent.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxSomerenStudent.Name = "pictureBoxSomerenStudent";
-            this.pictureBoxSomerenStudent.Size = new System.Drawing.Size(173, 151);
-            this.pictureBoxSomerenStudent.TabIndex = 0;
-            this.pictureBoxSomerenStudent.TabStop = false;
-            this.pictureBoxSomerenStudent.Click += new System.EventHandler(this.pictureBoxSomerenStudent_Click);
             // 
             // listViewStudents
             // 
@@ -396,6 +374,30 @@
             // 
             this.studentDOB.Text = "Date of Birth";
             // 
+            // pictureBoxSomerenStudent
+            // 
+            this.pictureBoxSomerenStudent.Image = global::SomerenUI.Properties.Resources.someren;
+            this.pictureBoxSomerenStudent.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxSomerenStudent.InitialImage")));
+            this.pictureBoxSomerenStudent.Location = new System.Drawing.Point(1073, 0);
+            this.pictureBoxSomerenStudent.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxSomerenStudent.Name = "pictureBoxSomerenStudent";
+            this.pictureBoxSomerenStudent.Size = new System.Drawing.Size(173, 151);
+            this.pictureBoxSomerenStudent.TabIndex = 0;
+            this.pictureBoxSomerenStudent.TabStop = false;
+            this.pictureBoxSomerenStudent.Click += new System.EventHandler(this.pictureBoxSomerenStudent_Click);
+            // 
+            // lbl_Students
+            // 
+            this.lbl_Students.AutoSize = true;
+            this.lbl_Students.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Students.ForeColor = System.Drawing.Color.Snow;
+            this.lbl_Students.Location = new System.Drawing.Point(13, 12);
+            this.lbl_Students.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_Students.Name = "lbl_Students";
+            this.lbl_Students.Size = new System.Drawing.Size(146, 38);
+            this.lbl_Students.TabIndex = 3;
+            this.lbl_Students.Text = "Students";
+            // 
             // pnlTeacherPanel
             // 
             this.pnlTeacherPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
@@ -407,31 +409,6 @@
             this.pnlTeacherPanel.Name = "pnlTeacherPanel";
             this.pnlTeacherPanel.Size = new System.Drawing.Size(1251, 574);
             this.pnlTeacherPanel.TabIndex = 7;
-            // 
-            // labelTitleTeachers
-            // 
-            this.labelTitleTeachers.AutoSize = true;
-            this.labelTitleTeachers.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleTeachers.ForeColor = System.Drawing.Color.Snow;
-            this.labelTitleTeachers.Location = new System.Drawing.Point(13, 12);
-            this.labelTitleTeachers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelTitleTeachers.Name = "labelTitleTeachers";
-            this.labelTitleTeachers.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.labelTitleTeachers.Size = new System.Drawing.Size(154, 38);
-            this.labelTitleTeachers.TabIndex = 3;
-            this.labelTitleTeachers.Text = "Teachers";
-            // 
-            // pictureBoxSomerenTeacher
-            // 
-            this.pictureBoxSomerenTeacher.Image = global::SomerenUI.Properties.Resources.someren;
-            this.pictureBoxSomerenTeacher.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxSomerenTeacher.InitialImage")));
-            this.pictureBoxSomerenTeacher.Location = new System.Drawing.Point(1073, 0);
-            this.pictureBoxSomerenTeacher.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxSomerenTeacher.Name = "pictureBoxSomerenTeacher";
-            this.pictureBoxSomerenTeacher.Size = new System.Drawing.Size(173, 151);
-            this.pictureBoxSomerenTeacher.TabIndex = 0;
-            this.pictureBoxSomerenTeacher.TabStop = false;
-            this.pictureBoxSomerenTeacher.Click += new System.EventHandler(this.pictureBoxSomerenTeacher_Click);
             // 
             // listViewTeachers
             // 
@@ -459,6 +436,37 @@
             // 
             this.columnHeader6.Text = "Date of Birth";
             // 
+            // pictureBoxSomerenTeacher
+            // 
+            this.pictureBoxSomerenTeacher.Image = global::SomerenUI.Properties.Resources.someren;
+            this.pictureBoxSomerenTeacher.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxSomerenTeacher.InitialImage")));
+            this.pictureBoxSomerenTeacher.Location = new System.Drawing.Point(1073, 0);
+            this.pictureBoxSomerenTeacher.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxSomerenTeacher.Name = "pictureBoxSomerenTeacher";
+            this.pictureBoxSomerenTeacher.Size = new System.Drawing.Size(173, 151);
+            this.pictureBoxSomerenTeacher.TabIndex = 0;
+            this.pictureBoxSomerenTeacher.TabStop = false;
+            this.pictureBoxSomerenTeacher.Click += new System.EventHandler(this.pictureBoxSomerenTeacher_Click);
+            // 
+            // labelTitleTeachers
+            // 
+            this.labelTitleTeachers.AutoSize = true;
+            this.labelTitleTeachers.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitleTeachers.ForeColor = System.Drawing.Color.Snow;
+            this.labelTitleTeachers.Location = new System.Drawing.Point(13, 12);
+            this.labelTitleTeachers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTitleTeachers.Name = "labelTitleTeachers";
+            this.labelTitleTeachers.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.labelTitleTeachers.Size = new System.Drawing.Size(154, 38);
+            this.labelTitleTeachers.TabIndex = 3;
+            this.labelTitleTeachers.Text = "Teachers";
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(841, 52);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 6;
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -466,9 +474,9 @@
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1283, 622);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlRevenueReportPanel);
             this.Controls.Add(this.pnlRoomPanel);
-            this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlStudents);
             this.Controls.Add(this.pnlTeacherPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -544,6 +552,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.PictureBox pictureBoxSomerenTeacher;
         private System.Windows.Forms.Label labelTitleTeachers;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }
 
