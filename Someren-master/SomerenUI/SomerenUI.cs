@@ -345,16 +345,16 @@ namespace SomerenUI
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            listViewDrink.LabelEdit = true;
+
             DrinkService drinkService = new DrinkService();
             int stock = int.Parse(textBoxStock.Text);
             int salesValue = int.Parse(textBoxSalesValue.Text);
             int numberOfDrinkSold = int.Parse(textBoxNumberOfDrinksSold.Text);
             string drinkName = textBoxDrinkName.Text;
             bool isAlcoholic = bool.Parse(textBoxAlcholicDrink.Text);
+            
             try
-            {
-                
+            {                  
                 listViewDrink.SelectedItems[0].SubItems[0].Text = drinkName;
                 listViewDrink.SelectedItems[0].SubItems[1].Text = stock.ToString();
                 listViewDrink.SelectedItems[0].SubItems[2].Text = salesValue.ToString();
@@ -373,16 +373,9 @@ namespace SomerenUI
             catch (Exception)
             {
                 throw new Exception("Updating row failed. ");
-            }
+            }       
 
-            /*  int stock = int.Parse(textBoxStock.Text);
-              int salesValue = int.Parse(textBoxSalesValue.Text);
-              int numberOfDrinkSold = int.Parse(textBoxNumberOfDrinksSold.Text);
-              string drinkName = textBoxDrinkName.Text;
-              bool isAlcoholic = bool.Parse(textBoxAlcholicDrink.Text);
-              drinkService.UpdateRowTable(stock, salesValue, numberOfDrinkSold, drinkName, isAlcoholic);            
-
-              listViewDrink.SelectedItems[0].SubItems[0].Text = textBoxDrinkName.Text;
+              /*listViewDrink.SelectedItems[0].SubItems[0].Text = textBoxDrinkName.Text;
               listViewDrink.SelectedItems[0].SubItems[1].Text = textBoxStock.Text;
               listViewDrink.SelectedItems[0].SubItems[2].Text = textBoxSalesValue.Text;
               listViewDrink.SelectedItems[0].SubItems[3].Text = textBoxNumberOfDrinksSold.Text;
