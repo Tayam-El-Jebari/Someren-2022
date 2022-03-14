@@ -282,6 +282,10 @@ namespace SomerenUI
             {
                 listViewRevenueReport.Clear();
                 RevenueReportService revenueReportService = new RevenueReportService();
+                if (dateTimePickerStart.Value < DateTime.Parse("01-01-2019") || dateTimePickerEnd.Value > DateTime.Now)
+                {
+                    throw new Exception("invalid range. Please select a date between 01-01-2019 and today!");
+                }
                 if (dateTimePickerEnd.Value < dateTimePickerStart.Value )
                 {
                     throw new Exception("Start date cannot be higher than the end date!");
@@ -305,6 +309,11 @@ namespace SomerenUI
                 listViewRevenueReport.Items.Add(li);
                 ColorListView(listViewRevenueReport);
 
+            }
+
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("No results found, so the list has not been filled!");
             }
             catch (Exception ex)
             {

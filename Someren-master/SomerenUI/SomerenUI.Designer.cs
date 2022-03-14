@@ -194,7 +194,7 @@
             this.pnlRevenueReportPanel.Location = new System.Drawing.Point(2, 25);
             this.pnlRevenueReportPanel.Margin = new System.Windows.Forms.Padding(4);
             this.pnlRevenueReportPanel.Name = "pnlRevenueReportPanel";
-            this.pnlRevenueReportPanel.Size = new System.Drawing.Size(1251, 617);
+            this.pnlRevenueReportPanel.Size = new System.Drawing.Size(1349, 617);
             this.pnlRevenueReportPanel.TabIndex = 9;
             // 
             // label1
@@ -211,16 +211,16 @@
             // 
             // dateTimePickerEnd
             // 
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(897, 189);
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(922, 189);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(228, 22);
             this.dateTimePickerEnd.TabIndex = 7;
             // 
             // dateTimePickerStart
             // 
             this.dateTimePickerStart.Location = new System.Drawing.Point(673, 189);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerStart.Size = new System.Drawing.Size(228, 22);
             this.dateTimePickerStart.TabIndex = 6;
             this.dateTimePickerStart.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -520,7 +520,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(893, 166);
+            this.label4.Location = new System.Drawing.Point(918, 166);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 20);
             this.label4.TabIndex = 11;
@@ -532,10 +532,10 @@
             this.buttonGenerate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGenerate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
-            this.buttonGenerate.Location = new System.Drawing.Point(741, 238);
+            this.buttonGenerate.Location = new System.Drawing.Point(781, 219);
             this.buttonGenerate.Name = "buttonGenerate";
             this.buttonGenerate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.buttonGenerate.Size = new System.Drawing.Size(238, 43);
+            this.buttonGenerate.Size = new System.Drawing.Size(369, 62);
             this.buttonGenerate.TabIndex = 12;
             this.buttonGenerate.Text = "Generate report";
             this.buttonGenerate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
