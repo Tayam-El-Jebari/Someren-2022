@@ -127,20 +127,21 @@ namespace SomerenUI
                 try
                 {
                     listViewRevenueReport.View = View.Details;
-                    listViewRevenueReport.Columns.Add("Productid", 80);
-                    listViewRevenueReport.Columns.Add("drink name", 120);
-                    listViewRevenueReport.Columns.Add("sales", 80);
+                    listViewRevenueReport.Columns.Add("total sales", 120);
                     listViewRevenueReport.Columns.Add("turnover", 120);
-                    listViewRevenueReport.Columns.Add("number of customers", 150);
+                    listViewRevenueReport.Columns.Add("number of unique customers", 170);
+                    int total = 0;
+                    int turnover = 0;
+
                     foreach (RevenueReport revenueReportProduct in revenueList)
                     {
-                        ListViewItem li = new ListViewItem(revenueReportProduct.productId.ToString());
-                        li.SubItems.Add(revenueReportProduct.drinkName);
-                        li.SubItems.Add(revenueReportProduct.sales.ToString());
-                        li.SubItems.Add(revenueReportProduct.turnover.ToString());
-                        li.SubItems.Add(revenueReportProduct.numberOfCustomers.ToString());
-                        listViewRevenueReport.Items.Add(li);
+                        total += revenueReportProduct.sales;
+                        turnover += (revenueReportProduct.sales * revenueReportProduct.price);
                     }
+                    ListViewItem li = new ListViewItem(total.ToString());
+                    li.SubItems.Add(turnover.ToString());
+                    li.SubItems.Add(revenueList[0].numberOfCustomers.ToString());
+                    listViewRevenueReport.Items.Add(li);
                     ColorListView(listViewRevenueReport);
                     //                    Sales(total number of drinks sold), Turnover(total[sales * sales price of those drinks]), Number of customers
                     //                    (students who purchased at least one drink).The report is refreshed for the period selected by the user

@@ -16,7 +16,7 @@ namespace SomerenDAL
             try
             {
                 // change attributes from Room, give them the right name. 
-                string query = "SELECT D.productId, drinkName, numberOfDrinkSold, salesValue, count(S.studentId) AS customersCount FROM " +
+                string query = "SELECT D.productId, drinkName, numberOfDrinkSold, salesValue, count( DISTINCT S.studentId) AS customersCount FROM " +
                     "Drink AS D JOIN [Order] as O ON d.[productId] = O.productId JOIN Student as S ON S.[studentId] = O.studentId GROUP BY " +
                     "D.productId, drinkName, numberOfDrinkSold, salesvalue, S.studentid";
                 SqlParameter[] sqlParameters = new SqlParameter[0];
