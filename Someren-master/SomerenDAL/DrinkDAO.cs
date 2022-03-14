@@ -30,7 +30,12 @@ namespace SomerenDAL
         // Add Row
         public void AddRow(int stock, int salesValue, int numberOfSales, string drinkName, bool isAlcoholic)
         {
-            string querry = $"INSERT INTO Drink(stock, salesValue, numberOfDrinkSold, drinkName, alcoholic)VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}', {isAlcoholic.ToString()})";
+            string querry = string.Empty;
+            if (isAlcoholic)
+            querry = $"INSERT INTO Drink(stock, salesValue, numberOfDrinkSold, drinkName, alcoholic)VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}', 1)";
+            else
+            querry = $"INSERT INTO Drink(stock, salesValue, numberOfDrinkSold, drinkName, alcoholic)VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}', 0)";
+
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(querry, sqlParameters);
         }
