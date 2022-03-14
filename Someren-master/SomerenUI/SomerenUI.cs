@@ -120,12 +120,32 @@ namespace SomerenUI
             else if (panelName == "Revenue report")
             {
                 ShowCorrectPannel(pnlRevenueReportPanel);
+                listViewRevenueReport.Clear();
+
+                RevenueReportService revenueReportService = new RevenueReportService();
+                List<RevenueReport> revenueList = revenueReportService.GetRevenueReports();
                 try
                 {
-//                    Sales(total number of drinks sold), Turnover(total[sales * sales price of those drinks]), Number of customers
-//                    (students who purchased at least one drink).The report is refreshed for the period selected by the user
-//                    by way of a calendar interface with a start and end date.The application gives the user feedback if they have chosen
-//                    an invalid date and/or period.The dates used are displayed in order of size (dd-mm-yyyy).
+                    listViewRevenueReport.View = View.Details;
+                    listViewRevenueReport.Columns.Add("Productid", 80);
+                    listViewRevenueReport.Columns.Add("drink name", 120);
+                    listViewRevenueReport.Columns.Add("sales", 80);
+                    listViewRevenueReport.Columns.Add("turnover", 120);
+                    listViewRevenueReport.Columns.Add("number of customers", 150);
+                    foreach (RevenueReport revenueReportProduct in revenueList)
+                    {
+                        ListViewItem li = new ListViewItem(revenueReportProduct.productId.ToString());
+                        li.SubItems.Add(revenueReportProduct.drinkName);
+                        li.SubItems.Add(revenueReportProduct.sales.ToString());
+                        li.SubItems.Add(revenueReportProduct.turnover.ToString());
+                        li.SubItems.Add(revenueReportProduct.numberOfCustomers.ToString());
+                        listViewRevenueReport.Items.Add(li);
+                    }
+                    ColorListView(listViewRevenueReport);
+                    //                    Sales(total number of drinks sold), Turnover(total[sales * sales price of those drinks]), Number of customers
+                    //                    (students who purchased at least one drink).The report is refreshed for the period selected by the user
+                    //                    by way of a calendar interface with a start and end date.The application gives the user feedback if they have chosen
+                    //                    an invalid date and/or period.The dates used are displayed in order of size (dd-mm-yyyy).
 
                 }
                 catch (Exception e)
