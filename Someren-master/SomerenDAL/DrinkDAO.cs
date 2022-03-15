@@ -59,7 +59,7 @@ namespace SomerenDAL
 
         public List<Drink> ShowSortedList() 
         {
-            string query = "SELECT [productID], [drinkName], [stock], [salesValue], [numberOfDrinkSold], [alcoholic] FROM Drink WHERE[salesValue] > 1 ORDER BY[stock] DESC, [salesValue] DESC, [numberOfDrinkSold] DESC";
+            string query = "SELECT [productID], [drinkName], [stock], [salesValue], [numberOfDrinkSold], [alcoholic] FROM Drink WHERE[salesValue] > 1 AND [drinkName] != 'Water' AND [drinkName] != 'Orangeade' AND [drinkName] != 'Cherry juice' ORDER BY[stock] DESC, [salesValue] DESC, [numberOfDrinkSold] DESC";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
 
