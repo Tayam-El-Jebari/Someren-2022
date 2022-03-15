@@ -405,8 +405,15 @@ namespace SomerenUI
             List<Drink> drinkList = drinkService.ShowSortedList();
             // LISTVIEW.CLEAR DOET HET NIET.
             // clear the listview before filling it again
-            /*listViewDrink.Clear();*/
+            listViewDrink.Clear();
             listViewDrink.View = View.Details;
+            listViewDrink.FullRowSelect = true;
+            listViewDrink.LabelEdit = true;
+            listViewDrink.Columns.Add("Drink name", 80);
+            listViewDrink.Columns.Add("Stock", 70);
+            listViewDrink.Columns.Add("Sales Value", 80);
+            listViewDrink.Columns.Add("Number of drinks sold", 120);
+            listViewDrink.Columns.Add("Drink is alcoholic", 80);
 
             foreach (Drink drink in drinkList)
             {
