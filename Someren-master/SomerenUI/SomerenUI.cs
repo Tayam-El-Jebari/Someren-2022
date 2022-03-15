@@ -282,35 +282,29 @@ namespace SomerenUI
             {
                 listViewRevenueReport.Clear();
                 RevenueReportService revenueReportService = new RevenueReportService();
-                if (dateTimePickerStart.Value < DateTime.Parse("01-01-2019") || dateTimePickerEnd.Value > DateTime.Now)
+                if (dateTimePickerStart.Value > DateTime.Parse("01-01-2019") || dateTimePickerEnd.Value <= DateTime.Now)
                 {
-                    throw new Exception("invalid range. Please select a date between 01-01-2019 and today!");
+                    RevenueReport revenueReport = revenueReportService.GetRevenueReport(dateTimePickerStart.Value, dateTimePickerEnd.Value);
+                    listViewRevenueReport.View = View.Details;
+                    listViewRevenueReport.Columns.Add("total sales", 120);
+                    listViewRevenueReport.Columns.Add("turnover", 120);
+                    listViewRevenueReport.Columns.Add("number of unique customers", 200);
+
+                    ListViewItem li = new ListViewItem(revenueReport.sales.ToString());
+                    li.SubItems.Add(revenueReport.turnover.ToString());
+                    li.SubItems.Add(revenueReport.numberOfCustomers.ToString());
+                    listViewRevenueReport.Items.Add(li);
+                    ColorListView(listViewRevenueReport);
                 }
-                if (dateTimePickerEnd.Value < dateTimePickerStart.Value )
+                else if (dateTimePickerStart.Value > dateTimePickerEnd.Value )
                 {
                     throw new Exception("Start date cannot be higher than the end date!");
                 }
-                List<RevenueReport> revenueList = revenueReportService.GetRevenueReports(dateTimePickerEnd.Value, dateTimePickerEnd.Value);
-                listViewRevenueReport.View = View.Details;
-                listViewRevenueReport.Columns.Add("total sales", 120);
-                listViewRevenueReport.Columns.Add("turnover", 120);
-                listViewRevenueReport.Columns.Add("number of unique customers", 200);
-                int total = 0;
-                int turnover = 0;
-
-                foreach (RevenueReport revenueReportProduct in revenueList)
+                else
                 {
-                    total += revenueReportProduct.sales;
-                    turnover += (revenueReportProduct.sales * revenueReportProduct.price);
+                    throw new Exception($"invalid date range. Please select a date between 01-01-2019 and {DateTime.Now.ToString("dd-MM-yyyy")}!");
                 }
-                ListViewItem li = new ListViewItem(total.ToString());
-                li.SubItems.Add(turnover.ToString());
-                li.SubItems.Add(revenueList[0].numberOfCustomers.ToString());
-                listViewRevenueReport.Items.Add(li);
-                ColorListView(listViewRevenueReport);
-
             }
-
             catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("No results found, so the list has not been filled!");

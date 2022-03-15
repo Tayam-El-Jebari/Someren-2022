@@ -11,44 +11,39 @@ namespace SomerenDAL
 {
     public class RevenueReportDAO : BaseDao
     {
-        public List<RevenueReport>GetReport(DateTime startDate, DateTime endDate)
+        public RevenueReport GetReport(DateTime startDate, DateTime endDate)
         {
             try
             {
-                // change attributes from Room, give them the right name. 
                 string query = $"SELECT D.productId, drinkName, numberOfDrinkSold, salesValue, count(DISTINCT S.studentId) AS customersCount FROM Drink AS D JOIN[Order] " +
                     $"as O ON d.[productId] = O.productId JOIN Student as S ON S.[studentId] = O.studentId WHERE O.dateOfPurchase between '{startDate.ToString("yyyy-MM-dd")}' " +
                     $"and '{endDate.ToString("yyyy-MM-dd")}' GROUP BY D.productId, drinkName, numberOfDrinkSold, salesvalue, S.studentid";
                 SqlParameter[] sqlParameters = new SqlParameter[0];
-                return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+                return ReadTables(ExecuteSelectQuery(query, sqlParameters), startDate, endDate);
             }
             catch (Exception e)
             {
-                // within this exception show te user that something went wrong. 
-                throw new Exception("Reports could not be loaded properly. Please try again" + e.Message);
+                throw new Exception("Reports could not be loaded properly. Error : \n" + e.Message);
             }
-
         }
 
-        private List<RevenueReport> ReadTables(DataTable dataTable)
+        private RevenueReport ReadTables(DataTable dataTable, DateTime startDate, DateTime endDate)
         {
             try
             {
-                List<RevenueReport> revenues = new List<RevenueReport>();
-
-                foreach (DataRow dr in dataTable.Rows)
-                {
-                    RevenueReport revenueProduct = new RevenueReport()
+                    RevenueReport revenueReport = new RevenueReport()
                     {
-                        productId = (int)dr["productId"],
-                        drinkName = (string)dr["drinkName"],
-                        sales = (int)dr["numberOfDrinkSold"],
-                        price = (int)dr["salesValue"],
-                        numberOfCustomers = (int)dr["customersCount"],
+                        productId = (int)dataTable.Rows[0]["productId"],
+                        drinkName = (string)dataTable.Rows[0]["drinkName"],
+                        sales = (int)dataTable.Rows[0]["numberOfDrinkSold"],
+                        price = (int)dataTable.Rows[0]["salesValue"],
+                        numberOfCustomers = (int)dataTable.Rows[0]["customersCount"],
                     };
-                    revenues.Add(revenueProduct);
-                }
-                return revenues;
+                    return revenueReport;
+            }
+            catch(IndexOutOfRangeException)
+            {
+                throw new Exception($"No sales found in database in the date range {startDate.ToString("yyyy-MM-dd")} to {endDate.ToString("yyyy-MM-dd")}");
             }
             catch (Exception e)
             {
