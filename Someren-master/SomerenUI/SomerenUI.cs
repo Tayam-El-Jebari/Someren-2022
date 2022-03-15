@@ -339,8 +339,7 @@ namespace SomerenUI
             catch (Exception)
             {
                 throw new Exception("All fields are required");
-            }
-                       
+            }                       
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
@@ -386,7 +385,6 @@ namespace SomerenUI
             DrinkService drinkService = new DrinkService();
             string drinkNameEntered = listViewDrink.SelectedItems[0].Text;
             List<Drink> drinkList = drinkService.GetDrinks();
-
             try
             {
                 // pop up message voor de gebruiker
@@ -400,6 +398,29 @@ namespace SomerenUI
                 throw new Exception("Name is not the same as in the database");
             }
             
+        }
+
+        private void buttonShowSortedList_Click(object sender, EventArgs e)
+        {
+            DrinkService drinkService = new DrinkService();
+            List<Drink> drinkList = drinkService.ShowSortedList();
+            // clear the listview before filling it again
+            listViewDrink.Clear();
+            listViewDrink.View = View.Details;
+
+            foreach (Drink drink in drinkList)
+            {
+                ListViewItem li = new ListViewItem(drink.DrinkName);
+                li.Tag = drink;
+                li.SubItems.Add(drink.StockAmount.ToString());
+                li.SubItems.Add(drink.SalesValue.ToString());
+                li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
+                li.SubItems.Add(drink.IsAlcoholic.ToString());
+                listViewDrink.Items.Add(li);
+            }
+            ColorListView(listViewDrink);
+
+
         }
     }
 }

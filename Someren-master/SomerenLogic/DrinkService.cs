@@ -34,5 +34,10 @@ namespace SomerenLogic
         {
             drinksdb.DeleteRow(drinkName);
         }
+        public List<Drink> ShowSortedList()
+        {
+            List<Drink>drinks = drinksdb.ShowSortedList();
+            return drinks;
+        }
     }
 }

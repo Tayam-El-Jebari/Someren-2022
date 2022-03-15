@@ -85,6 +85,7 @@
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelDrink = new System.Windows.Forms.Label();
+            this.buttonShowSortedList = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
@@ -111,7 +112,7 @@
             this.drinksToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1283, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1283, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -406,6 +407,7 @@
             // pnlDrinksPanel
             // 
             this.pnlDrinksPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.pnlDrinksPanel.Controls.Add(this.buttonShowSortedList);
             this.pnlDrinksPanel.Controls.Add(this.label7);
             this.pnlDrinksPanel.Controls.Add(this.textBoxAlcholicDrink);
             this.pnlDrinksPanel.Controls.Add(this.label6);
@@ -615,6 +617,16 @@
             this.labelDrink.TabIndex = 3;
             this.labelDrink.Text = "Drinks";
             // 
+            // buttonShowSortedList
+            // 
+            this.buttonShowSortedList.Location = new System.Drawing.Point(814, 363);
+            this.buttonShowSortedList.Name = "buttonShowSortedList";
+            this.buttonShowSortedList.Size = new System.Drawing.Size(131, 33);
+            this.buttonShowSortedList.TabIndex = 20;
+            this.buttonShowSortedList.Text = "Show Sorted List";
+            this.buttonShowSortedList.UseVisualStyleBackColor = true;
+            this.buttonShowSortedList.Click += new System.EventHandler(this.buttonShowSortedList_Click);
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -715,6 +727,7 @@
         private System.Windows.Forms.TextBox textBoxAlcholicDrink;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button buttonShowSortedList;
     }
 }
 
