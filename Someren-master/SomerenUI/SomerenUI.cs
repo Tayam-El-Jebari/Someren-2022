@@ -187,7 +187,6 @@ namespace SomerenUI
                         foreach (Drink drink in drinkList)
                         {
                             ListViewItem li = new ListViewItem(drink.DrinkName);
-                            li.Tag = drink;
                             li.SubItems.Add(drink.StockAmount.ToString());
                             li.SubItems.Add(drink.SalesValue.ToString());
                             li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
@@ -404,14 +403,14 @@ namespace SomerenUI
         {
             DrinkService drinkService = new DrinkService();
             List<Drink> drinkList = drinkService.ShowSortedList();
+            // LISTVIEW.CLEAR DOET HET NIET.
             // clear the listview before filling it again
-            listViewDrink.Clear();
+            /*listViewDrink.Clear();*/
             listViewDrink.View = View.Details;
 
             foreach (Drink drink in drinkList)
             {
                 ListViewItem li = new ListViewItem(drink.DrinkName);
-                li.Tag = drink;
                 li.SubItems.Add(drink.StockAmount.ToString());
                 li.SubItems.Add(drink.SalesValue.ToString());
                 li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
@@ -419,8 +418,6 @@ namespace SomerenUI
                 listViewDrink.Items.Add(li);
             }
             ColorListView(listViewDrink);
-
-
         }
     }
 }
