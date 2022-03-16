@@ -44,7 +44,7 @@
             this.buttonGenerate = new System.Windows.Forms.Button();
             this.labelEnd = new System.Windows.Forms.Label();
             this.labelStart = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelLine = new System.Windows.Forms.Label();
             this.labelInstruction = new System.Windows.Forms.Label();
             this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
@@ -185,7 +185,7 @@
             this.pnlRevenueReportPanel.Controls.Add(this.buttonGenerate);
             this.pnlRevenueReportPanel.Controls.Add(this.labelEnd);
             this.pnlRevenueReportPanel.Controls.Add(this.labelStart);
-            this.pnlRevenueReportPanel.Controls.Add(this.label2);
+            this.pnlRevenueReportPanel.Controls.Add(this.labelLine);
             this.pnlRevenueReportPanel.Controls.Add(this.labelInstruction);
             this.pnlRevenueReportPanel.Controls.Add(this.dateTimePickerEnd);
             this.pnlRevenueReportPanel.Controls.Add(this.dateTimePickerStart);
@@ -235,16 +235,16 @@
             this.labelStart.TabIndex = 10;
             this.labelStart.Text = "Start date";
             // 
-            // label2
+            // labelLine
             // 
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(11, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1156, 2);
-            this.label2.TabIndex = 9;
+            this.labelLine.BackColor = System.Drawing.Color.White;
+            this.labelLine.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.labelLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLine.ForeColor = System.Drawing.Color.White;
+            this.labelLine.Location = new System.Drawing.Point(11, 53);
+            this.labelLine.Name = "labelLine";
+            this.labelLine.Size = new System.Drawing.Size(1156, 2);
+            this.labelLine.TabIndex = 9;
             // 
             // labelInstruction
             // 
@@ -549,11 +549,11 @@
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1283, 622);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.pnlRevenueReportPanel);
-            this.Controls.Add(this.pnlDashboard);
-            this.Controls.Add(this.pnlRoomPanel);
-            this.Controls.Add(this.pnlStudents);
             this.Controls.Add(this.pnlTeacherPanel);
+            this.Controls.Add(this.pnlStudents);
+            this.Controls.Add(this.pnlDashboard);
+            this.Controls.Add(this.pnlRevenueReportPanel);
+            this.Controls.Add(this.pnlRoomPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -629,7 +629,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerEnd;
         private System.Windows.Forms.DateTimePicker dateTimePickerStart;
         private System.Windows.Forms.Label labelStart;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelLine;
         private System.Windows.Forms.Button buttonGenerate;
         private System.Windows.Forms.Label labelEnd;
     }
