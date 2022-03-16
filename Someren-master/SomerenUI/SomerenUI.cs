@@ -311,7 +311,7 @@ namespace SomerenUI
             showPanel("Drinks");
             ChangeToolStripMenu(drinksToolStripMenuItem);
             labelRoomTitle.Hide();
-            labelDrink.Show();
+            labelDrinkTitle.Show();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)

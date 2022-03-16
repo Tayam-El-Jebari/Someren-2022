@@ -64,9 +64,10 @@
             this.pnlRoomPanel = new System.Windows.Forms.Panel();
             this.pictureBoxSomerenRoom = new System.Windows.Forms.PictureBox();
             this.pnlDrinksPanel = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.buttonShowSortedList = new System.Windows.Forms.Button();
+            this.drinkLabel7 = new System.Windows.Forms.Label();
             this.textBoxAlcholicDrink = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.drinkLabel6 = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
@@ -74,18 +75,17 @@
             this.textBoxSalesValue = new System.Windows.Forms.TextBox();
             this.textBoxNumberOfDrinksSold = new System.Windows.Forms.TextBox();
             this.textBoxDrinkName = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.drinkLabel5 = new System.Windows.Forms.Label();
+            this.drinkLabel2 = new System.Windows.Forms.Label();
+            this.drinkLabel4 = new System.Windows.Forms.Label();
+            this.drinkLabel3 = new System.Windows.Forms.Label();
+            this.drinkLabel1 = new System.Windows.Forms.Label();
             this.listViewDrink = new System.Windows.Forms.ListView();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelDrink = new System.Windows.Forms.Label();
-            this.buttonShowSortedList = new System.Windows.Forms.Button();
+            this.drinkPictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelDrinkTitle = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
@@ -96,7 +96,7 @@
             this.pnlRoomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSomerenRoom)).BeginInit();
             this.pnlDrinksPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drinkPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -408,9 +408,9 @@
             // 
             this.pnlDrinksPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
             this.pnlDrinksPanel.Controls.Add(this.buttonShowSortedList);
-            this.pnlDrinksPanel.Controls.Add(this.label7);
+            this.pnlDrinksPanel.Controls.Add(this.drinkLabel7);
             this.pnlDrinksPanel.Controls.Add(this.textBoxAlcholicDrink);
-            this.pnlDrinksPanel.Controls.Add(this.label6);
+            this.pnlDrinksPanel.Controls.Add(this.drinkLabel6);
             this.pnlDrinksPanel.Controls.Add(this.buttonDelete);
             this.pnlDrinksPanel.Controls.Add(this.buttonUpdate);
             this.pnlDrinksPanel.Controls.Add(this.buttonAdd);
@@ -418,29 +418,39 @@
             this.pnlDrinksPanel.Controls.Add(this.textBoxSalesValue);
             this.pnlDrinksPanel.Controls.Add(this.textBoxNumberOfDrinksSold);
             this.pnlDrinksPanel.Controls.Add(this.textBoxDrinkName);
-            this.pnlDrinksPanel.Controls.Add(this.label5);
-            this.pnlDrinksPanel.Controls.Add(this.label4);
-            this.pnlDrinksPanel.Controls.Add(this.label3);
-            this.pnlDrinksPanel.Controls.Add(this.label2);
-            this.pnlDrinksPanel.Controls.Add(this.label1);
+            this.pnlDrinksPanel.Controls.Add(this.drinkLabel5);
+            this.pnlDrinksPanel.Controls.Add(this.drinkLabel2);
+            this.pnlDrinksPanel.Controls.Add(this.drinkLabel4);
+            this.pnlDrinksPanel.Controls.Add(this.drinkLabel3);
+            this.pnlDrinksPanel.Controls.Add(this.drinkLabel1);
             this.pnlDrinksPanel.Controls.Add(this.listViewDrink);
-            this.pnlDrinksPanel.Controls.Add(this.pictureBox1);
-            this.pnlDrinksPanel.Controls.Add(this.labelDrink);
+            this.pnlDrinksPanel.Controls.Add(this.drinkPictureBox1);
+            this.pnlDrinksPanel.Controls.Add(this.labelDrinkTitle);
             this.pnlDrinksPanel.Location = new System.Drawing.Point(0, 28);
             this.pnlDrinksPanel.Margin = new System.Windows.Forms.Padding(4);
             this.pnlDrinksPanel.Name = "pnlDrinksPanel";
-            this.pnlDrinksPanel.Size = new System.Drawing.Size(1251, 574);
+            this.pnlDrinksPanel.Size = new System.Drawing.Size(1334, 611);
             this.pnlDrinksPanel.TabIndex = 8;
             // 
-            // label7
+            // buttonShowSortedList
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(635, 412);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(432, 17);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "Please select the row you want to delete before pressing the button";
+            this.buttonShowSortedList.Location = new System.Drawing.Point(814, 363);
+            this.buttonShowSortedList.Name = "buttonShowSortedList";
+            this.buttonShowSortedList.Size = new System.Drawing.Size(131, 33);
+            this.buttonShowSortedList.TabIndex = 20;
+            this.buttonShowSortedList.Text = "Show Sorted List";
+            this.buttonShowSortedList.UseVisualStyleBackColor = true;
+            this.buttonShowSortedList.Click += new System.EventHandler(this.buttonShowSortedList_Click);
+            // 
+            // drinkLabel7
+            // 
+            this.drinkLabel7.AutoSize = true;
+            this.drinkLabel7.BackColor = System.Drawing.Color.White;
+            this.drinkLabel7.Location = new System.Drawing.Point(633, 412);
+            this.drinkLabel7.Name = "drinkLabel7";
+            this.drinkLabel7.Size = new System.Drawing.Size(432, 17);
+            this.drinkLabel7.TabIndex = 19;
+            this.drinkLabel7.Text = "Please select the row you want to delete before pressing the button";
             // 
             // textBoxAlcholicDrink
             // 
@@ -449,15 +459,15 @@
             this.textBoxAlcholicDrink.Size = new System.Drawing.Size(100, 22);
             this.textBoxAlcholicDrink.TabIndex = 15;
             // 
-            // label6
+            // drinkLabel6
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(677, 234);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(136, 17);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Is the drink alcoholic";
+            this.drinkLabel6.AutoSize = true;
+            this.drinkLabel6.BackColor = System.Drawing.Color.White;
+            this.drinkLabel6.Location = new System.Drawing.Point(677, 234);
+            this.drinkLabel6.Name = "drinkLabel6";
+            this.drinkLabel6.Size = new System.Drawing.Size(136, 17);
+            this.drinkLabel6.TabIndex = 18;
+            this.drinkLabel6.Text = "Is the drink alcoholic";
             // 
             // buttonDelete
             // 
@@ -517,55 +527,55 @@
             this.textBoxDrinkName.Size = new System.Drawing.Size(100, 22);
             this.textBoxDrinkName.TabIndex = 11;
             // 
-            // label5
+            // drinkLabel5
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(677, 208);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(150, 17);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Number of drinks sold:";
+            this.drinkLabel5.AutoSize = true;
+            this.drinkLabel5.BackColor = System.Drawing.Color.White;
+            this.drinkLabel5.Location = new System.Drawing.Point(677, 208);
+            this.drinkLabel5.Name = "drinkLabel5";
+            this.drinkLabel5.Size = new System.Drawing.Size(150, 17);
+            this.drinkLabel5.TabIndex = 10;
+            this.drinkLabel5.Text = "Number of drinks sold:";
             // 
-            // label4
+            // drinkLabel2
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(677, 117);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 17);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Drink name:";
+            this.drinkLabel2.AutoSize = true;
+            this.drinkLabel2.BackColor = System.Drawing.Color.White;
+            this.drinkLabel2.Location = new System.Drawing.Point(677, 117);
+            this.drinkLabel2.Name = "drinkLabel2";
+            this.drinkLabel2.Size = new System.Drawing.Size(84, 17);
+            this.drinkLabel2.TabIndex = 9;
+            this.drinkLabel2.Text = "Drink name:";
             // 
-            // label3
+            // drinkLabel4
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(677, 178);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 17);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Sales value:";
+            this.drinkLabel4.AutoSize = true;
+            this.drinkLabel4.BackColor = System.Drawing.Color.White;
+            this.drinkLabel4.Location = new System.Drawing.Point(677, 178);
+            this.drinkLabel4.Name = "drinkLabel4";
+            this.drinkLabel4.Size = new System.Drawing.Size(85, 17);
+            this.drinkLabel4.TabIndex = 8;
+            this.drinkLabel4.Text = "Sales value:";
             // 
-            // label2
+            // drinkLabel3
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(677, 149);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 17);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Stock:";
+            this.drinkLabel3.AutoSize = true;
+            this.drinkLabel3.BackColor = System.Drawing.Color.White;
+            this.drinkLabel3.Location = new System.Drawing.Point(677, 149);
+            this.drinkLabel3.Name = "drinkLabel3";
+            this.drinkLabel3.Size = new System.Drawing.Size(47, 17);
+            this.drinkLabel3.TabIndex = 7;
+            this.drinkLabel3.Text = "Stock:";
             // 
-            // label1
+            // drinkLabel1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(674, 77);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(226, 17);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Change the listview on the left side";
+            this.drinkLabel1.AutoSize = true;
+            this.drinkLabel1.BackColor = System.Drawing.Color.White;
+            this.drinkLabel1.Location = new System.Drawing.Point(674, 77);
+            this.drinkLabel1.Name = "drinkLabel1";
+            this.drinkLabel1.Size = new System.Drawing.Size(226, 17);
+            this.drinkLabel1.TabIndex = 6;
+            this.drinkLabel1.Text = "Change the listview on the left side";
             // 
             // listViewDrink
             // 
@@ -593,39 +603,29 @@
             // 
             this.columnHeader9.Text = "Date of Birth";
             // 
-            // pictureBox1
+            // drinkPictureBox1
             // 
-            this.pictureBox1.Image = global::SomerenUI.Properties.Resources.someren;
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(1073, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(173, 151);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.drinkPictureBox1.Image = global::SomerenUI.Properties.Resources.someren;
+            this.drinkPictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("drinkPictureBox1.InitialImage")));
+            this.drinkPictureBox1.Location = new System.Drawing.Point(1073, 0);
+            this.drinkPictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.drinkPictureBox1.Name = "drinkPictureBox1";
+            this.drinkPictureBox1.Size = new System.Drawing.Size(173, 151);
+            this.drinkPictureBox1.TabIndex = 0;
+            this.drinkPictureBox1.TabStop = false;
             // 
-            // labelDrink
+            // labelDrinkTitle
             // 
-            this.labelDrink.AutoSize = true;
-            this.labelDrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDrink.ForeColor = System.Drawing.Color.Snow;
-            this.labelDrink.Location = new System.Drawing.Point(13, 12);
-            this.labelDrink.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelDrink.Name = "labelDrink";
-            this.labelDrink.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.labelDrink.Size = new System.Drawing.Size(111, 38);
-            this.labelDrink.TabIndex = 3;
-            this.labelDrink.Text = "Drinks";
-            // 
-            // buttonShowSortedList
-            // 
-            this.buttonShowSortedList.Location = new System.Drawing.Point(814, 363);
-            this.buttonShowSortedList.Name = "buttonShowSortedList";
-            this.buttonShowSortedList.Size = new System.Drawing.Size(131, 33);
-            this.buttonShowSortedList.TabIndex = 20;
-            this.buttonShowSortedList.Text = "Show Sorted List";
-            this.buttonShowSortedList.UseVisualStyleBackColor = true;
-            this.buttonShowSortedList.Click += new System.EventHandler(this.buttonShowSortedList_Click);
+            this.labelDrinkTitle.AutoSize = true;
+            this.labelDrinkTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDrinkTitle.ForeColor = System.Drawing.Color.Snow;
+            this.labelDrinkTitle.Location = new System.Drawing.Point(13, 12);
+            this.labelDrinkTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDrinkTitle.Name = "labelDrinkTitle";
+            this.labelDrinkTitle.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.labelDrinkTitle.Size = new System.Drawing.Size(111, 38);
+            this.labelDrinkTitle.TabIndex = 3;
+            this.labelDrinkTitle.Text = "Drinks";
             // 
             // SomerenUI
             // 
@@ -663,7 +663,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSomerenRoom)).EndInit();
             this.pnlDrinksPanel.ResumeLayout(false);
             this.pnlDrinksPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drinkPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -710,8 +710,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label labelDrink;
+        private System.Windows.Forms.PictureBox drinkPictureBox1;
+        private System.Windows.Forms.Label labelDrinkTitle;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonAdd;
@@ -719,14 +719,14 @@
         private System.Windows.Forms.TextBox textBoxSalesValue;
         private System.Windows.Forms.TextBox textBoxNumberOfDrinksSold;
         private System.Windows.Forms.TextBox textBoxDrinkName;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label drinkLabel5;
+        private System.Windows.Forms.Label drinkLabel2;
+        private System.Windows.Forms.Label drinkLabel4;
+        private System.Windows.Forms.Label drinkLabel3;
+        private System.Windows.Forms.Label drinkLabel1;
         private System.Windows.Forms.TextBox textBoxAlcholicDrink;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label drinkLabel6;
+        private System.Windows.Forms.Label drinkLabel7;
         private System.Windows.Forms.Button buttonShowSortedList;
     }
 }
