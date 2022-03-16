@@ -263,9 +263,16 @@ namespace SomerenUI
             {
                 tsmi.ForeColor = default(Color);
                 tsmi.BackColor = default(Color);
+                for(int i = 0; i < tsmi.DropDownItems.Count; i++)
+                {
+                    tsmi.DropDownItems[i].ForeColor = default(Color);
+                    tsmi.DropDownItems[i].BackColor = default(Color);
+                }
             }
             menuItem.ForeColor = Color.White;
             menuItem.BackColor = Color.Black;
+            if (menuItem.OwnerItem != null)
+                menuItem.OwnerItem.BackColor = Color.LightGray ;
         }
         private void dashboardToolStripMenuItem1_Click(object sender, EventArgs e)
         {

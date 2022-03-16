@@ -76,11 +76,11 @@
             this.checkOutbutton = new System.Windows.Forms.Button();
             this.studentsListView = new System.Windows.Forms.ListView();
             this.drinksListView = new System.Windows.Forms.ListView();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewCR = new System.Windows.Forms.ListView();
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label1 = new System.Windows.Forms.Label();
+            this.cashRegisterTitle = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlRevenueReportPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -108,7 +108,7 @@
             this.barServiceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1283, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1283, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -484,12 +484,12 @@
             this.pnlCashRegisterPanel.Controls.Add(this.checkOutbutton);
             this.pnlCashRegisterPanel.Controls.Add(this.studentsListView);
             this.pnlCashRegisterPanel.Controls.Add(this.drinksListView);
-            this.pnlCashRegisterPanel.Controls.Add(this.listView1);
-            this.pnlCashRegisterPanel.Controls.Add(this.label1);
-            this.pnlCashRegisterPanel.Location = new System.Drawing.Point(16, 24);
+            this.pnlCashRegisterPanel.Controls.Add(this.listViewCR);
+            this.pnlCashRegisterPanel.Controls.Add(this.cashRegisterTitle);
+            this.pnlCashRegisterPanel.Location = new System.Drawing.Point(-16, 24);
             this.pnlCashRegisterPanel.Margin = new System.Windows.Forms.Padding(4);
             this.pnlCashRegisterPanel.Name = "pnlCashRegisterPanel";
-            this.pnlCashRegisterPanel.Size = new System.Drawing.Size(1251, 574);
+            this.pnlCashRegisterPanel.Size = new System.Drawing.Size(1326, 618);
             this.pnlCashRegisterPanel.TabIndex = 10;
             // 
             // checkOutbutton
@@ -520,19 +520,19 @@
             this.drinksListView.TabIndex = 7;
             this.drinksListView.UseCompatibleStateImageBehavior = false;
             // 
-            // listView1
+            // listViewCR
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewCR.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader10,
             this.columnHeader11,
             this.columnHeader12});
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(21, 52);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1189, 377);
-            this.listView1.TabIndex = 5;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listViewCR.HideSelection = false;
+            this.listViewCR.Location = new System.Drawing.Point(21, 52);
+            this.listViewCR.Margin = new System.Windows.Forms.Padding(4);
+            this.listViewCR.Name = "listViewCR";
+            this.listViewCR.Size = new System.Drawing.Size(1247, 377);
+            this.listViewCR.TabIndex = 5;
+            this.listViewCR.UseCompatibleStateImageBehavior = false;
             // 
             // columnHeader10
             // 
@@ -546,17 +546,17 @@
             // 
             this.columnHeader12.Text = "Date of Birth";
             // 
-            // label1
+            // cashRegisterTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(13, 12);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(212, 38);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Cash register";
+            this.cashRegisterTitle.AutoSize = true;
+            this.cashRegisterTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cashRegisterTitle.ForeColor = System.Drawing.Color.Snow;
+            this.cashRegisterTitle.Location = new System.Drawing.Point(13, 12);
+            this.cashRegisterTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.cashRegisterTitle.Name = "cashRegisterTitle";
+            this.cashRegisterTitle.Size = new System.Drawing.Size(212, 38);
+            this.cashRegisterTitle.TabIndex = 3;
+            this.cashRegisterTitle.Text = "Cash register";
             // 
             // SomerenUI
             // 
@@ -564,10 +564,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1283, 622);
-            this.Controls.Add(this.pnlCashRegisterPanel);
-            this.Controls.Add(this.pnlDashboard);
-            this.Controls.Add(this.pnlTeacherPanel);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pnlCashRegisterPanel);
+            this.Controls.Add(this.pnlTeacherPanel);
+            this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlRevenueReportPanel);
             this.Controls.Add(this.pnlRoomPanel);
             this.Controls.Add(this.pnlStudents);
@@ -648,11 +648,11 @@
         private System.Windows.Forms.Label labelTitleTeachers;
         private System.Windows.Forms.ToolStripMenuItem CashregistertoolStripMenuItem;
         private System.Windows.Forms.Panel pnlCashRegisterPanel;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewCR;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.ColumnHeader columnHeader12;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label cashRegisterTitle;
         private System.Windows.Forms.ListView drinksListView;
         private System.Windows.Forms.ListView studentsListView;
         private System.Windows.Forms.Button checkOutbutton;
