@@ -214,6 +214,7 @@ namespace SomerenUI
         {
             foreach(Control c in Controls)
             {
+                // hide everything that is not the panel specified or the menustrip
                 if (c != panel && c != menuStrip1)
                 {
                     c.Hide();
