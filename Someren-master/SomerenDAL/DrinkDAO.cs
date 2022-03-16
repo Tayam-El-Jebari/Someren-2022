@@ -43,7 +43,7 @@ namespace SomerenDAL
         // deze werkt nog niet
         public void UpdateRow(int stock, int salesValue, int numberOfSales, string drinkName, bool isAlcoholic)
         { 
-            string query = $"UPDATE Drink(stock, salesValue, numberOfDrinkSold, drinkName, alcoholic) VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}', {isAlcoholic}) WHERE productID = @productID";
+            string query = $"UPDATE Drink SET {stock}=@stock, {salesValue}=@salesValue, {numberOfSales}=@numberOfDrinkSold, {drinkName}=@drinkName, {isAlcoholic}=@alcoholic WHERE productID = @productID";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);            
         }

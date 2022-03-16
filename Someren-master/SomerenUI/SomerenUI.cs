@@ -94,7 +94,6 @@ namespace SomerenUI
                 List<Teacher> teacherList = teacherService.GetTeachers();
 
                 listViewTeachers.View = View.Details;
-
                 listViewTeachers.Columns.Add("Teacher id",80);
                 listViewTeachers.Columns.Add("First name", 120);
                 listViewTeachers.Columns.Add("Last name", 120);
