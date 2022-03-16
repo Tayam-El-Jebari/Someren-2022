@@ -83,7 +83,7 @@ namespace SomerenUI
                     logService.WriteLog(e.Message);
                 }
             }
-            else if(panelName == "Teachers")
+            else if (panelName == "Teachers")
             {
                 ShowCorrectPanel(pnlTeacherPanel);
 
@@ -94,11 +94,11 @@ namespace SomerenUI
                 List<Teacher> teacherList = teacherService.GetTeachers();
 
                 listViewTeachers.View = View.Details;
-                listViewTeachers.Columns.Add("Teacher id",80);
+                listViewTeachers.Columns.Add("Teacher id", 80);
                 listViewTeachers.Columns.Add("First name", 120);
                 listViewTeachers.Columns.Add("Last name", 120);
                 listViewTeachers.Columns.Add("Room number", 80);
-                listViewTeachers.Columns.Add("Supervisor", 80); 
+                listViewTeachers.Columns.Add("Supervisor", 80);
                 foreach (Teacher teacher in teacherList)
                 {
                     ListViewItem li = new ListViewItem(teacher.TeacherID.ToString());
@@ -114,6 +114,66 @@ namespace SomerenUI
             {
                 ShowCorrectPanel(pnlRevenueReportPanel);
                 listViewRevenueReport.Clear();
+            }
+            else if (panelName == "Cash register")
+            {
+                ShowCorrectPanel(pnlCashRegisterPanel);
+                try
+                {
+                    StudentService studService = new StudentService();
+                    List<Student> studentList = studService.GetStudents();
+
+
+                    studentsListView.View = View.Details;
+                    studentsListView.Columns.Add("Student id", 50);
+                    studentsListView.Columns.Add("First name", 120);
+                    studentsListView.Columns.Add("Last name", 120);
+                    studentsListView.Columns.Add("Date of birth", 70);
+                    studentsListView.Columns.Add("Room number", 50);
+
+
+                    foreach (Student s in studentList)
+                    {
+                        s.StudentId.ToString();
+
+                        ListViewItem li = new ListViewItem(s.StudentId.ToString());
+                        li.SubItems.Add(s.FirstName);
+                        li.SubItems.Add(s.LastName);
+                        li.SubItems.Add(s.DateOfBirth.ToString("yyyy/MM/dd"));
+                        li.SubItems.Add(s.RoomNumber.ToString());
+                        studentsListView.Items.Add(li);
+
+                    }
+
+
+
+                    DrinkService driService = new DrinkService();
+                    List<Drinks> drinkList = driService.GetDrinksCR();
+
+
+                    drinksListView.View = View.Details;
+                    drinksListView.Columns.Add("Order id", 50);
+                    drinksListView.Columns.Add("Product id", 50);
+                    drinksListView.Columns.Add("Student id", 50);
+                    drinksListView.Columns.Add("Date of purchase", 70);
+
+
+                    foreach (Drinks d in drinkList)
+                    {
+                        d.OrderId.ToString();
+
+                        ListViewItem li = new ListViewItem(d.OrderId.ToString());
+                        li.SubItems.Add(d.ProductId.ToString());
+                        li.SubItems.Add(d.StudentId.ToString());
+                        li.SubItems.Add(d.DateOfPurchase.ToString());
+                        drinksListView.Items.Add(li);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the students: " + e.Message);
+                    logService.WriteLog(e.Message);
+                }
             }
             try
             {
@@ -142,8 +202,7 @@ namespace SomerenUI
                             ListViewItem li = new ListViewItem(room.Number.ToString());
                             li.SubItems.Add(room.Capacity.ToString());
                             li.SubItems.Add(room.Type);
-                            listViewRoom.Items.Add(li);
-                            
+                            listViewRoom.Items.Add(li);                            
                         }
                         ColorListView(listViewRoom);
 
@@ -235,9 +294,16 @@ namespace SomerenUI
             {
                 tsmi.ForeColor = default(Color);
                 tsmi.BackColor = default(Color);
+                for(int i = 0; i < tsmi.DropDownItems.Count; i++)
+                {
+                    tsmi.DropDownItems[i].ForeColor = default(Color);
+                    tsmi.DropDownItems[i].BackColor = default(Color);
+                }
             }
             menuItem.ForeColor = Color.White;
             menuItem.BackColor = Color.Black;
+            if (menuItem.OwnerItem != null)
+                menuItem.OwnerItem.BackColor = Color.LightGray ;
         }
         private void dashboardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -483,6 +549,16 @@ namespace SomerenUI
                 listViewDrink.Items.Add(li);
             }
             ColorListView(listViewDrink);
+        }
+        private void CashregistertoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Cash register");
+            ChangeToolStripMenu(CashregistertoolStripMenuItem);
+        }
+
+        private void checkOutbutton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Your transaction has been completed! ");
         }
     }
 }

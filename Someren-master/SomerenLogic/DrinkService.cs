@@ -22,6 +22,11 @@ namespace SomerenLogic
             List<Drink> drinks = drinksdb.GetAllDrinks();
             return drinks;
         }
+        public List<Drinks> GetDrinksCR()
+        {
+            List<Drinks> drinks = drinksdb.GetAllDrinksCR();
+            return drinks;
+        }
         public void AddRowTable(int stock, int salesValue, int numberOfSales, string drinkName, bool isAlcoholic)
         {
             drinksdb.AddRow(stock, salesValue, numberOfSales, drinkName, isAlcoholic);
