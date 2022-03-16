@@ -42,10 +42,10 @@
             this.revenueReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlRevenueReportPanel = new System.Windows.Forms.Panel();
             this.buttonGenerate = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelEnd = new System.Windows.Forms.Label();
+            this.labelStart = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelInstruction = new System.Windows.Forms.Label();
             this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.listViewRevenueReport = new System.Windows.Forms.ListView();
@@ -102,7 +102,7 @@
             this.barServiceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1283, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1283, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -120,19 +120,19 @@
             // dashboardToolStripMenuItem1
             // 
             this.dashboardToolStripMenuItem1.Name = "dashboardToolStripMenuItem1";
-            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(165, 26);
             this.dashboardToolStripMenuItem1.Text = "Dashboard";
             this.dashboardToolStripMenuItem1.Click += new System.EventHandler(this.dashboardToolStripMenuItem1_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(162, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -183,10 +183,10 @@
             // 
             this.pnlRevenueReportPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
             this.pnlRevenueReportPanel.Controls.Add(this.buttonGenerate);
-            this.pnlRevenueReportPanel.Controls.Add(this.label4);
-            this.pnlRevenueReportPanel.Controls.Add(this.label3);
+            this.pnlRevenueReportPanel.Controls.Add(this.labelEnd);
+            this.pnlRevenueReportPanel.Controls.Add(this.labelStart);
             this.pnlRevenueReportPanel.Controls.Add(this.label2);
-            this.pnlRevenueReportPanel.Controls.Add(this.label1);
+            this.pnlRevenueReportPanel.Controls.Add(this.labelInstruction);
             this.pnlRevenueReportPanel.Controls.Add(this.dateTimePickerEnd);
             this.pnlRevenueReportPanel.Controls.Add(this.dateTimePickerStart);
             this.pnlRevenueReportPanel.Controls.Add(this.listViewRevenueReport);
@@ -213,27 +213,27 @@
             this.buttonGenerate.UseVisualStyleBackColor = false;
             this.buttonGenerate.Click += new System.EventHandler(this.buttonGenerate_Click);
             // 
-            // label4
+            // labelEnd
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(918, 166);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 20);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "End date";
+            this.labelEnd.AutoSize = true;
+            this.labelEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEnd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelEnd.Location = new System.Drawing.Point(918, 166);
+            this.labelEnd.Name = "labelEnd";
+            this.labelEnd.Size = new System.Drawing.Size(75, 20);
+            this.labelEnd.TabIndex = 11;
+            this.labelEnd.Text = "End date";
             // 
-            // label3
+            // labelStart
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(669, 166);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 20);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Start date";
+            this.labelStart.AutoSize = true;
+            this.labelStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStart.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelStart.Location = new System.Drawing.Point(669, 166);
+            this.labelStart.Name = "labelStart";
+            this.labelStart.Size = new System.Drawing.Size(82, 20);
+            this.labelStart.TabIndex = 10;
+            this.labelStart.Text = "Start date";
             // 
             // label2
             // 
@@ -246,17 +246,17 @@
             this.label2.Size = new System.Drawing.Size(1156, 2);
             this.label2.TabIndex = 9;
             // 
-            // label1
+            // labelInstruction
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(668, 98);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(274, 32);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Select date and time";
+            this.labelInstruction.AutoSize = true;
+            this.labelInstruction.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInstruction.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelInstruction.Location = new System.Drawing.Point(668, 98);
+            this.labelInstruction.Name = "labelInstruction";
+            this.labelInstruction.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.labelInstruction.Size = new System.Drawing.Size(274, 32);
+            this.labelInstruction.TabIndex = 8;
+            this.labelInstruction.Text = "Select date and time";
             // 
             // dateTimePickerEnd
             // 
@@ -549,8 +549,8 @@
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1283, 622);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlRevenueReportPanel);
+            this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlRoomPanel);
             this.Controls.Add(this.pnlStudents);
             this.Controls.Add(this.pnlTeacherPanel);
@@ -625,13 +625,13 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.PictureBox pictureBoxSomerenTeacher;
         private System.Windows.Forms.Label labelTitleTeachers;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelInstruction;
         private System.Windows.Forms.DateTimePicker dateTimePickerEnd;
         private System.Windows.Forms.DateTimePicker dateTimePickerStart;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelStart;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonGenerate;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelEnd;
     }
 }
 
