@@ -15,4 +15,6 @@ namespace SomerenModel
         public int NumberOfDrinksSold { get; set; } // how many of the drinks are sold for each product
         public bool IsAlcoholic { get; set; }
     }
+
+
 }

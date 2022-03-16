@@ -336,6 +336,7 @@ namespace SomerenUI
             }
             catch (Exception)
             {
+                MessageBox.Show("");
                 throw new Exception("All fields are required");
             }                       
         }
@@ -344,6 +345,7 @@ namespace SomerenUI
         {
 
             DrinkService drinkService = new DrinkService();
+            
             int stock = int.Parse(textBoxStock.Text);
             int salesValue = int.Parse(textBoxSalesValue.Text);
             int numberOfDrinkSold = int.Parse(textBoxNumberOfDrinksSold.Text);
@@ -351,32 +353,37 @@ namespace SomerenUI
             bool isAlcoholic = bool.Parse(textBoxAlcholicDrink.Text);
             
             try
-            {                  
-                listViewDrink.SelectedItems[0].SubItems[0].Text = drinkName;
-                listViewDrink.SelectedItems[0].SubItems[1].Text = stock.ToString();
-                listViewDrink.SelectedItems[0].SubItems[2].Text = salesValue.ToString();
-                listViewDrink.SelectedItems[0].SubItems[3].Text = numberOfDrinkSold.ToString();
-                listViewDrink.SelectedItems[0].SubItems[4].Text = isAlcoholic.ToString(); 
+            {
                 drinkService.UpdateRowTable(stock, salesValue, numberOfDrinkSold, drinkName, isAlcoholic);
 
-                Drink drink = new Drink();
-                ListViewItem li = new ListViewItem(drinkName);
-                li.SubItems.Add(stock.ToString());
-                li.SubItems.Add(salesValue.ToString());
-                li.SubItems.Add(numberOfDrinkSold.ToString());
-                li.SubItems.Add(isAlcoholic.ToString());
-                listViewDrink.Items.Add(li);              
+                // clear the listview before filling it again
+                listViewDrink.Clear();
+                listViewDrink.View = View.Details;
+                listViewDrink.FullRowSelect = true;
+                listViewDrink.Columns.Add("Drink name", 80);
+                listViewDrink.Columns.Add("Stock", 70);
+                listViewDrink.Columns.Add("Sales Value", 80);
+                listViewDrink.Columns.Add("Number of drinks sold", 120);
+                listViewDrink.Columns.Add("Drink is alcoholic", 80);
+                List<Drink> drinkList = drinkService.GetDrinks();
+
+                foreach (Drink drink in drinkList)
+                {
+                    ListViewItem li = new ListViewItem(drink.DrinkName);
+                    li.SubItems.Add(drink.StockAmount.ToString());
+                    li.SubItems.Add(drink.SalesValue.ToString());
+                    li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
+                    li.SubItems.Add(drink.IsAlcoholic.ToString());
+                    listViewDrink.Items.Add(li);
+                }
+                ColorListView(listViewDrink);
             }
             catch (Exception)
             {
+                MessageBox.Show("Updating row failed");
                 throw new Exception("Updating row failed. ");
             }       
 
-              /*listViewDrink.SelectedItems[0].SubItems[0].Text = textBoxDrinkName.Text;
-              listViewDrink.SelectedItems[0].SubItems[1].Text = textBoxStock.Text;
-              listViewDrink.SelectedItems[0].SubItems[2].Text = textBoxSalesValue.Text;
-              listViewDrink.SelectedItems[0].SubItems[3].Text = textBoxNumberOfDrinksSold.Text;
-              listViewDrink.SelectedItems[0].SubItems[4].Text = textBoxAlcholicDrink.Text;*/
         }
         private void buttonDelete_Click(object sender, EventArgs e)
         {
