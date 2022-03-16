@@ -73,16 +73,13 @@
             this.pictureBoxSomerenTeacher = new System.Windows.Forms.PictureBox();
             this.labelTitleTeachers = new System.Windows.Forms.Label();
             this.pnlCashRegisterPanel = new System.Windows.Forms.Panel();
+            this.checkOutbutton = new System.Windows.Forms.Button();
             this.studentsListView = new System.Windows.Forms.ListView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.studentsComboBox = new System.Windows.Forms.ComboBox();
-            this.drinksComboBox = new System.Windows.Forms.ComboBox();
             this.drinksListView = new System.Windows.Forms.ListView();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlRevenueReportPanel.SuspendLayout();
@@ -96,7 +93,6 @@
             this.pnlTeacherPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSomerenTeacher)).BeginInit();
             this.pnlCashRegisterPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -112,7 +108,7 @@
             this.barServiceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1283, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1283, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -485,13 +481,10 @@
             // pnlCashRegisterPanel
             // 
             this.pnlCashRegisterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.pnlCashRegisterPanel.Controls.Add(this.checkOutbutton);
             this.pnlCashRegisterPanel.Controls.Add(this.studentsListView);
-            this.pnlCashRegisterPanel.Controls.Add(this.label2);
-            this.pnlCashRegisterPanel.Controls.Add(this.studentsComboBox);
-            this.pnlCashRegisterPanel.Controls.Add(this.drinksComboBox);
             this.pnlCashRegisterPanel.Controls.Add(this.drinksListView);
             this.pnlCashRegisterPanel.Controls.Add(this.listView1);
-            this.pnlCashRegisterPanel.Controls.Add(this.pictureBox2);
             this.pnlCashRegisterPanel.Controls.Add(this.label1);
             this.pnlCashRegisterPanel.Location = new System.Drawing.Point(16, 24);
             this.pnlCashRegisterPanel.Margin = new System.Windows.Forms.Padding(4);
@@ -499,46 +492,31 @@
             this.pnlCashRegisterPanel.Size = new System.Drawing.Size(1251, 574);
             this.pnlCashRegisterPanel.TabIndex = 10;
             // 
+            // checkOutbutton
+            // 
+            this.checkOutbutton.Location = new System.Drawing.Point(586, 372);
+            this.checkOutbutton.Name = "checkOutbutton";
+            this.checkOutbutton.Size = new System.Drawing.Size(252, 23);
+            this.checkOutbutton.TabIndex = 12;
+            this.checkOutbutton.Text = "Checkout\r\n";
+            this.checkOutbutton.UseVisualStyleBackColor = true;
+            this.checkOutbutton.Click += new System.EventHandler(this.checkOutbutton_Click);
+            // 
             // studentsListView
             // 
             this.studentsListView.HideSelection = false;
             this.studentsListView.Location = new System.Drawing.Point(58, 81);
             this.studentsListView.Name = "studentsListView";
-            this.studentsListView.Size = new System.Drawing.Size(450, 255);
+            this.studentsListView.Size = new System.Drawing.Size(550, 255);
             this.studentsListView.TabIndex = 11;
             this.studentsListView.UseCompatibleStateImageBehavior = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 17);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "student";
-            // 
-            // studentsComboBox
-            // 
-            this.studentsComboBox.FormattingEnabled = true;
-            this.studentsComboBox.Location = new System.Drawing.Point(58, 360);
-            this.studentsComboBox.Name = "studentsComboBox";
-            this.studentsComboBox.Size = new System.Drawing.Size(121, 24);
-            this.studentsComboBox.TabIndex = 9;
-            // 
-            // drinksComboBox
-            // 
-            this.drinksComboBox.FormattingEnabled = true;
-            this.drinksComboBox.Location = new System.Drawing.Point(520, 360);
-            this.drinksComboBox.Name = "drinksComboBox";
-            this.drinksComboBox.Size = new System.Drawing.Size(121, 24);
-            this.drinksComboBox.TabIndex = 8;
             // 
             // drinksListView
             // 
             this.drinksListView.HideSelection = false;
-            this.drinksListView.Location = new System.Drawing.Point(520, 81);
+            this.drinksListView.Location = new System.Drawing.Point(660, 81);
             this.drinksListView.Name = "drinksListView";
-            this.drinksListView.Size = new System.Drawing.Size(450, 255);
+            this.drinksListView.Size = new System.Drawing.Size(550, 255);
             this.drinksListView.TabIndex = 7;
             this.drinksListView.UseCompatibleStateImageBehavior = false;
             // 
@@ -552,7 +530,7 @@
             this.listView1.Location = new System.Drawing.Point(21, 52);
             this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1020, 377);
+            this.listView1.Size = new System.Drawing.Size(1189, 377);
             this.listView1.TabIndex = 5;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -567,17 +545,6 @@
             // columnHeader12
             // 
             this.columnHeader12.Text = "Date of Birth";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::SomerenUI.Properties.Resources.someren;
-            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(1073, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(173, 151);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // label1
             // 
@@ -631,7 +598,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSomerenTeacher)).EndInit();
             this.pnlCashRegisterPanel.ResumeLayout(false);
             this.pnlCashRegisterPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -686,13 +652,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.ColumnHeader columnHeader12;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox studentsComboBox;
-        private System.Windows.Forms.ComboBox drinksComboBox;
         private System.Windows.Forms.ListView drinksListView;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListView studentsListView;
+        private System.Windows.Forms.Button checkOutbutton;
     }
 }
 

@@ -25,9 +25,7 @@ namespace SomerenDAL
                 // within this exception show te user that something went wrong. 
                 throw new Exception("Rooms could not be loaded properly. Please try again" + e.Message);
             }
-
         }
-
         private List<Room> ReadTables(DataTable dataTable)
         {
             try
@@ -49,10 +47,8 @@ namespace SomerenDAL
             }
             catch (Exception e)
             {
-
                 throw new Exception("Data could not be retrieved from the database. Please try agian" + e.Message);
             }
-
         }
     }
 }

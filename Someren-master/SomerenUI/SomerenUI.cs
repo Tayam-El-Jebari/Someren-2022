@@ -89,7 +89,7 @@ namespace SomerenUI
                     logService.WriteLog(e.Message);
                 }
             }
-            else if(panelName == "Teachers")
+            else if (panelName == "Teachers")
             {
                 ShowCorrectPannel(pnlTeacherPanel);
 
@@ -101,11 +101,11 @@ namespace SomerenUI
 
                 listViewTeachers.View = View.Details;
 
-                listViewTeachers.Columns.Add("Teacher id",80);
+                listViewTeachers.Columns.Add("Teacher id", 80);
                 listViewTeachers.Columns.Add("First name", 120);
                 listViewTeachers.Columns.Add("Last name", 120);
                 listViewTeachers.Columns.Add("Room number", 80);
-                listViewTeachers.Columns.Add("Supervisor", 80); 
+                listViewTeachers.Columns.Add("Supervisor", 80);
                 foreach (Teacher teacher in teacherList)
                 {
                     ListViewItem li = new ListViewItem(teacher.TeacherID.ToString());
@@ -122,10 +122,10 @@ namespace SomerenUI
                 ShowCorrectPannel(pnlRevenueReportPanel);
                 try
                 {
-//                    Sales(total number of drinks sold), Turnover(total[sales * sales price of those drinks]), Number of customers
-//                    (students who purchased at least one drink).The report is refreshed for the period selected by the user
-//                    by way of a calendar interface with a start and end date.The application gives the user feedback if they have chosen
-//                    an invalid date and/or period.The dates used are displayed in order of size (dd-mm-yyyy).
+                    //                    Sales(total number of drinks sold), Turnover(total[sales * sales price of those drinks]), Number of customers
+                    //                    (students who purchased at least one drink).The report is refreshed for the period selected by the user
+                    //                    by way of a calendar interface with a start and end date.The application gives the user feedback if they have chosen
+                    //                    an invalid date and/or period.The dates used are displayed in order of size (dd-mm-yyyy).
 
                 }
                 catch (Exception e)
@@ -142,19 +142,19 @@ namespace SomerenUI
                     StudentService studService = new StudentService();
                     List<Student> studentList = studService.GetStudents();
 
-                    foreach (Student s in studentList)
-                    {
-                        studentsComboBox.Items.Add(s.StudentId.ToString());
-                    }
 
                     studentsListView.View = View.Details;
-                    studentsListView.Columns.Add("Student id", 40);
-                    studentsListView.Columns.Add("First name", 75);
-                    studentsListView.Columns.Add("Last name", 75);
-                    studentsListView.Columns.Add("Date of birth", 50);
-                    studentsListView.Columns.Add("Room number", 40);
+                    studentsListView.Columns.Add("Student id", 50);
+                    studentsListView.Columns.Add("First name", 120);
+                    studentsListView.Columns.Add("Last name", 120);
+                    studentsListView.Columns.Add("Date of birth", 70);
+                    studentsListView.Columns.Add("Room number", 50);
+
+
                     foreach (Student s in studentList)
                     {
+                        s.StudentId.ToString();
+
                         ListViewItem li = new ListViewItem(s.StudentId.ToString());
                         li.SubItems.Add(s.FirstName);
                         li.SubItems.Add(s.LastName);
@@ -163,7 +163,30 @@ namespace SomerenUI
                         studentsListView.Items.Add(li);
 
                     }
-                    
+
+
+
+                    DrinkService driService = new DrinkService();
+                    List<Drinks> drinkList = driService.GetDrinks();
+
+
+                    drinksListView.View = View.Details;
+                    drinksListView.Columns.Add("Order id", 50);
+                    drinksListView.Columns.Add("Product id", 50);
+                    drinksListView.Columns.Add("Student id", 50);
+                    drinksListView.Columns.Add("Date of purchase", 70);
+
+
+                    foreach (Drinks d in drinkList)
+                    {
+                        d.OrderId.ToString();
+
+                        ListViewItem li = new ListViewItem(d.OrderId.ToString());
+                        li.SubItems.Add(d.ProductId.ToString());
+                        li.SubItems.Add(d.StudentId.ToString());
+                        li.SubItems.Add(d.DateOfPurchase.ToString());
+                        drinksListView.Items.Add(li);
+                    }
                 }
                 catch (Exception e)
                 {
@@ -198,8 +221,7 @@ namespace SomerenUI
                             ListViewItem li = new ListViewItem(room.Number.ToString());
                             li.SubItems.Add(room.Capacity.ToString());
                             li.SubItems.Add(room.Type);
-                            listViewRoom.Items.Add(li);
-                            
+                            listViewRoom.Items.Add(li);                            
                         }
                         ColorListView(listViewRoom);
 
@@ -324,6 +346,11 @@ namespace SomerenUI
         {
             showPanel("Cash register");
             ChangeToolStripMenu(CashregistertoolStripMenuItem);
+        }
+
+        private void checkOutbutton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Your transaction has been completed! ");
         }
     }
 }
