@@ -532,6 +532,7 @@ namespace SomerenUI
                 listViewDrink.FullRowSelect = true;
                 listViewDrink.Columns.Add("Drink name", 80);
                 listViewDrink.Columns.Add("Stock", 70);
+                listViewDrink.Columns.Add("Stock sufficient or not");
                 listViewDrink.Columns.Add("Sales Value", 80);
                 listViewDrink.Columns.Add("Number of drinks sold", 120);
                 listViewDrink.Columns.Add("Drink is alcoholic", 80);
@@ -541,6 +542,7 @@ namespace SomerenUI
                 {
                     ListViewItem li = new ListViewItem(drink.DrinkName);
                     li.SubItems.Add(drink.StockAmount.ToString());
+                    li.SubItems.Add(drinkService.SufficientInsufficient(drink));
                     li.SubItems.Add(drink.SalesValue.ToString());
                     li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
                     li.SubItems.Add(drink.IsAlcoholic.ToString());
@@ -591,6 +593,7 @@ namespace SomerenUI
                 listViewDrink.LabelEdit = true;
                 listViewDrink.Columns.Add("Drink name", 80);
                 listViewDrink.Columns.Add("Stock", 70);
+                listViewDrink.Columns.Add("Stock sufficient or not");
                 listViewDrink.Columns.Add("Sales Value", 80);
                 listViewDrink.Columns.Add("Number of drinks sold", 120);
                 listViewDrink.Columns.Add("Drink is alcoholic", 80);
@@ -599,6 +602,7 @@ namespace SomerenUI
                 {
                     ListViewItem li = new ListViewItem(drink.DrinkName);
                     li.SubItems.Add(drink.StockAmount.ToString());
+                    li.SubItems.Add(drinkService.SufficientInsufficient(drink));
                     li.SubItems.Add(drink.SalesValue.ToString());
                     li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
                     li.SubItems.Add(drink.IsAlcoholic.ToString());
