@@ -492,17 +492,17 @@ namespace SomerenUI
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-
-            DrinkService drinkService = new DrinkService();
-            
-            int stock = int.Parse(textBoxStock.Text);
-            int salesValue = int.Parse(textBoxSalesValue.Text);
-            int numberOfDrinkSold = int.Parse(textBoxNumberOfDrinksSold.Text);
-            string drinkName = textBoxDrinkName.Text;
-            bool isAlcoholic = bool.Parse(textBoxAlcholicDrink.Text);
-            
             try
             {
+                DrinkService drinkService = new DrinkService();
+            
+                int stock = int.Parse(textBoxStock.Text);
+                int salesValue = int.Parse(textBoxSalesValue.Text);
+                int numberOfDrinkSold = int.Parse(textBoxNumberOfDrinksSold.Text);
+                string drinkName = textBoxDrinkName.Text;
+                bool isAlcoholic = bool.Parse(textBoxAlcholicDrink.Text);
+            
+            
                 drinkService.UpdateRowTable(stock, salesValue, numberOfDrinkSold, drinkName, isAlcoholic);
 
                 ShowDrinkListview();
