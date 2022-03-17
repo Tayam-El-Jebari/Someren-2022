@@ -396,6 +396,7 @@ namespace SomerenUI
             try
             {
                 listViewRevenueReport.Clear();
+
                 RevenueReportService revenueReportService = new RevenueReportService();
                 if (dateTimePickerStart.Value > DateTime.Parse("01-01-2019") || dateTimePickerEnd.Value <= DateTime.Now)
                 {
@@ -409,6 +410,7 @@ namespace SomerenUI
                     li.SubItems.Add(revenueReport.Sum(item => item.numberOfCustomers).ToString());
                     listViewRevenueReport.Items.Add(li);
                     ColorListView(listViewRevenueReport);
+
                 }
                 else if (dateTimePickerStart.Value > dateTimePickerEnd.Value)
                 {

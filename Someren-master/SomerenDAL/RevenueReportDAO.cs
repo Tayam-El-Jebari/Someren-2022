@@ -15,7 +15,7 @@ namespace SomerenDAL
         {
             try
             {
-                string query = $"SELECT D.productId, drinkName, numberOfDrinkSold, salesValue, count(S.studentId) AS customersCount FROM Drink AS D JOIN[Order] " +
+                string query = $"SELECT numberOfDrinkSold, salesValue, count(S.studentId) AS customersCount FROM Drink AS D JOIN[Order] " +
                     $"as O ON d.[productId] = O.productId JOIN Student as S ON S.[studentId] = O.studentId WHERE O.dateOfPurchase between '{startDate.ToString("yyyy-MM-dd")}' " +
                     $"and '{endDate.ToString("yyyy-MM-dd")}' GROUP BY D.productId, drinkName, numberOfDrinkSold, salesvalue, S.studentid";
                 SqlParameter[] sqlParameters = new SqlParameter[0];
@@ -36,8 +36,6 @@ namespace SomerenDAL
                 {
                     RevenueReport revenueReportProduct = new RevenueReport()
                     {
-                        productId = (int)dr["productId"],
-                        drinkName = (string)dr["drinkName"],
                         sales = (int)dr["numberOfDrinkSold"],
                         price = (int)dr["salesValue"],
                         numberOfCustomers = (int)dr["customersCount"],

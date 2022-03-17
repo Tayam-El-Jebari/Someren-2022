@@ -51,3 +51,5 @@
 15-3-2022 13:02:13 --- error occured. Please read the pop-up message that appeared on your screen and try again. If the problem can't be resolved, feel free to reach out on us. 
 17-3-2022 09:53:00 --- error Reports could not be loaded properly. Error : 
 No sales found in database in the date range 2022-03-15 to 2022-03-17 If the problem can't be resolved, feel free to reach out on us.
+17-3-2022 22:10:20 --- error Kan het item 91 niet toevoegen op meer dan een plaats. U moet het item eerst van de huidige locatie verwijderen of het item kopiëren.
+Parameternaam: item If the problem can't be resolved, feel free to reach out on us.

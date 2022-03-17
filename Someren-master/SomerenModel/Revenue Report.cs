@@ -8,9 +8,6 @@ namespace SomerenModel
 {
     public class RevenueReport
     {
-        public int productId { get; set; }
-
-        public string drinkName {get; set;}
 
         public int sales { get; set; }
         
