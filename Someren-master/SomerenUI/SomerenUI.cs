@@ -554,7 +554,7 @@ namespace SomerenUI
             }
             catch (Exception)
             {
-                MessageBox.Show("Updating name failed, make sure to enter two names in the textboxes, then press the change name button");
+                MessageBox.Show("Updating name failed, make sure to enter two names in the textboxes, then press the change name button. Also make sure to old name is entered correctly");
 /*                throw new Exception("Updating row failed. ");*/
             }
         }
