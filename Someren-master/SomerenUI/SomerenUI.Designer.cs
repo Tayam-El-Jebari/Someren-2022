@@ -323,7 +323,6 @@
             this.dateTimePickerStart.Name = "dateTimePickerStart";
             this.dateTimePickerStart.Size = new System.Drawing.Size(228, 22);
             this.dateTimePickerStart.TabIndex = 6;
-            this.dateTimePickerStart.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // listViewRevenueReport
             // 

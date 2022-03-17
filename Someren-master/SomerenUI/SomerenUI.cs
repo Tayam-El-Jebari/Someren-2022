@@ -23,8 +23,8 @@ namespace SomerenUI
         private void SomerenUI_Load(object sender, EventArgs e)
         {
             showPanel("Dashboard");
-            dashboardToolStripMenuItem.ForeColor = Color.White;
-            dashboardToolStripMenuItem.BackColor = Color.Black; 
+            ChangeToolStripMenu(dashboardToolStripMenuItem1);
+
         }
         private void ColorListView(ListView listview)
         {
@@ -234,32 +234,7 @@ namespace SomerenUI
                         DrinkService drinkService = new DrinkService();
                         List<Drink> drinkList = drinkService.GetDrinks();
 
-                        // clear the listview before filling it again
-                        listViewDrink.Clear();
-
-                        listViewDrink.View = View.Details;
-                        listViewDrink.FullRowSelect = true;
-                        listViewDrink.LabelEdit = true;
-                        listViewDrink.Columns.Add("Drink name", 80);
-                        listViewDrink.Columns.Add("Stock", 70);
-                        listViewDrink.Columns.Add("Stock sufficient or not", 50);
-                        listViewDrink.Columns.Add("Sales Value", 80);
-                        listViewDrink.Columns.Add("Number of drinks sold", 120);
-                        listViewDrink.Columns.Add("Drink is alcoholic", 80);
-                        
-                        foreach (Drink drink in drinkList)
-                        {
-                            ListViewItem li = new ListViewItem(drink.DrinkName);
-                            li.SubItems.Add(drink.StockAmount.ToString());
-                            li.SubItems.Add(drinkService.SufficientInsufficient(drink));
-                            li.SubItems.Add(drink.SalesValue.ToString());
-                            li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
-                            li.SubItems.Add(drink.IsAlcoholic.ToString());
-                            li.ImageIndex = 0;
-                            listViewDrink.Items.Add(li);
-                            
-                        }
-                        ColorListView(listViewDrink);
+                        ShowDrinkListview();
                     }
                     catch (Exception e)
                     {
@@ -271,6 +246,7 @@ namespace SomerenUI
             catch (Exception e)
             {
                 MessageBox.Show("Panel could not be loaded properly." + e.Message);
+                logService.WriteLog(e);
             }
         }
         private void ShowCorrectPanel(Panel panel)
@@ -335,12 +311,15 @@ namespace SomerenUI
             menuItem.ForeColor = Color.White;
             menuItem.BackColor = Color.Black;
             if (menuItem.OwnerItem != null)
-                menuItem.OwnerItem.BackColor = Color.LightGray ;
+            {
+                menuItem.OwnerItem.BackColor = Color.DarkGray;
+                menuItem.OwnerItem.ForeColor = Color.LightGray;
+            }
         }
         private void dashboardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             showPanel("Dashboard");
-            ChangeToolStripMenu(dashboardToolStripMenuItem);
+            ChangeToolStripMenu(dashboardToolStripMenuItem1);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -412,11 +391,6 @@ namespace SomerenUI
             MessageBox.Show("Een leuke tekst als je op de foto drukt");
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonGenerate_Click(object sender, EventArgs e)
         {
             try
@@ -451,7 +425,7 @@ namespace SomerenUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Failed to load, if this keeps happening, please contact us and tell us this error message : \n" + ex.Message);
                 logService.WriteLog(ex);
             }
         }
@@ -459,8 +433,7 @@ namespace SomerenUI
         {
             showPanel("Drinks");
             ChangeToolStripMenu(drinksToolStripMenuItem);
-            labelRoomTitle.Hide();
-            labelDrinkTitle.Show();
+
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
