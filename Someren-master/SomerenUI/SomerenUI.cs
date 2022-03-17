@@ -454,7 +454,7 @@ namespace SomerenUI
             }
             catch (Exception)
             {
-                MessageBox.Show("");
+                MessageBox.Show("Please make sure to enter all the data in the textbox fields. ");
                 throw new Exception("All fields are required");
             }                       
         }
@@ -498,11 +498,51 @@ namespace SomerenUI
             }
             catch (Exception)
             {
-                MessageBox.Show("Updating row failed");
+                MessageBox.Show("Updating row failed, make sure to enter all the data in the textboxes, then press the update button");
                 throw new Exception("Updating row failed. ");
             }       
 
         }
+
+        private void buttonChangeName_Click(object sender, EventArgs e)
+        {
+            DrinkService drinkService = new DrinkService();
+            string drinkName = textBoxDrinkName.Text;
+            string newDrinkName = textBoxNewDrinkName.Text;
+
+            try
+            {
+                drinkService.UpdateNameInRow(drinkName, newDrinkName);
+
+                // clear the listview before filling it again
+                listViewDrink.Clear();
+                listViewDrink.View = View.Details;
+                listViewDrink.FullRowSelect = true;
+                listViewDrink.Columns.Add("Drink name", 80);
+                listViewDrink.Columns.Add("Stock", 70);
+                listViewDrink.Columns.Add("Sales Value", 80);
+                listViewDrink.Columns.Add("Number of drinks sold", 120);
+                listViewDrink.Columns.Add("Drink is alcoholic", 80);
+                List<Drink> drinkList = drinkService.GetDrinks();
+
+                foreach (Drink drink in drinkList)
+                {
+                    ListViewItem li = new ListViewItem(drink.DrinkName);
+                    li.SubItems.Add(drink.StockAmount.ToString());
+                    li.SubItems.Add(drink.SalesValue.ToString());
+                    li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
+                    li.SubItems.Add(drink.IsAlcoholic.ToString());
+                    listViewDrink.Items.Add(li);
+                }
+                ColorListView(listViewDrink);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Updating name failed, make sure to enter two names in the textboxes, then press the change name button");
+/*                throw new Exception("Updating row failed. ");*/
+            }
+        }
+
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             DrinkService drinkService = new DrinkService();
@@ -518,6 +558,7 @@ namespace SomerenUI
             }
             catch (Exception)
             {
+                MessageBox.Show("Please select a row from the list, then press the delete button");
                 throw new Exception("Name is not the same as in the database");
             }
             
@@ -525,30 +566,38 @@ namespace SomerenUI
 
         private void buttonShowSortedList_Click(object sender, EventArgs e)
         {
-            DrinkService drinkService = new DrinkService();
-            List<Drink> drinkList = drinkService.ShowSortedList();
-            // LISTVIEW.CLEAR DOET HET NIET.
-            // clear the listview before filling it again
-            listViewDrink.Clear();
-            listViewDrink.View = View.Details;
-            listViewDrink.FullRowSelect = true;
-            listViewDrink.LabelEdit = true;
-            listViewDrink.Columns.Add("Drink name", 80);
-            listViewDrink.Columns.Add("Stock", 70);
-            listViewDrink.Columns.Add("Sales Value", 80);
-            listViewDrink.Columns.Add("Number of drinks sold", 120);
-            listViewDrink.Columns.Add("Drink is alcoholic", 80);
-
-            foreach (Drink drink in drinkList)
+            try
             {
-                ListViewItem li = new ListViewItem(drink.DrinkName);
-                li.SubItems.Add(drink.StockAmount.ToString());
-                li.SubItems.Add(drink.SalesValue.ToString());
-                li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
-                li.SubItems.Add(drink.IsAlcoholic.ToString());
-                listViewDrink.Items.Add(li);
+                DrinkService drinkService = new DrinkService();
+                List<Drink> drinkList = drinkService.ShowSortedList();
+                // clear the listview before filling it again
+                listViewDrink.Clear();
+                listViewDrink.View = View.Details;
+                listViewDrink.FullRowSelect = true;
+                listViewDrink.LabelEdit = true;
+                listViewDrink.Columns.Add("Drink name", 80);
+                listViewDrink.Columns.Add("Stock", 70);
+                listViewDrink.Columns.Add("Sales Value", 80);
+                listViewDrink.Columns.Add("Number of drinks sold", 120);
+                listViewDrink.Columns.Add("Drink is alcoholic", 80);
+
+                foreach (Drink drink in drinkList)
+                {
+                    ListViewItem li = new ListViewItem(drink.DrinkName);
+                    li.SubItems.Add(drink.StockAmount.ToString());
+                    li.SubItems.Add(drink.SalesValue.ToString());
+                    li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
+                    li.SubItems.Add(drink.IsAlcoholic.ToString());
+                    listViewDrink.Items.Add(li);
+                }
+                ColorListView(listViewDrink);
             }
-            ColorListView(listViewDrink);
+            catch (Exception)
+            {
+                MessageBox.Show("Something went wrong while sorting the list");
+                throw new Exception("Something went wrong while sorting the list");
+            }
+           
         }
         private void CashregistertoolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -560,5 +609,7 @@ namespace SomerenUI
         {
             MessageBox.Show("Your transaction has been completed! ");
         }
+
+
     }
 }
