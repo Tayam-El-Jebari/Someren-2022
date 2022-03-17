@@ -284,6 +284,32 @@ namespace SomerenUI
                 }
             }
         }
+
+        private void ShowDrinkListview() 
+        {
+            DrinkService drinkService = new DrinkService();
+            // clear the listview before filling it again
+            listViewDrink.Clear();
+            listViewDrink.View = View.Details;
+            listViewDrink.FullRowSelect = true;
+            listViewDrink.Columns.Add("Drink name", 80);
+            listViewDrink.Columns.Add("Stock", 70);
+            listViewDrink.Columns.Add("Sales Value", 80);
+            listViewDrink.Columns.Add("Number of drinks sold", 120);
+            listViewDrink.Columns.Add("Drink is alcoholic", 80);
+            List<Drink> drinkList = drinkService.GetDrinks();
+
+            foreach (Drink drink in drinkList)
+            {
+                ListViewItem li = new ListViewItem(drink.DrinkName);
+                li.SubItems.Add(drink.StockAmount.ToString());
+                li.SubItems.Add(drink.SalesValue.ToString());
+                li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
+                li.SubItems.Add(drink.IsAlcoholic.ToString());
+                listViewDrink.Items.Add(li);
+            }
+            ColorListView(listViewDrink);
+        }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -434,14 +460,15 @@ namespace SomerenUI
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            DrinkService drinkService = new DrinkService();
-            int stock = int.Parse(textBoxStock.Text);
-            int salesValue = int.Parse(textBoxSalesValue.Text);
-            int numberOfDrinkSold = int.Parse(textBoxNumberOfDrinksSold.Text);
-            string drinkName = textBoxDrinkName.Text;
-            bool isAlcoholic = bool.Parse(textBoxAlcholicDrink.Text);
             try
-            {
+            {            
+                DrinkService drinkService = new DrinkService();
+                int stock = int.Parse(textBoxStock.Text);
+                int salesValue = int.Parse(textBoxSalesValue.Text);
+                int numberOfDrinkSold = int.Parse(textBoxNumberOfDrinksSold.Text);
+                string drinkName = textBoxDrinkName.Text;
+                bool isAlcoholic = bool.Parse(textBoxAlcholicDrink.Text);
+            
                 drinkService.AddRowTable(stock, salesValue, numberOfDrinkSold, drinkName, isAlcoholic);
 
                 Drink drink = new Drink();
@@ -474,27 +501,7 @@ namespace SomerenUI
             {
                 drinkService.UpdateRowTable(stock, salesValue, numberOfDrinkSold, drinkName, isAlcoholic);
 
-                // clear the listview before filling it again
-                listViewDrink.Clear();
-                listViewDrink.View = View.Details;
-                listViewDrink.FullRowSelect = true;
-                listViewDrink.Columns.Add("Drink name", 80);
-                listViewDrink.Columns.Add("Stock", 70);
-                listViewDrink.Columns.Add("Sales Value", 80);
-                listViewDrink.Columns.Add("Number of drinks sold", 120);
-                listViewDrink.Columns.Add("Drink is alcoholic", 80);
-                List<Drink> drinkList = drinkService.GetDrinks();
-
-                foreach (Drink drink in drinkList)
-                {
-                    ListViewItem li = new ListViewItem(drink.DrinkName);
-                    li.SubItems.Add(drink.StockAmount.ToString());
-                    li.SubItems.Add(drink.SalesValue.ToString());
-                    li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
-                    li.SubItems.Add(drink.IsAlcoholic.ToString());
-                    listViewDrink.Items.Add(li);
-                }
-                ColorListView(listViewDrink);
+                ShowDrinkListview();
             }
             catch (Exception)
             {
@@ -506,14 +513,14 @@ namespace SomerenUI
 
         private void buttonChangeName_Click(object sender, EventArgs e)
         {
-            DrinkService drinkService = new DrinkService();
             string drinkName = textBoxDrinkName.Text;
             string newDrinkName = textBoxNewDrinkName.Text;
 
             try
             {
-                drinkService.UpdateNameInRow(drinkName, newDrinkName);
 
+                DrinkService drinkService = new DrinkService();
+                drinkService.UpdateNameInRow(drinkName, newDrinkName);
                 // clear the listview before filling it again
                 listViewDrink.Clear();
                 listViewDrink.View = View.Details;
@@ -535,6 +542,8 @@ namespace SomerenUI
                     listViewDrink.Items.Add(li);
                 }
                 ColorListView(listViewDrink);
+
+
             }
             catch (Exception)
             {

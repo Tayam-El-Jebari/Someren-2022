@@ -54,10 +54,10 @@ namespace SomerenDAL
 
         public void UpdateNameInRow(string drinkName, string newDrinkName) 
         {
-            string query = $"UPDATE Drink SET drinkName=@{newDrinkName} WHERE drinkName = {drinkName}";
-            SqlParameter[] sqlParameters = new SqlParameter[1];
-            sqlParameters[0] = new SqlParameter("@drinkName", newDrinkName);
-            sqlParameters[0] = new SqlParameter("@drinkName", drinkName);
+            string query = "UPDATE Drink SET drinkName=@newDrinkName WHERE drinkName=@drinkName";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@newDrinkName", newDrinkName);
+            sqlParameters[1] = new SqlParameter("@drinkName", drinkName);
             ExecuteEditQuery(query, sqlParameters);
         }
 
