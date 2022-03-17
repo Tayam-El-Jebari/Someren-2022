@@ -49,3 +49,5 @@
 15-3-2022 12:48:17 --- error occured. Please read the pop-up message that appeared on your screen and try again. If the problem can't be resolved, feel free to reach out on us. 
 15-3-2022 13:02:02 --- error occured. Please read the pop-up message that appeared on your screen and try again. If the problem can't be resolved, feel free to reach out on us. 
 15-3-2022 13:02:13 --- error occured. Please read the pop-up message that appeared on your screen and try again. If the problem can't be resolved, feel free to reach out on us. 
+17-3-2022 09:53:00 --- error Reports could not be loaded properly. Error : 
+No sales found in database in the date range 2022-03-15 to 2022-03-17 If the problem can't be resolved, feel free to reach out on us.

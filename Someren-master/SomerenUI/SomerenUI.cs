@@ -80,7 +80,7 @@ namespace SomerenUI
                 catch (Exception e)
                 {
                     MessageBox.Show("Something went wrong while loading the students: " + e.Message);
-                    logService.WriteLog(e.Message);
+                    logService.WriteLog(e);
                 }
             }
             else if (panelName == "Teachers")
@@ -172,7 +172,7 @@ namespace SomerenUI
                 catch (Exception e)
                 {
                     MessageBox.Show("Something went wrong while loading the students: " + e.Message);
-                    logService.WriteLog(e.Message);
+                    logService.WriteLog(e);
                 }
             }
             try
@@ -210,7 +210,7 @@ namespace SomerenUI
                     catch (Exception e)
                     {
                         MessageBox.Show("Listview could not be loaded properly.");
-                        logService.WriteLog(e.Message);
+                        logService.WriteLog(e);
                     }
                 }
             }
@@ -253,14 +253,16 @@ namespace SomerenUI
                             li.SubItems.Add(drink.SalesValue.ToString());
                             li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
                             li.SubItems.Add(drink.IsAlcoholic.ToString());
+                            li.ImageIndex = 0;
                             listViewDrink.Items.Add(li);
+                            
                         }
                         ColorListView(listViewDrink);
                     }
                     catch (Exception e)
                     {
                         MessageBox.Show("Listview could not be loaded properly.");
-                        logService.WriteLog(e.Message);
+                        logService.WriteLog(e);
                     }
                 }
             }
@@ -389,19 +391,29 @@ namespace SomerenUI
         {
             try
             {
+                int sales = 0;
+                int turnover = 0;
+                int numberOfCustomers = 0;
                 listViewRevenueReport.Clear();
                 RevenueReportService revenueReportService = new RevenueReportService();
                 if (dateTimePickerStart.Value > DateTime.Parse("01-01-2019") || dateTimePickerEnd.Value <= DateTime.Now)
                 {
-                    RevenueReport revenueReport = revenueReportService.GetRevenueReport(dateTimePickerStart.Value, dateTimePickerEnd.Value);
+                    List<RevenueReport> revenueReport = revenueReportService.GetRevenueReport(dateTimePickerStart.Value, dateTimePickerEnd.Value);
                     listViewRevenueReport.View = View.Details;
                     listViewRevenueReport.Columns.Add("total sales", 120);
                     listViewRevenueReport.Columns.Add("turnover", 120);
-                    listViewRevenueReport.Columns.Add("number of unique customers", 200);
+                    listViewRevenueReport.Columns.Add("number of customers", 200);
 
-                    ListViewItem li = new ListViewItem(revenueReport.sales.ToString());
-                    li.SubItems.Add(revenueReport.turnover.ToString());
-                    li.SubItems.Add(revenueReport.numberOfCustomers.ToString());
+                    foreach (RevenueReport revenueProduct in revenueReport)
+                    {
+                        sales += revenueProduct.sales;
+                        turnover += revenueProduct.turnover;
+                        numberOfCustomers += revenueProduct.numberOfCustomers;
+                    }
+
+                    ListViewItem li = new ListViewItem(sales.ToString());
+                    li.SubItems.Add(turnover.ToString());
+                    li.SubItems.Add(numberOfCustomers.ToString());
                     listViewRevenueReport.Items.Add(li);
                     ColorListView(listViewRevenueReport);
                 }
@@ -421,7 +433,7 @@ namespace SomerenUI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                logService.WriteLog(ex.Message);
+                logService.WriteLog(ex);
             }
         }
         private void drinksToolStripMenuItem_Click(object sender, EventArgs e)

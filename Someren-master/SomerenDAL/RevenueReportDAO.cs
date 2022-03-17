@@ -11,11 +11,11 @@ namespace SomerenDAL
 {
     public class RevenueReportDAO : BaseDao
     {
-        public RevenueReport GetReport(DateTime startDate, DateTime endDate)
+        public List<RevenueReport> GetReport(DateTime startDate, DateTime endDate)
         {
             try
             {
-                string query = $"SELECT D.productId, drinkName, numberOfDrinkSold, salesValue, count(DISTINCT S.studentId) AS customersCount FROM Drink AS D JOIN[Order] " +
+                string query = $"SELECT D.productId, drinkName, numberOfDrinkSold, salesValue, count(S.studentId) AS customersCount FROM Drink AS D JOIN[Order] " +
                     $"as O ON d.[productId] = O.productId JOIN Student as S ON S.[studentId] = O.studentId WHERE O.dateOfPurchase between '{startDate.ToString("yyyy-MM-dd")}' " +
                     $"and '{endDate.ToString("yyyy-MM-dd")}' GROUP BY D.productId, drinkName, numberOfDrinkSold, salesvalue, S.studentid";
                 SqlParameter[] sqlParameters = new SqlParameter[0];
@@ -27,18 +27,23 @@ namespace SomerenDAL
             }
         }
 
-        private RevenueReport ReadTables(DataTable dataTable, DateTime startDate, DateTime endDate)
+        private List<RevenueReport> ReadTables(DataTable dataTable, DateTime startDate, DateTime endDate)
         {
             try
             {
-                    RevenueReport revenueReport = new RevenueReport()
+                List<RevenueReport> revenueReport = new List<RevenueReport>();
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    RevenueReport revenueReportProduct = new RevenueReport()
                     {
-                        productId = (int)dataTable.Rows[0]["productId"],
-                        drinkName = (string)dataTable.Rows[0]["drinkName"],
-                        sales = (int)dataTable.Rows[0]["numberOfDrinkSold"],
-                        price = (int)dataTable.Rows[0]["salesValue"],
-                        numberOfCustomers = (int)dataTable.Rows[0]["customersCount"],
+                        productId = (int)dr["productId"],
+                        drinkName = (string)dr["drinkName"],
+                        sales = (int)dr["numberOfDrinkSold"],
+                        price = (int)dr["salesValue"],
+                        numberOfCustomers = (int)dr["customersCount"],
                     };
+                    revenueReport.Add(revenueReportProduct);
+                }
                     return revenueReport;
             }
             catch(IndexOutOfRangeException)
