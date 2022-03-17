@@ -108,6 +108,8 @@
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cashRegisterTitle = new System.Windows.Forms.Label();
+            this.textBoxNewDrinkName = new System.Windows.Forms.TextBox();
+            this.buttonChangeName = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnlRevenueReportPanel.SuspendLayout();
             this.pnlRoomPanel.SuspendLayout();
@@ -595,6 +597,8 @@
             // pnlDrinksPanel
             // 
             this.pnlDrinksPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.pnlDrinksPanel.Controls.Add(this.buttonChangeName);
+            this.pnlDrinksPanel.Controls.Add(this.textBoxNewDrinkName);
             this.pnlDrinksPanel.Controls.Add(this.buttonShowSortedList);
             this.pnlDrinksPanel.Controls.Add(this.drinkLabel7);
             this.pnlDrinksPanel.Controls.Add(this.textBoxAlcholicDrink);
@@ -710,7 +714,7 @@
             // 
             // textBoxDrinkName
             // 
-            this.textBoxDrinkName.Location = new System.Drawing.Point(845, 117);
+            this.textBoxDrinkName.Location = new System.Drawing.Point(800, 117);
             this.textBoxDrinkName.Name = "textBoxDrinkName";
             this.textBoxDrinkName.Size = new System.Drawing.Size(100, 22);
             this.textBoxDrinkName.TabIndex = 11;
@@ -879,12 +883,30 @@
             this.cashRegisterTitle.TabIndex = 3;
             this.cashRegisterTitle.Text = "Cash register";
             // 
+            // textBoxNewDrinkName
+            // 
+            this.textBoxNewDrinkName.Location = new System.Drawing.Point(906, 117);
+            this.textBoxNewDrinkName.Name = "textBoxNewDrinkName";
+            this.textBoxNewDrinkName.Size = new System.Drawing.Size(100, 22);
+            this.textBoxNewDrinkName.TabIndex = 21;
+            // 
+            // buttonChangeName
+            // 
+            this.buttonChangeName.Location = new System.Drawing.Point(814, 301);
+            this.buttonChangeName.Name = "buttonChangeName";
+            this.buttonChangeName.Size = new System.Drawing.Size(130, 45);
+            this.buttonChangeName.TabIndex = 22;
+            this.buttonChangeName.Text = "Change Name";
+            this.buttonChangeName.UseVisualStyleBackColor = true;
+            this.buttonChangeName.Click += new System.EventHandler(this.buttonChangeName_Click);
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1283, 622);
+            this.Controls.Add(this.pnlDrinksPanel);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnlDrinksPanel);
             this.Controls.Add(this.pnlDashboard);
@@ -1008,6 +1030,8 @@
         private System.Windows.Forms.ListView drinksListView;
         private System.Windows.Forms.ListView studentsListView;
         private System.Windows.Forms.Button checkOutbutton;
+        private System.Windows.Forms.Button buttonChangeName;
+        private System.Windows.Forms.TextBox textBoxNewDrinkName;
     }
 }
 

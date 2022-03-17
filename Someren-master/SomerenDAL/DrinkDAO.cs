@@ -40,7 +40,6 @@ namespace SomerenDAL
             ExecuteEditQuery(querry, sqlParameters);
         }
 
-        // deze werkt nog niet
         public void UpdateRow(int stock, int salesValue, int numberOfSales, string drinkName, bool isAlcoholic)
         { 
             string query = $"UPDATE Drink SET stock=@stock, salesValue=@salesValue, numberOfDrinkSold=@numberOfDrinkSold, drinkName=@drinkName, alcoholic=@alcoholic WHERE drinkName='{drinkName}'";
@@ -53,6 +52,14 @@ namespace SomerenDAL
             ExecuteEditQuery(query, sqlParameters);            
         }
 
+        public void UpdateNameInRow(string drinkName, string newDrinkName) 
+        {
+            string query = $"UPDATE Drink SET drinkName=@{newDrinkName} WHERE drinkName = {drinkName}";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@drinkName", newDrinkName);
+            sqlParameters[0] = new SqlParameter("@drinkName", drinkName);
+            ExecuteEditQuery(query, sqlParameters);
+        }
 
         // Delete Row
         public void DeleteRow(string drinkName)
