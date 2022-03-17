@@ -242,6 +242,7 @@ namespace SomerenUI
                         listViewDrink.LabelEdit = true;
                         listViewDrink.Columns.Add("Drink name", 80);
                         listViewDrink.Columns.Add("Stock", 70);
+                        listViewDrink.Columns.Add("Stock sufficient or not", 50);
                         listViewDrink.Columns.Add("Sales Value", 80);
                         listViewDrink.Columns.Add("Number of drinks sold", 120);
                         listViewDrink.Columns.Add("Drink is alcoholic", 80);
@@ -250,6 +251,7 @@ namespace SomerenUI
                         {
                             ListViewItem li = new ListViewItem(drink.DrinkName);
                             li.SubItems.Add(drink.StockAmount.ToString());
+                            li.SubItems.Add(drinkService.SufficientInsufficient(drink));
                             li.SubItems.Add(drink.SalesValue.ToString());
                             li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
                             li.SubItems.Add(drink.IsAlcoholic.ToString());
@@ -294,6 +296,7 @@ namespace SomerenUI
             listViewDrink.FullRowSelect = true;
             listViewDrink.Columns.Add("Drink name", 80);
             listViewDrink.Columns.Add("Stock", 70);
+            listViewDrink.Columns.Add("Stock sufficient or not", 50);
             listViewDrink.Columns.Add("Sales Value", 80);
             listViewDrink.Columns.Add("Number of drinks sold", 120);
             listViewDrink.Columns.Add("Drink is alcoholic", 80);
@@ -303,6 +306,7 @@ namespace SomerenUI
             {
                 ListViewItem li = new ListViewItem(drink.DrinkName);
                 li.SubItems.Add(drink.StockAmount.ToString());
+                li.SubItems.Add(drinkService.SufficientInsufficient(drink));
                 li.SubItems.Add(drink.SalesValue.ToString());
                 li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
                 li.SubItems.Add(drink.IsAlcoholic.ToString());
@@ -554,11 +558,12 @@ namespace SomerenUI
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            DrinkService drinkService = new DrinkService();
-            string drinkNameEntered = listViewDrink.SelectedItems[0].Text;
-            List<Drink> drinkList = drinkService.GetDrinks();
             try
             {
+                DrinkService drinkService = new DrinkService();
+                string drinkNameEntered = listViewDrink.SelectedItems[0].Text;
+                List<Drink> drinkList = drinkService.GetDrinks();
+           
                 // pop up message voor de gebruiker
                 MessageBox.Show("Are you sure you want to delete the whole row from the list?");  
                 // Ook nog verwijderen uit de database!!!!
@@ -568,7 +573,6 @@ namespace SomerenUI
             catch (Exception)
             {
                 MessageBox.Show("Please select a row from the list, then press the delete button");
-                throw new Exception("Name is not the same as in the database");
             }
             
         }

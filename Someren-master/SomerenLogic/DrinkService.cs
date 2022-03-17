@@ -39,6 +39,14 @@ namespace SomerenLogic
         {
             drinksdb.UpdateNameInRow(drinkName, newDrinkName);
         }
+        public string SufficientInsufficient(Drink drink) 
+        {
+            if (drink.StockAmount > 10)
+            {
+                return "✓";
+            }
+            return "X";
+        }
 
         public void DeleteRowTable(string drinkName) 
         {
