@@ -391,9 +391,6 @@ namespace SomerenUI
         {
             try
             {
-                int sales = 0;
-                int turnover = 0;
-                int numberOfCustomers = 0;
                 listViewRevenueReport.Clear();
                 RevenueReportService revenueReportService = new RevenueReportService();
                 if (dateTimePickerStart.Value > DateTime.Parse("01-01-2019") || dateTimePickerEnd.Value <= DateTime.Now)
@@ -403,17 +400,9 @@ namespace SomerenUI
                     listViewRevenueReport.Columns.Add("total sales", 120);
                     listViewRevenueReport.Columns.Add("turnover", 120);
                     listViewRevenueReport.Columns.Add("number of customers", 200);
-
-                    foreach (RevenueReport revenueProduct in revenueReport)
-                    {
-                        sales += revenueProduct.sales;
-                        turnover += revenueProduct.turnover;
-                        numberOfCustomers += revenueProduct.numberOfCustomers;
-                    }
-
-                    ListViewItem li = new ListViewItem(sales.ToString());
-                    li.SubItems.Add(turnover.ToString());
-                    li.SubItems.Add(numberOfCustomers.ToString());
+                    ListViewItem li = new ListViewItem(revenueReport.Sum(item => item.sales).ToString());
+                    li.SubItems.Add(revenueReport.Sum(item => item.turnover).ToString());
+                    li.SubItems.Add(revenueReport.Sum(item => item.numberOfCustomers).ToString());
                     listViewRevenueReport.Items.Add(li);
                     ColorListView(listViewRevenueReport);
                 }
