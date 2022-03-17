@@ -9,14 +9,14 @@ namespace SomerenLogic
 {
     public class LogService
     {
-        public void WriteLog(string message)
+        public void WriteLog(Exception ex)
         {
             string filename = "...\\...\\...\\LogFile.txt";
             StreamWriter writer = new StreamWriter(filename, true);
 
             if (File.Exists(filename))
             {
-                writer.WriteLine($"{DateTime.Now} --- error occured. Please read the pop-up message that appeared on your screen and try again. " +
+                writer.WriteLine($"{DateTime.Now} --- error {ex.Message} " +
                     $"If the problem can't be resolved, feel free to reach out on us.");
             }
             else

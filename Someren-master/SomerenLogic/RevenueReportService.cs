@@ -17,9 +17,9 @@ namespace SomerenLogic
             revenuedb = new RevenueReportDAO();
         }
 
-        public RevenueReport GetRevenueReport(DateTime startDateTime, DateTime endDateTime)
+        public List<RevenueReport> GetRevenueReport(DateTime startDateTime, DateTime endDateTime)
         {
-            RevenueReport revenueReports = revenuedb.GetReport(startDateTime, endDateTime);
+            List<RevenueReport> revenueReports = revenuedb.GetReport(startDateTime, endDateTime);
             return revenueReports;
         }
     }
