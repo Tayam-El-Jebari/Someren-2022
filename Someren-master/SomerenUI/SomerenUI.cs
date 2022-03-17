@@ -487,7 +487,6 @@ namespace SomerenUI
             catch (Exception)
             {
                 MessageBox.Show("Please make sure to enter all the data in the textbox fields. ");
-                throw new Exception("All fields are required");
             }                       
         }
 
