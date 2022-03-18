@@ -273,9 +273,9 @@ namespace SomerenUI
             listViewDrink.View = View.Details;
             listViewDrink.FullRowSelect = true;
             listViewDrink.Columns.Add("Drink name", 80);
-            listViewDrink.Columns.Add("Stock", 70);
+            listViewDrink.Columns.Add("Stock", 60);
             listViewDrink.Columns.Add("Stock sufficient or not", 50);
-            listViewDrink.Columns.Add("Sales Value", 80);
+            listViewDrink.Columns.Add("Tokens", 60);
             listViewDrink.Columns.Add("Number of drinks sold", 120);
             listViewDrink.Columns.Add("Drink is alcoholic", 80);
             List<Drink> drinkList = drinkService.GetDrinks();
@@ -505,9 +505,9 @@ namespace SomerenUI
                 listViewDrink.View = View.Details;
                 listViewDrink.FullRowSelect = true;
                 listViewDrink.Columns.Add("Drink name", 80);
-                listViewDrink.Columns.Add("Stock", 70);
-                listViewDrink.Columns.Add("Stock sufficient or not");
-                listViewDrink.Columns.Add("Sales Value", 80);
+                listViewDrink.Columns.Add("Stock", 60);
+                listViewDrink.Columns.Add("Stock sufficient or not", 50);
+                listViewDrink.Columns.Add("Tokens", 60);
                 listViewDrink.Columns.Add("Number of drinks sold", 120);
                 listViewDrink.Columns.Add("Drink is alcoholic", 80);
                 List<Drink> drinkList = drinkService.GetDrinks();
@@ -566,9 +566,9 @@ namespace SomerenUI
                 listViewDrink.FullRowSelect = true;
                 listViewDrink.LabelEdit = true;
                 listViewDrink.Columns.Add("Drink name", 80);
-                listViewDrink.Columns.Add("Stock", 70);
-                listViewDrink.Columns.Add("Stock sufficient or not");
-                listViewDrink.Columns.Add("Sales Value", 80);
+                listViewDrink.Columns.Add("Stock", 60);
+                listViewDrink.Columns.Add("Stock sufficient or not", 50);
+                listViewDrink.Columns.Add("Tokens", 60);
                 listViewDrink.Columns.Add("Number of drinks sold", 120);
                 listViewDrink.Columns.Add("Drink is alcoholic", 80);
 
