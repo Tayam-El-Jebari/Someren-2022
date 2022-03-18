@@ -166,6 +166,7 @@ namespace SomerenUI
                     drinksListView.View = View.Details;
                     drinksListView.FullRowSelect = true;
                     drinksListView.LabelEdit = true;
+                    drinksListView.Columns.Add("Product id", 80);
                     drinksListView.Columns.Add("Drink name", 80);
                     drinksListView.Columns.Add("Stock", 70);
                     drinksListView.Columns.Add("Sales Value", 80);
@@ -174,7 +175,9 @@ namespace SomerenUI
 
                     foreach (Drink drink in drinkList)
                     {
-                        ListViewItem li = new ListViewItem(drink.DrinkName);
+                        ListViewItem li = new ListViewItem(drink.ProductID.ToString());
+                        li.SubItems.Add(drink.DrinkName);
+
                         li.SubItems.Add(drink.StockAmount.ToString());
                         li.SubItems.Add(drink.SalesValue.ToString());
                         li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
@@ -612,26 +615,22 @@ namespace SomerenUI
         {
             try
             {
-                string studentList = studentsListView.SelectedItems[0].SubItems[1].Text;
-                string drinkList = drinksListView.SelectedItems[0].SubItems[1].Text;
-
                 Student student = (Student)studentsListView.SelectedItems[0].Tag;
-                Drink drinks = (Drink)drinksListView.SelectedItems[0].Tag;
+                List<Drink> drinks = new List<Drink>();
+                OrderService orderService = new OrderService();
 
-                for (int i = 0; drinksListView.SelectedItems.Count < i; i++)
+                for (int i = 0; i < drinksListView.SelectedItems.Count; i++)
                 {
-                    MessageBox.Show("hi");
-
-                    Order order = new Order(drinks.ProductID, student.StudentId, DateTime.Now);
-                    OrderService orderService = new OrderService();
+                    drinks.Add((Drink)drinksListView.SelectedItems[i].Tag);
+                    Order order = new Order(drinks[i].ProductID, student.StudentId, DateTime.Now);
                     orderService.AddRowOrders(order.ProductId, order.StudentId, order.DateOfPurchase);
                 }
                 MessageBox.Show("Your transaction has been completed! ");
                 ShowCorrectPanel(pnlCashRegisterPanel);
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                throw new Exception("You need to select at least one student-Id and one drink");
+                MessageBox.Show(exception.Message);
             }     
         }
 

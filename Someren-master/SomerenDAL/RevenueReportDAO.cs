@@ -26,21 +26,6 @@ namespace SomerenDAL
                 throw new Exception("Reports could not be loaded properly. Error : \n" + e.Message);
             }
         }
-        public List<RevenueReport> GetReportR(DateTime startDate, DateTime endDate)
-        {
-            try
-            {
-                string query = $"Select COUNT(ORDERID) AS sales, SUM(salesValue) AS [turn over], count(DISTINCT o.studentId) AS countOfStudents " +
-                    $"FROM [ORDER] AS O JOIN drink AS d ON O.productId = d.productID WHERE dateOfPurchase between " +
-                    $"'{startDate.ToString("yyyy-MM-dd")}' and '{endDate.ToString("yyyy-MM-dd")}'";
-                SqlParameter[] sqlParameters = new SqlParameter[0];
-                return ReadTables(ExecuteSelectQuery(query, sqlParameters), startDate, endDate);
-            }
-            catch (Exception e)
-            {
-                throw new Exception("Reports could not be loaded properly. Error : \n" + e.Message);
-            }
-        }
         private List<RevenueReport> ReadTables(DataTable dataTable, DateTime startDate, DateTime endDate)
         {
             try

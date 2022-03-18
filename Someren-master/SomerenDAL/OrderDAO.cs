@@ -14,7 +14,7 @@ namespace SomerenDAL
 
         public void AddRowOrders(int productId, int studentId, DateTime dateOfPurchase)
         {
-            string query = "INSERT INTO [Order](productId, studentId, dateOfPurchase)VALUES(@productId, @studentId}, @dateOfPurchase)";
+            string query = "INSERT INTO [Order](productId, studentId, dateOfPurchase)VALUES(@productId, @studentId, @dateOfPurchase)";
             SqlParameter[] sqlParameters = new SqlParameter[3]
             {
                 new SqlParameter("@productId", productId),
