@@ -110,3 +110,46 @@ Parameternaam: item If the problem can't be resolved, feel free to reach out on 
 18-3-2022 12:55:36 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
 18-3-2022 12:55:48 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
 18-3-2022 12:55:53 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 15:54:01 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 15:54:03 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 15:54:17 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 15:54:35 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 15:56:03 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 15:56:56 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 15:58:31 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 15:58:50 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 17:15:36 --- error Reports could not be loaded properly. Error : 
+Data could not be retrieved from the database. Please try agianDe kolom numberOfDrinkSold hoort niet bij de tabel Table. If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 17:15:43 --- error Reports could not be loaded properly. Error : 
+Data could not be retrieved from the database. Please try agianDe kolom numberOfDrinkSold hoort niet bij de tabel Table. If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 17:19:10 --- error Reports could not be loaded properly. Error : 
+Data could not be retrieved from the database. Please try agianDe opgegeven conversie is ongeldig. If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 17:31:00 --- error Reports could not be loaded properly. Error : 
+Data could not be retrieved from the database. Please try agianDe opgegeven conversie is ongeldig. If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 17:31:10 --- error Reports could not be loaded properly. Error : 
+Data could not be retrieved from the database. Please try agianDe opgegeven conversie is ongeldig. If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 17:31:21 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 17:32:44 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 17:33:01 --- error Reports could not be loaded properly. Error : 
+Data could not be retrieved from the database. Please try agianDe opgegeven conversie is ongeldig. If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 17:33:11 --- error Reports could not be loaded properly. Error : 
+Data could not be retrieved from the database. Please try agianDe opgegeven conversie is ongeldig. If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 17:35:15 --- error Reports could not be loaded properly. Error : 
+No sales found in database in the date range 2022-03-18 to 2022-03-18 If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 17:35:25 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 17:35:34 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 17:35:38 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 17:35:41 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 17:35:44 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 17:35:46 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 22:16:38 --- error Reports could not be loaded properly. Error : 
+No sales found in database in the date range 2022-03-18 to 2022-03-18 If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 22:17:11 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 22:17:17 --- error Reports could not be loaded properly. Error : 
+No sales found in database in the date range 2022-03-09 to 2022-03-11 If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 22:17:24 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 22:17:27 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 22:17:29 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 22:17:34 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 22:19:42 --- error Reports could not be loaded properly. Error : 
+No sales found in database in the date range 2022-03-18 to 2022-03-18 If the problem can't be resolved, feel free to reach out on us.

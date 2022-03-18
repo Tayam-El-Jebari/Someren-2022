@@ -398,11 +398,11 @@ namespace SomerenUI
                 listViewRevenueReport.Clear();
 
                 RevenueReportService revenueReportService = new RevenueReportService();
-                if (dateTimePickerStart.Value > dateTimePickerEnd.Value)
+                if (dateTimePickerStart.Value.Date > dateTimePickerEnd.Value.Date)
                 {
                     throw new Exception("Start date cannot be higher than the end date!");
                 }
-                if (dateTimePickerStart.Value > DateTime.Parse("01-01-2019") && dateTimePickerStart.Value <= DateTime.Now && dateTimePickerEnd.Value <= DateTime.Now)
+                else if (dateTimePickerStart.Value > DateTime.Parse("01-01-2019") && dateTimePickerStart.Value <= DateTime.Now && dateTimePickerEnd.Value <= DateTime.Now)
                 {
                     List<RevenueReport> revenueReport = revenueReportService.GetRevenueReport(dateTimePickerStart.Value, dateTimePickerEnd.Value);
                     listViewRevenueReport.View = View.Details;
@@ -410,13 +410,12 @@ namespace SomerenUI
                     listViewRevenueReport.Columns.Add("turnover", 120);
                     listViewRevenueReport.Columns.Add("number of customers", 200);
                     ListViewItem li = new ListViewItem(revenueReport.Sum(item => item.sales).ToString());
-                    li.SubItems.Add(revenueReport.Sum(item => item.turnover).ToString());
+                    li.SubItems.Add(revenueReport.Sum(item => item.turnOver).ToString());
                     li.SubItems.Add(revenueReport.Sum(item => item.numberOfCustomers).ToString());
                     listViewRevenueReport.Items.Add(li);
                     ColorListView(listViewRevenueReport);
 
                 }
-
                 else
                 {
                     throw new Exception($"invalid date range. Please select a date between 01-01-2019 and {DateTime.Now.ToString("dd-MM-yyyy")}!");

@@ -10,9 +10,7 @@ namespace SomerenModel
     {
         public int sales { get; set; }
         
-        public int price { get; set; }
-
-        public int turnover { get { return (sales * price); } set { } }
+        public int turnOver { get; set; }
 
         public int numberOfCustomers {get; set;}
     }
