@@ -398,7 +398,11 @@ namespace SomerenUI
                 listViewRevenueReport.Clear();
 
                 RevenueReportService revenueReportService = new RevenueReportService();
-                if (dateTimePickerStart.Value > DateTime.Parse("01-01-2019") || dateTimePickerEnd.Value <= DateTime.Now)
+                if (dateTimePickerStart.Value > dateTimePickerEnd.Value)
+                {
+                    throw new Exception("Start date cannot be higher than the end date!");
+                }
+                if (dateTimePickerStart.Value > DateTime.Parse("01-01-2019") && dateTimePickerStart.Value <= DateTime.Now && dateTimePickerEnd.Value <= DateTime.Now)
                 {
                     List<RevenueReport> revenueReport = revenueReportService.GetRevenueReport(dateTimePickerStart.Value, dateTimePickerEnd.Value);
                     listViewRevenueReport.View = View.Details;
@@ -412,10 +416,7 @@ namespace SomerenUI
                     ColorListView(listViewRevenueReport);
 
                 }
-                else if (dateTimePickerStart.Value > dateTimePickerEnd.Value)
-                {
-                    throw new Exception("Start date cannot be higher than the end date!");
-                }
+
                 else
                 {
                     throw new Exception($"invalid date range. Please select a date between 01-01-2019 and {DateTime.Now.ToString("dd-MM-yyyy")}!");
@@ -427,17 +428,10 @@ namespace SomerenUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to load, if this keeps happening, please contact us and tell us this error message : \n" + ex.Message);
+                MessageBox.Show("Failed to load : \n \n" + ex.Message);
                 logService.WriteLog(ex);
             }
         }
-        private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            showPanel("Drinks");
-            ChangeToolStripMenu(drinksToolStripMenuItem);
-
-        }
-
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             try
@@ -602,6 +596,10 @@ namespace SomerenUI
             MessageBox.Show("Your transaction has been completed! ");
         }
 
-
+        private void drinksToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            showPanel("Drinks");
+            ChangeToolStripMenu(drinksToolStripMenuItem);
+        }
     }
 }

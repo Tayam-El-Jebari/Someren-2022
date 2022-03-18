@@ -135,11 +135,10 @@
             this.teachersToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.roomsToolStripMenuItem,
-            this.barServiceToolStripMenuItem,
-            this.drinksToolStripMenuItem});
+            this.barServiceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1283, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1283, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -151,7 +150,7 @@
             this.exitToolStripMenuItem});
             this.dashboardToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(100, 26);
+            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
             this.dashboardToolStripMenuItem.Text = "Application";
             // 
             // dashboardToolStripMenuItem1
@@ -176,28 +175,28 @@
             // studentsToolStripMenuItem
             // 
             this.studentsToolStripMenuItem.Name = "studentsToolStripMenuItem";
-            this.studentsToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
+            this.studentsToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.studentsToolStripMenuItem.Text = "Students";
             this.studentsToolStripMenuItem.Click += new System.EventHandler(this.studentsToolStripMenuItem_Click);
             // 
             // teachersToolStripMenuItem
             // 
             this.teachersToolStripMenuItem.Name = "teachersToolStripMenuItem";
-            this.teachersToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
+            this.teachersToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.teachersToolStripMenuItem.Text = "Teachers";
             this.teachersToolStripMenuItem.Click += new System.EventHandler(this.teachersToolStripMenuItem_Click);
             // 
             // activitiesToolStripMenuItem
             // 
             this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
-            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(83, 26);
+            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.activitiesToolStripMenuItem.Text = "Activities";
             this.activitiesToolStripMenuItem.Click += new System.EventHandler(this.activitiesToolStripMenuItem_Click_1);
             // 
             // roomsToolStripMenuItem
             // 
             this.roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
-            this.roomsToolStripMenuItem.Size = new System.Drawing.Size(69, 26);
+            this.roomsToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.roomsToolStripMenuItem.Text = "Rooms";
             this.roomsToolStripMenuItem.Click += new System.EventHandler(this.roomsToolStripMenuItem_Click);
             // 
@@ -205,31 +204,32 @@
             // 
             this.barServiceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.revenueReportToolStripMenuItem,
-            this.CashregistertoolStripMenuItem});
+            this.CashregistertoolStripMenuItem,
+            this.drinksToolStripMenuItem});
             this.barServiceToolStripMenuItem.Name = "barServiceToolStripMenuItem";
-            this.barServiceToolStripMenuItem.Size = new System.Drawing.Size(94, 26);
+            this.barServiceToolStripMenuItem.Size = new System.Drawing.Size(94, 24);
             this.barServiceToolStripMenuItem.Text = "Bar service";
             // 
             // revenueReportToolStripMenuItem
             // 
             this.revenueReportToolStripMenuItem.Name = "revenueReportToolStripMenuItem";
-            this.revenueReportToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.revenueReportToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.revenueReportToolStripMenuItem.Text = "Revenue report";
             this.revenueReportToolStripMenuItem.Click += new System.EventHandler(this.revenueReportToolStripMenuItem_Click);
             // 
             // CashregistertoolStripMenuItem
             // 
             this.CashregistertoolStripMenuItem.Name = "CashregistertoolStripMenuItem";
-            this.CashregistertoolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.CashregistertoolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.CashregistertoolStripMenuItem.Text = "Cash register";
             this.CashregistertoolStripMenuItem.Click += new System.EventHandler(this.CashregistertoolStripMenuItem_Click);
             // 
             // drinksToolStripMenuItem
             // 
             this.drinksToolStripMenuItem.Name = "drinksToolStripMenuItem";
-            this.drinksToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
+            this.drinksToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.drinksToolStripMenuItem.Text = "Drinks";
-            this.drinksToolStripMenuItem.Click += new System.EventHandler(this.drinksToolStripMenuItem_Click);
+            this.drinksToolStripMenuItem.Click += new System.EventHandler(this.drinksToolStripMenuItem_Click_1);
             // 
             // pnlRevenueReportPanel
             // 
@@ -996,8 +996,6 @@
         private System.Windows.Forms.Label labelLine;
         private System.Windows.Forms.Button buttonGenerate;
         private System.Windows.Forms.Label labelEnd;
-
-        private System.Windows.Forms.ToolStripMenuItem drinksToolStripMenuItem;
         private System.Windows.Forms.Panel pnlDrinksPanel;
         private System.Windows.Forms.ListView listViewDrink;
         private System.Windows.Forms.PictureBox drinkPictureBox1;
@@ -1030,6 +1028,7 @@
         private System.Windows.Forms.Button checkOutbutton;
         private System.Windows.Forms.Button buttonChangeName;
         private System.Windows.Forms.TextBox textBoxNewDrinkName;
+        private System.Windows.Forms.ToolStripMenuItem drinksToolStripMenuItem;
     }
 }
 

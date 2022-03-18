@@ -53,3 +53,60 @@
 No sales found in database in the date range 2022-03-15 to 2022-03-17 If the problem can't be resolved, feel free to reach out on us.
 17-3-2022 22:10:20 --- error Kan het item 91 niet toevoegen op meer dan een plaats. U moet het item eerst van de huidige locatie verwijderen of het item kopiëren.
 Parameternaam: item If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:18:52 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:20:00 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:21:53 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:22:03 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:22:43 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:22:59 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:23:22 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:24:04 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:24:42 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:24:44 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:24:45 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:27:40 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:28:02 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:28:03 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:28:05 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:28:29 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:28:50 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:29:24 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:31:20 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:34:05 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:34:07 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:34:11 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:37:22 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:40:14 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:44:33 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:44:35 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:44:45 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:44:49 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:44:55 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:44:56 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:45:39 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:45:50 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:46:49 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:46:53 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:46:57 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:47:00 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:47:02 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:50:10 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:50:13 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:50:18 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:50:29 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:50:34 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:50:39 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:50:47 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:50:51 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:50:56 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:51:03 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:51:08 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:51:23 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:51:56 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:52:02 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:52:31 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:54:51 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:55:15 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:55:36 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:55:48 --- error invalid date range. Please select a date between 01-01-2019 and 18-03-2022! If the problem can't be resolved, feel free to reach out on us.
+18-3-2022 12:55:53 --- error Start date cannot be higher than the end date! If the problem can't be resolved, feel free to reach out on us.
