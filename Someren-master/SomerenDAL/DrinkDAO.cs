@@ -11,8 +11,8 @@ namespace SomerenDAL
 {
     public class DrinkDAO : BaseDao
     {
-        public List<Drink>GetAllDrinks()
-        { 
+        public List<Drink> GetAllDrinks()
+        {
             try
             {
                 // change attributes from Drink, give them the right name. 
@@ -32,16 +32,16 @@ namespace SomerenDAL
         {
             string querry = string.Empty;
             if (isAlcoholic)
-            querry = $"INSERT INTO Drink(stock, salesValue, numberOfDrinkSold, drinkName, alcoholic)VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}', 1)";
+                querry = $"INSERT INTO Drink(stock, salesValue, numberOfDrinkSold, drinkName, alcoholic)VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}', 1)";
             else
-            querry = $"INSERT INTO Drink(stock, salesValue, numberOfDrinkSold, drinkName, alcoholic)VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}', 0)";
+                querry = $"INSERT INTO Drink(stock, salesValue, numberOfDrinkSold, drinkName, alcoholic)VALUES({stock}, {salesValue}, {numberOfSales}, '{drinkName}', 0)";
 
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(querry, sqlParameters);
         }
 
         public void UpdateRow(int stock, int salesValue, int numberOfSales, string drinkName, bool isAlcoholic)
-        { 
+        {
             string query = $"UPDATE Drink SET stock=@stock, salesValue=@salesValue, numberOfDrinkSold=@numberOfDrinkSold, drinkName=@drinkName, alcoholic=@alcoholic WHERE drinkName='{drinkName}'";
             SqlParameter[] sqlParameters = new SqlParameter[5];
             sqlParameters[0] = new SqlParameter("@stock", stock);
@@ -49,7 +49,7 @@ namespace SomerenDAL
             sqlParameters[2] = new SqlParameter("@numberOfDrinkSold", numberOfSales);
             sqlParameters[3] = new SqlParameter("@drinkName", drinkName);
             sqlParameters[4] = new SqlParameter("@alcoholic", isAlcoholic);
-            ExecuteEditQuery(query, sqlParameters);            
+            ExecuteEditQuery(query, sqlParameters);
         }
 
         public void UpdateNameInRow(string drinkName, string newDrinkName) 
@@ -69,7 +69,7 @@ namespace SomerenDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        public List<Drink> ShowSortedList() 
+        public List<Drink> ShowSortedList()
         {
             string query = "SELECT [productID], [drinkName], [stock], [salesValue], [numberOfDrinkSold], [alcoholic] FROM Drink WHERE[salesValue] > 1 AND [drinkName] != 'Water' AND [drinkName] != 'Orangeade' AND [drinkName] != 'Cherry juice' ORDER BY[stock] DESC, [salesValue] DESC, [numberOfDrinkSold] DESC";
             SqlParameter[] sqlParameters = new SqlParameter[0];
@@ -77,7 +77,7 @@ namespace SomerenDAL
 
         }
 
-        private bool ConvertBitToBool(byte bit) 
+        private bool ConvertBitToBool(byte bit)
         {
             if (bit == 0)
             {
@@ -113,35 +113,19 @@ namespace SomerenDAL
             }
         }
 
-        public List<Drinks> GetAllDrinksCR()
+        public List<Drink> GetAllDrinksCR()
         {
-            string query = "SELECT orderId, productId, studentId, dateOfPurchase FROM [Order]";            
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTablesDrinkCR(ExecuteSelectQuery(query, sqlParameters));
-        }
-
-        private List<Drinks> ReadTablesDrinkCR(DataTable dataTable)
-        {
-            try 
-            { 
-            List<Drinks> drinks = new List<Drinks>();
-                foreach (DataRow dr in dataTable.Rows)
-                {
-                    Drinks drink = new Drinks()
-                    {
-                        OrderId = (int)dr["orderId"],
-                        ProductId = (int)dr["productId"],
-                        StudentId = (int)dr["studentId"],
-                        DateOfPurchase = (DateTime)dr["dateOfPurchase"]
-                    };
-                    drinks.Add(drink);
-                }
-                return drinks;
-            }            
+            try
+            {
+                string query = "SELECT productID, drinkName, stock, salesValue, numberOfDrinkSold, alcoholic FROM [Drink]";
+                SqlParameter[] sqlParameters = new SqlParameter[0];
+                return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            }
             catch (Exception e)
             {
-                throw new Exception("Data could not be retrieved from the database. Please try agian" + e.Message);
+                // within this exception show te user that something went wrong. 
+                throw new Exception("Drinks could not be loaded properly. Please try again" + e.Message);
             }
-        }   
+        }
     }
 }

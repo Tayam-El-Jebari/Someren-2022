@@ -86,29 +86,36 @@ namespace SomerenUI
             else if (panelName == "Teachers")
             {
                 ShowCorrectPanel(pnlTeacherPanel);
-
-
-                listViewTeachers.Clear();
-
-                TeacherService teacherService = new TeacherService();
-                List<Teacher> teacherList = teacherService.GetTeachers();
-
-                listViewTeachers.View = View.Details;
-                listViewTeachers.Columns.Add("Teacher id", 80);
-                listViewTeachers.Columns.Add("First name", 120);
-                listViewTeachers.Columns.Add("Last name", 120);
-                listViewTeachers.Columns.Add("Room number", 80);
-                listViewTeachers.Columns.Add("Supervisor", 80);
-                foreach (Teacher teacher in teacherList)
+                try
                 {
-                    ListViewItem li = new ListViewItem(teacher.TeacherID.ToString());
-                    li.SubItems.Add(teacher.FirstName);
-                    li.SubItems.Add(teacher.LastName);
-                    li.SubItems.Add(teacher.RoomNumber.ToString());
-                    li.SubItems.Add(teacher.Supervisor.ToString());
-                    listViewTeachers.Items.Add(li);
+
+                    listViewTeachers.Clear();
+
+                    TeacherService teacherService = new TeacherService();
+                    List<Teacher> teacherList = teacherService.GetTeachers();
+
+                    listViewTeachers.View = View.Details;
+                    listViewTeachers.Columns.Add("Teacher id", 80);
+                    listViewTeachers.Columns.Add("First name", 120);
+                    listViewTeachers.Columns.Add("Last name", 120);
+                    listViewTeachers.Columns.Add("Room number", 80);
+                    listViewTeachers.Columns.Add("Supervisor", 80);
+                    foreach (Teacher teacher in teacherList)
+                    {
+                        ListViewItem li = new ListViewItem(teacher.TeacherID.ToString());
+                        li.SubItems.Add(teacher.FirstName);
+                        li.SubItems.Add(teacher.LastName);
+                        li.SubItems.Add(teacher.RoomNumber.ToString());
+                        li.SubItems.Add(teacher.Supervisor.ToString());
+                        listViewTeachers.Items.Add(li);
+                    }
+                    ColorListView(listViewTeachers);
                 }
-                ColorListView(listViewTeachers);
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the teachers: " + e.Message);
+                    logService.WriteLog(e);
+                }
             }
             else if (panelName == "Revenue report")
             {
@@ -125,6 +132,8 @@ namespace SomerenUI
 
 
                     studentsListView.View = View.Details;
+                    studentsListView.FullRowSelect = true;
+
                     studentsListView.Columns.Add("Student id", 50);
                     studentsListView.Columns.Add("First name", 120);
                     studentsListView.Columns.Add("Last name", 120);
@@ -134,45 +143,52 @@ namespace SomerenUI
 
                     foreach (Student s in studentList)
                     {
-                        s.StudentId.ToString();
+                        //s.StudentId.ToString();
 
                         ListViewItem li = new ListViewItem(s.StudentId.ToString());
                         li.SubItems.Add(s.FirstName);
                         li.SubItems.Add(s.LastName);
                         li.SubItems.Add(s.DateOfBirth.ToString("yyyy/MM/dd"));
                         li.SubItems.Add(s.RoomNumber.ToString());
+                        li.Tag = s;
                         studentsListView.Items.Add(li);
 
                     }
 
 
 
-                    DrinkService driService = new DrinkService();
-                    List<Drinks> drinkList = driService.GetDrinksCR();
+                    DrinkService drinkService = new DrinkService();
+                    List<Drink> drinkList = drinkService.GetDrinksCR();
 
+                    // clear the listview before filling it again
+                    drinksListView.Clear();
 
                     drinksListView.View = View.Details;
-                    drinksListView.Columns.Add("Order id", 50);
-                    drinksListView.Columns.Add("Product id", 50);
-                    drinksListView.Columns.Add("Student id", 50);
-                    drinksListView.Columns.Add("Date of purchase", 70);
+                    drinksListView.FullRowSelect = true;
+                    drinksListView.LabelEdit = true;
+                    drinksListView.Columns.Add("Drink name", 80);
+                    drinksListView.Columns.Add("Stock", 70);
+                    drinksListView.Columns.Add("Sales Value", 80);
+                    drinksListView.Columns.Add("Number of drinks sold", 120);
+                    drinksListView.Columns.Add("Drink is alcoholic", 80);
 
-
-                    foreach (Drinks d in drinkList)
+                    foreach (Drink drink in drinkList)
                     {
-                        d.OrderId.ToString();
-
-                        ListViewItem li = new ListViewItem(d.OrderId.ToString());
-                        li.SubItems.Add(d.ProductId.ToString());
-                        li.SubItems.Add(d.StudentId.ToString());
-                        li.SubItems.Add(d.DateOfPurchase.ToString());
+                        ListViewItem li = new ListViewItem(drink.DrinkName);
+                        li.SubItems.Add(drink.StockAmount.ToString());
+                        li.SubItems.Add(drink.SalesValue.ToString());
+                        li.SubItems.Add(drink.NumberOfDrinksSold.ToString());
+                        li.SubItems.Add(drink.IsAlcoholic.ToString());
+                        li.Tag = drink;
                         drinksListView.Items.Add(li);
                     }
+                    ColorListView(drinksListView);
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("Something went wrong while loading the students: " + e.Message);
+                    MessageBox.Show("Something went wrong while loading the cash register: ");
                     logService.WriteLog(e);
+
                 }
             }
             try
@@ -209,8 +225,9 @@ namespace SomerenUI
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show("Listview could not be loaded properly.");
+                        MessageBox.Show("Something went wrong while loading the rooms: ");
                         logService.WriteLog(e);
+
                     }
                 }
             }
@@ -238,8 +255,9 @@ namespace SomerenUI
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show("Listview could not be loaded properly.");
+                        MessageBox.Show("Something went wrong while loading the drinks: ");
                         logService.WriteLog(e);
+
                     }
                 }
             }
@@ -592,7 +610,29 @@ namespace SomerenUI
 
         private void checkOutbutton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Your transaction has been completed! ");
+            try
+            {
+                string studentList = studentsListView.SelectedItems[0].SubItems[1].Text;
+                string drinkList = drinksListView.SelectedItems[0].SubItems[1].Text;
+
+                Student student = (Student)studentsListView.SelectedItems[0].Tag;
+                Drink drinks = (Drink)drinksListView.SelectedItems[0].Tag;
+
+                for (int i = 0; drinksListView.SelectedItems.Count < i; i++)
+                {
+                    MessageBox.Show("hi");
+
+                    Order order = new Order(drinks.ProductID, student.StudentId, DateTime.Now);
+                    OrderService orderService = new OrderService();
+                    orderService.AddRowOrders(order.ProductId, order.StudentId, order.DateOfPurchase);
+                }
+                MessageBox.Show("Your transaction has been completed! ");
+                ShowCorrectPanel(pnlCashRegisterPanel);
+            }
+            catch (Exception)
+            {
+                throw new Exception("You need to select at least one student-Id and one drink");
+            }     
         }
 
         private void drinksToolStripMenuItem_Click_1(object sender, EventArgs e)

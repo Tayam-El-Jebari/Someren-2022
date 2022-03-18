@@ -11,7 +11,7 @@ namespace SomerenLogic
     public class DrinkService 
     {
         private DrinkDAO drinksdb;
-
+        public OrderDAO orderdb;
         public DrinkService()
         {
             drinksdb = new DrinkDAO();
@@ -22,9 +22,9 @@ namespace SomerenLogic
             List<Drink> drinks = drinksdb.GetAllDrinks();
             return drinks;
         }
-        public List<Drinks> GetDrinksCR()
+        public List<Drink> GetDrinksCR()
         {
-            List<Drinks> drinks = drinksdb.GetAllDrinksCR();
+            List<Drink> drinks = drinksdb.GetAllDrinksCR();
             return drinks;
         }
         public void AddRowTable(int stock, int salesValue, int numberOfSales, string drinkName, bool isAlcoholic)
