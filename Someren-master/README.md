@@ -12,6 +12,9 @@ week 2: opdracht A; Students
 -ik heb de basiscode van de ChangeToolStripMenu gemaakt (Tayam heeft die weer verbeterd door hem in een methode te zetten) 
 -camelCasing fouten verbeterd 
 
+week 3: opdracht B; Cash register
+-cash register
+
 Lars Hartendorp 
 INF1C
 690720
@@ -27,6 +30,14 @@ namelijk; Room.cs, RoomService.cs, RoomDAO.cs. de SomerenUI design heb ik aangep
 in de Windows Forms komt er een overzicht van roomNumber, capacity en type. Gezamenlijk gewerkt aan de UI omslag zodat deze er netjes uit ziet. 
 Meerdere teamcalls gedaan.
 
+
+Week 3:
+Mijn deel was opdracht A: drinks. 
+DrinksDAO, DrinksService aangemaakt. In de SomerenUI[Design] een panel aangemaakt met buttons en een listview. 
+In de DrinksDAO verschillende querys geschreven voor Add, Update, Change name, Delete, en Sort. 
+In de SomerenUI heb ik de code hiervoor geschreven. Alles werkt, maar ging niet altijd van harte. 
+De change Name van drink had ik nog erg moeite mee, maar is wel gelukt. 
+
 Tayam El Jebari
 INF1C
 652543
@@ -40,4 +51,21 @@ Week 2: opdracht B; teachers
 - Meerdere classes aangemaakt zoals TeacherDAO.cs, Teacher.cs en TeacherService.cs. 
 - Geholpen met het verbeteren van de UI. Ook banner toegevoegd, lettertype veranderd en andere schoonheidsfoutjes verbtered.
 - Ik heb de code schoner gemaakt en een check gedaan om code te versimpelen, zoals dublicatiecode verwijderen en methodes toevoegen.
+
+Week 3 Opdracht C; Revenue Report
+
+Ik heb het volgende gedaan voor week 3:
+- RevenueReport DAO, Model en Logic laag gemaakt.
+- queries geschreven om een revenue report te halen.
+- Methodes verbeterd om nu met loops te werken.
+- gemerged en conflicten eruit gehaald.
+- UI verbeterd en methodes geschreven voor de UI (bijvoorbeeld het inkleuren van de tabellen).
+- dublicatiecode verwijderd van mijzelf en van anderen.
+- code gecontroleerd van mijzelf en anderen.
+- Colin geholpen met cash register afronden.
+- aanpassingen gemaakt in het database om logischer data op te halen bij de correcte tabellen.
+
+
+
+
 
