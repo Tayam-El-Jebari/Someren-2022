@@ -906,10 +906,10 @@
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1318, 622);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlRevenueReportPanel);
             this.Controls.Add(this.pnlCashRegisterPanel);
             this.Controls.Add(this.pnlDrinksPanel);
-            this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlTeacherPanel);
             this.Controls.Add(this.pnlStudents);
             this.Controls.Add(this.pnlRoomPanel);
