@@ -8,7 +8,7 @@ namespace SomerenModel
 {
     public class Activity
     {
-        public int ActivityID { get; set; } // auto incremented in SQL
+        public int ActivityNumber { get; set; } // auto incremented in SQL
         public string Description { get; set; }
         public DateTime StartDateTime { get; set; } 
         public DateTime EndDateTime { get; set; } 

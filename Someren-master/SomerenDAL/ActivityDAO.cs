@@ -38,6 +38,25 @@ namespace SomerenDAL
             ExecuteEditQuery(query, sqlParameter);
         }
 
+        public void UpdateRowActivities(string activityName, string description, DateTime startTime, DateTime endTime)
+        {
+            string query = $"UPDATE Activity SET activityName=@activityName, description=@description, startTime=@startTime, endTime=@endTime WHERE activityName=@activityName";
+            SqlParameter[] sqlParameters = new SqlParameter[4];
+            sqlParameters[0] = new SqlParameter("@activityName", activityName);
+            sqlParameters[1] = new SqlParameter("@description", description);
+            sqlParameters[2] = new SqlParameter("@startTime", startTime);
+            sqlParameters[3] = new SqlParameter("@endTime", endTime);
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void DeleteRowActivities(string activityName)
+        {
+            string query = $"DELETE FROM Activity WHERE activityName=@activityName";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            sqlParameters[0] = new SqlParameter("@activityName", activityName);
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
         private List<Activity> ReadTables(DataTable dataTable)
         {
             try
@@ -48,7 +67,7 @@ namespace SomerenDAL
                 {
                     Activity activity = new Activity()
                     {
-                        ActivityID = (int)dr["activityID"],
+                        ActivityNumber = (int)dr["activityNumber"],
                         Description = (string)dr["description"],
                         StartDateTime = (DateTime)dr["startDateTime"],
                         EndDateTime = (DateTime)dr["endDateTime"]
