@@ -17,7 +17,7 @@ namespace SomerenDAL
             try
             {
                 // change attributes
-                string query = "SELECT ..., ..., ..., ..., FROM [Activity] ";
+                string query = "SELECT activityNumber, description, startDateTime, endDateTime, FROM [Activity] ";
                 SqlParameter[] sqlParameters = new SqlParameter[0];
                 return ReadTables(ExecuteSelectQuery(query, sqlParameters));
             }
