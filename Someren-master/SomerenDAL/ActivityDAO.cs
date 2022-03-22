@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SomerenDAL
 {
-    class ActivityDAO : BaseDao
+    public class ActivityDAO : BaseDao
     {
         // change SQL? (ID, Description, StartDateTime, EndDateTime) are the necessary tables for the assignment
         public List<Activity> GetAllActivities() 
