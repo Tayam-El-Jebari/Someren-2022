@@ -94,6 +94,7 @@ namespace SomerenUI
                     List<Activity> activityList = activityService.GetActivity();
 
                     listViewActivities.View = View.Details;
+                    listViewActivities.FullRowSelect = true;
                     listViewActivities.Columns.Add("ActivityNumber", 50);
                     listViewActivities.Columns.Add("ActivityName", 80);
                     listViewActivities.Columns.Add("Description", 80);
@@ -707,7 +708,22 @@ namespace SomerenUI
 
         private void deleteActivitiesButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ActivityService activityService = new ActivityService();
+                string activityNameEntered = listViewActivities.SelectedItems[0].Text;
+                List<Activity> activities = activityService.GetActivity();
 
+                // pop up message voor de gebruiker
+                MessageBox.Show("Are you sure you want to delete the whole row from the list?");
+                // Ook nog verwijderen uit de database!!!!
+                activityService.DeleteRowActivity(activityNameEntered);
+                listViewActivities.Items.Remove(listViewDrink.SelectedItems[0]);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please select a row from the list, then press the delete button");
+            }
         }
 
         private void activitiesToolStripMenuItem1_Click(object sender, EventArgs e)
