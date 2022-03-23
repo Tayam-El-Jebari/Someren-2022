@@ -22,6 +22,10 @@ namespace SomerenLogic
             List<Activity> activities = activitydb.GetAllActivities();
             return activities;
         }
+        public List<Student> GetParticipants(int activityNumber)
+        {
+            return activitydb.GetAllParticipants(activityNumber);
+        }
 
         public void AddRowActivity(string activityName, string description, DateTime startTime, DateTime endTime)
         {

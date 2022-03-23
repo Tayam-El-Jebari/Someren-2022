@@ -17,8 +17,15 @@ namespace SomerenDAL
             // change attributes
             string query = "SELECT activityNumber, ActivityName, description, startDateTime, endDateTime FROM [Activity] ";
             SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            return ReadTablesActivity(ExecuteSelectQuery(query, sqlParameters));
 
+        }
+        public List<Student> GetAllParticipants(int activityNumber)
+        {
+            string query = $"SELECT studentID, firstname, lastName FROM Student WHERE studentID IN (SELECT studentId FROM [Participates_In] WHERE ActivityNumber = @activityNumber)";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@activityNumber", activityNumber);
+            return ReadTablesParticipants(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public void AddRowActivities(string activityName, string description, DateTime startTime, DateTime endTime)
@@ -51,7 +58,7 @@ namespace SomerenDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        private List<Activity> ReadTables(DataTable dataTable)
+        private List<Activity> ReadTablesActivity(DataTable dataTable)
         {
             try
             {
@@ -70,6 +77,29 @@ namespace SomerenDAL
                     activities.Add(activity);
                 };
                 return activities;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Data could not be retrieved from the database. Please try again" + e.Message);
+            }
+        }
+        private List<Student> ReadTablesParticipants(DataTable dataTable)
+        {
+            try
+            {
+                List<Student> studentsParticipating = new List<Student>();
+
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    Student student = new Student()
+                    {
+                        StudentId = (int)dr["studentID"],
+                        FirstName = (string)dr["firstname"],
+                        LastName = (string)dr["lastName"],
+                    };
+                    studentsParticipating.Add(student);
+                };
+                return studentsParticipating;
             }
             catch (Exception e)
             {

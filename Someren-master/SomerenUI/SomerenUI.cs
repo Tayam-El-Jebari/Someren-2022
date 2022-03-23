@@ -703,6 +703,26 @@ namespace SomerenUI
         private void listViewActivitesParticipants_MouseClick(object sender, MouseEventArgs e)
         {
 
+            listViewParticipants.Clear();
+            ActivityService activityService = new ActivityService();
+            List<Student> participantList = activityService.GetParticipants(int.Parse(listViewActivitesParticipants.SelectedItems[0].SubItems[0].Text));
+
+            listViewParticipants.View = View.Details;
+            listViewParticipants.Columns.Add("StudentId");
+            listViewParticipants.Columns.Add("First name");
+            listViewParticipants.Columns.Add("Last name");
+            listViewParticipants.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewParticipants.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+
+            foreach (Student participant in participantList)
+            {
+                ListViewItem li = new ListViewItem(participant.StudentId.ToString());
+                li.SubItems.Add(participant.FirstName);
+                li.SubItems.Add(participant.LastName);
+                listViewParticipants.Items.Add(li);
+            }
+            ColorListView(listViewParticipants);
         }
 
         private void participantsToolStripMenuItem_Click(object sender, EventArgs e)
