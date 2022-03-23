@@ -18,6 +18,49 @@ namespace SomerenDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
+        public void AddRowTeachers(int teacherID, string firstname, string lastname, int activityNumber, int roomNumber)
+        {
+            string query = string.Empty;
+                query = "INSERT INTO [Teacher](firstname, lastname, activityNumber, roomNumber)VALUES(@firstname, @lastname, @activityNumber, @roomNumber, 1)";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void UpdateRowTeachers(int teacherID, string firstname, string lastname, int activityNumber, int roomNumber)
+        {
+            string query = $"UPDATE Teacher SET firstname=@firstname, lastname=@lastname, activityNumber=@activityNumber, roomNumber =@roomNumber WHERE firstname=@firstname, lastname=@lastname";
+            SqlParameter[] sqlParameters = new SqlParameter[4] 
+            {
+            new SqlParameter("@firstname", firstname),
+            new SqlParameter("@lastname", lastname),
+            new SqlParameter("@activityNumber", activityNumber),
+            new SqlParameter("@roomNumber", roomNumber)       
+            };
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void UpdateTeachersInRow(string firstname, string newFirstname, string lastname, string newLastname)
+        {
+            string query = "UPDATE Teacher SET firstname=@firstname, lastname=@lastname WHERE firstname=@firstname, lastname=@lastname";
+            SqlParameter[] sqlParameters = new SqlParameter[4] 
+            {
+            new SqlParameter("@newFirstname", newFirstname),
+            new SqlParameter("@firstname", firstname),
+            new SqlParameter("@newLastname", newLastname),
+            new SqlParameter("@lastname", lastname)
+            };
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        // Delete Row
+        public void DeleteRowTeachers(string firstname, string lastname)
+        {
+            string query = $"DELETE FROM Teacher WHERE firstname=@firstname, lastname=@lastname";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+
         private List<Teacher> ReadTables(DataTable dataTable)
         {
             List<Teacher> teachers = new List<Teacher>();
