@@ -64,8 +64,9 @@ namespace SomerenDAL
         // Delete Row
         public void DeleteRow(string drinkName)
         {
-            string query = $"DELETE FROM Drink WHERE drinkName='{drinkName}'";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            string query = $"DELETE FROM Drink WHERE drinkName=@drinkName";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@drinkName", drinkName);
             ExecuteEditQuery(query, sqlParameters);
         }
 

@@ -14,28 +14,22 @@ namespace SomerenDAL
         // change SQL? (ID, Description, StartDateTime, EndDateTime) are the necessary tables for the assignment
         public List<Activity> GetAllActivities() 
         {
-            try
-            {
                 // change attributes
                 string query = "SELECT activityNumber, description, startDateTime, endDateTime, FROM [Activity] ";
                 SqlParameter[] sqlParameters = new SqlParameter[0];
                 return ReadTables(ExecuteSelectQuery(query, sqlParameters));
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            
         }
 
-        public void AddRowActivities(string description, DateTime startTime, DateTime endTime) 
+        public void AddRowActivities(string activityName, string description, DateTime startTime, DateTime endTime) 
         {
-            string query = "INSERT INTO [Activity](Description, StartDateTime, EndDateTime) VALUES (@Description, @StartDateTime, @EndDateTime)";
-            SqlParameter[] sqlParameter = new SqlParameter[3];
-            sqlParameter[0] = new SqlParameter("@Description", description);
-            sqlParameter[1] = new SqlParameter("@StartDateTime", startTime);
-            sqlParameter[1] = new SqlParameter("@EndDateTime", endTime);
-            ExecuteEditQuery(query, sqlParameter);
+            string query = "INSERT INTO [Activity](ActivityName, Description, StartDateTime, EndDateTime) VALUES (@activityName, @Description, @StartDateTime, @EndDateTime)";
+            SqlParameter[] sqlParameters = new SqlParameter[4];
+            sqlParameters[0] = new SqlParameter("@activityName", activityName);
+            sqlParameters[1] = new SqlParameter("@description", description);
+            sqlParameters[2] = new SqlParameter("@startTime", startTime);
+            sqlParameters[3] = new SqlParameter("@endTime", endTime);
+            ExecuteEditQuery(query, sqlParameters);
         }
 
         public void UpdateRowActivities(string activityName, string description, DateTime startTime, DateTime endTime)
