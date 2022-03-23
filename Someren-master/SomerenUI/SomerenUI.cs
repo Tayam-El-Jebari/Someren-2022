@@ -115,6 +115,33 @@ namespace SomerenUI
                     logService.WriteLog(e);
                 }
             }
+            else if (panelName == "Participants")
+            {
+                ShowCorrectPanel(pnlParticipants);
+                listViewActivitesParticipants.Clear();
+                listViewActivitesParticipants.Clear();
+                ActivityService activityService = new ActivityService();
+                List<Activity> activityList = activityService.GetActivity();
+
+                listViewActivitesParticipants.View = View.Details;
+                listViewActivitesParticipants.Columns.Add("ActivityID");
+                listViewActivitesParticipants.Columns.Add("ActivityName");
+                listViewActivitesParticipants.Columns.Add("StartDateTime");
+                listViewActivitesParticipants.Columns.Add("EndDateTime");
+
+                listViewActivitesParticipants.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+                foreach (Activity activity in activityList)
+                {
+                    ListViewItem li = new ListViewItem(activity.ActivityNumber.ToString());
+                    li.SubItems.Add(activity.ActivityName);
+                    li.SubItems.Add(activity.StartDateTime.ToString());
+                    li.SubItems.Add(activity.EndDateTime.ToString());
+                    listViewActivities.Items.Add(li);
+                }
+                ColorListView(listViewParticipants);
+
+            }
             else if (panelName == "Teachers")
             {
                 ShowCorrectPanel(pnlTeacherPanel);
@@ -672,5 +699,15 @@ namespace SomerenUI
             ChangeToolStripMenu(drinksToolStripMenuItem);
         }
 
+        private void listViewActivitesParticipants_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void participantsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Participants");
+            ChangeToolStripMenu(participantsToolStripMenuItem);
+        }
     }
 }

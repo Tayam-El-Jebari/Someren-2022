@@ -139,15 +139,15 @@
             this.label16 = new System.Windows.Forms.Label();
             this.pnlParticipants = new System.Windows.Forms.Panel();
             this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
+            this.AddParticipants = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
-            this.listView3 = new System.Windows.Forms.ListView();
+            this.listViewActivitesParticipants = new System.Windows.Forms.ListView();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label24 = new System.Windows.Forms.Label();
+            this.listViewParticipants = new System.Windows.Forms.ListView();
             this.menuStrip1.SuspendLayout();
             this.pnlRevenueReportPanel.SuspendLayout();
             this.pnlRoomPanel.SuspendLayout();
@@ -182,7 +182,7 @@
             this.barServiceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1318, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1318, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -194,7 +194,7 @@
             this.exitToolStripMenuItem});
             this.dashboardToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
+            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(100, 26);
             this.dashboardToolStripMenuItem.Text = "Application";
             // 
             // dashboardToolStripMenuItem1
@@ -219,14 +219,14 @@
             // studentsToolStripMenuItem
             // 
             this.studentsToolStripMenuItem.Name = "studentsToolStripMenuItem";
-            this.studentsToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.studentsToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
             this.studentsToolStripMenuItem.Text = "Students";
             this.studentsToolStripMenuItem.Click += new System.EventHandler(this.studentsToolStripMenuItem_Click);
             // 
             // teachersToolStripMenuItem
             // 
             this.teachersToolStripMenuItem.Name = "teachersToolStripMenuItem";
-            this.teachersToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.teachersToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
             this.teachersToolStripMenuItem.Text = "Teachers";
             this.teachersToolStripMenuItem.Click += new System.EventHandler(this.teachersToolStripMenuItem_Click);
             // 
@@ -237,7 +237,7 @@
             this.participantsToolStripMenuItem,
             this.activitiesToolStripMenuItem1});
             this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
-            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
+            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(83, 26);
             this.activitiesToolStripMenuItem.Text = "Activities";
             this.activitiesToolStripMenuItem.Click += new System.EventHandler(this.activitiesToolStripMenuItem_Click_1);
             // 
@@ -252,6 +252,7 @@
             this.participantsToolStripMenuItem.Name = "participantsToolStripMenuItem";
             this.participantsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.participantsToolStripMenuItem.Text = "Participants";
+            this.participantsToolStripMenuItem.Click += new System.EventHandler(this.participantsToolStripMenuItem_Click);
             // 
             // activitiesToolStripMenuItem1
             // 
@@ -262,7 +263,7 @@
             // roomsToolStripMenuItem
             // 
             this.roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
-            this.roomsToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
+            this.roomsToolStripMenuItem.Size = new System.Drawing.Size(69, 26);
             this.roomsToolStripMenuItem.Text = "Rooms";
             this.roomsToolStripMenuItem.Click += new System.EventHandler(this.roomsToolStripMenuItem_Click);
             // 
@@ -273,7 +274,7 @@
             this.CashregistertoolStripMenuItem,
             this.drinksToolStripMenuItem});
             this.barServiceToolStripMenuItem.Name = "barServiceToolStripMenuItem";
-            this.barServiceToolStripMenuItem.Size = new System.Drawing.Size(94, 24);
+            this.barServiceToolStripMenuItem.Size = new System.Drawing.Size(94, 26);
             this.barServiceToolStripMenuItem.Text = "Bar service";
             // 
             // revenueReportToolStripMenuItem
@@ -1210,14 +1211,14 @@
             // pnlParticipants
             // 
             this.pnlParticipants.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.pnlParticipants.Controls.Add(this.listViewParticipants);
             this.pnlParticipants.Controls.Add(this.button11);
-            this.pnlParticipants.Controls.Add(this.button12);
             this.pnlParticipants.Controls.Add(this.label17);
             this.pnlParticipants.Controls.Add(this.button13);
             this.pnlParticipants.Controls.Add(this.button14);
-            this.pnlParticipants.Controls.Add(this.button15);
+            this.pnlParticipants.Controls.Add(this.AddParticipants);
             this.pnlParticipants.Controls.Add(this.label23);
-            this.pnlParticipants.Controls.Add(this.listView3);
+            this.pnlParticipants.Controls.Add(this.listViewActivitesParticipants);
             this.pnlParticipants.Controls.Add(this.pictureBox3);
             this.pnlParticipants.Controls.Add(this.label24);
             this.pnlParticipants.Location = new System.Drawing.Point(8, 22);
@@ -1235,24 +1236,17 @@
             this.button11.Text = "Change Name";
             this.button11.UseVisualStyleBackColor = true;
             // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(814, 363);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(131, 33);
-            this.button12.TabIndex = 20;
-            this.button12.Text = "Show Sorted List";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(633, 412);
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(17, 301);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(432, 17);
+            this.label17.Size = new System.Drawing.Size(199, 20);
             this.label17.TabIndex = 19;
-            this.label17.Text = "Please select the row you want to delete before pressing the button";
+            this.label17.Text = "Students participating:";
             // 
             // button13
             // 
@@ -1272,34 +1266,37 @@
             this.button14.Text = "Update";
             this.button14.UseVisualStyleBackColor = true;
             // 
-            // button15
+            // AddParticipants
             // 
-            this.button15.Location = new System.Drawing.Point(680, 266);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(75, 33);
-            this.button15.TabIndex = 15;
-            this.button15.Text = "Add";
-            this.button15.UseVisualStyleBackColor = true;
+            this.AddParticipants.Location = new System.Drawing.Point(680, 266);
+            this.AddParticipants.Name = "AddParticipants";
+            this.AddParticipants.Size = new System.Drawing.Size(75, 33);
+            this.AddParticipants.TabIndex = 15;
+            this.AddParticipants.Text = "Add";
+            this.AddParticipants.UseVisualStyleBackColor = true;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(674, 77);
+            this.label23.BackColor = System.Drawing.Color.Transparent;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label23.Location = new System.Drawing.Point(16, 69);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(226, 17);
+            this.label23.Size = new System.Drawing.Size(265, 25);
             this.label23.TabIndex = 6;
-            this.label23.Text = "Change the listview on the left side";
+            this.label23.Text = "Please choose an activIty:";
             // 
-            // listView3
+            // listViewActivitesParticipants
             // 
-            this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(21, 52);
-            this.listView3.Margin = new System.Windows.Forms.Padding(4);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(1046, 436);
-            this.listView3.TabIndex = 5;
-            this.listView3.UseCompatibleStateImageBehavior = false;
+            this.listViewActivitesParticipants.HideSelection = false;
+            this.listViewActivitesParticipants.Location = new System.Drawing.Point(21, 101);
+            this.listViewActivitesParticipants.Margin = new System.Windows.Forms.Padding(4);
+            this.listViewActivitesParticipants.Name = "listViewActivitesParticipants";
+            this.listViewActivitesParticipants.Size = new System.Drawing.Size(644, 184);
+            this.listViewActivitesParticipants.TabIndex = 5;
+            this.listViewActivitesParticipants.UseCompatibleStateImageBehavior = false;
+            this.listViewActivitesParticipants.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewActivitesParticipants_MouseClick);
             // 
             // pictureBox3
             // 
@@ -1325,6 +1322,16 @@
             this.label24.TabIndex = 3;
             this.label24.Text = "Participants";
             // 
+            // listViewParticipants
+            // 
+            this.listViewParticipants.HideSelection = false;
+            this.listViewParticipants.Location = new System.Drawing.Point(19, 325);
+            this.listViewParticipants.Margin = new System.Windows.Forms.Padding(4);
+            this.listViewParticipants.Name = "listViewParticipants";
+            this.listViewParticipants.Size = new System.Drawing.Size(644, 262);
+            this.listViewParticipants.TabIndex = 23;
+            this.listViewParticipants.UseCompatibleStateImageBehavior = false;
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1332,8 +1339,8 @@
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1318, 622);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.pnlActivities);
             this.Controls.Add(this.pnlParticipants);
+            this.Controls.Add(this.pnlActivities);
             this.Controls.Add(this.pnlSupervisors);
             this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlRevenueReportPanel);
@@ -1492,19 +1499,19 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel pnlParticipants;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button AddParticipants;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.ListView listView3;
+        private System.Windows.Forms.ListView listViewActivitesParticipants;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.ListView listViewActivities;
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ColumnHeader columnHeader14;
         private System.Windows.Forms.ColumnHeader columnHeader15;
+        private System.Windows.Forms.ListView listViewParticipants;
     }
 }
 
