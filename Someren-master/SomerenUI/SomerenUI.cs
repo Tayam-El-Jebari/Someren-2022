@@ -95,6 +95,19 @@ namespace SomerenUI
 
                     listViewActivities.View = View.Details;
                     listViewActivities.Columns.Add("ActivityName", 50);
+                    listViewActivities.Columns.Add("Description", 80);
+                    listViewActivities.Columns.Add("StartDateTime", 80);
+                    listViewActivities.Columns.Add("EndDateTime", 80);
+
+                    foreach (Activity activity in activityList)
+                    {
+                        ListViewItem li = new ListViewItem(activity.ActivityNumber.ToString());
+                        li.SubItems.Add(activity.Description);
+                        li.SubItems.Add(activity.StartDateTime.ToString());
+                        li.SubItems.Add(activity.EndDateTime.ToString());
+                        listViewActivities.Items.Add(li);
+                    }
+                    ColorListView(listViewStudents);
                 }
                 catch (Exception e)
                 {

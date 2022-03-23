@@ -114,6 +114,10 @@
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cashRegisterTitle = new System.Windows.Forms.Label();
             this.pnlActivities = new System.Windows.Forms.Panel();
+            this.listViewActivities = new System.Windows.Forms.ListView();
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.changeActivitiesButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.deleteActivitiesButton = new System.Windows.Forms.Button();
@@ -144,10 +148,6 @@
             this.listView3 = new System.Windows.Forms.ListView();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.listViewActivities = new System.Windows.Forms.ListView();
-            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.pnlRevenueReportPanel.SuspendLayout();
             this.pnlRoomPanel.SuspendLayout();
@@ -244,19 +244,19 @@
             // supervisorsToolStripMenuItem
             // 
             this.supervisorsToolStripMenuItem.Name = "supervisorsToolStripMenuItem";
-            this.supervisorsToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.supervisorsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.supervisorsToolStripMenuItem.Text = "Supervisors";
             // 
             // participantsToolStripMenuItem
             // 
             this.participantsToolStripMenuItem.Name = "participantsToolStripMenuItem";
-            this.participantsToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.participantsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.participantsToolStripMenuItem.Text = "Participants";
             // 
             // activitiesToolStripMenuItem1
             // 
             this.activitiesToolStripMenuItem1.Name = "activitiesToolStripMenuItem1";
-            this.activitiesToolStripMenuItem1.Size = new System.Drawing.Size(168, 26);
+            this.activitiesToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.activitiesToolStripMenuItem1.Text = "Activities";
             // 
             // roomsToolStripMenuItem
@@ -983,6 +983,32 @@
             this.pnlActivities.Size = new System.Drawing.Size(1334, 611);
             this.pnlActivities.TabIndex = 11;
             // 
+            // listViewActivities
+            // 
+            this.listViewActivities.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader13,
+            this.columnHeader14,
+            this.columnHeader15});
+            this.listViewActivities.HideSelection = false;
+            this.listViewActivities.Location = new System.Drawing.Point(27, 57);
+            this.listViewActivities.Margin = new System.Windows.Forms.Padding(4);
+            this.listViewActivities.Name = "listViewActivities";
+            this.listViewActivities.Size = new System.Drawing.Size(568, 436);
+            this.listViewActivities.TabIndex = 23;
+            this.listViewActivities.UseCompatibleStateImageBehavior = false;
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "ID";
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "Name";
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "Date of Birth";
+            // 
             // changeActivitiesButton
             // 
             this.changeActivitiesButton.Location = new System.Drawing.Point(814, 301);
@@ -1298,31 +1324,6 @@
             this.label24.Size = new System.Drawing.Size(188, 38);
             this.label24.TabIndex = 3;
             this.label24.Text = "Participants";
-            // 
-            // listViewActivities
-            // 
-            this.listViewActivities.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader13,
-            this.columnHeader14,
-            this.columnHeader15});
-            this.listViewActivities.HideSelection = false;
-            this.listViewActivities.Location = new System.Drawing.Point(172, 55);
-            this.listViewActivities.Margin = new System.Windows.Forms.Padding(4);
-            this.listViewActivities.Name = "listViewActivities";
-            this.listViewActivities.Size = new System.Drawing.Size(991, 500);
-            this.listViewActivities.TabIndex = 23;
-            this.listViewActivities.UseCompatibleStateImageBehavior = false;            // 
-            // columnHeader13
-            // 
-            this.columnHeader13.Text = "ID";
-            // 
-            // columnHeader14
-            // 
-            this.columnHeader14.Text = "Name";
-            // 
-            // columnHeader15
-            // 
-            this.columnHeader15.Text = "Date of Birth";
             // 
             // SomerenUI
             // 
