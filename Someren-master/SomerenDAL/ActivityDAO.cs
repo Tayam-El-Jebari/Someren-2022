@@ -15,7 +15,7 @@ namespace SomerenDAL
         public List<Activity> GetAllActivities()
         {
             // change attributes
-            string query = "SELECT activityNumber, activityName, description, startDateTime, endDateTime FROM [Activity] ";
+            string query = "SELECT activityNumber, activityName, description, startDateTime, endDateTime FROM [Activity]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
 
@@ -23,12 +23,12 @@ namespace SomerenDAL
 
         public void AddRowActivities(string activityName, string description, DateTime startTime, DateTime endTime)
         {
-            string query = "INSERT INTO [Activity](ActivityName, Description, StartDateTime, EndDateTime) VALUES (@activityName, @Description, @StartDateTime, @EndDateTime)";
+            string query = "INSERT INTO [Activity](ActivityName, [description], StartDateTime, EndDateTime) VALUES (@activityName, @description, @StartDateTime, @EndDateTime)";
             SqlParameter[] sqlParameters = new SqlParameter[4];
             sqlParameters[0] = new SqlParameter("@activityName", activityName);
             sqlParameters[1] = new SqlParameter("@description", description);
-            sqlParameters[2] = new SqlParameter("@startTime", startTime);
-            sqlParameters[3] = new SqlParameter("@endTime", endTime);
+            sqlParameters[2] = new SqlParameter("@StartDateTime", startTime);
+            sqlParameters[3] = new SqlParameter("@EndDateTime", endTime);
             ExecuteEditQuery(query, sqlParameters);
         }
 
@@ -43,11 +43,11 @@ namespace SomerenDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        public void DeleteRowActivities(string activityName)
+        public void DeleteRowActivities(string activityNumber)
         {
-            string query = $"DELETE FROM Activity WHERE activityName=@activityName";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            sqlParameters[0] = new SqlParameter("@activityName", activityName);
+            string query = $"DELETE FROM Activity WHERE activityNumber=@activityNumber";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@activityNumber", activityNumber);
             ExecuteEditQuery(query, sqlParameters);
         }
 

@@ -689,17 +689,16 @@ namespace SomerenUI
 
                 Activity activity = new Activity();
                 ListViewItem li = new ListViewItem(activity.ActivityName);
-                li.SubItems.Add(activity.ActivityName);
                 li.SubItems.Add(activity.Description);
                 li.SubItems.Add(activity.StartDateTime.ToString());
                 li.SubItems.Add(activity.EndDateTime.ToString());
                 listViewActivities.Items.Add(li);
-            }
+        }
             catch (Exception)
             {                
-                throw new Exception("Something went wrong while adding a row");
+                //throw new Exception("Something went wrong while adding a row");
             }
-        }
+}
 
         private void updateActivitiesButton_Click(object sender, EventArgs e)
         {
@@ -711,14 +710,14 @@ namespace SomerenUI
             try
             {
                 ActivityService activityService = new ActivityService();
-                string activityNameEntered = listViewActivities.SelectedItems[0].Text;
+                string activityNumberEntered = listViewActivities.SelectedItems[0].Text;
                 List<Activity> activities = activityService.GetActivity();
 
                 // pop up message voor de gebruiker
                 MessageBox.Show("Are you sure you want to delete the whole row from the list?");
                 // Ook nog verwijderen uit de database!!!!
-                activityService.DeleteRowActivity(activityNameEntered);
-                listViewActivities.Items.Remove(listViewDrink.SelectedItems[0]);
+                activityService.DeleteRowActivity(activityNumberEntered);
+                listViewActivities.Items.Remove(listViewActivities.SelectedItems[0]);
             }
             catch (Exception)
             {

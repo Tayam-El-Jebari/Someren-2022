@@ -33,9 +33,9 @@ namespace SomerenLogic
             activitydb.UpdateRowActivities(activityName, description, startTime, endTime);
         }
 
-        public void DeleteRowActivity(string activityName)
+        public void DeleteRowActivity(string activityNumber)
         {
-            activitydb.DeleteRowActivities(activityName);
+            activitydb.DeleteRowActivities(activityNumber);
         }
     }
 }
