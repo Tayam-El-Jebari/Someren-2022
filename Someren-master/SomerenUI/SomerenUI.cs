@@ -119,7 +119,6 @@ namespace SomerenUI
             {
                 ShowCorrectPanel(pnlParticipants);
                 listViewActivitesParticipants.Clear();
-                listViewActivitesParticipants.Clear();
                 ActivityService activityService = new ActivityService();
                 List<Activity> activityList = activityService.GetActivity();
 
@@ -128,8 +127,10 @@ namespace SomerenUI
                 listViewActivitesParticipants.Columns.Add("ActivityName");
                 listViewActivitesParticipants.Columns.Add("StartDateTime");
                 listViewActivitesParticipants.Columns.Add("EndDateTime");
-
+                listViewActivitesParticipants.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
                 listViewActivitesParticipants.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+                listViewActivitesParticipants.FullRowSelect = true;
 
                 foreach (Activity activity in activityList)
                 {
@@ -137,9 +138,9 @@ namespace SomerenUI
                     li.SubItems.Add(activity.ActivityName);
                     li.SubItems.Add(activity.StartDateTime.ToString());
                     li.SubItems.Add(activity.EndDateTime.ToString());
-                    listViewActivities.Items.Add(li);
+                    listViewActivitesParticipants.Items.Add(li);
                 }
-                ColorListView(listViewParticipants);
+                ColorListView(listViewActivitesParticipants);
 
             }
             else if (panelName == "Teachers")
