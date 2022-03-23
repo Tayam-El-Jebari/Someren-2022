@@ -83,6 +83,21 @@ namespace SomerenUI
                     logService.WriteLog(e);
                 }
             }
+            else if (panelName == "Activities")
+            {
+                ShowCorrectPanel(pnlActivities);
+
+                try
+                {
+                    ActivityService activityService = new ActivityService();
+                    List<Activity> activityList = activityService.GetActivity();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the activities: " + e.Message);
+                    logService.WriteLog(e);
+                }
+            }
             else if (panelName == "Teachers")
             {
                 ShowCorrectPanel(pnlTeacherPanel);
@@ -639,5 +654,6 @@ namespace SomerenUI
             showPanel("Drinks");
             ChangeToolStripMenu(drinksToolStripMenuItem);
         }
+
     }
 }

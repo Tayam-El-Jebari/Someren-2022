@@ -17,7 +17,7 @@ namespace SomerenLogic
             activitydb = new ActivityDAO();
         }
 
-        public List<Activity> GetDrinks()
+        public List<Activity> GetActivity()
         {
             List<Activity> activities = activitydb.GetAllActivities();
             return activities;
