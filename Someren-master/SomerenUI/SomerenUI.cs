@@ -94,14 +94,16 @@ namespace SomerenUI
                     List<Activity> activityList = activityService.GetActivity();
 
                     listViewActivities.View = View.Details;
-                    listViewActivities.Columns.Add("ActivityName", 50);
+                    listViewActivities.Columns.Add("ActivityNumber", 50);
+                    listViewActivities.Columns.Add("ActivityName", 80);
                     listViewActivities.Columns.Add("Description", 80);
-                    listViewActivities.Columns.Add("StartDateTime", 80);
-                    listViewActivities.Columns.Add("EndDateTime", 80);
+                    listViewActivities.Columns.Add("StartDateTime", 120);
+                    listViewActivities.Columns.Add("EndDateTime", 120);
 
                     foreach (Activity activity in activityList)
                     {
                         ListViewItem li = new ListViewItem(activity.ActivityNumber.ToString());
+                        li.SubItems.Add(activity.ActivityName);
                         li.SubItems.Add(activity.Description);
                         li.SubItems.Add(activity.StartDateTime.ToString());
                         li.SubItems.Add(activity.EndDateTime.ToString());
@@ -672,5 +674,46 @@ namespace SomerenUI
             ChangeToolStripMenu(drinksToolStripMenuItem);
         }
 
+        private void addActivitiesButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ActivityService activityService = new ActivityService();
+                string activityName = textBoxActivityName.Text;
+                string description = textBoxDescription.Text;
+                DateTime startTime = DateTime.Parse(textBoxStartTime.Text);
+                DateTime endTime = DateTime.Parse(textBoxEndTime.Text);
+
+                activityService.AddRowActivity(activityName, description, startTime, endTime);
+
+                Activity activity = new Activity();
+                ListViewItem li = new ListViewItem(activity.ActivityName);
+                li.SubItems.Add(activity.ActivityName);
+                li.SubItems.Add(activity.Description);
+                li.SubItems.Add(activity.StartDateTime.ToString());
+                li.SubItems.Add(activity.EndDateTime.ToString());
+                listViewActivities.Items.Add(li);
+            }
+            catch (Exception)
+            {                
+                throw new Exception("Something went wrong while adding a row");
+            }
+        }
+
+        private void updateActivitiesButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteActivitiesButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void activitiesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            showPanel("Activities");
+            ChangeToolStripMenu(drinksToolStripMenuItem);
+        }
     }
 }

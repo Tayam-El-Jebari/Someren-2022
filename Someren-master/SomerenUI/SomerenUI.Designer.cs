@@ -148,6 +148,14 @@
             this.listView3 = new System.Windows.Forms.ListView();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label24 = new System.Windows.Forms.Label();
+            this.labelActivityName = new System.Windows.Forms.Label();
+            this.labelStartDateTime = new System.Windows.Forms.Label();
+            this.labelEndTime = new System.Windows.Forms.Label();
+            this.labelDescription = new System.Windows.Forms.Label();
+            this.textBoxActivityName = new System.Windows.Forms.TextBox();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
+            this.textBoxStartTime = new System.Windows.Forms.TextBox();
+            this.textBoxEndTime = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.pnlRevenueReportPanel.SuspendLayout();
             this.pnlRoomPanel.SuspendLayout();
@@ -244,13 +252,13 @@
             // supervisorsToolStripMenuItem
             // 
             this.supervisorsToolStripMenuItem.Name = "supervisorsToolStripMenuItem";
-            this.supervisorsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.supervisorsToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.supervisorsToolStripMenuItem.Text = "Supervisors";
             // 
             // participantsToolStripMenuItem
             // 
             this.participantsToolStripMenuItem.Name = "participantsToolStripMenuItem";
-            this.participantsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.participantsToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.participantsToolStripMenuItem.Text = "Participants";
             // 
             // activitiesToolStripMenuItem1
@@ -258,6 +266,7 @@
             this.activitiesToolStripMenuItem1.Name = "activitiesToolStripMenuItem1";
             this.activitiesToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.activitiesToolStripMenuItem1.Text = "Activities";
+            this.activitiesToolStripMenuItem1.Click += new System.EventHandler(this.activitiesToolStripMenuItem1_Click);
             // 
             // roomsToolStripMenuItem
             // 
@@ -279,21 +288,21 @@
             // revenueReportToolStripMenuItem
             // 
             this.revenueReportToolStripMenuItem.Name = "revenueReportToolStripMenuItem";
-            this.revenueReportToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.revenueReportToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.revenueReportToolStripMenuItem.Text = "Revenue report";
             this.revenueReportToolStripMenuItem.Click += new System.EventHandler(this.revenueReportToolStripMenuItem_Click);
             // 
             // CashregistertoolStripMenuItem
             // 
             this.CashregistertoolStripMenuItem.Name = "CashregistertoolStripMenuItem";
-            this.CashregistertoolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.CashregistertoolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.CashregistertoolStripMenuItem.Text = "Cash register";
             this.CashregistertoolStripMenuItem.Click += new System.EventHandler(this.CashregistertoolStripMenuItem_Click);
             // 
             // drinksToolStripMenuItem
             // 
             this.drinksToolStripMenuItem.Name = "drinksToolStripMenuItem";
-            this.drinksToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.drinksToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.drinksToolStripMenuItem.Text = "Drinks";
             this.drinksToolStripMenuItem.Click += new System.EventHandler(this.drinksToolStripMenuItem_Click_1);
             // 
@@ -968,6 +977,14 @@
             // pnlActivities
             // 
             this.pnlActivities.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.pnlActivities.Controls.Add(this.textBoxEndTime);
+            this.pnlActivities.Controls.Add(this.textBoxStartTime);
+            this.pnlActivities.Controls.Add(this.textBoxDescription);
+            this.pnlActivities.Controls.Add(this.textBoxActivityName);
+            this.pnlActivities.Controls.Add(this.labelDescription);
+            this.pnlActivities.Controls.Add(this.labelEndTime);
+            this.pnlActivities.Controls.Add(this.labelStartDateTime);
+            this.pnlActivities.Controls.Add(this.labelActivityName);
             this.pnlActivities.Controls.Add(this.listViewActivities);
             this.pnlActivities.Controls.Add(this.changeActivitiesButton);
             this.pnlActivities.Controls.Add(this.label1);
@@ -993,7 +1010,7 @@
             this.listViewActivities.Location = new System.Drawing.Point(27, 57);
             this.listViewActivities.Margin = new System.Windows.Forms.Padding(4);
             this.listViewActivities.Name = "listViewActivities";
-            this.listViewActivities.Size = new System.Drawing.Size(568, 436);
+            this.listViewActivities.Size = new System.Drawing.Size(603, 436);
             this.listViewActivities.TabIndex = 23;
             this.listViewActivities.UseCompatibleStateImageBehavior = false;
             // 
@@ -1036,6 +1053,7 @@
             this.deleteActivitiesButton.TabIndex = 17;
             this.deleteActivitiesButton.Text = "Delete";
             this.deleteActivitiesButton.UseVisualStyleBackColor = true;
+            this.deleteActivitiesButton.Click += new System.EventHandler(this.deleteActivitiesButton_Click);
             // 
             // updateActivitiesButton
             // 
@@ -1045,6 +1063,7 @@
             this.updateActivitiesButton.TabIndex = 16;
             this.updateActivitiesButton.Text = "Update";
             this.updateActivitiesButton.UseVisualStyleBackColor = true;
+            this.updateActivitiesButton.Click += new System.EventHandler(this.updateActivitiesButton_Click);
             // 
             // addActivitiesButton
             // 
@@ -1054,6 +1073,7 @@
             this.addActivitiesButton.TabIndex = 15;
             this.addActivitiesButton.Text = "Add";
             this.addActivitiesButton.UseVisualStyleBackColor = true;
+            this.addActivitiesButton.Click += new System.EventHandler(this.addActivitiesButton_Click);
             // 
             // listView1
             // 
@@ -1325,6 +1345,74 @@
             this.label24.TabIndex = 3;
             this.label24.Text = "Participants";
             // 
+            // labelActivityName
+            // 
+            this.labelActivityName.AutoSize = true;
+            this.labelActivityName.BackColor = System.Drawing.Color.White;
+            this.labelActivityName.Location = new System.Drawing.Point(677, 99);
+            this.labelActivityName.Name = "labelActivityName";
+            this.labelActivityName.Size = new System.Drawing.Size(95, 17);
+            this.labelActivityName.TabIndex = 24;
+            this.labelActivityName.Text = "Activity name:";
+            // 
+            // labelStartDateTime
+            // 
+            this.labelStartDateTime.AutoSize = true;
+            this.labelStartDateTime.BackColor = System.Drawing.Color.White;
+            this.labelStartDateTime.Location = new System.Drawing.Point(678, 163);
+            this.labelStartDateTime.Name = "labelStartDateTime";
+            this.labelStartDateTime.Size = new System.Drawing.Size(153, 17);
+            this.labelStartDateTime.TabIndex = 25;
+            this.labelStartDateTime.Text = "Start Time: (hh-mm-ss)";
+            // 
+            // labelEndTime
+            // 
+            this.labelEndTime.AutoSize = true;
+            this.labelEndTime.BackColor = System.Drawing.Color.White;
+            this.labelEndTime.Location = new System.Drawing.Point(681, 197);
+            this.labelEndTime.Name = "labelEndTime";
+            this.labelEndTime.Size = new System.Drawing.Size(148, 17);
+            this.labelEndTime.TabIndex = 26;
+            this.labelEndTime.Text = "End Time: (hh-mm-ss)";
+            // 
+            // labelDescription
+            // 
+            this.labelDescription.AutoSize = true;
+            this.labelDescription.BackColor = System.Drawing.Color.White;
+            this.labelDescription.Location = new System.Drawing.Point(677, 131);
+            this.labelDescription.Name = "labelDescription";
+            this.labelDescription.Size = new System.Drawing.Size(83, 17);
+            this.labelDescription.TabIndex = 27;
+            this.labelDescription.Text = "Description:";
+            // 
+            // textBoxActivityName
+            // 
+            this.textBoxActivityName.Location = new System.Drawing.Point(868, 99);
+            this.textBoxActivityName.Name = "textBoxActivityName";
+            this.textBoxActivityName.Size = new System.Drawing.Size(100, 22);
+            this.textBoxActivityName.TabIndex = 28;
+            // 
+            // textBoxDescription
+            // 
+            this.textBoxDescription.Location = new System.Drawing.Point(868, 131);
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.Size = new System.Drawing.Size(100, 22);
+            this.textBoxDescription.TabIndex = 29;
+            // 
+            // textBoxStartTime
+            // 
+            this.textBoxStartTime.Location = new System.Drawing.Point(868, 163);
+            this.textBoxStartTime.Name = "textBoxStartTime";
+            this.textBoxStartTime.Size = new System.Drawing.Size(100, 22);
+            this.textBoxStartTime.TabIndex = 30;
+            // 
+            // textBoxEndTime
+            // 
+            this.textBoxEndTime.Location = new System.Drawing.Point(868, 199);
+            this.textBoxEndTime.Name = "textBoxEndTime";
+            this.textBoxEndTime.Size = new System.Drawing.Size(100, 22);
+            this.textBoxEndTime.TabIndex = 31;
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1505,6 +1593,14 @@
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ColumnHeader columnHeader14;
         private System.Windows.Forms.ColumnHeader columnHeader15;
+        private System.Windows.Forms.TextBox textBoxEndTime;
+        private System.Windows.Forms.TextBox textBoxStartTime;
+        private System.Windows.Forms.TextBox textBoxDescription;
+        private System.Windows.Forms.TextBox textBoxActivityName;
+        private System.Windows.Forms.Label labelDescription;
+        private System.Windows.Forms.Label labelEndTime;
+        private System.Windows.Forms.Label labelStartDateTime;
+        private System.Windows.Forms.Label labelActivityName;
     }
 }
 
