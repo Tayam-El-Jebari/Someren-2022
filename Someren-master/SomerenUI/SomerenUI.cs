@@ -89,8 +89,12 @@ namespace SomerenUI
 
                 try
                 {
+                    listViewActivities.Clear();
                     ActivityService activityService = new ActivityService();
                     List<Activity> activityList = activityService.GetActivity();
+
+                    listViewActivities.View = View.Details;
+                    listViewActivities.Columns.Add("ActivityName", 50);
                 }
                 catch (Exception e)
                 {
