@@ -276,6 +276,36 @@ namespace SomerenUI
                     ShowCorrectPanel(pnlSupervisors);
                     try
                     {
+                        ActivityService activityService = new ActivityService();
+                        List<Activity> activityList = activityService.GetActivity();
+
+
+                        // clear the listview before filling it again
+                        activityTeacherListView.Clear();
+
+                        activityTeacherListView.View = View.Details;
+                        activityTeacherListView.FullRowSelect = true;
+                        activityTeacherListView.LabelEdit = true;
+                        activityTeacherListView.Columns.Add("Activity number", 80);
+                        activityTeacherListView.Columns.Add("Activity name", 80);
+                        activityTeacherListView.Columns.Add("Description", 80);
+                        activityTeacherListView.Columns.Add("Start date time", 80);
+                        activityTeacherListView.Columns.Add("End date time", 120);
+
+                        foreach (Activity activity in activityList)
+                        {
+                            ListViewItem li = new ListViewItem(activity.ActivityNumber.ToString());
+                            li.SubItems.Add(activity.ActivityName);
+                            li.SubItems.Add(activity.Description);
+                            li.SubItems.Add(activity.StartDateTime.ToString());
+                            li.SubItems.Add(activity.EndDateTime.ToString());
+                            li.Tag = activity;
+                            activityTeacherListView.Items.Add(li);
+                        }
+                        ColorListView(activityTeacherListView);
+
+
+
                         TeacherService teacherService = new TeacherService();
                         List<Teacher> teacherList = teacherService.GetTeachers();
 
