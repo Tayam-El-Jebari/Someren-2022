@@ -123,6 +123,7 @@ namespace SomerenUI
             this.buttonRegisterRegister.TabIndex = 9;
             this.buttonRegisterRegister.Text = "Register";
             this.buttonRegisterRegister.UseVisualStyleBackColor = true;
+            this.buttonRegisterRegister.Click += new System.EventHandler(this.buttonRegisterRegister_Click);
             // 
             // buttonBackTologin
             // 

@@ -29,5 +29,10 @@ namespace SomerenUI
             formLoginRegister.ShowDialog();
             this.Close();
         }
+
+        private void buttonRegisterRegister_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
