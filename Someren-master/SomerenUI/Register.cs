@@ -38,11 +38,14 @@ namespace SomerenUI
             string licenseKey = textBoxLicenseKey.Text;
             string question = textBoxQuestionRegister.Text;
             string answer = textBoxAnswerRegister.Text;
+            string correctLicenseKey = "XsZAbtgz3PsDqYh69unWQCEx";
+            string correctLicenseKeyAlternative = "XsZAb-tgz3PsD-qYh69un-WQCEx";
+            string correctLicenseKeyAlternative2 = "XsZAb - tgz3PsD - qYh69un - WQCEx";
             try
             {
                 if (username == "" || password == "" || passwordReenter == "" || licenseKey == "" || question == "" || answer == "")
                 {
-
+                    MessageBox.Show("Please make sure to enter all the data in the fields");
                 }
             }
             catch (Exception)
@@ -53,6 +56,7 @@ namespace SomerenUI
             {
                 if (password != passwordReenter)
                 {
+                    MessageBox.Show("Password is not the same, please try again");
                     textBoxPasswordRegister.Clear();
                     textBoxPasswordReenterRegister.Clear();
                 }
@@ -63,8 +67,13 @@ namespace SomerenUI
             }
             try
             {
-                if (licenseKey != "XsZAb - tgz3PsD - qYh69un - WQCEx" || licenseKey != "XsZAbtgz3PsDqYh69unWQCEx" || licenseKey != "XsZAb-tgz3PsD-qYh69un-WQCEx")
+                if (licenseKey == correctLicenseKey || licenseKey == correctLicenseKeyAlternative || licenseKey == correctLicenseKeyAlternative2)
                 {
+
+                }
+                else
+                {
+                    MessageBox.Show("This is not the right license key! Please try again");
                     textBoxLicenseKey.Clear();
                 }
             }
@@ -76,6 +85,7 @@ namespace SomerenUI
             {
                 if (!question.Contains('?'))
                 {
+                    MessageBox.Show("You are missing a question mark in the question. Please try again");
                     textBoxQuestionRegister.Clear();
                 }
             }
@@ -85,9 +95,5 @@ namespace SomerenUI
             }
         }
 
-        private void labelLicenseKey_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

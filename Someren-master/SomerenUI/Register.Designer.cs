@@ -111,7 +111,6 @@ namespace SomerenUI
             this.labelLicenseKey.Size = new System.Drawing.Size(87, 17);
             this.labelLicenseKey.TabIndex = 7;
             this.labelLicenseKey.Text = "License key:";
-            this.labelLicenseKey.Click += new System.EventHandler(this.labelLicenseKey_Click);
             // 
             // textBoxLicenseKey
             // 
