@@ -704,7 +704,7 @@ namespace SomerenUI
         {
             try
             {
-                listViewActivities.Clear();
+
                 ActivityService activityService = new ActivityService();
                 List<Activity> activityList = activityService.GetActivity();
 
@@ -714,7 +714,7 @@ namespace SomerenUI
                 DateTime endTime = DateTime.Parse(textBoxEndTime.Text);
 
                 activityService.UpdateRowActivity(activityName, description, startTime, endTime);
-
+                listViewActivities.Clear();
                 listViewActivities.View = View.Details;
                 listViewActivities.FullRowSelect = true;
                 listViewActivities.Columns.Add("ActivityNumber", 50);
