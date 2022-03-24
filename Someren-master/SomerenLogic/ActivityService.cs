@@ -41,5 +41,13 @@ namespace SomerenLogic
         {
             activitydb.DeleteRowActivities(activityName);
         }
+        public void AddParticipant(int studentId, int activityNumber)
+        {
+            activitydb.AddParticipant(studentId, activityNumber);
+        }
+        public void DeleteParticipant(int studentId, int activityNumber)
+        {
+            activitydb.DeleteRowParticipant(studentId, activityNumber);
+        }
     }
 }

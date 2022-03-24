@@ -118,9 +118,24 @@ namespace SomerenUI
             else if (panelName == "Participants")
             {
                 ShowCorrectPanel(pnlParticipants);
+                //hide unnecessary controls
+                buttonAddParticipant.Hide();
+                buttonExitAddingMode.Hide();
+                instructionDescriptionAddingMode.Hide();
+
+                //show necessary controls and edit labels in order to suit the situation (needed in case user returns from adding-mode)
+                AddParticipantsStart.Show();
+                deleteParticipant.Show();
+                instructionsDescription.Show();
+                labelParticipantsTitle.Text = "Students participating:";
+
                 listViewActivitesParticipants.Clear();
+                listViewParticipants.Clear();
+
                 ActivityService activityService = new ActivityService();
                 List<Activity> activityList = activityService.GetActivity();
+
+
 
                 listViewActivitesParticipants.View = View.Details;
                 listViewActivitesParticipants.Columns.Add("ActivityID");
@@ -275,13 +290,13 @@ namespace SomerenUI
                         listViewRoom.Columns.Add("Number", 80);
                         listViewRoom.Columns.Add("Capacity", 80);
                         listViewRoom.Columns.Add("Type", 120);
-                    
+
                         foreach (Room room in roomList)
                         {
                             ListViewItem li = new ListViewItem(room.Number.ToString());
                             li.SubItems.Add(room.Capacity.ToString());
                             li.SubItems.Add(room.Type);
-                            listViewRoom.Items.Add(li);                            
+                            listViewRoom.Items.Add(li);
                         }
                         ColorListView(listViewRoom);
 
@@ -332,7 +347,7 @@ namespace SomerenUI
         }
         private void ShowCorrectPanel(Panel panel)
         {
-            foreach(Control c in Controls)
+            foreach (Control c in Controls)
             {
                 // hide everything that is not the panel specified or the menustrip
                 if (c != panel && c != menuStrip1)
@@ -346,7 +361,7 @@ namespace SomerenUI
             }
         }
 
-        private void ShowDrinkListview() 
+        private void ShowDrinkListview()
         {
             DrinkService drinkService = new DrinkService();
             // clear the listview before filling it again
@@ -383,7 +398,7 @@ namespace SomerenUI
             {
                 tsmi.ForeColor = default(Color);
                 tsmi.BackColor = default(Color);
-                for(int i = 0; i < tsmi.DropDownItems.Count; i++)
+                for (int i = 0; i < tsmi.DropDownItems.Count; i++)
                 {
                     tsmi.DropDownItems[i].ForeColor = default(Color);
                     tsmi.DropDownItems[i].BackColor = default(Color);
@@ -515,14 +530,14 @@ namespace SomerenUI
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             try
-            {            
+            {
                 DrinkService drinkService = new DrinkService();
                 int stock = int.Parse(textBoxStock.Text);
                 int salesValue = int.Parse(textBoxSalesValue.Text);
                 int numberOfDrinkSold = int.Parse(textBoxNumberOfDrinksSold.Text);
                 string drinkName = textBoxDrinkName.Text;
                 bool isAlcoholic = bool.Parse(textBoxAlcholicDrink.Text);
-            
+
                 drinkService.AddRowTable(stock, salesValue, numberOfDrinkSold, drinkName, isAlcoholic);
 
                 Drink drink = new Drink();
@@ -536,7 +551,7 @@ namespace SomerenUI
             catch (Exception)
             {
                 MessageBox.Show("Please make sure to enter all the data in the textbox fields. ");
-            }                       
+            }
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
@@ -544,14 +559,14 @@ namespace SomerenUI
             try
             {
                 DrinkService drinkService = new DrinkService();
-            
+
                 int stock = int.Parse(textBoxStock.Text);
                 int salesValue = int.Parse(textBoxSalesValue.Text);
                 int numberOfDrinkSold = int.Parse(textBoxNumberOfDrinksSold.Text);
                 string drinkName = textBoxDrinkName.Text;
                 bool isAlcoholic = bool.Parse(textBoxAlcholicDrink.Text);
-            
-            
+
+
                 drinkService.UpdateRowTable(stock, salesValue, numberOfDrinkSold, drinkName, isAlcoholic);
 
                 ShowDrinkListview();
@@ -560,7 +575,7 @@ namespace SomerenUI
             {
                 MessageBox.Show("Updating row failed, make sure to enter all the data in the textboxes, then press the update button");
                 throw new Exception("Updating row failed. ");
-            }       
+            }
 
         }
 
@@ -603,7 +618,7 @@ namespace SomerenUI
             catch (Exception)
             {
                 MessageBox.Show("Updating name failed, make sure to enter two names in the textboxes, then press the change name button. Also make sure to old name is entered correctly");
-/*                throw new Exception("Updating row failed. ");*/
+                /*                throw new Exception("Updating row failed. ");*/
             }
         }
 
@@ -614,9 +629,9 @@ namespace SomerenUI
                 DrinkService drinkService = new DrinkService();
                 string drinkNameEntered = listViewDrink.SelectedItems[0].Text;
                 List<Drink> drinkList = drinkService.GetDrinks();
-           
+
                 // pop up message voor de gebruiker
-                MessageBox.Show("Are you sure you want to delete the whole row from the list?");  
+                MessageBox.Show("Are you sure you want to delete the whole row from the list?");
                 // Ook nog verwijderen uit de database!!!!
                 drinkService.DeleteRowTable(drinkNameEntered);
                 listViewDrink.Items.Remove(listViewDrink.SelectedItems[0]);
@@ -625,7 +640,7 @@ namespace SomerenUI
             {
                 MessageBox.Show("Please select a row from the list, then press the delete button");
             }
-            
+
         }
 
         private void buttonShowSortedList_Click(object sender, EventArgs e)
@@ -663,7 +678,7 @@ namespace SomerenUI
                 MessageBox.Show("Something went wrong while sorting the list");
                 throw new Exception("Something went wrong while sorting the list");
             }
-           
+
         }
         private void CashregistertoolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -691,7 +706,7 @@ namespace SomerenUI
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
-            }     
+            }
         }
 
         private void drinksToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -702,33 +717,137 @@ namespace SomerenUI
 
         private void listViewActivitesParticipants_MouseClick(object sender, MouseEventArgs e)
         {
-
-            listViewParticipants.Clear();
-            ActivityService activityService = new ActivityService();
-            List<Student> participantList = activityService.GetParticipants(int.Parse(listViewActivitesParticipants.SelectedItems[0].SubItems[0].Text));
-
-            listViewParticipants.View = View.Details;
-            listViewParticipants.Columns.Add("StudentId");
-            listViewParticipants.Columns.Add("First name");
-            listViewParticipants.Columns.Add("Last name");
-            listViewParticipants.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            listViewParticipants.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-
-
-            foreach (Student participant in participantList)
+            if (AddParticipantsStart.Visible)
             {
-                ListViewItem li = new ListViewItem(participant.StudentId.ToString());
-                li.SubItems.Add(participant.FirstName);
-                li.SubItems.Add(participant.LastName);
-                listViewParticipants.Items.Add(li);
+
+                listViewParticipants.Clear();
+                ActivityService activityService = new ActivityService();
+                List<Student> participantList = activityService.GetParticipants(int.Parse(listViewActivitesParticipants.SelectedItems[0].SubItems[0].Text));
+
+                listViewParticipants.View = View.Details;
+                listViewParticipants.Columns.Add("StudentId");
+                listViewParticipants.Columns.Add("First name");
+                listViewParticipants.Columns.Add("Last name");
+                listViewParticipants.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                listViewParticipants.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                listViewParticipants.FullRowSelect = true;
+
+
+                foreach (Student participant in participantList)
+                {
+                    ListViewItem li = new ListViewItem(participant.StudentId.ToString());
+                    li.SubItems.Add(participant.FirstName);
+                    li.SubItems.Add(participant.LastName);
+                    listViewParticipants.Items.Add(li);
+                }
+                ColorListView(listViewParticipants);
             }
-            ColorListView(listViewParticipants);
         }
 
         private void participantsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Participants");
             ChangeToolStripMenu(participantsToolStripMenuItem);
+        }
+        private void AddParticipants_Click(object sender, EventArgs e)
+        {
+            labelParticipantsTitle.Text = "Please select a student:";
+            Console.WriteLine("Students participating:");
+
+            AddParticipantsStart.Hide();
+            deleteParticipant.Hide();
+            instructionDescriptionAddingMode.Show();
+            buttonAddParticipant.Show();
+            buttonExitAddingMode.Show();
+            StudentService studService = new StudentService();
+            List<Student> studentList = studService.GetStudents();
+
+            listViewParticipants.Clear();
+            listViewParticipants.View = View.Details;
+            listViewParticipants.FullRowSelect = true;
+
+            listViewParticipants.Columns.Add("Student id", 50);
+            listViewParticipants.Columns.Add("First name", 120);
+            listViewParticipants.Columns.Add("Last name", 120);
+            listViewParticipants.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewParticipants.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+            foreach (Student s in studentList)
+            {
+                //s.StudentId.ToString();
+
+                ListViewItem li = new ListViewItem(s.StudentId.ToString());
+                li.SubItems.Add(s.FirstName);
+                li.SubItems.Add(s.LastName);
+                li.Tag = s;
+                listViewParticipants.Items.Add(li);
+
+            }
+            ColorListView(listViewParticipants);
+        }
+
+        private void buttonExitAddingMode_Click(object sender, EventArgs e)
+        {
+            showPanel("Participants");
+        }
+
+        private void deleteParticipant_Click(object sender, EventArgs e)
+        {
+            if (listViewActivitesParticipants.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please first select an activity in order to choose a student to delete. Please read the instructions for further information.");
+            }
+            else if (listViewParticipants.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please select a student to delete. " +
+                    "If the table is empty, please select another activity. Please read the instructions for further information. ");
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show($"removing student {listViewParticipants.SelectedItems[0].SubItems[0].Text} " +
+                    $"{listViewParticipants.SelectedItems[0].SubItems[1].Text} from activity {listViewActivitesParticipants.SelectedItems[0].SubItems[0].Text} " +
+                    $"{listViewActivitesParticipants.SelectedItems[0].SubItems[1].Text}.\nare you sure you wish to proceed? ",
+                    "Add student as participant", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    ActivityService activityService = new ActivityService();
+                    activityService.DeleteParticipant(int.Parse(listViewParticipants.SelectedItems[0].SubItems[0].Text), int.Parse(listViewActivitesParticipants.SelectedItems[0].SubItems[0].Text));
+                    MessageBox.Show("Succesfully removed participant");
+                    // refresh the listview
+                    listViewActivitesParticipants_MouseClick(new object(), new MouseEventArgs(0, 0, 0, 0, 0));
+                }
+
+            }
+        }
+
+        private void buttonAddParticipant_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listViewActivitesParticipants.SelectedItems.Count == 0)
+                {
+                    throw new Exception("Please select an activity to proceed! If it is not clear what to do, please reread the instructions");
+                }
+                else if(listViewParticipants.SelectedItems.Count == 0)
+                {
+                    throw new Exception("Please select a student to proceed! If it is not clear what to do, please reread the instructions");
+                }
+                DialogResult dialogResult = MessageBox.Show($"adding student {listViewParticipants.SelectedItems[0].SubItems[0].Text} " +
+                    $"{listViewParticipants.SelectedItems[0].SubItems[1].Text} to activity {listViewActivitesParticipants.SelectedItems[0].SubItems[0].Text} " +
+                    $"{listViewActivitesParticipants.SelectedItems[0].SubItems[1].Text} as an participant.\nare you sure you wish to proceed? ",
+                    "Add student as participant", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    ActivityService activityService = new ActivityService();
+                    activityService.AddParticipant(int.Parse(listViewParticipants.SelectedItems[0].SubItems[0].Text),
+                        int.Parse(listViewActivitesParticipants.SelectedItems[0].SubItems[0].Text));
+                    MessageBox.Show("Succesfully added student as a participant");
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
     }
 }

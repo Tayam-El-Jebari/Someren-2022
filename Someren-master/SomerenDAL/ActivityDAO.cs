@@ -27,7 +27,33 @@ namespace SomerenDAL
             sqlParameters[0] = new SqlParameter("@activityNumber", activityNumber);
             return ReadTablesParticipants(ExecuteSelectQuery(query, sqlParameters));
         }
-
+        public void AddParticipant(int studentId, int activityNumber)
+        {
+            string query = "SELECT STUDENTID, ACTIVITYNUMBER FROM Participates_In GROUP BY studentID, ActivityNumber HAVING studentId = @studentId AND activityNumber = @activityNumber";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@activityNumber", activityNumber);
+            sqlParameters[1] = new SqlParameter("@studentId", studentId);
+            if(ExecuteSelectQuery(query, sqlParameters).Rows.Count == 0)
+            {
+                string queryToAdd = "INSERT INTO Participates_In VALUES(@studentId, @activityNumber)";
+                SqlParameter[] sqlParametersForAdding = new SqlParameter[2];
+                sqlParametersForAdding[0] = new SqlParameter("@activityNumber", activityNumber);
+                sqlParametersForAdding[1] = new SqlParameter("@studentId", studentId);
+                ExecuteSelectQuery(queryToAdd, sqlParametersForAdding);
+            }
+            else
+            {
+                throw new Exception("The student has already been added to this activity!");
+            }
+        }
+        public void DeleteRowParticipant(int studentId, int activityNumber)
+        {
+            string query = "DELETE FROM Participates_In WHERE (studentId = @studentId) AND (activityNumber = @activityNumber)";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@activityNumber", activityNumber);
+            sqlParameters[1] = new SqlParameter("@studentId", studentId);
+            ExecuteEditQuery(query, sqlParameters);
+        }
         public void AddRowActivities(string activityName, string description, DateTime startTime, DateTime endTime)
         {
             string query = "INSERT INTO [Activity](ActivityName, Description, StartDateTime, EndDateTime) VALUES (@activityName, @Description, @StartDateTime, @EndDateTime)";

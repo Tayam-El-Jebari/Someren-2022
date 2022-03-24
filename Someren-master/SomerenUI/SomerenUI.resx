@@ -4203,6 +4203,23 @@
         X54o1ZcnSvXlx61b/wNzFde/WH4FDAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="instructionDescriptionAddingMode.Text" xml:space="preserve">
+    <value>In adding mode the full list of activities will be presented at the upper left table. The full list of students are in the lower left table.
+
+In order to add a participant to an activity you first need to select an activity. After that, please select a student. Finally press the "Add the student as participant" button.
+
+In doing so you will be prompted to confirm. After confirming your choice, if there are no conflicts, the student will be added as a participant!
+
+If you wish to leave adding-mode, press on the button "Exit adding-mode" or click on the menu strip item "participants" under "activities".
+</value>
+  </data>
+  <data name="instructionsDescription.Text" xml:space="preserve">
+    <value>In order to see the participants of a specific activity, please click on an activity in the upper left table. If there are any students participating, they should appear in the lower left table.
+
+If you wish to add participants to an activity, click on the button "Add a participant". You will then be taken to the adding-mode and further instructions will be given.
+
+If you wish to remove a participant from a certain activity, please first click on a activity, then click on the participant. Finally click on the "Delete a participant from the left table" button.</value>
+  </data>
   <data name="pictureBox3.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAH8AAAB0CAIAAAAjGHqHAAAABGdBTUEAALGPC/xhBQAAF8FJREFUeF7t

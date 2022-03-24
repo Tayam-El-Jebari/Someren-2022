@@ -138,16 +138,19 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label16 = new System.Windows.Forms.Label();
             this.pnlParticipants = new System.Windows.Forms.Panel();
-            this.button11 = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.AddParticipants = new System.Windows.Forms.Button();
-            this.label23 = new System.Windows.Forms.Label();
+            this.labelParticipantsTitle = new System.Windows.Forms.Label();
+            this.deleteParticipant = new System.Windows.Forms.Button();
+            this.AddParticipantsStart = new System.Windows.Forms.Button();
+            this.labelParticipantsActivityTitle = new System.Windows.Forms.Label();
             this.listViewActivitesParticipants = new System.Windows.Forms.ListView();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label24 = new System.Windows.Forms.Label();
+            this.labelParticipantsPnlTitle = new System.Windows.Forms.Label();
             this.listViewParticipants = new System.Windows.Forms.ListView();
+            this.buttonAddParticipant = new System.Windows.Forms.Button();
+            this.buttonExitAddingMode = new System.Windows.Forms.Button();
+            this.instructionsTitle = new System.Windows.Forms.Label();
+            this.instructionsDescription = new System.Windows.Forms.Label();
+            this.instructionDescriptionAddingMode = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlRevenueReportPanel.SuspendLayout();
             this.pnlRoomPanel.SuspendLayout();
@@ -182,7 +185,7 @@
             this.barServiceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1318, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1318, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -194,7 +197,7 @@
             this.exitToolStripMenuItem});
             this.dashboardToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(100, 26);
+            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
             this.dashboardToolStripMenuItem.Text = "Application";
             // 
             // dashboardToolStripMenuItem1
@@ -219,14 +222,14 @@
             // studentsToolStripMenuItem
             // 
             this.studentsToolStripMenuItem.Name = "studentsToolStripMenuItem";
-            this.studentsToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
+            this.studentsToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.studentsToolStripMenuItem.Text = "Students";
             this.studentsToolStripMenuItem.Click += new System.EventHandler(this.studentsToolStripMenuItem_Click);
             // 
             // teachersToolStripMenuItem
             // 
             this.teachersToolStripMenuItem.Name = "teachersToolStripMenuItem";
-            this.teachersToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
+            this.teachersToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.teachersToolStripMenuItem.Text = "Teachers";
             this.teachersToolStripMenuItem.Click += new System.EventHandler(this.teachersToolStripMenuItem_Click);
             // 
@@ -237,7 +240,7 @@
             this.participantsToolStripMenuItem,
             this.activitiesToolStripMenuItem1});
             this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
-            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(83, 26);
+            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.activitiesToolStripMenuItem.Text = "Activities";
             this.activitiesToolStripMenuItem.Click += new System.EventHandler(this.activitiesToolStripMenuItem_Click_1);
             // 
@@ -263,7 +266,7 @@
             // roomsToolStripMenuItem
             // 
             this.roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
-            this.roomsToolStripMenuItem.Size = new System.Drawing.Size(69, 26);
+            this.roomsToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.roomsToolStripMenuItem.Text = "Rooms";
             this.roomsToolStripMenuItem.Click += new System.EventHandler(this.roomsToolStripMenuItem_Click);
             // 
@@ -274,7 +277,7 @@
             this.CashregistertoolStripMenuItem,
             this.drinksToolStripMenuItem});
             this.barServiceToolStripMenuItem.Name = "barServiceToolStripMenuItem";
-            this.barServiceToolStripMenuItem.Size = new System.Drawing.Size(94, 26);
+            this.barServiceToolStripMenuItem.Size = new System.Drawing.Size(94, 24);
             this.barServiceToolStripMenuItem.Text = "Bar service";
             // 
             // revenueReportToolStripMenuItem
@@ -1211,81 +1214,70 @@
             // pnlParticipants
             // 
             this.pnlParticipants.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.pnlParticipants.Controls.Add(this.instructionDescriptionAddingMode);
+            this.pnlParticipants.Controls.Add(this.instructionsDescription);
+            this.pnlParticipants.Controls.Add(this.instructionsTitle);
+            this.pnlParticipants.Controls.Add(this.buttonExitAddingMode);
             this.pnlParticipants.Controls.Add(this.listViewParticipants);
-            this.pnlParticipants.Controls.Add(this.button11);
-            this.pnlParticipants.Controls.Add(this.label17);
-            this.pnlParticipants.Controls.Add(this.button13);
-            this.pnlParticipants.Controls.Add(this.button14);
-            this.pnlParticipants.Controls.Add(this.AddParticipants);
-            this.pnlParticipants.Controls.Add(this.label23);
+            this.pnlParticipants.Controls.Add(this.labelParticipantsTitle);
+            this.pnlParticipants.Controls.Add(this.deleteParticipant);
+            this.pnlParticipants.Controls.Add(this.AddParticipantsStart);
+            this.pnlParticipants.Controls.Add(this.labelParticipantsActivityTitle);
             this.pnlParticipants.Controls.Add(this.listViewActivitesParticipants);
             this.pnlParticipants.Controls.Add(this.pictureBox3);
-            this.pnlParticipants.Controls.Add(this.label24);
+            this.pnlParticipants.Controls.Add(this.labelParticipantsPnlTitle);
+            this.pnlParticipants.Controls.Add(this.buttonAddParticipant);
             this.pnlParticipants.Location = new System.Drawing.Point(8, 22);
             this.pnlParticipants.Margin = new System.Windows.Forms.Padding(4);
             this.pnlParticipants.Name = "pnlParticipants";
             this.pnlParticipants.Size = new System.Drawing.Size(1334, 611);
             this.pnlParticipants.TabIndex = 13;
             // 
-            // button11
+            // labelParticipantsTitle
             // 
-            this.button11.Location = new System.Drawing.Point(814, 301);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(130, 45);
-            this.button11.TabIndex = 22;
-            this.button11.Text = "Change Name";
-            this.button11.UseVisualStyleBackColor = true;
+            this.labelParticipantsTitle.AutoSize = true;
+            this.labelParticipantsTitle.BackColor = System.Drawing.Color.Transparent;
+            this.labelParticipantsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelParticipantsTitle.ForeColor = System.Drawing.Color.White;
+            this.labelParticipantsTitle.Location = new System.Drawing.Point(17, 301);
+            this.labelParticipantsTitle.Name = "labelParticipantsTitle";
+            this.labelParticipantsTitle.Size = new System.Drawing.Size(199, 20);
+            this.labelParticipantsTitle.TabIndex = 19;
+            this.labelParticipantsTitle.Text = "Students participating:";
             // 
-            // label17
+            // deleteParticipant
             // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(17, 301);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(199, 20);
-            this.label17.TabIndex = 19;
-            this.label17.Text = "Students participating:";
+            this.deleteParticipant.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.deleteParticipant.Location = new System.Drawing.Point(680, 435);
+            this.deleteParticipant.Name = "deleteParticipant";
+            this.deleteParticipant.Size = new System.Drawing.Size(169, 53);
+            this.deleteParticipant.TabIndex = 17;
+            this.deleteParticipant.Text = "Delete a participant from the left table";
+            this.deleteParticipant.UseVisualStyleBackColor = true;
+            this.deleteParticipant.Click += new System.EventHandler(this.deleteParticipant_Click);
             // 
-            // button13
+            // AddParticipantsStart
             // 
-            this.button13.Location = new System.Drawing.Point(680, 364);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 32);
-            this.button13.TabIndex = 17;
-            this.button13.Text = "Delete";
-            this.button13.UseVisualStyleBackColor = true;
+            this.AddParticipantsStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddParticipantsStart.Location = new System.Drawing.Point(680, 325);
+            this.AddParticipantsStart.Name = "AddParticipantsStart";
+            this.AddParticipantsStart.Size = new System.Drawing.Size(169, 53);
+            this.AddParticipantsStart.TabIndex = 15;
+            this.AddParticipantsStart.Text = "Add a participant";
+            this.AddParticipantsStart.UseVisualStyleBackColor = true;
+            this.AddParticipantsStart.Click += new System.EventHandler(this.AddParticipants_Click);
             // 
-            // button14
+            // labelParticipantsActivityTitle
             // 
-            this.button14.Location = new System.Drawing.Point(680, 314);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(75, 32);
-            this.button14.TabIndex = 16;
-            this.button14.Text = "Update";
-            this.button14.UseVisualStyleBackColor = true;
-            // 
-            // AddParticipants
-            // 
-            this.AddParticipants.Location = new System.Drawing.Point(680, 266);
-            this.AddParticipants.Name = "AddParticipants";
-            this.AddParticipants.Size = new System.Drawing.Size(75, 33);
-            this.AddParticipants.TabIndex = 15;
-            this.AddParticipants.Text = "Add";
-            this.AddParticipants.UseVisualStyleBackColor = true;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.Transparent;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label23.Location = new System.Drawing.Point(16, 69);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(265, 25);
-            this.label23.TabIndex = 6;
-            this.label23.Text = "Please choose an activIty:";
+            this.labelParticipantsActivityTitle.AutoSize = true;
+            this.labelParticipantsActivityTitle.BackColor = System.Drawing.Color.Transparent;
+            this.labelParticipantsActivityTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelParticipantsActivityTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelParticipantsActivityTitle.Location = new System.Drawing.Point(16, 69);
+            this.labelParticipantsActivityTitle.Name = "labelParticipantsActivityTitle";
+            this.labelParticipantsActivityTitle.Size = new System.Drawing.Size(265, 25);
+            this.labelParticipantsActivityTitle.TabIndex = 6;
+            this.labelParticipantsActivityTitle.Text = "Please choose an activIty:";
             // 
             // listViewActivitesParticipants
             // 
@@ -1309,18 +1301,18 @@
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
-            // label24
+            // labelParticipantsPnlTitle
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.Snow;
-            this.label24.Location = new System.Drawing.Point(13, 12);
-            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label24.Name = "label24";
-            this.label24.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label24.Size = new System.Drawing.Size(188, 38);
-            this.label24.TabIndex = 3;
-            this.label24.Text = "Participants";
+            this.labelParticipantsPnlTitle.AutoSize = true;
+            this.labelParticipantsPnlTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelParticipantsPnlTitle.ForeColor = System.Drawing.Color.Snow;
+            this.labelParticipantsPnlTitle.Location = new System.Drawing.Point(13, 12);
+            this.labelParticipantsPnlTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelParticipantsPnlTitle.Name = "labelParticipantsPnlTitle";
+            this.labelParticipantsPnlTitle.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.labelParticipantsPnlTitle.Size = new System.Drawing.Size(188, 38);
+            this.labelParticipantsPnlTitle.TabIndex = 3;
+            this.labelParticipantsPnlTitle.Text = "Participants";
             // 
             // listViewParticipants
             // 
@@ -1331,6 +1323,62 @@
             this.listViewParticipants.Size = new System.Drawing.Size(644, 262);
             this.listViewParticipants.TabIndex = 23;
             this.listViewParticipants.UseCompatibleStateImageBehavior = false;
+            // 
+            // buttonAddParticipant
+            // 
+            this.buttonAddParticipant.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddParticipant.Location = new System.Drawing.Point(680, 325);
+            this.buttonAddParticipant.Name = "buttonAddParticipant";
+            this.buttonAddParticipant.Size = new System.Drawing.Size(169, 99);
+            this.buttonAddParticipant.TabIndex = 24;
+            this.buttonAddParticipant.Text = "Add the student as participant";
+            this.buttonAddParticipant.UseVisualStyleBackColor = true;
+            this.buttonAddParticipant.Click += new System.EventHandler(this.buttonAddParticipant_Click);
+            // 
+            // buttonExitAddingMode
+            // 
+            this.buttonExitAddingMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExitAddingMode.Location = new System.Drawing.Point(865, 325);
+            this.buttonExitAddingMode.Name = "buttonExitAddingMode";
+            this.buttonExitAddingMode.Size = new System.Drawing.Size(169, 53);
+            this.buttonExitAddingMode.TabIndex = 25;
+            this.buttonExitAddingMode.Text = "Exit adding-mode";
+            this.buttonExitAddingMode.UseVisualStyleBackColor = true;
+            this.buttonExitAddingMode.Click += new System.EventHandler(this.buttonExitAddingMode_Click);
+            // 
+            // instructionsTitle
+            // 
+            this.instructionsTitle.AutoSize = true;
+            this.instructionsTitle.BackColor = System.Drawing.Color.Transparent;
+            this.instructionsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructionsTitle.ForeColor = System.Drawing.Color.White;
+            this.instructionsTitle.Location = new System.Drawing.Point(676, 86);
+            this.instructionsTitle.Name = "instructionsTitle";
+            this.instructionsTitle.Size = new System.Drawing.Size(114, 20);
+            this.instructionsTitle.TabIndex = 26;
+            this.instructionsTitle.Text = "Instructions:";
+            // 
+            // instructionsDescription
+            // 
+            this.instructionsDescription.BackColor = System.Drawing.Color.Transparent;
+            this.instructionsDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructionsDescription.ForeColor = System.Drawing.Color.White;
+            this.instructionsDescription.Location = new System.Drawing.Point(677, 121);
+            this.instructionsDescription.Name = "instructionsDescription";
+            this.instructionsDescription.Size = new System.Drawing.Size(584, 196);
+            this.instructionsDescription.TabIndex = 27;
+            this.instructionsDescription.Text = resources.GetString("instructionsDescription.Text");
+            // 
+            // instructionDescriptionAddingMode
+            // 
+            this.instructionDescriptionAddingMode.BackColor = System.Drawing.Color.Transparent;
+            this.instructionDescriptionAddingMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructionDescriptionAddingMode.ForeColor = System.Drawing.Color.White;
+            this.instructionDescriptionAddingMode.Location = new System.Drawing.Point(677, 123);
+            this.instructionDescriptionAddingMode.Name = "instructionDescriptionAddingMode";
+            this.instructionDescriptionAddingMode.Size = new System.Drawing.Size(584, 196);
+            this.instructionDescriptionAddingMode.TabIndex = 28;
+            this.instructionDescriptionAddingMode.Text = resources.GetString("instructionDescriptionAddingMode.Text");
             // 
             // SomerenUI
             // 
@@ -1498,20 +1546,23 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel pnlParticipants;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button AddParticipants;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label labelParticipantsTitle;
+        private System.Windows.Forms.Button deleteParticipant;
+        private System.Windows.Forms.Button AddParticipantsStart;
+        private System.Windows.Forms.Label labelParticipantsActivityTitle;
         private System.Windows.Forms.ListView listViewActivitesParticipants;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label labelParticipantsPnlTitle;
         private System.Windows.Forms.ListView listViewActivities;
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ColumnHeader columnHeader14;
         private System.Windows.Forms.ColumnHeader columnHeader15;
         private System.Windows.Forms.ListView listViewParticipants;
+        private System.Windows.Forms.Button buttonAddParticipant;
+        private System.Windows.Forms.Button buttonExitAddingMode;
+        private System.Windows.Forms.Label instructionsDescription;
+        private System.Windows.Forms.Label instructionsTitle;
+        private System.Windows.Forms.Label instructionDescriptionAddingMode;
     }
 }
 
