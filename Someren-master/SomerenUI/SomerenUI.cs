@@ -696,7 +696,7 @@ namespace SomerenUI
         }
             catch (Exception)
             {                
-                //throw new Exception("Something went wrong while adding a row");
+                throw new Exception("Something went wrong while adding a row");
             }
 }
 

@@ -156,6 +156,7 @@
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.textBoxStartTime = new System.Windows.Forms.TextBox();
             this.textBoxEndTime = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlRevenueReportPanel.SuspendLayout();
             this.pnlRoomPanel.SuspendLayout();
@@ -190,7 +191,7 @@
             this.barServiceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1318, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1318, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -977,6 +978,7 @@
             // pnlActivities
             // 
             this.pnlActivities.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.pnlActivities.Controls.Add(this.label2);
             this.pnlActivities.Controls.Add(this.textBoxEndTime);
             this.pnlActivities.Controls.Add(this.textBoxStartTime);
             this.pnlActivities.Controls.Add(this.textBoxDescription);
@@ -1361,9 +1363,9 @@
             this.labelStartDateTime.BackColor = System.Drawing.Color.White;
             this.labelStartDateTime.Location = new System.Drawing.Point(678, 163);
             this.labelStartDateTime.Name = "labelStartDateTime";
-            this.labelStartDateTime.Size = new System.Drawing.Size(153, 17);
+            this.labelStartDateTime.Size = new System.Drawing.Size(81, 17);
             this.labelStartDateTime.TabIndex = 25;
-            this.labelStartDateTime.Text = "Start Time: (hh-mm-ss)";
+            this.labelStartDateTime.Text = "Start Time: ";
             // 
             // labelEndTime
             // 
@@ -1371,9 +1373,9 @@
             this.labelEndTime.BackColor = System.Drawing.Color.White;
             this.labelEndTime.Location = new System.Drawing.Point(681, 197);
             this.labelEndTime.Name = "labelEndTime";
-            this.labelEndTime.Size = new System.Drawing.Size(148, 17);
+            this.labelEndTime.Size = new System.Drawing.Size(72, 17);
             this.labelEndTime.TabIndex = 26;
-            this.labelEndTime.Text = "End Time: (hh-mm-ss)";
+            this.labelEndTime.Text = "End Time:";
             // 
             // labelDescription
             // 
@@ -1412,6 +1414,16 @@
             this.textBoxEndTime.Name = "textBoxEndTime";
             this.textBoxEndTime.Size = new System.Drawing.Size(100, 22);
             this.textBoxEndTime.TabIndex = 31;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(678, 236);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(372, 17);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "Please enter the Time as following: dd-mm-yyyy hh:mm:ss";
             // 
             // SomerenUI
             // 
@@ -1601,6 +1613,7 @@
         private System.Windows.Forms.Label labelEndTime;
         private System.Windows.Forms.Label labelStartDateTime;
         private System.Windows.Forms.Label labelActivityName;
+        private System.Windows.Forms.Label label2;
     }
 }
 
