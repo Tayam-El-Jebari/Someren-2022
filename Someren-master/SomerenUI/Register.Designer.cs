@@ -40,6 +40,10 @@ namespace SomerenUI
             this.textBoxLicenseKey = new System.Windows.Forms.TextBox();
             this.buttonRegisterRegister = new System.Windows.Forms.Button();
             this.buttonBackTologin = new System.Windows.Forms.Button();
+            this.labelQuestionRegister = new System.Windows.Forms.Label();
+            this.labelAnswerRegister = new System.Windows.Forms.Label();
+            this.textBoxQuestionRegister = new System.Windows.Forms.TextBox();
+            this.textBoxAnswerRegister = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelInstructionsregister
@@ -107,6 +111,7 @@ namespace SomerenUI
             this.labelLicenseKey.Size = new System.Drawing.Size(87, 17);
             this.labelLicenseKey.TabIndex = 7;
             this.labelLicenseKey.Text = "License key:";
+            this.labelLicenseKey.Click += new System.EventHandler(this.labelLicenseKey_Click);
             // 
             // textBoxLicenseKey
             // 
@@ -117,9 +122,10 @@ namespace SomerenUI
             // 
             // buttonRegisterRegister
             // 
-            this.buttonRegisterRegister.Location = new System.Drawing.Point(136, 307);
+            this.buttonRegisterRegister.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonRegisterRegister.Location = new System.Drawing.Point(0, 454);
             this.buttonRegisterRegister.Name = "buttonRegisterRegister";
-            this.buttonRegisterRegister.Size = new System.Drawing.Size(161, 46);
+            this.buttonRegisterRegister.Size = new System.Drawing.Size(551, 46);
             this.buttonRegisterRegister.TabIndex = 9;
             this.buttonRegisterRegister.Text = "Register";
             this.buttonRegisterRegister.UseVisualStyleBackColor = true;
@@ -135,11 +141,47 @@ namespace SomerenUI
             this.buttonBackTologin.UseVisualStyleBackColor = true;
             this.buttonBackTologin.Click += new System.EventHandler(this.buttonBackTologin_Click);
             // 
+            // labelQuestionRegister
+            // 
+            this.labelQuestionRegister.AutoSize = true;
+            this.labelQuestionRegister.Location = new System.Drawing.Point(137, 264);
+            this.labelQuestionRegister.Name = "labelQuestionRegister";
+            this.labelQuestionRegister.Size = new System.Drawing.Size(69, 17);
+            this.labelQuestionRegister.TabIndex = 11;
+            this.labelQuestionRegister.Text = "Question:";
+            // 
+            // labelAnswerRegister
+            // 
+            this.labelAnswerRegister.AutoSize = true;
+            this.labelAnswerRegister.Location = new System.Drawing.Point(148, 300);
+            this.labelAnswerRegister.Name = "labelAnswerRegister";
+            this.labelAnswerRegister.Size = new System.Drawing.Size(58, 17);
+            this.labelAnswerRegister.TabIndex = 12;
+            this.labelAnswerRegister.Text = "Answer:";
+            // 
+            // textBoxQuestionRegister
+            // 
+            this.textBoxQuestionRegister.Location = new System.Drawing.Point(228, 264);
+            this.textBoxQuestionRegister.Name = "textBoxQuestionRegister";
+            this.textBoxQuestionRegister.Size = new System.Drawing.Size(174, 22);
+            this.textBoxQuestionRegister.TabIndex = 13;
+            // 
+            // textBoxAnswerRegister
+            // 
+            this.textBoxAnswerRegister.Location = new System.Drawing.Point(228, 300);
+            this.textBoxAnswerRegister.Name = "textBoxAnswerRegister";
+            this.textBoxAnswerRegister.Size = new System.Drawing.Size(174, 22);
+            this.textBoxAnswerRegister.TabIndex = 14;
+            // 
             // FormRegisterScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 421);
+            this.ClientSize = new System.Drawing.Size(551, 500);
+            this.Controls.Add(this.textBoxAnswerRegister);
+            this.Controls.Add(this.textBoxQuestionRegister);
+            this.Controls.Add(this.labelAnswerRegister);
+            this.Controls.Add(this.labelQuestionRegister);
             this.Controls.Add(this.buttonBackTologin);
             this.Controls.Add(this.buttonRegisterRegister);
             this.Controls.Add(this.textBoxLicenseKey);
@@ -172,5 +214,9 @@ namespace SomerenUI
         private System.Windows.Forms.TextBox textBoxLicenseKey;
         private System.Windows.Forms.Button buttonRegisterRegister;
         private System.Windows.Forms.Button buttonBackTologin;
+        private System.Windows.Forms.Label labelQuestionRegister;
+        private System.Windows.Forms.Label labelAnswerRegister;
+        private System.Windows.Forms.TextBox textBoxQuestionRegister;
+        private System.Windows.Forms.TextBox textBoxAnswerRegister;
     }
 }

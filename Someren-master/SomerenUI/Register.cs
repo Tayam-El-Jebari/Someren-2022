@@ -32,6 +32,18 @@ namespace SomerenUI
 
         private void buttonRegisterRegister_Click(object sender, EventArgs e)
         {
+            string username = textBoxUsernameRegister.Text;
+            string password = textBoxPasswordRegister.Text;
+            string passwordReenter = textBoxPasswordReenterRegister.Text;
+            string licenseKey = textBoxLicenseKey.Text;
+/*            if ()
+            {
+
+            }*/
+        }
+
+        private void labelLicenseKey_Click(object sender, EventArgs e)
+        {
 
         }
     }
