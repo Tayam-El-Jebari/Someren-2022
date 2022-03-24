@@ -22,10 +22,7 @@ namespace SomerenUI
             this.Hide();
             FormRegisterScreen formRegisterScreen = new FormRegisterScreen();
             formRegisterScreen.ShowDialog();
-            this.Close();
-            
-
-
+            this.Close(); 
         }
     }
 }
