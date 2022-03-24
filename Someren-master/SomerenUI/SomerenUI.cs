@@ -278,12 +278,37 @@ namespace SomerenUI
                     {
                         TeacherService teacherService = new TeacherService();
                         List<Teacher> teacherList = teacherService.GetTeachers();
-                        ShowSupervisorsListView();
+
+
+                        // clear the listview before filling it again
+                        supervisorsListView.Clear();
+
+                        supervisorsListView.View = View.Details;
+                        supervisorsListView.FullRowSelect = true;
+                        supervisorsListView.LabelEdit = true;
+                        supervisorsListView.Columns.Add("Teacher id", 80);
+                        supervisorsListView.Columns.Add("Firstname", 80);
+                        supervisorsListView.Columns.Add("Lastname", 80);
+                        supervisorsListView.Columns.Add("Roomnumber", 80);
+                        supervisorsListView.Columns.Add("Supervisor", 120);
+
+                        foreach (Teacher teacher in teacherList)
+                        {
+                            ListViewItem li = new ListViewItem(teacher.TeacherID.ToString());
+                            li.SubItems.Add(teacher.FirstName);
+                            li.SubItems.Add(teacher.LastName);
+                            li.SubItems.Add(teacher.RoomNumber.ToString());
+                            li.SubItems.Add(teacher.Supervisor.ToString());
+                            li.Tag = teacher;
+                            supervisorsListView.Items.Add(li);
+                        }
+                        ColorListView(supervisorsListView);
                     }
-                    catch(Exception e)
+                    catch (Exception e)
                     {
                         MessageBox.Show("Something went wrong while loading the supervisors: ");
                         logService.WriteLog(e);
+
                     }
                 }
             }catch(Exception e)
@@ -661,48 +686,16 @@ namespace SomerenUI
             showPanel("Drinks");
             ChangeToolStripMenu(drinksToolStripMenuItem);
         }
-        private void supervisorsToolStripMenuItem_Click(object sender, EventArgs e)
+
+
+        private void activityTeacherListView_MouseClick(object sender, MouseEventArgs e)
+        {
+            
+        }
+        private void supervisorsToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             showPanel("Supervisors");
             ChangeToolStripMenu(supervisorsToolStripMenuItem);
-        }
-        private void ShowSupervisorsListView()
-        {
-            try
-            {
-                TeacherService teacherService = new TeacherService();
-                List<Teacher> teacherList = teacherService.GetTeachers();
-
-                // clear the listview before filling it again
-                supervisorsListView.Clear();
-
-                supervisorsListView.View = View.Details;
-                supervisorsListView.FullRowSelect = true;
-                supervisorsListView.LabelEdit = true;
-                supervisorsListView.Columns.Add("Teacher id", 80);
-                supervisorsListView.Columns.Add("Firstname", 80);
-                supervisorsListView.Columns.Add("Lastname", 80);
-                supervisorsListView.Columns.Add("Roomnumber", 80);
-                supervisorsListView.Columns.Add("Supervisor", 120);
-
-                foreach (Teacher teacher in teacherList)
-                {
-                    ListViewItem li = new ListViewItem(teacher.TeacherID.ToString());
-                    li.SubItems.Add(teacher.FirstName);
-                    li.SubItems.Add(teacher.LastName);
-                    li.SubItems.Add(teacher.RoomNumber.ToString());
-                    li.SubItems.Add(teacher.Supervisor.ToString());
-                    li.Tag = teacher;
-                    supervisorsListView.Items.Add(li);
-                }
-                ColorListView(supervisorsListView);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Something went wrong while loading the Supervisors: ");
-                logService.WriteLog(e);
-
-            }
         }
     }
 }

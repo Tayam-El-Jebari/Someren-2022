@@ -124,11 +124,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.pnlSupervisors = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.supervisorsListView = new System.Windows.Forms.ListView();
             this.label9 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.listView2 = new System.Windows.Forms.ListView();
@@ -145,7 +146,7 @@
             this.listView3 = new System.Windows.Forms.ListView();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.supervisorsListView = new System.Windows.Forms.ListView();
+            this.activityTeacherListView = new System.Windows.Forms.ListView();
             this.menuStrip1.SuspendLayout();
             this.pnlRevenueReportPanel.SuspendLayout();
             this.pnlRoomPanel.SuspendLayout();
@@ -192,7 +193,7 @@
             this.exitToolStripMenuItem});
             this.dashboardToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(100, 26);
+            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
             this.dashboardToolStripMenuItem.Text = "Application";
             // 
             // dashboardToolStripMenuItem1
@@ -217,14 +218,14 @@
             // studentsToolStripMenuItem
             // 
             this.studentsToolStripMenuItem.Name = "studentsToolStripMenuItem";
-            this.studentsToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
+            this.studentsToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.studentsToolStripMenuItem.Text = "Students";
             this.studentsToolStripMenuItem.Click += new System.EventHandler(this.studentsToolStripMenuItem_Click);
             // 
             // teachersToolStripMenuItem
             // 
             this.teachersToolStripMenuItem.Name = "teachersToolStripMenuItem";
-            this.teachersToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
+            this.teachersToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.teachersToolStripMenuItem.Text = "Teachers";
             this.teachersToolStripMenuItem.Click += new System.EventHandler(this.teachersToolStripMenuItem_Click);
             // 
@@ -235,7 +236,7 @@
             this.participantsToolStripMenuItem,
             this.activitiesToolStripMenuItem1});
             this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
-            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(83, 26);
+            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.activitiesToolStripMenuItem.Text = "Activities";
             this.activitiesToolStripMenuItem.Click += new System.EventHandler(this.activitiesToolStripMenuItem_Click_1);
             // 
@@ -244,6 +245,7 @@
             this.supervisorsToolStripMenuItem.Name = "supervisorsToolStripMenuItem";
             this.supervisorsToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.supervisorsToolStripMenuItem.Text = "Supervisors";
+            this.supervisorsToolStripMenuItem.Click += new System.EventHandler(this.supervisorsToolStripMenuItem_Click_1);
             // 
             // participantsToolStripMenuItem
             // 
@@ -260,7 +262,7 @@
             // roomsToolStripMenuItem
             // 
             this.roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
-            this.roomsToolStripMenuItem.Size = new System.Drawing.Size(69, 26);
+            this.roomsToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.roomsToolStripMenuItem.Text = "Rooms";
             this.roomsToolStripMenuItem.Click += new System.EventHandler(this.roomsToolStripMenuItem_Click);
             // 
@@ -271,7 +273,7 @@
             this.CashregistertoolStripMenuItem,
             this.drinksToolStripMenuItem});
             this.barServiceToolStripMenuItem.Name = "barServiceToolStripMenuItem";
-            this.barServiceToolStripMenuItem.Size = new System.Drawing.Size(94, 26);
+            this.barServiceToolStripMenuItem.Size = new System.Drawing.Size(94, 24);
             this.barServiceToolStripMenuItem.Text = "Bar service";
             // 
             // revenueReportToolStripMenuItem
@@ -1073,12 +1075,13 @@
             // pnlSupervisors
             // 
             this.pnlSupervisors.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.pnlSupervisors.Controls.Add(this.activityTeacherListView);
+            this.pnlSupervisors.Controls.Add(this.label3);
+            this.pnlSupervisors.Controls.Add(this.textBox2);
+            this.pnlSupervisors.Controls.Add(this.textBox1);
             this.pnlSupervisors.Controls.Add(this.supervisorsListView);
-            this.pnlSupervisors.Controls.Add(this.button6);
-            this.pnlSupervisors.Controls.Add(this.button7);
             this.pnlSupervisors.Controls.Add(this.label9);
             this.pnlSupervisors.Controls.Add(this.button8);
-            this.pnlSupervisors.Controls.Add(this.button9);
             this.pnlSupervisors.Controls.Add(this.button10);
             this.pnlSupervisors.Controls.Add(this.label15);
             this.pnlSupervisors.Controls.Add(this.listView2);
@@ -1090,23 +1093,39 @@
             this.pnlSupervisors.Size = new System.Drawing.Size(1334, 611);
             this.pnlSupervisors.TabIndex = 12;
             // 
-            // button6
+            // label3
             // 
-            this.button6.Location = new System.Drawing.Point(814, 301);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(130, 45);
-            this.button6.TabIndex = 22;
-            this.button6.Text = "Change Name";
-            this.button6.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.ImageKey = "(none)";
+            this.label3.Location = new System.Drawing.Point(677, 161);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 17);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Name; ";
             // 
-            // button7
+            // textBox2
             // 
-            this.button7.Location = new System.Drawing.Point(814, 363);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(131, 33);
-            this.button7.TabIndex = 20;
-            this.button7.Text = "Show Sorted List";
-            this.button7.UseVisualStyleBackColor = true;
+            this.textBox2.Location = new System.Drawing.Point(783, 158);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 24;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(906, 158);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 23;
+            // 
+            // supervisorsListView
+            // 
+            this.supervisorsListView.HideSelection = false;
+            this.supervisorsListView.Location = new System.Drawing.Point(56, 293);
+            this.supervisorsListView.Name = "supervisorsListView";
+            this.supervisorsListView.Size = new System.Drawing.Size(521, 150);
+            this.supervisorsListView.TabIndex = 15;
+            this.supervisorsListView.UseCompatibleStateImageBehavior = false;
             // 
             // label9
             // 
@@ -1126,15 +1145,6 @@
             this.button8.TabIndex = 17;
             this.button8.Text = "Delete";
             this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(680, 314);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 32);
-            this.button9.TabIndex = 16;
-            this.button9.Text = "Update";
-            this.button9.UseVisualStyleBackColor = true;
             // 
             // button10
             // 
@@ -1307,14 +1317,15 @@
             this.label24.TabIndex = 3;
             this.label24.Text = "Participants";
             // 
-            // supervisorsListView
+            // activityTeacherListView
             // 
-            this.supervisorsListView.HideSelection = false;
-            this.supervisorsListView.Location = new System.Drawing.Point(56, 117);
-            this.supervisorsListView.Name = "supervisorsListView";
-            this.supervisorsListView.Size = new System.Drawing.Size(521, 326);
-            this.supervisorsListView.TabIndex = 15;
-            this.supervisorsListView.UseCompatibleStateImageBehavior = false;
+            this.activityTeacherListView.HideSelection = false;
+            this.activityTeacherListView.Location = new System.Drawing.Point(56, 94);
+            this.activityTeacherListView.Name = "activityTeacherListView";
+            this.activityTeacherListView.Size = new System.Drawing.Size(521, 150);
+            this.activityTeacherListView.TabIndex = 27;
+            this.activityTeacherListView.UseCompatibleStateImageBehavior = false;
+            this.activityTeacherListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.activityTeacherListView_MouseClick);
             // 
             // SomerenUI
             // 
@@ -1322,6 +1333,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1318, 622);
+            this.Controls.Add(this.pnlSupervisors);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlActivities);
             this.Controls.Add(this.pnlRevenueReportPanel);
@@ -1329,10 +1342,8 @@
             this.Controls.Add(this.pnlTeacherPanel);
             this.Controls.Add(this.pnlStudents);
             this.Controls.Add(this.pnlRoomPanel);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnlDrinksPanel);
             this.Controls.Add(this.pnlParticipants);
-            this.Controls.Add(this.pnlSupervisors);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -1472,11 +1483,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel pnlSupervisors;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ListView listView2;
@@ -1494,6 +1502,10 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.ListView supervisorsListView;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListView activityTeacherListView;
     }
 }
 
