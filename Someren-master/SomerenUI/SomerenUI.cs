@@ -524,8 +524,7 @@ namespace SomerenUI
                 int salesValue = int.Parse(textBoxSalesValue.Text);
                 int numberOfDrinkSold = int.Parse(textBoxNumberOfDrinksSold.Text);
                 string drinkName = textBoxDrinkName.Text;
-                bool isAlcoholic = bool.Parse(textBoxAlcholicDrink.Text);
-            
+                bool isAlcoholic = bool.Parse(textBoxAlcholicDrink.Text);            
             
                 drinkService.UpdateRowTable(stock, salesValue, numberOfDrinkSold, drinkName, isAlcoholic);
 
@@ -693,7 +692,7 @@ namespace SomerenUI
                 li.SubItems.Add(activity.StartDateTime.ToString());
                 li.SubItems.Add(activity.EndDateTime.ToString());
                 listViewActivities.Items.Add(li);
-        }
+            }
             catch (Exception)
             {                
                 throw new Exception("Something went wrong while adding a row");
