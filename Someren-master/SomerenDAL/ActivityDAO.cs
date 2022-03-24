@@ -35,12 +35,12 @@ namespace SomerenDAL
         // maybe the where needs to be changed. Will take a look later
         public void UpdateRowActivities(string activityName, string description, DateTime startTime, DateTime endTime)
         {
-            string query = $"UPDATE Activity SET activityName=@activityName, description=@description, startTime=@startTime, endTime=@endTime WHERE activityNumber=@activityNumber";
+            string query = $"UPDATE Activity SET activityName=@activityName, [description]=@description, StartDateTime=@StartDateTime, EndDateTime=@EndDateTime WHERE activityName=@activityName";
             SqlParameter[] sqlParameters = new SqlParameter[4];
             sqlParameters[0] = new SqlParameter("@activityName", activityName);
             sqlParameters[1] = new SqlParameter("@description", description);
-            sqlParameters[2] = new SqlParameter("@startTime", startTime);
-            sqlParameters[3] = new SqlParameter("@endTime", endTime);
+            sqlParameters[2] = new SqlParameter("@StartDateTime", startTime);
+            sqlParameters[3] = new SqlParameter("@EndDateTime", endTime);
             ExecuteEditQuery(query, sqlParameters);
         }
 

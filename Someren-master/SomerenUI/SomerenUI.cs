@@ -110,7 +110,7 @@ namespace SomerenUI
                         li.SubItems.Add(activity.EndDateTime.ToString());
                         listViewActivities.Items.Add(li);
                     }
-                    ColorListView(listViewStudents);
+                    ColorListView(listViewActivities);
                 }
                 catch (Exception e)
                 {
@@ -702,7 +702,43 @@ namespace SomerenUI
 
         private void updateActivitiesButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                listViewActivities.Clear();
+                ActivityService activityService = new ActivityService();
+                List<Activity> activityList = activityService.GetActivity();
 
+                string activityName = textBoxActivityName.Text;
+                string description = textBoxDescription.Text;
+                DateTime startTime = DateTime.Parse(textBoxStartTime.Text);
+                DateTime endTime = DateTime.Parse(textBoxEndTime.Text);
+
+                activityService.UpdateRowActivity(activityName, description, startTime, endTime);
+
+                listViewActivities.View = View.Details;
+                listViewActivities.FullRowSelect = true;
+                listViewActivities.Columns.Add("ActivityNumber", 50);
+                listViewActivities.Columns.Add("ActivityName", 80);
+                listViewActivities.Columns.Add("Description", 80);
+                listViewActivities.Columns.Add("StartDateTime", 120);
+                listViewActivities.Columns.Add("EndDateTime", 120);
+
+                foreach (Activity activity in activityList)
+                {
+                    ListViewItem li = new ListViewItem(activity.ActivityNumber.ToString());
+                    li.SubItems.Add(activity.ActivityName);
+                    li.SubItems.Add(activity.Description);
+                    li.SubItems.Add(activity.StartDateTime.ToString());
+                    li.SubItems.Add(activity.EndDateTime.ToString());
+                    listViewActivities.Items.Add(li);
+                }
+                ColorListView(listViewActivities);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Updating row failed, make sure to enter all the data in the textboxes, then press the update button");
+                throw new Exception("Updating row failed. ");
+            }
         }
 
         private void deleteActivitiesButton_Click(object sender, EventArgs e)
