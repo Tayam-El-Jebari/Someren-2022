@@ -22,5 +22,21 @@ namespace SomerenLogic
             List<Teacher> teachers = teacherdb.GetAllTeachers();
             return teachers;
         }
+        public void AddRowTeachers(string firstname, string lastname, int activityNumber, int roomNumber)
+        {
+            teacherdb.AddRowTeachers(firstname, lastname, activityNumber, roomNumber);
+        }
+        public void UpdateRowTeachers(string firstname, string lastname, int activityNumber, int roomNumber)
+        {
+            teacherdb.UpdateRowTeachers(firstname, lastname, activityNumber, roomNumber);
+        }
+        public void UpdateTeachersInRow(string firstname, string newFirstname, string lastname, string newLastname)
+        {
+            teacherdb.UpdateTeachersInRow(firstname, newFirstname, lastname, newLastname);
+        }
+        public void DeleteRowTeachers(string firstname, string lastname)
+        {
+            teacherdb.DeleteRowTeachers(firstname, lastname);
+        }
     }
 }

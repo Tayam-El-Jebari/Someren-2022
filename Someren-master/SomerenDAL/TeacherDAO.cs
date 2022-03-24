@@ -18,7 +18,7 @@ namespace SomerenDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-        public void AddRowTeachers(int teacherID, string firstname, string lastname, int activityNumber, int roomNumber)
+        public void AddRowTeachers(string firstname, string lastname, int activityNumber, int roomNumber)
         {
             string query = string.Empty;
                 query = "INSERT INTO [Teacher](firstname, lastname, activityNumber, roomNumber)VALUES(@firstname, @lastname, @activityNumber, @roomNumber, 1)";
@@ -26,9 +26,9 @@ namespace SomerenDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        public void UpdateRowTeachers(int teacherID, string firstname, string lastname, int activityNumber, int roomNumber)
+        public void UpdateRowTeachers(string firstname, string lastname, int activityNumber, int roomNumber)
         {
-            string query = $"UPDATE Teacher SET firstname=@firstname, lastname=@lastname, activityNumber=@activityNumber, roomNumber =@roomNumber WHERE firstname=@firstname, lastname=@lastname";
+            string query = $"UPDATE Teacher SET firstname=@firstname, lastname=@lastname, activityNumber=@activityNumber, roomNumber =@roomNumber WHERE firstname=@firstname AND lastname=@lastname";
             SqlParameter[] sqlParameters = new SqlParameter[4] 
             {
             new SqlParameter("@firstname", firstname),
@@ -41,7 +41,7 @@ namespace SomerenDAL
 
         public void UpdateTeachersInRow(string firstname, string newFirstname, string lastname, string newLastname)
         {
-            string query = "UPDATE Teacher SET firstname=@firstname, lastname=@lastname WHERE firstname=@firstname, lastname=@lastname";
+            string query = "UPDATE Teacher SET firstname=@firstname, lastname=@lastname WHERE firstname=@firstname AND lastname=@lastname";
             SqlParameter[] sqlParameters = new SqlParameter[4] 
             {
             new SqlParameter("@newFirstname", newFirstname),
@@ -55,7 +55,7 @@ namespace SomerenDAL
         // Delete Row
         public void DeleteRowTeachers(string firstname, string lastname)
         {
-            string query = $"DELETE FROM Teacher WHERE firstname=@firstname, lastname=@lastname";
+            string query = $"DELETE FROM Teacher WHERE firstname=@firstname AND lastname=@lastname";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }

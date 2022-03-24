@@ -269,6 +269,28 @@ namespace SomerenUI
                 MessageBox.Show("Panel could not be loaded properly." + e.Message);
                 logService.WriteLog(e);
             }
+            try
+            {
+                if (panelName == "Supervisors")
+                {
+                    ShowCorrectPanel(pnlSupervisors);
+                    try
+                    {
+                        TeacherService teacherService = new TeacherService();
+                        List<Teacher> teacherList = teacherService.GetTeachers();
+                        showli
+                    }
+                    catch(Exception e)
+                    {
+                        MessageBox.Show("Something went wrong while loading the supervisors: ");
+                        logService.WriteLog(e);
+                    }
+                }
+            }catch(Exception e)
+            {
+                MessageBox.Show("Panel could not be loaded properly." + e.Message);
+                logService.WriteLog(e);
+            }
         }
         private void ShowCorrectPanel(Panel panel)
         {
