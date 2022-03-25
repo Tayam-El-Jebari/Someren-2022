@@ -996,13 +996,21 @@ namespace SomerenUI
                 DateTime startTime = DateTime.Parse(textBoxStartTime.Text);
                 DateTime endTime = DateTime.Parse(textBoxEndTime.Text);
 
-                activityService.AddRowActivity(activityName, description, startTime, endTime);
+
+                if (activityName == "" || description == "")
+                {
+                    throw new Exception("The activity name or the description are empty. Please try again");
+                }
+                else
+                {
+                    activityService.AddRowActivity(activityName, description, startTime, endTime);
+                }
 
                 showPanel("Activities");
             }
             catch (Exception)
             {                
-                MessageBox.Show("Something went wrong while adding a row");
+                MessageBox.Show("Something went wrong while adding a row. Make sure to enter all the data in the textboxes");
             }
 }
 
