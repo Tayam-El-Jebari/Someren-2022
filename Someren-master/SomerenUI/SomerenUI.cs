@@ -364,7 +364,9 @@ namespace SomerenUI
                         ChooseSupervisorButton.Hide();
                         deleteSupervisorButton.Show();
                         quitActionButton.Hide();
-
+                        textLabel.Text = "To select an activity, you can click on one of the activities in the list" +
+                            "after you have clicked on an activity you see the teachers that are supervising at that specific activity" +
+                            "you can now press on the button";
                         // clear the listview before filling it again
                         activityTeacherListView.Clear();
 
@@ -810,7 +812,7 @@ namespace SomerenUI
         {
             labelParticipantsTitle.Text = "Please select a student:";
             Console.WriteLine("Students participating:");
-
+            
             AddParticipantsStart.Hide();
             deleteParticipant.Hide();
             instructionDescriptionAddingMode.Show();
@@ -922,7 +924,6 @@ namespace SomerenUI
             labeltext.Text = "After you have chosen an activity you can do 2 things:" +
                 "you can press the button on the left below to add a teacher by an activity. " +
                 "2. you can press the button on the right below to end the action";
-            labelSupervisorTitle.Text = "Instructions: ";
             ChooseSupervisorButton.Show();
             deleteSupervisorButton.Hide();
             quitActionButton.Show();
@@ -951,6 +952,7 @@ namespace SomerenUI
 
         private void quitActionButton_Click(object sender, EventArgs e)
         {
+            supervisorsListView.Clear();
             showPanel("Supervisors");
         }
         private void supervisorsToolStripMenuItem_Click_1(object sender, EventArgs e)
