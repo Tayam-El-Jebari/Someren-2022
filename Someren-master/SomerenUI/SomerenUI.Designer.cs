@@ -136,6 +136,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.pnlSupervisors = new System.Windows.Forms.Panel();
+            this.textLabel = new System.Windows.Forms.Label();
+            this.labeltext = new System.Windows.Forms.Label();
             this.labelSupervisorTitle = new System.Windows.Forms.Label();
             this.quitActionButton = new System.Windows.Forms.Button();
             this.addSupervisorActivityButton = new System.Windows.Forms.Button();
@@ -153,15 +155,13 @@
             this.buttonExitAddingMode = new System.Windows.Forms.Button();
             this.listViewParticipants = new System.Windows.Forms.ListView();
             this.labelParticipantsTitle = new System.Windows.Forms.Label();
-            this.deleteParticipant = new System.Windows.Forms.Button();
             this.AddParticipantsStart = new System.Windows.Forms.Button();
+            this.deleteParticipant = new System.Windows.Forms.Button();
             this.labelParticipantsActivityTitle = new System.Windows.Forms.Label();
             this.listViewActivitesParticipants = new System.Windows.Forms.ListView();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.labelParticipantsPnlTitle = new System.Windows.Forms.Label();
             this.buttonAddParticipant = new System.Windows.Forms.Button();
-            this.labeltext = new System.Windows.Forms.Label();
-            this.textLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlRevenueReportPanel.SuspendLayout();
             this.pnlRoomPanel.SuspendLayout();
@@ -1217,6 +1217,26 @@
             this.pnlSupervisors.Size = new System.Drawing.Size(1334, 599);
             this.pnlSupervisors.TabIndex = 12;
             // 
+            // textLabel
+            // 
+            this.textLabel.AutoSize = true;
+            this.textLabel.BackColor = System.Drawing.Color.White;
+            this.textLabel.Location = new System.Drawing.Point(842, 112);
+            this.textLabel.Name = "textLabel";
+            this.textLabel.Size = new System.Drawing.Size(46, 17);
+            this.textLabel.TabIndex = 32;
+            this.textLabel.Text = "label2";
+            // 
+            // labeltext
+            // 
+            this.labeltext.AutoSize = true;
+            this.labeltext.BackColor = System.Drawing.Color.White;
+            this.labeltext.Location = new System.Drawing.Point(842, 110);
+            this.labeltext.Name = "labeltext";
+            this.labeltext.Size = new System.Drawing.Size(46, 17);
+            this.labeltext.TabIndex = 31;
+            this.labeltext.Text = "label2";
+            // 
             // labelSupervisorTitle
             // 
             this.labelSupervisorTitle.AutoSize = true;
@@ -1411,17 +1431,6 @@
             this.labelParticipantsTitle.TabIndex = 19;
             this.labelParticipantsTitle.Text = "Students participating:";
             // 
-            // deleteParticipant
-            // 
-            this.deleteParticipant.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.deleteParticipant.Location = new System.Drawing.Point(680, 435);
-            this.deleteParticipant.Name = "deleteParticipant";
-            this.deleteParticipant.Size = new System.Drawing.Size(169, 53);
-            this.deleteParticipant.TabIndex = 17;
-            this.deleteParticipant.Text = "Delete a participant from the left table";
-            this.deleteParticipant.UseVisualStyleBackColor = true;
-            this.deleteParticipant.Click += new System.EventHandler(this.deleteParticipant_Click);
-            // 
             // AddParticipantsStart
             // 
             this.AddParticipantsStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1432,6 +1441,17 @@
             this.AddParticipantsStart.Text = "Add a participant";
             this.AddParticipantsStart.UseVisualStyleBackColor = true;
             this.AddParticipantsStart.Click += new System.EventHandler(this.AddParticipants_Click);
+            // 
+            // deleteParticipant
+            // 
+            this.deleteParticipant.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.deleteParticipant.Location = new System.Drawing.Point(680, 435);
+            this.deleteParticipant.Name = "deleteParticipant";
+            this.deleteParticipant.Size = new System.Drawing.Size(169, 53);
+            this.deleteParticipant.TabIndex = 17;
+            this.deleteParticipant.Text = "Delete a participant from the left table";
+            this.deleteParticipant.UseVisualStyleBackColor = true;
+            this.deleteParticipant.Click += new System.EventHandler(this.deleteParticipant_Click);
             // 
             // labelParticipantsActivityTitle
             // 
@@ -1491,37 +1511,17 @@
             this.buttonAddParticipant.UseVisualStyleBackColor = true;
             this.buttonAddParticipant.Click += new System.EventHandler(this.buttonAddParticipant_Click);
             // 
-            // labeltext
-            // 
-            this.labeltext.AutoSize = true;
-            this.labeltext.BackColor = System.Drawing.Color.White;
-            this.labeltext.Location = new System.Drawing.Point(842, 110);
-            this.labeltext.Name = "labeltext";
-            this.labeltext.Size = new System.Drawing.Size(46, 17);
-            this.labeltext.TabIndex = 31;
-            this.labeltext.Text = "label2";
-            // 
-            // textLabel
-            // 
-            this.textLabel.AutoSize = true;
-            this.textLabel.BackColor = System.Drawing.Color.White;
-            this.textLabel.Location = new System.Drawing.Point(842, 112);
-            this.textLabel.Name = "textLabel";
-            this.textLabel.Size = new System.Drawing.Size(46, 17);
-            this.textLabel.TabIndex = 32;
-            this.textLabel.Text = "label2";
-            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1318, 622);
+            this.Controls.Add(this.pnlActivities);
             this.Controls.Add(this.pnlSupervisors);
             this.Controls.Add(this.pnlParticipants);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnlDashboard);
-            this.Controls.Add(this.pnlActivities);
             this.Controls.Add(this.pnlRevenueReportPanel);
             this.Controls.Add(this.pnlCashRegisterPanel);
             this.Controls.Add(this.pnlTeacherPanel);

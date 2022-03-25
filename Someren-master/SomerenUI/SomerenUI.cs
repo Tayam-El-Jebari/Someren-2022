@@ -998,16 +998,11 @@ namespace SomerenUI
 
                 activityService.AddRowActivity(activityName, description, startTime, endTime);
 
-                Activity activity = new Activity();
-                ListViewItem li = new ListViewItem(activity.ActivityName);
-                li.SubItems.Add(activity.Description);
-                li.SubItems.Add(activity.StartDateTime.ToString());
-                li.SubItems.Add(activity.EndDateTime.ToString());
-                listViewActivities.Items.Add(li);
+                showPanel("Activities");
             }
             catch (Exception)
             {                
-                throw new Exception("Something went wrong while adding a row");
+                MessageBox.Show("Something went wrong while adding a row");
             }
 }
 
@@ -1113,7 +1108,7 @@ namespace SomerenUI
             if (addSupervisorActivityButton.Visible)
             {
                 ActivityService activityService = new ActivityService();
-                List<Teacher> teacherList = activityService.GetSupervisors(int.Parse(supervisorsListView.SelectedItems[0].SubItems[0].Text));
+                List<Teacher> teacherList = activityService.GetSupervisors(int.Parse(activityTeacherListView.SelectedItems[0].SubItems[0].Text));
 
 
                 // clear the listview before filling it again
