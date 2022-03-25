@@ -1113,7 +1113,7 @@ namespace SomerenUI
             if (addSupervisorActivityButton.Visible)
             {
                 ActivityService activityService = new ActivityService();
-                List<Teacher> teacherList = activityService.GetSupervisors(int.Parse(supervisorsListView.SelectedItems[0].SubItems[0].Text));
+                List<Teacher> teacherList = activityService.GetSupervisors(int.Parse(activityTeacherListView.SelectedItems[0].SubItems[0].Text));
 
 
                 // clear the listview before filling it again
