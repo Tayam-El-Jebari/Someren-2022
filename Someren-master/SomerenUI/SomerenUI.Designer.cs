@@ -1304,7 +1304,7 @@
             this.ChooseSupervisorButton.Name = "ChooseSupervisorButton";
             this.ChooseSupervisorButton.Size = new System.Drawing.Size(164, 32);
             this.ChooseSupervisorButton.TabIndex = 15;
-            this.ChooseSupervisorButton.Text = "Choose a supervisor";
+            this.ChooseSupervisorButton.Text = "Add supervisor";
             this.ChooseSupervisorButton.UseVisualStyleBackColor = true;
             this.ChooseSupervisorButton.Click += new System.EventHandler(this.addSupervisorActivityButton_Click);
             // 
@@ -1517,8 +1517,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1318, 622);
-            this.Controls.Add(this.pnlActivities);
             this.Controls.Add(this.pnlSupervisors);
+            this.Controls.Add(this.pnlActivities);
             this.Controls.Add(this.pnlParticipants);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnlDashboard);
