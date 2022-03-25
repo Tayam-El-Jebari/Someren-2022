@@ -94,20 +94,23 @@ namespace SomerenUI
                     List<Activity> activityList = activityService.GetActivity();
 
                     listViewActivities.View = View.Details;
-                    listViewActivities.Columns.Add("ActivityName", 50);
+                    listViewActivities.FullRowSelect = true;
+                    listViewActivities.Columns.Add("ActivityNumber", 50);
+                    listViewActivities.Columns.Add("ActivityName", 80);
                     listViewActivities.Columns.Add("Description", 80);
-                    listViewActivities.Columns.Add("StartDateTime", 80);
-                    listViewActivities.Columns.Add("EndDateTime", 80);
+                    listViewActivities.Columns.Add("StartDateTime", 120);
+                    listViewActivities.Columns.Add("EndDateTime", 120);
 
                     foreach (Activity activity in activityList)
                     {
                         ListViewItem li = new ListViewItem(activity.ActivityNumber.ToString());
+                        li.SubItems.Add(activity.ActivityName);
                         li.SubItems.Add(activity.Description);
                         li.SubItems.Add(activity.StartDateTime.ToString());
                         li.SubItems.Add(activity.EndDateTime.ToString());
                         listViewActivities.Items.Add(li);
                     }
-                    ColorListView(listViewStudents);
+                    ColorListView(listViewActivities);
                 }
                 catch (Exception e)
                 {
@@ -564,9 +567,8 @@ namespace SomerenUI
                 int salesValue = int.Parse(textBoxSalesValue.Text);
                 int numberOfDrinkSold = int.Parse(textBoxNumberOfDrinksSold.Text);
                 string drinkName = textBoxDrinkName.Text;
-                bool isAlcoholic = bool.Parse(textBoxAlcholicDrink.Text);
 
-
+                bool isAlcoholic = bool.Parse(textBoxAlcholicDrink.Text);            
                 drinkService.UpdateRowTable(stock, salesValue, numberOfDrinkSold, drinkName, isAlcoholic);
 
                 ShowDrinkListview();
@@ -848,6 +850,97 @@ namespace SomerenUI
             {
                 MessageBox.Show(exception.Message);
             }
+        }
+        private void addActivitiesButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ActivityService activityService = new ActivityService();
+                string activityName = textBoxActivityName.Text;
+                string description = textBoxDescription.Text;
+                DateTime startTime = DateTime.Parse(textBoxStartTime.Text);
+                DateTime endTime = DateTime.Parse(textBoxEndTime.Text);
+
+                activityService.AddRowActivity(activityName, description, startTime, endTime);
+
+                Activity activity = new Activity();
+                ListViewItem li = new ListViewItem(activity.ActivityName);
+                li.SubItems.Add(activity.Description);
+                li.SubItems.Add(activity.StartDateTime.ToString());
+                li.SubItems.Add(activity.EndDateTime.ToString());
+                listViewActivities.Items.Add(li);
+            }
+            catch (Exception)
+            {                
+                throw new Exception("Something went wrong while adding a row");
+            }
+}
+
+        private void updateActivitiesButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                ActivityService activityService = new ActivityService();
+                List<Activity> activityList = activityService.GetActivity();
+
+                string activityName = textBoxActivityName.Text;
+                string description = textBoxDescription.Text;
+                DateTime startTime = DateTime.Parse(textBoxStartTime.Text);
+                DateTime endTime = DateTime.Parse(textBoxEndTime.Text);
+
+                activityService.UpdateRowActivity(activityName, description, startTime, endTime);
+                listViewActivities.Clear();
+                listViewActivities.View = View.Details;
+                listViewActivities.FullRowSelect = true;
+                listViewActivities.Columns.Add("ActivityNumber", 50);
+                listViewActivities.Columns.Add("ActivityName", 80);
+                listViewActivities.Columns.Add("Description", 80);
+                listViewActivities.Columns.Add("StartDateTime", 120);
+                listViewActivities.Columns.Add("EndDateTime", 120);
+
+                foreach (Activity activity in activityList)
+                {
+                    ListViewItem li = new ListViewItem(activity.ActivityNumber.ToString());
+                    li.SubItems.Add(activity.ActivityName);
+                    li.SubItems.Add(activity.Description);
+                    li.SubItems.Add(activity.StartDateTime.ToString());
+                    li.SubItems.Add(activity.EndDateTime.ToString());
+                    listViewActivities.Items.Add(li);
+                }
+                ColorListView(listViewActivities);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Updating row failed, make sure to enter all the data in the textboxes, then press the update button");
+                throw new Exception("Updating row failed. ");
+            }
+        }
+
+        private void deleteActivitiesButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ActivityService activityService = new ActivityService();
+                string activityNumberEntered = listViewActivities.SelectedItems[0].Text;
+                List<Activity> activities = activityService.GetActivity();
+
+                // pop up message voor de gebruiker
+                MessageBox.Show("Are you sure you want to delete the whole row from the list?");
+                // Ook nog verwijderen uit de database!!!!
+                activityService.DeleteRowActivity(activityNumberEntered);
+                listViewActivities.Items.Remove(listViewActivities.SelectedItems[0]);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please select a row from the list, then press the delete button");
+            }
+        }
+
+        private void activitiesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            showPanel("Activities");
+            ChangeToolStripMenu(drinksToolStripMenuItem);
         }
     }
 }
