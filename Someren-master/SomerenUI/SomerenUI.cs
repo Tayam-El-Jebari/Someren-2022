@@ -128,7 +128,7 @@ namespace SomerenUI
 
                 //show necessary controls and edit labels in order to suit the situation (needed in case user returns from adding-mode)
                 AddParticipantsStart.Show();
-                deleteParticipant.Show();
+                deleteParticipant.Hide();
                 instructionsDescription.Show();
                 labelParticipantsTitle.Text = "Students participating:";
 
@@ -361,7 +361,7 @@ namespace SomerenUI
                         addSupervisorActivityButton.Show();
 
                         ChooseSupervisorButton.Hide();
-                        deleteSupervisorButton.Hide();
+                        deleteSupervisorButton.Show();
                         quitActionButton.Hide();
 
                         // clear the listview before filling it again

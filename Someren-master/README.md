@@ -15,6 +15,10 @@ week 2: opdracht A; Students
 week 3: opdracht B; Cash register
 -cash register
 
+week 4: opdracht B; Supervisors
+-supervisors, teachers, begin layout van de panels
+
+
 Lars Hartendorp 
 INF1C
 690720
