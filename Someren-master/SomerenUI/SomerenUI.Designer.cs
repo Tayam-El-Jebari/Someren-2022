@@ -124,13 +124,14 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.pnlSupervisors = new System.Windows.Forms.Panel();
+            this.activityTeacherListView = new System.Windows.Forms.ListView();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.supervisorsListView = new System.Windows.Forms.ListView();
             this.label9 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.deleteSupervisorButton = new System.Windows.Forms.Button();
+            this.addSupervisorButton = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.listView2 = new System.Windows.Forms.ListView();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -146,7 +147,6 @@
             this.listView3 = new System.Windows.Forms.ListView();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.activityTeacherListView = new System.Windows.Forms.ListView();
             this.menuStrip1.SuspendLayout();
             this.pnlRevenueReportPanel.SuspendLayout();
             this.pnlRoomPanel.SuspendLayout();
@@ -1081,8 +1081,8 @@
             this.pnlSupervisors.Controls.Add(this.textBox1);
             this.pnlSupervisors.Controls.Add(this.supervisorsListView);
             this.pnlSupervisors.Controls.Add(this.label9);
-            this.pnlSupervisors.Controls.Add(this.button8);
-            this.pnlSupervisors.Controls.Add(this.button10);
+            this.pnlSupervisors.Controls.Add(this.deleteSupervisorButton);
+            this.pnlSupervisors.Controls.Add(this.addSupervisorButton);
             this.pnlSupervisors.Controls.Add(this.label15);
             this.pnlSupervisors.Controls.Add(this.listView2);
             this.pnlSupervisors.Controls.Add(this.pictureBox2);
@@ -1092,6 +1092,15 @@
             this.pnlSupervisors.Name = "pnlSupervisors";
             this.pnlSupervisors.Size = new System.Drawing.Size(1334, 611);
             this.pnlSupervisors.TabIndex = 12;
+            // 
+            // activityTeacherListView
+            // 
+            this.activityTeacherListView.HideSelection = false;
+            this.activityTeacherListView.Location = new System.Drawing.Point(56, 94);
+            this.activityTeacherListView.Name = "activityTeacherListView";
+            this.activityTeacherListView.Size = new System.Drawing.Size(521, 150);
+            this.activityTeacherListView.TabIndex = 27;
+            this.activityTeacherListView.UseCompatibleStateImageBehavior = false;
             // 
             // label3
             // 
@@ -1137,23 +1146,25 @@
             this.label9.TabIndex = 19;
             this.label9.Text = "Please select the row you want to delete before pressing the button";
             // 
-            // button8
+            // deleteSupervisorButton
             // 
-            this.button8.Location = new System.Drawing.Point(680, 364);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 32);
-            this.button8.TabIndex = 17;
-            this.button8.Text = "Delete";
-            this.button8.UseVisualStyleBackColor = true;
+            this.deleteSupervisorButton.Location = new System.Drawing.Point(680, 364);
+            this.deleteSupervisorButton.Name = "deleteSupervisorButton";
+            this.deleteSupervisorButton.Size = new System.Drawing.Size(75, 32);
+            this.deleteSupervisorButton.TabIndex = 17;
+            this.deleteSupervisorButton.Text = "Delete";
+            this.deleteSupervisorButton.UseVisualStyleBackColor = true;
+            this.deleteSupervisorButton.Click += new System.EventHandler(this.deleteSupervisorButton_Click);
             // 
-            // button10
+            // addSupervisorButton
             // 
-            this.button10.Location = new System.Drawing.Point(680, 266);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 33);
-            this.button10.TabIndex = 15;
-            this.button10.Text = "Add";
-            this.button10.UseVisualStyleBackColor = true;
+            this.addSupervisorButton.Location = new System.Drawing.Point(680, 266);
+            this.addSupervisorButton.Name = "addSupervisorButton";
+            this.addSupervisorButton.Size = new System.Drawing.Size(75, 33);
+            this.addSupervisorButton.TabIndex = 15;
+            this.addSupervisorButton.Text = "Add";
+            this.addSupervisorButton.UseVisualStyleBackColor = true;
+            this.addSupervisorButton.Click += new System.EventHandler(this.addSupervisorButton_Click);
             // 
             // label15
             // 
@@ -1317,16 +1328,6 @@
             this.label24.TabIndex = 3;
             this.label24.Text = "Participants";
             // 
-            // activityTeacherListView
-            // 
-            this.activityTeacherListView.HideSelection = false;
-            this.activityTeacherListView.Location = new System.Drawing.Point(56, 94);
-            this.activityTeacherListView.Name = "activityTeacherListView";
-            this.activityTeacherListView.Size = new System.Drawing.Size(521, 150);
-            this.activityTeacherListView.TabIndex = 27;
-            this.activityTeacherListView.UseCompatibleStateImageBehavior = false;
-            this.activityTeacherListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.activityTeacherListView_MouseClick);
-            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1484,8 +1485,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel pnlSupervisors;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button deleteSupervisorButton;
+        private System.Windows.Forms.Button addSupervisorButton;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.PictureBox pictureBox2;
