@@ -690,7 +690,7 @@ namespace SomerenUI
 
         private void activityTeacherListView_MouseClick(object sender, MouseEventArgs e)
         {
-            if (addSupervisorButton.Visible) 
+            if (addSupervisorActivityButton.Visible) 
             {
                 TeacherService teacherService = new TeacherService();
                 List<Teacher> teacherList = teacherService.GetTeachers();
@@ -728,7 +728,7 @@ namespace SomerenUI
             ChangeToolStripMenu(supervisorsToolStripMenuItem);
         }
 
-        private void addSupervisorButton_Click(object sender, EventArgs e)
+        private void addSupervisorActivityButton_Click(object sender, EventArgs e)
         {
 
         }
@@ -736,6 +736,42 @@ namespace SomerenUI
         private void deleteSupervisorButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ChooseSupervisorButton_Click(object sender, EventArgs e)
+        {
+            labelSuperviserTitle.Text = "Please select a supervisor:";
+
+            addSupervisorActivityButton.Hide();
+            deleteSupervisorButton.Hide();
+            //instructionDescriptionAddingMode.Show();
+            addSupervisorActivityButton.Show();
+            quitActionButton.Show();
+            TeacherService teachService = new TeacherService();
+            List<Teacher> teacherList = teachService.GetTeachers();
+
+            supervisorsListView.Clear();
+
+            supervisorsListView.View = View.Details;
+            supervisorsListView.FullRowSelect = true;
+            supervisorsListView.LabelEdit = true;
+            supervisorsListView.Columns.Add("Teacher id", 80);
+            supervisorsListView.Columns.Add("Firstname", 80);
+            supervisorsListView.Columns.Add("Lastname", 80);
+            supervisorsListView.Columns.Add("Roomnumber", 80);
+            supervisorsListView.Columns.Add("Supervisor", 120);
+
+            foreach (Teacher teacher in teacherList)
+            {
+                ListViewItem li = new ListViewItem(teacher.TeacherID.ToString());
+                li.SubItems.Add(teacher.FirstName);
+                li.SubItems.Add(teacher.LastName);
+                li.SubItems.Add(teacher.RoomNumber.ToString());
+                li.SubItems.Add(teacher.Supervisor.ToString());
+                li.Tag = teacher;
+                supervisorsListView.Items.Add(li);
+            }
+            ColorListView(supervisorsListView);
         }
     }
 }
