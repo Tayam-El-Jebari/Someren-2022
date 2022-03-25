@@ -520,11 +520,6 @@ namespace SomerenUI
             showPanel("Teachers");
             ChangeToolStripMenu(teachersToolStripMenuItem);
         }
-        private void activitiesToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            showPanel("Activities");
-            ChangeToolStripMenu(activitiesToolStripMenuItem);
-        }
         private void revenueReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Revenue report");
@@ -1148,6 +1143,12 @@ namespace SomerenUI
         private void activityTeacherListView_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void editActivitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Activities");
+            ChangeToolStripMenu(activitiesToolStripMenuItem);
         }
     }
 }
