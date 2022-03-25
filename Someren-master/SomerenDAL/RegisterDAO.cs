@@ -19,6 +19,18 @@ namespace SomerenDAL
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        public void AddRowRegister(string username, string password, string licenseKey, string question, string answer)
+        {
+            string query = "INSERT INTO [Users](username, [password], licenseKey, question, answer) VALUES (@username, @password, @licenseKey, @question, @answer)";
+            SqlParameter[] sqlParameters = new SqlParameter[5];
+            sqlParameters[0] = new SqlParameter("@username", username);
+            sqlParameters[1] = new SqlParameter("@password", password);
+            sqlParameters[2] = new SqlParameter("@licenseKey", licenseKey);
+            sqlParameters[3] = new SqlParameter("@question", question);
+            sqlParameters[4] = new SqlParameter("@answer", answer);
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
         private List<Register> ReadTables(DataTable dataTable)
         {
             try

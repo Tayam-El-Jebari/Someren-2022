@@ -52,7 +52,7 @@ namespace SomerenUI
             this.labelInstructionsregister.Location = new System.Drawing.Point(55, 70);
             this.labelInstructionsregister.Name = "labelInstructionsregister";
             this.labelInstructionsregister.Size = new System.Drawing.Size(225, 17);
-            this.labelInstructionsregister.TabIndex = 0;
+            this.labelInstructionsregister.TabIndex = 15;
             this.labelInstructionsregister.Text = "Please fill in all the requested data";
             // 
             // labelUsernameRegister
@@ -70,7 +70,7 @@ namespace SomerenUI
             this.labelPasswordRegister.Location = new System.Drawing.Point(133, 153);
             this.labelPasswordRegister.Name = "labelPasswordRegister";
             this.labelPasswordRegister.Size = new System.Drawing.Size(73, 17);
-            this.labelPasswordRegister.TabIndex = 2;
+            this.labelPasswordRegister.TabIndex = 3;
             this.labelPasswordRegister.Text = "Password:";
             // 
             // labelReenterPassword
@@ -79,7 +79,7 @@ namespace SomerenUI
             this.labelReenterPassword.Location = new System.Drawing.Point(74, 188);
             this.labelReenterPassword.Name = "labelReenterPassword";
             this.labelReenterPassword.Size = new System.Drawing.Size(132, 17);
-            this.labelReenterPassword.TabIndex = 3;
+            this.labelReenterPassword.TabIndex = 5;
             this.labelReenterPassword.Text = "Re-enter password:";
             // 
             // textBoxUsernameRegister
@@ -87,19 +87,21 @@ namespace SomerenUI
             this.textBoxUsernameRegister.Location = new System.Drawing.Point(228, 116);
             this.textBoxUsernameRegister.Name = "textBoxUsernameRegister";
             this.textBoxUsernameRegister.Size = new System.Drawing.Size(174, 22);
-            this.textBoxUsernameRegister.TabIndex = 4;
+            this.textBoxUsernameRegister.TabIndex = 2;
             // 
             // textBoxPasswordRegister
             // 
             this.textBoxPasswordRegister.Location = new System.Drawing.Point(228, 153);
             this.textBoxPasswordRegister.Name = "textBoxPasswordRegister";
+            this.textBoxPasswordRegister.PasswordChar = '*';
             this.textBoxPasswordRegister.Size = new System.Drawing.Size(174, 22);
-            this.textBoxPasswordRegister.TabIndex = 5;
+            this.textBoxPasswordRegister.TabIndex = 4;
             // 
             // textBoxPasswordReenterRegister
             // 
             this.textBoxPasswordReenterRegister.Location = new System.Drawing.Point(228, 188);
             this.textBoxPasswordReenterRegister.Name = "textBoxPasswordReenterRegister";
+            this.textBoxPasswordReenterRegister.PasswordChar = '*';
             this.textBoxPasswordReenterRegister.Size = new System.Drawing.Size(174, 22);
             this.textBoxPasswordReenterRegister.TabIndex = 6;
             // 
@@ -125,7 +127,7 @@ namespace SomerenUI
             this.buttonRegisterRegister.Location = new System.Drawing.Point(0, 454);
             this.buttonRegisterRegister.Name = "buttonRegisterRegister";
             this.buttonRegisterRegister.Size = new System.Drawing.Size(551, 46);
-            this.buttonRegisterRegister.TabIndex = 9;
+            this.buttonRegisterRegister.TabIndex = 13;
             this.buttonRegisterRegister.Text = "Register";
             this.buttonRegisterRegister.UseVisualStyleBackColor = true;
             this.buttonRegisterRegister.Click += new System.EventHandler(this.buttonRegisterRegister_Click);
@@ -135,7 +137,7 @@ namespace SomerenUI
             this.buttonBackTologin.Location = new System.Drawing.Point(12, 12);
             this.buttonBackTologin.Name = "buttonBackTologin";
             this.buttonBackTologin.Size = new System.Drawing.Size(126, 39);
-            this.buttonBackTologin.TabIndex = 10;
+            this.buttonBackTologin.TabIndex = 14;
             this.buttonBackTologin.Text = "<- Back";
             this.buttonBackTologin.UseVisualStyleBackColor = true;
             this.buttonBackTologin.Click += new System.EventHandler(this.buttonBackTologin_Click);
@@ -146,7 +148,7 @@ namespace SomerenUI
             this.labelQuestionRegister.Location = new System.Drawing.Point(137, 264);
             this.labelQuestionRegister.Name = "labelQuestionRegister";
             this.labelQuestionRegister.Size = new System.Drawing.Size(69, 17);
-            this.labelQuestionRegister.TabIndex = 11;
+            this.labelQuestionRegister.TabIndex = 9;
             this.labelQuestionRegister.Text = "Question:";
             // 
             // labelAnswerRegister
@@ -155,7 +157,7 @@ namespace SomerenUI
             this.labelAnswerRegister.Location = new System.Drawing.Point(148, 300);
             this.labelAnswerRegister.Name = "labelAnswerRegister";
             this.labelAnswerRegister.Size = new System.Drawing.Size(58, 17);
-            this.labelAnswerRegister.TabIndex = 12;
+            this.labelAnswerRegister.TabIndex = 11;
             this.labelAnswerRegister.Text = "Answer:";
             // 
             // textBoxQuestionRegister
@@ -163,14 +165,14 @@ namespace SomerenUI
             this.textBoxQuestionRegister.Location = new System.Drawing.Point(228, 264);
             this.textBoxQuestionRegister.Name = "textBoxQuestionRegister";
             this.textBoxQuestionRegister.Size = new System.Drawing.Size(174, 22);
-            this.textBoxQuestionRegister.TabIndex = 13;
+            this.textBoxQuestionRegister.TabIndex = 10;
             // 
             // textBoxAnswerRegister
             // 
             this.textBoxAnswerRegister.Location = new System.Drawing.Point(228, 300);
             this.textBoxAnswerRegister.Name = "textBoxAnswerRegister";
             this.textBoxAnswerRegister.Size = new System.Drawing.Size(174, 22);
-            this.textBoxAnswerRegister.TabIndex = 14;
+            this.textBoxAnswerRegister.TabIndex = 12;
             // 
             // FormRegisterScreen
             // 
