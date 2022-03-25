@@ -195,7 +195,7 @@
             this.barServiceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1318, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1318, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1350,7 +1350,7 @@
             this.pnlParticipants.Controls.Add(this.pictureBox3);
             this.pnlParticipants.Controls.Add(this.labelParticipantsPnlTitle);
             this.pnlParticipants.Controls.Add(this.buttonAddParticipant);
-            this.pnlParticipants.Location = new System.Drawing.Point(8, 22);
+            this.pnlParticipants.Location = new System.Drawing.Point(2, 26);
             this.pnlParticipants.Margin = new System.Windows.Forms.Padding(4);
             this.pnlParticipants.Name = "pnlParticipants";
             this.pnlParticipants.Size = new System.Drawing.Size(1334, 611);
