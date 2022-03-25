@@ -38,6 +38,12 @@ In de DrinksDAO verschillende querys geschreven voor Add, Update, Change name, D
 In de SomerenUI heb ik de code hiervoor geschreven. Alles werkt, maar ging niet altijd van harte. 
 De change Name van drink had ik nog erg moeite mee, maar is wel gelukt. 
 
+Week 4:
+Mijn deel was opdracht A: Activities
+ActivityDAO aangemaakt en queries geschreven voor CRUD. 
+ActivityService aangemaakt en deze als doorgeef luik laten fungeren. 
+In de SomerenUI code geschreven, waardoor de gebruiker op een gebruiksvriendelijke manier activiteiten kan toevoegen, aanpassen of verwijderen. 
+
 Tayam El Jebari
 INF1C
 652543
