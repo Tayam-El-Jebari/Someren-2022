@@ -359,7 +359,8 @@ namespace SomerenUI
                         List<Activity> activityList = activityService.GetActivity();
 
                         addSupervisorActivityButton.Show();
-
+                        textLabel.Show();
+                        labeltext.Hide();
                         ChooseSupervisorButton.Hide();
                         deleteSupervisorButton.Show();
                         quitActionButton.Hide();
@@ -914,14 +915,16 @@ namespace SomerenUI
 
         private void ChooseSupervisorButton_Click(object sender, EventArgs e)
         {
-
+            textLabel.Hide();
+            labeltext.Show();
             TeacherService teachService = new TeacherService();
             List<Teacher> teacherList = teachService.GetTeachers();
-            labeltext.Text = "Instructions";
-            labelSupervisorTitle.Text = "When you have chosen an activity, you can now ";
-            textLabel.Hide();
+            labeltext.Text = "After you have chosen an activity you can do 2 things:" +
+                "you can press the button on the left below to add a teacher by an activity. " +
+                "2. you can press the button on the right below to end the action";
+            labelSupervisorTitle.Text = "Instructions: ";
             ChooseSupervisorButton.Show();
-            deleteSupervisorButton.Show();
+            deleteSupervisorButton.Hide();
             quitActionButton.Show();
             labelSupervisorTitle.Show();
             addSupervisorActivityButton.Hide();
@@ -1146,7 +1149,7 @@ namespace SomerenUI
 
         private void activityTeacherListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textLabel.Hide();
+
         }
     }
 }
