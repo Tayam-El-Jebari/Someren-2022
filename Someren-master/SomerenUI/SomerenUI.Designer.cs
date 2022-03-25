@@ -195,7 +195,7 @@
             this.barServiceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1318, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1318, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1509,9 +1509,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1318, 622);
-            this.Controls.Add(this.pnlParticipants);
             this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pnlActivities);
+            this.Controls.Add(this.pnlParticipants);
             this.Controls.Add(this.pnlSupervisors);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnlRevenueReportPanel);
