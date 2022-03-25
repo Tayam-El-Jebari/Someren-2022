@@ -128,7 +128,7 @@ namespace SomerenUI
 
                 //show necessary controls and edit labels in order to suit the situation (needed in case user returns from adding-mode)
                 AddParticipantsStart.Show();
-                deleteParticipant.Hide();
+                deleteParticipant.Show();
                 instructionsDescription.Show();
                 labelParticipantsTitle.Text = "Students participating:";
 
@@ -864,7 +864,7 @@ namespace SomerenUI
                 DialogResult dialogResult = MessageBox.Show($"removing student {listViewParticipants.SelectedItems[0].SubItems[0].Text} " +
                     $"{listViewParticipants.SelectedItems[0].SubItems[1].Text} from activity {listViewActivitesParticipants.SelectedItems[0].SubItems[0].Text} " +
                     $"{listViewActivitesParticipants.SelectedItems[0].SubItems[1].Text}.\nare you sure you wish to proceed? ",
-                    "Add student as participant", MessageBoxButtons.YesNo);
+                    "remove participant", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     ActivityService activityService = new ActivityService();
