@@ -834,9 +834,9 @@ namespace SomerenUI
                 {
                     throw new Exception("Please select a student to proceed! If it is not clear what to do, please reread the instructions");
                 }
-                DialogResult dialogResult = MessageBox.Show($"adding student {listViewParticipants.SelectedItems[0].SubItems[0].Text} " +
-                    $"{listViewParticipants.SelectedItems[0].SubItems[1].Text} to activity {listViewActivitesParticipants.SelectedItems[0].SubItems[0].Text} " +
-                    $"{listViewActivitesParticipants.SelectedItems[0].SubItems[1].Text} as an participant.\nare you sure you wish to proceed? ",
+                DialogResult dialogResult = MessageBox.Show($"adding student {listViewParticipants.SelectedItems[0].SubItems[1].Text} " +
+                    $"{listViewParticipants.SelectedItems[0].SubItems[2].Text} to activity {listViewActivitesParticipants.SelectedItems[0].SubItems[0].Text} " +
+                    $"{listViewActivitesParticipants.SelectedItems[0].SubItems[1].Text} as participant.\nare you sure you wish to proceed? ",
                     "Add student as participant", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
