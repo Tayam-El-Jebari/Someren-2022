@@ -71,6 +71,14 @@ Ik heb het volgende gedaan voor week 3:
 - Colin geholpen met cash register afronden.
 - aanpassingen gemaakt in het database om logischer data op te halen bij de correcte tabellen.
 
+Week 4 Opdracht C; Activity participants
+
+Ik heb het volgende gedaan voor week 4:
+- Activity DAO aangepast om de methodes te bevatten die noodzakelijk zijn voor het toevoegen, verwijderen en veranderen van de participants in een activiteit.
+- De database tabellen gemaakt die noodzakelijk waren voor deze opdracht, en die van de andere projectleden.
+- Mergen en conflicten opgelost.
+- UI updates, mooier gemaakt en code geschreven voor mij en andere projectleden waarbij je een responsive listview hebt.
+- Bugs opgelost van mijn code en van andere projectleden.
 
 
 
