@@ -13,7 +13,7 @@ namespace SomerenDAL
     {
         public List<Register> GetAllRegisters() 
         {
-            // table doesnt exist for now. 
+            // GROUP BY & HAVING. Boolean returnen met 0(false) of 1(true); 
             string query = "SELECT [username] [password] [passwordAgain] [licenseKey] [question] [answer] FROM [Register]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));

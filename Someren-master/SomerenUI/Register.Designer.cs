@@ -58,7 +58,7 @@ namespace SomerenUI
             // labelUsernameRegister
             // 
             this.labelUsernameRegister.AutoSize = true;
-            this.labelUsernameRegister.Location = new System.Drawing.Point(84, 116);
+            this.labelUsernameRegister.Location = new System.Drawing.Point(84, 119);
             this.labelUsernameRegister.Name = "labelUsernameRegister";
             this.labelUsernameRegister.Size = new System.Drawing.Size(122, 17);
             this.labelUsernameRegister.TabIndex = 1;
