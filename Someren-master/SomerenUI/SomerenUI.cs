@@ -690,10 +690,10 @@ namespace SomerenUI
 
         private void activityTeacherListView_MouseClick(object sender, MouseEventArgs e)
         {
-            if (addSupervisorActivityButton.Visible) 
+            if (ChooseSupervisorButton.Visible) 
             {
-                TeacherService teacherService = new TeacherService();
-                List<Teacher> teacherList = teacherService.GetTeachers();
+                ActivityService activityService = new ActivityService();
+                List<Teacher> teacherList = activityService.GetSupervisors(int.Parse(supervisorsListView.SelectedItems[0].SubItems[1].Text));
 
 
                 // clear the listview before filling it again
@@ -730,12 +730,62 @@ namespace SomerenUI
 
         private void addSupervisorActivityButton_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (activityTeacherListView.SelectedItems.Count == 0)
+                {
+                    throw new Exception("Please select an activity to proceed! If it is not clear what to do, please reread the instructions");
+                }
+                else if (supervisorsListView.SelectedItems.Count == 0)
+                {
+                    throw new Exception("Please select a teacher to proceed! If it is not clear what to do, please reread the instructions");
+                }
+                DialogResult dialogResult = MessageBox.Show($"adding teacher {supervisorsListView.SelectedItems[0].SubItems[0].Text} " +
+                    $"{supervisorsListView.SelectedItems[0].SubItems[1].Text} to activity {activityTeacherListView.SelectedItems[0].SubItems[0].Text} " +
+                    $"{activityTeacherListView.SelectedItems[0].SubItems[1].Text} as a supervisor.\nare you sure you wish to proceed? ",
+                    "Add teacher as supervisor", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    ActivityService activityService = new ActivityService();
+                    activityService.AddSupervisor(int.Parse(supervisorsListView.SelectedItems[0].SubItems[0].Text),
+                        int.Parse(activityTeacherListView.SelectedItems[0].SubItems[0].Text));
+                    MessageBox.Show("Succesfully added a teacher as a supervisor");
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
+    
 
         private void deleteSupervisorButton_Click(object sender, EventArgs e)
         {
+            if (activityTeacherListView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please first select an activity in order to choose a teacher to delete. Please read the instructions for further information.");
+            }
+            else if (supervisorsListView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please select a teacher to delete. " +
+                    "If the table is empty, please select another activity. Please read the instructions for further information. ");
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show($"removing teacher {supervisorsListView.SelectedItems[0].SubItems[0].Text} " +
+                    $"{supervisorsListView.SelectedItems[0].SubItems[1].Text} from activity {activityTeacherListView.SelectedItems[0].SubItems[0].Text} " +
+                    $"{activityTeacherListView.SelectedItems[0].SubItems[1].Text}.\nare you sure you wish to proceed? ",
+                    "Add teacher as supervisor", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    ActivityService activityService = new ActivityService();
+                    activityService.DeleteSupervisor(int.Parse(supervisorsListView.SelectedItems[0].SubItems[0].Text), int.Parse(activityTeacherListView.SelectedItems[0].SubItems[0].Text));
+                    MessageBox.Show("Succesfully removed participant");
+                    // refresh the listview
+                    activityTeacherListView_MouseClick(new object(), new MouseEventArgs(0, 0, 0, 0, 0));
+                }
 
+            }
         }
 
         private void ChooseSupervisorButton_Click(object sender, EventArgs e)
@@ -743,9 +793,10 @@ namespace SomerenUI
             labelSuperviserTitle.Text = "Please select a supervisor:";
 
             addSupervisorActivityButton.Hide();
-            deleteSupervisorButton.Hide();
+
             //instructionDescriptionAddingMode.Show();
-            addSupervisorActivityButton.Show();
+            ChooseSupervisorButton.Show();
+            deleteSupervisorButton.Show();
             quitActionButton.Show();
             TeacherService teachService = new TeacherService();
             List<Teacher> teacherList = teachService.GetTeachers();
@@ -772,6 +823,11 @@ namespace SomerenUI
                 supervisorsListView.Items.Add(li);
             }
             ColorListView(supervisorsListView);
+        }
+
+        private void quitActionButton_Click(object sender, EventArgs e)
+        {
+            showPanel("Participants");
         }
     }
 }

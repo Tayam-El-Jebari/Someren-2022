@@ -49,5 +49,17 @@ namespace SomerenLogic
         {
             activitydb.DeleteRowParticipant(studentId, activityNumber);
         }
+        public List<Teacher> GetSupervisors(int activityNumber)
+        {
+            return activitydb.GetAllSupervisors(activityNumber);
+        }
+        public void AddSupervisor(int teacherId, int activityNumber)
+        {
+            activitydb.AddParticipant(teacherId, activityNumber);
+        }
+        public void DeleteSupervisor(int teacherId, int activityNumber)
+        {
+            activitydb.DeleteRowParticipant(teacherId, activityNumber);
+        }
     }
 }

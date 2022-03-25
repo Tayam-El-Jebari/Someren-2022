@@ -124,12 +124,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.pnlSupervisors = new System.Windows.Forms.Panel();
+            this.labelSuperviserTitle = new System.Windows.Forms.Label();
             this.quitActionButton = new System.Windows.Forms.Button();
-            this.ChooseSupervisorButton = new System.Windows.Forms.Button();
+            this.addSupervisorActivityButton = new System.Windows.Forms.Button();
             this.activityTeacherListView = new System.Windows.Forms.ListView();
             this.supervisorsListView = new System.Windows.Forms.ListView();
             this.deleteSupervisorButton = new System.Windows.Forms.Button();
-            this.addSupervisorActivityButton = new System.Windows.Forms.Button();
+            this.ChooseSupervisorButton = new System.Windows.Forms.Button();
             this.listView2 = new System.Windows.Forms.ListView();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -144,7 +145,6 @@
             this.listView3 = new System.Windows.Forms.ListView();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.labelSuperviserTitle = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlRevenueReportPanel.SuspendLayout();
             this.pnlRoomPanel.SuspendLayout();
@@ -1075,11 +1075,11 @@
             this.pnlSupervisors.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
             this.pnlSupervisors.Controls.Add(this.labelSuperviserTitle);
             this.pnlSupervisors.Controls.Add(this.quitActionButton);
-            this.pnlSupervisors.Controls.Add(this.ChooseSupervisorButton);
+            this.pnlSupervisors.Controls.Add(this.addSupervisorActivityButton);
             this.pnlSupervisors.Controls.Add(this.activityTeacherListView);
             this.pnlSupervisors.Controls.Add(this.supervisorsListView);
             this.pnlSupervisors.Controls.Add(this.deleteSupervisorButton);
-            this.pnlSupervisors.Controls.Add(this.addSupervisorActivityButton);
+            this.pnlSupervisors.Controls.Add(this.ChooseSupervisorButton);
             this.pnlSupervisors.Controls.Add(this.listView2);
             this.pnlSupervisors.Controls.Add(this.pictureBox2);
             this.pnlSupervisors.Controls.Add(this.label16);
@@ -1089,6 +1089,15 @@
             this.pnlSupervisors.Size = new System.Drawing.Size(1334, 599);
             this.pnlSupervisors.TabIndex = 12;
             // 
+            // labelSuperviserTitle
+            // 
+            this.labelSuperviserTitle.AutoSize = true;
+            this.labelSuperviserTitle.Location = new System.Drawing.Point(701, 227);
+            this.labelSuperviserTitle.Name = "labelSuperviserTitle";
+            this.labelSuperviserTitle.Size = new System.Drawing.Size(46, 17);
+            this.labelSuperviserTitle.TabIndex = 30;
+            this.labelSuperviserTitle.Text = "label2";
+            // 
             // quitActionButton
             // 
             this.quitActionButton.Location = new System.Drawing.Point(828, 355);
@@ -1097,16 +1106,17 @@
             this.quitActionButton.TabIndex = 29;
             this.quitActionButton.Text = "Quit action\r\n";
             this.quitActionButton.UseVisualStyleBackColor = true;
+            this.quitActionButton.Click += new System.EventHandler(this.quitActionButton_Click);
             // 
-            // ChooseSupervisorButton
+            // addSupervisorActivityButton
             // 
-            this.ChooseSupervisorButton.Location = new System.Drawing.Point(644, 293);
-            this.ChooseSupervisorButton.Name = "ChooseSupervisorButton";
-            this.ChooseSupervisorButton.Size = new System.Drawing.Size(164, 32);
-            this.ChooseSupervisorButton.TabIndex = 28;
-            this.ChooseSupervisorButton.Text = "Choose a supervisor\r\n";
-            this.ChooseSupervisorButton.UseVisualStyleBackColor = true;
-            this.ChooseSupervisorButton.Click += new System.EventHandler(this.ChooseSupervisorButton_Click);
+            this.addSupervisorActivityButton.Location = new System.Drawing.Point(644, 160);
+            this.addSupervisorActivityButton.Name = "addSupervisorActivityButton";
+            this.addSupervisorActivityButton.Size = new System.Drawing.Size(164, 32);
+            this.addSupervisorActivityButton.TabIndex = 28;
+            this.addSupervisorActivityButton.Text = "Choose an activity\r\n";
+            this.addSupervisorActivityButton.UseVisualStyleBackColor = true;
+            this.addSupervisorActivityButton.Click += new System.EventHandler(this.ChooseSupervisorButton_Click);
             // 
             // activityTeacherListView
             // 
@@ -1136,15 +1146,15 @@
             this.deleteSupervisorButton.UseVisualStyleBackColor = true;
             this.deleteSupervisorButton.Click += new System.EventHandler(this.deleteSupervisorButton_Click);
             // 
-            // addSupervisorActivityButton
+            // ChooseSupervisorButton
             // 
-            this.addSupervisorActivityButton.Location = new System.Drawing.Point(644, 164);
-            this.addSupervisorActivityButton.Name = "addSupervisorActivityButton";
-            this.addSupervisorActivityButton.Size = new System.Drawing.Size(164, 32);
-            this.addSupervisorActivityButton.TabIndex = 15;
-            this.addSupervisorActivityButton.Text = "Choose a activity";
-            this.addSupervisorActivityButton.UseVisualStyleBackColor = true;
-            this.addSupervisorActivityButton.Click += new System.EventHandler(this.addSupervisorActivityButton_Click);
+            this.ChooseSupervisorButton.Location = new System.Drawing.Point(644, 293);
+            this.ChooseSupervisorButton.Name = "ChooseSupervisorButton";
+            this.ChooseSupervisorButton.Size = new System.Drawing.Size(164, 32);
+            this.ChooseSupervisorButton.TabIndex = 15;
+            this.ChooseSupervisorButton.Text = "Choose a supervisor";
+            this.ChooseSupervisorButton.UseVisualStyleBackColor = true;
+            this.ChooseSupervisorButton.Click += new System.EventHandler(this.addSupervisorActivityButton_Click);
             // 
             // listView2
             // 
@@ -1297,15 +1307,6 @@
             this.label24.Size = new System.Drawing.Size(188, 38);
             this.label24.TabIndex = 3;
             this.label24.Text = "Participants";
-            // 
-            // labelSuperviserTitle
-            // 
-            this.labelSuperviserTitle.AutoSize = true;
-            this.labelSuperviserTitle.Location = new System.Drawing.Point(701, 227);
-            this.labelSuperviserTitle.Name = "labelSuperviserTitle";
-            this.labelSuperviserTitle.Size = new System.Drawing.Size(46, 17);
-            this.labelSuperviserTitle.TabIndex = 30;
-            this.labelSuperviserTitle.Text = "label2";
             // 
             // SomerenUI
             // 
@@ -1464,7 +1465,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel pnlSupervisors;
         private System.Windows.Forms.Button deleteSupervisorButton;
-        private System.Windows.Forms.Button addSupervisorActivityButton;
+        private System.Windows.Forms.Button ChooseSupervisorButton;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel pnlParticipants;
@@ -1481,7 +1482,7 @@
         private System.Windows.Forms.ListView supervisorsListView;
         private System.Windows.Forms.ListView activityTeacherListView;
         private System.Windows.Forms.Button quitActionButton;
-        private System.Windows.Forms.Button ChooseSupervisorButton;
+        private System.Windows.Forms.Button addSupervisorActivityButton;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.Label labelSuperviserTitle;
     }
