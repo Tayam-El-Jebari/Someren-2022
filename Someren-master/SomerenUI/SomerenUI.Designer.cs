@@ -1277,6 +1277,7 @@
             this.activityTeacherListView.Size = new System.Drawing.Size(521, 150);
             this.activityTeacherListView.TabIndex = 27;
             this.activityTeacherListView.UseCompatibleStateImageBehavior = false;
+            this.activityTeacherListView.SelectedIndexChanged += new System.EventHandler(this.activityTeacherListView_SelectedIndexChanged);
             this.activityTeacherListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.activityTeacherListView_MouseClick_1);
             // 
             // supervisorsListView

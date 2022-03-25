@@ -1143,5 +1143,10 @@ namespace SomerenUI
                 ColorListView(supervisorsListView);
             }
         }
+
+        private void activityTeacherListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textLabel.Hide();
+        }
     }
 }
