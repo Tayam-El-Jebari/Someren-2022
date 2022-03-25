@@ -232,6 +232,7 @@ namespace SomerenUI
                         studentsListView.Items.Add(li);
 
                     }
+                    ColorListView(studentsListView);
 
 
 
@@ -357,6 +358,11 @@ namespace SomerenUI
                         ActivityService activityService = new ActivityService();
                         List<Activity> activityList = activityService.GetActivity();
 
+                        addSupervisorActivityButton.Show();
+
+                        ChooseSupervisorButton.Hide();
+                        deleteSupervisorButton.Hide();
+                        quitActionButton.Hide();
 
                         // clear the listview before filling it again
                         activityTeacherListView.Clear();
@@ -597,6 +603,7 @@ namespace SomerenUI
                 li.SubItems.Add(numberOfDrinkSold.ToString());
                 li.SubItems.Add(isAlcoholic.ToString());
                 listViewDrink.Items.Add(li);
+
             }
             catch (Exception)
             {
@@ -881,6 +888,10 @@ namespace SomerenUI
                 {
                     throw new Exception("Please select a student to proceed! If it is not clear what to do, please reread the instructions");
                 }
+                else if(listViewParticipants.Items.Count != 1 || listViewParticipants.Items.Count != 0)
+                {
+                    throw new Exception("Only one teacher can supervise");
+                }
                 DialogResult dialogResult = MessageBox.Show($"adding student {listViewParticipants.SelectedItems[0].SubItems[1].Text} " +
                     $"{listViewParticipants.SelectedItems[0].SubItems[2].Text} to activity {listViewActivitesParticipants.SelectedItems[0].SubItems[0].Text} " +
                     $"{listViewActivitesParticipants.SelectedItems[0].SubItems[1].Text} as participant.\nare you sure you wish to proceed? ",
@@ -900,40 +911,45 @@ namespace SomerenUI
         }
 
 
-        private void activityTeacherListView_MouseClick(object sender, MouseEventArgs e)
+
+        private void ChooseSupervisorButton_Click(object sender, EventArgs e)
         {
-            if (ChooseSupervisorButton.Visible) 
+
+            TeacherService teachService = new TeacherService();
+            List<Teacher> teacherList = teachService.GetTeachers();
+            labeltext.Text = "Instructions";
+            labelSupervisorTitle.Text = "When you have chosen an activity, you can now ";
+            textLabel.Hide();
+            ChooseSupervisorButton.Show();
+            deleteSupervisorButton.Show();
+            quitActionButton.Show();
+            labelSupervisorTitle.Show();
+            addSupervisorActivityButton.Hide();
+
+            supervisorsListView.View = View.Details;
+            supervisorsListView.FullRowSelect = true;
+            supervisorsListView.LabelEdit = true;
+            supervisorsListView.Columns.Add("Teacher id", 80);
+            supervisorsListView.Columns.Add("Firstname", 80);
+            supervisorsListView.Columns.Add("Lastname", 80);
+
+            foreach (Teacher teacher in teacherList)
             {
-                ActivityService activityService = new ActivityService();
-                List<Teacher> teacherList = activityService.GetSupervisors(int.Parse(supervisorsListView.SelectedItems[0].SubItems[1].Text));
-
-
-                // clear the listview before filling it again
-                supervisorsListView.Clear();
-                
-                supervisorsListView.View = View.Details;
-                supervisorsListView.FullRowSelect = true;
-                supervisorsListView.LabelEdit = true;
-                supervisorsListView.Columns.Add("Teacher id", 80);
-                supervisorsListView.Columns.Add("Firstname", 80);
-                supervisorsListView.Columns.Add("Lastname", 80);
-                supervisorsListView.Columns.Add("Roomnumber", 80);
-                supervisorsListView.Columns.Add("Supervisor", 120);
-
-                foreach (Teacher teacher in teacherList)
-                {
-                    ListViewItem li = new ListViewItem(teacher.TeacherID.ToString());
-                    li.SubItems.Add(teacher.FirstName);
-                    li.SubItems.Add(teacher.LastName);
-                    li.SubItems.Add(teacher.RoomNumber.ToString());
-                    li.SubItems.Add(teacher.Supervisor.ToString());
-                    li.Tag = teacher;
-                    supervisorsListView.Items.Add(li);
-                }
-                ColorListView(supervisorsListView);
+                ListViewItem li = new ListViewItem(teacher.TeacherID.ToString());
+                li.SubItems.Add(teacher.FirstName);
+                li.SubItems.Add(teacher.LastName);
+                li.SubItems.Add(teacher.RoomNumber.ToString());
+                li.SubItems.Add(teacher.Supervisor.ToString());
+                li.Tag = teacher;
+                supervisorsListView.Items.Add(li);
             }
+            ColorListView(supervisorsListView);
         }
-    
+
+        private void quitActionButton_Click(object sender, EventArgs e)
+        {
+            showPanel("Supervisors");
+        }
         private void supervisorsToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             showPanel("Supervisors");
@@ -1064,6 +1080,7 @@ namespace SomerenUI
 
         private void deleteSupervisorButton_Click(object sender, EventArgs e)
         {
+
             if (activityTeacherListView.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Please first select an activity in order to choose a teacher to delete. Please read the instructions for further information.");
@@ -1085,52 +1102,43 @@ namespace SomerenUI
                     activityService.DeleteSupervisor(int.Parse(supervisorsListView.SelectedItems[0].SubItems[0].Text), int.Parse(activityTeacherListView.SelectedItems[0].SubItems[0].Text));
                     MessageBox.Show("Succesfully removed participant");
                     // refresh the listview
-                    activityTeacherListView_MouseClick(new object(), new MouseEventArgs(0, 0, 0, 0, 0));
+                    activityTeacherListView_MouseClick_1(new object(), new MouseEventArgs(0, 0, 0, 0, 0));
                 }
 
             }
         }
 
-        private void ChooseSupervisorButton_Click(object sender, EventArgs e)
+        private void activityTeacherListView_MouseClick_1(object sender, MouseEventArgs e)
         {
-            labelSuperviserTitle.Text = "Please select a supervisor:";
-
-            addSupervisorActivityButton.Hide();
-
-            //instructionDescriptionAddingMode.Show();
-            ChooseSupervisorButton.Show();
-            deleteSupervisorButton.Show();
-            quitActionButton.Show();
-            TeacherService teachService = new TeacherService();
-            List<Teacher> teacherList = teachService.GetTeachers();
-
-            supervisorsListView.Clear();
-
-            supervisorsListView.View = View.Details;
-            supervisorsListView.FullRowSelect = true;
-            supervisorsListView.LabelEdit = true;
-            supervisorsListView.Columns.Add("Teacher id", 80);
-            supervisorsListView.Columns.Add("Firstname", 80);
-            supervisorsListView.Columns.Add("Lastname", 80);
-            supervisorsListView.Columns.Add("Roomnumber", 80);
-            supervisorsListView.Columns.Add("Supervisor", 120);
-
-            foreach (Teacher teacher in teacherList)
+            if (addSupervisorActivityButton.Visible)
             {
-                ListViewItem li = new ListViewItem(teacher.TeacherID.ToString());
-                li.SubItems.Add(teacher.FirstName);
-                li.SubItems.Add(teacher.LastName);
-                li.SubItems.Add(teacher.RoomNumber.ToString());
-                li.SubItems.Add(teacher.Supervisor.ToString());
-                li.Tag = teacher;
-                supervisorsListView.Items.Add(li);
-            }
-            ColorListView(supervisorsListView);
-        }
+                ActivityService activityService = new ActivityService();
+                List<Teacher> teacherList = activityService.GetSupervisors(int.Parse(supervisorsListView.SelectedItems[0].SubItems[0].Text));
 
-        private void quitActionButton_Click(object sender, EventArgs e)
-        {
-            showPanel("Participants");
+
+                // clear the listview before filling it again
+                supervisorsListView.Clear();
+
+                supervisorsListView.View = View.Details;
+                supervisorsListView.FullRowSelect = true;
+                supervisorsListView.Columns.Add("Teacher id", 80);
+                supervisorsListView.Columns.Add("Firstname", 80);
+                supervisorsListView.Columns.Add("Lastname", 80);
+
+                supervisorsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                supervisorsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                foreach (Teacher teacher in teacherList)
+                {
+                    ListViewItem li = new ListViewItem(teacher.TeacherID.ToString());
+                    li.SubItems.Add(teacher.FirstName);
+                    li.SubItems.Add(teacher.LastName);
+                    li.SubItems.Add(teacher.RoomNumber.ToString());
+                    li.SubItems.Add(teacher.Supervisor.ToString());
+                    li.Tag = teacher;
+                    supervisorsListView.Items.Add(li);
+                }
+                ColorListView(supervisorsListView);
+            }
         }
     }
 }

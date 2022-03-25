@@ -137,28 +137,30 @@ namespace SomerenDAL
         }
         public List<Teacher> GetAllSupervisors(int activityNumber)
         {
-            string query = $"SELECT teacherId, firstname, lastName FROM Teacher WHERE teacherID IN (SELECT teacherId FROM [Supervised_By] WHERE ActivityNumber = @activityNumber)";
+            string query = $"SELECT teacherId, firstname, lastName FROM Teacher WHERE teacherID IN (SELECT teacherId FROM [Supervised_By] WHERE activityNumber = @activityNumber)";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@activityNumber", activityNumber);
             return ReadTablesSupervisor(ExecuteSelectQuery(query, sqlParameters));
         }
-        public void AddSupervisor(int teacherId, int activityNumber)//moet nog bij dat er max 1 supervisor mag zijn
+        public void AddSupervisor(int teacherId, int activityNumber)
         {
-            string query = "SELECT TEACHERID, ACTIVITYNUMBER FROM Supervised_By GROUP BY teacherID, ActivityNumber HAVING teacherId = @teacherId AND activityNumber = @activityNumber";
+            string query = "SELECT teacherId, activityNumber FROM Supervised_By GROUP BY teacherId, activityNumber HAVING teacherId = @teacherId AND activityNumber = @activityNumber";
             SqlParameter[] sqlParameters = new SqlParameter[2];
             sqlParameters[0] = new SqlParameter("@activityNumber", activityNumber);
             sqlParameters[1] = new SqlParameter("@teacherId", teacherId);
-            if (ExecuteSelectQuery(query, sqlParameters).Rows.Count == 0)//misschien dit
+            if (ExecuteSelectQuery(query, sqlParameters).Rows.Count == 0)
             {
-                string queryToAdd = "INSERT INTO Supervised_By VALUES(@teacherId, @activityNumber)";
-                SqlParameter[] sqlParametersForAdding = new SqlParameter[2];
-                sqlParametersForAdding[0] = new SqlParameter("@activityNumber", activityNumber);
-                sqlParametersForAdding[1] = new SqlParameter("@teacherId", teacherId);
-                ExecuteSelectQuery(queryToAdd, sqlParametersForAdding);
+
+                    string queryToAdd = "INSERT INTO Supervised_By VALUES(@teacherId, @activityNumber)";
+                    SqlParameter[] sqlParametersForAdding = new SqlParameter[2];
+                    sqlParametersForAdding[0] = new SqlParameter("@activityNumber", activityNumber);
+                    sqlParametersForAdding[1] = new SqlParameter("@teacherId", teacherId);
+                    ExecuteSelectQuery(queryToAdd, sqlParametersForAdding);
+
             }
             else
             {
-                throw new Exception("There is already a supervisor!");
+                throw new Exception("The teacher has already been added to this activity!");
             }
         }
         public void DeleteRowSupervisor(int teacherId, int activityNumber)

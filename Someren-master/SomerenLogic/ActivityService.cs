@@ -55,11 +55,11 @@ namespace SomerenLogic
         }
         public void AddSupervisor(int teacherId, int activityNumber)
         {
-            activitydb.AddParticipant(teacherId, activityNumber);
+            activitydb.AddSupervisor(teacherId, activityNumber);
         }
         public void DeleteSupervisor(int teacherId, int activityNumber)
         {
-            activitydb.DeleteRowParticipant(teacherId, activityNumber);
+            activitydb.DeleteRowSupervisor(teacherId, activityNumber);
         }
     }
 }

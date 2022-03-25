@@ -14,27 +14,37 @@ namespace SomerenDAL
         const int FirstActivityNumber = 300;
         public List<Teacher>GetAllTeachers()
         {
-            string query = "SELECT teacherID, firstname, lastname, activityNumber, roomNumber FROM [Teacher]";
+            string query = "SELECT teacherID, firstname, lastname, gender, dateOfbirth, activityNumber, roomNumber FROM [Teacher]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-        public void AddRowTeachers(string firstname, string lastname, int activityNumber, int roomNumber)
+        public void AddRowTeachers(string firstname, string lastname, char gender, DateTime dateOfBirth, int activityNumber, int roomNumber)
         {
             string query = string.Empty;
-                query = "INSERT INTO [Teacher](firstname, lastname, activityNumber, roomNumber)VALUES(@firstname, @lastname, @activityNumber, @roomNumber, 1)";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            ExecuteEditQuery(query, sqlParameters);
-        }
-
-        public void UpdateRowTeachers(string firstname, string lastname, int activityNumber, int roomNumber)
-        {
-            string query = $"UPDATE Teacher SET firstname=@firstname, lastname=@lastname, activityNumber=@activityNumber, roomNumber =@roomNumber WHERE firstname=@firstname AND lastname=@lastname";
-            SqlParameter[] sqlParameters = new SqlParameter[4] 
+                query = "INSERT INTO [Teacher](firstname, lastname, gender, dateOfbirth, activityNumber, roomNumber) VALUES(@firstname, @lastname, @gender, @dateOfbirth, @activityNumber, @roomNumber)";
+            SqlParameter[] sqlParameters = new SqlParameter[6]
             {
             new SqlParameter("@firstname", firstname),
             new SqlParameter("@lastname", lastname),
+            new SqlParameter("@gender", gender),
+            new SqlParameter("@dateOfbirth", dateOfBirth),
             new SqlParameter("@activityNumber", activityNumber),
-            new SqlParameter("@roomNumber", roomNumber)       
+            new SqlParameter("@roomNumber", roomNumber)
+            };
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void UpdateRowTeachers(string firstname, string lastname, char gender, DateTime dateOfBirth, int activityNumber, int roomNumber)
+        {
+            string query = $"UPDATE Teacher SET firstname=@firstname, lastname=@lastname, activityNumber=@activityNumber, roomNumber =@roomNumber WHERE firstname=@firstname AND lastname=@lastname";
+            SqlParameter[] sqlParameters = new SqlParameter[6]
+            {
+            new SqlParameter("@firstname", firstname),
+            new SqlParameter("@lastname", lastname),
+            new SqlParameter("@gender", gender),
+            new SqlParameter("@dateOfbirth", dateOfBirth),
+            new SqlParameter("@activityNumber", activityNumber),
+            new SqlParameter("@roomNumber", roomNumber) 
             };
             ExecuteEditQuery(query, sqlParameters);
         }
