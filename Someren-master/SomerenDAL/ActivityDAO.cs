@@ -16,6 +16,7 @@ namespace SomerenDAL
         {
             // change attributes
             string query = "SELECT activityNumber, activityName, description, startDateTime, endDateTime FROM [Activity]";
+
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTablesActivity(ExecuteSelectQuery(query, sqlParameters));
 
@@ -34,6 +35,7 @@ namespace SomerenDAL
             sqlParameters[0] = new SqlParameter("@activityNumber", activityNumber);
             sqlParameters[1] = new SqlParameter("@studentId", studentId);
             if(ExecuteSelectQuery(query, sqlParameters).Rows.Count == 0)
+
             {
                 string queryToAdd = "INSERT INTO Participates_In VALUES(@studentId, @activityNumber)";
                 SqlParameter[] sqlParametersForAdding = new SqlParameter[2];
@@ -65,7 +67,6 @@ namespace SomerenDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        // maybe the where needs to be changed. Will take a look later
         public void UpdateRowActivities(string activityName, string description, DateTime startTime, DateTime endTime)
         {
             string query = $"UPDATE Activity SET activityName=@activityName, [description]=@description, StartDateTime=@StartDateTime, EndDateTime=@EndDateTime WHERE activityName=@activityName";
@@ -97,6 +98,7 @@ namespace SomerenDAL
                     {
                         ActivityNumber = (int)dr["activityNumber"],
                         ActivityName = (string)dr["activityName"],
+
                         Description = (string)dr["description"],
                         StartDateTime = (DateTime)dr["startDateTime"],
                         EndDateTime = (DateTime)dr["endDateTime"]
@@ -127,6 +129,63 @@ namespace SomerenDAL
                     studentsParticipating.Add(student);
                 };
                 return studentsParticipating;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Data could not be retrieved from the database. Please try again" + e.Message);
+            }
+        }
+        public List<Teacher> GetAllSupervisors(int activityNumber)
+        {
+            string query = $"SELECT teacherId, firstname, lastName FROM Teacher WHERE teacherID IN (SELECT teacherId FROM [Supervised_By] WHERE ActivityNumber = @activityNumber)";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@activityNumber", activityNumber);
+            return ReadTablesSupervisor(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public void AddSupervisor(int teacherId, int activityNumber)//moet nog bij dat er max 1 supervisor mag zijn
+        {
+            string query = "SELECT TEACHERID, ACTIVITYNUMBER FROM Supervised_By GROUP BY teacherID, ActivityNumber HAVING teacherId = @teacherId AND activityNumber = @activityNumber";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@activityNumber", activityNumber);
+            sqlParameters[1] = new SqlParameter("@teacherId", teacherId);
+            if (ExecuteSelectQuery(query, sqlParameters).Rows.Count == 0)//misschien dit
+            {
+                string queryToAdd = "INSERT INTO Supervised_By VALUES(@teacherId, @activityNumber)";
+                SqlParameter[] sqlParametersForAdding = new SqlParameter[2];
+                sqlParametersForAdding[0] = new SqlParameter("@activityNumber", activityNumber);
+                sqlParametersForAdding[1] = new SqlParameter("@teacherId", teacherId);
+                ExecuteSelectQuery(queryToAdd, sqlParametersForAdding);
+            }
+            else
+            {
+                throw new Exception("There is already a supervisor!");
+            }
+        }
+        public void DeleteRowSupervisor(int teacherId, int activityNumber)
+        {
+            string query = "DELETE FROM Supervised_By WHERE (teacherId = @teacherId) AND (activityNumber = @activityNumber)";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@activityNumber", activityNumber);
+            sqlParameters[1] = new SqlParameter("@teacherId", teacherId);
+            ExecuteEditQuery(query, sqlParameters);
+        }
+        private List<Teacher> ReadTablesSupervisor(DataTable dataTable)
+        {
+            try
+            {
+                List<Teacher> teacherParticipating = new List<Teacher>();
+
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    Teacher teacher = new Teacher()
+                    {
+                        TeacherID = (int)dr["teacherID"],
+                        FirstName = (string)dr["firstname"],
+                        LastName = (string)dr["lastName"],
+                    };
+                    teacherParticipating.Add(teacher);
+                };
+                return teacherParticipating;
             }
             catch (Exception e)
             {
