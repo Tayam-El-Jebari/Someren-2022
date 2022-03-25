@@ -15,6 +15,10 @@ week 2: opdracht A; Students
 week 3: opdracht B; Cash register
 -cash register
 
+week 4: opdracht B; Supervisors
+-supervisors, teachers, begin layout van de panels
+
+
 Lars Hartendorp 
 INF1C
 690720
@@ -37,6 +41,12 @@ DrinksDAO, DrinksService aangemaakt. In de SomerenUI[Design] een panel aangemaak
 In de DrinksDAO verschillende querys geschreven voor Add, Update, Change name, Delete, en Sort. 
 In de SomerenUI heb ik de code hiervoor geschreven. Alles werkt, maar ging niet altijd van harte. 
 De change Name van drink had ik nog erg moeite mee, maar is wel gelukt. 
+
+Week 4:
+Mijn deel was opdracht A: Activities
+ActivityDAO aangemaakt en queries geschreven voor CRUD. 
+ActivityService aangemaakt en deze als doorgeef luik laten fungeren. 
+In de SomerenUI code geschreven, waardoor de gebruiker op een gebruiksvriendelijke manier activiteiten kan toevoegen, aanpassen of verwijderen. 
 
 Tayam El Jebari
 INF1C
@@ -65,6 +75,14 @@ Ik heb het volgende gedaan voor week 3:
 - Colin geholpen met cash register afronden.
 - aanpassingen gemaakt in het database om logischer data op te halen bij de correcte tabellen.
 
+Week 4 Opdracht C; Activity participants
+
+Ik heb het volgende gedaan voor week 4:
+- Activity DAO aangepast om de methodes te bevatten die noodzakelijk zijn voor het toevoegen, verwijderen en veranderen van de participants in een activiteit.
+- De database tabellen gemaakt die noodzakelijk waren voor deze opdracht, en die van de andere projectleden.
+- Mergen en conflicten opgelost.
+- UI updates, mooier gemaakt en code geschreven voor mij en andere projectleden waarbij je een responsive listview hebt.
+- Bugs opgelost van mijn code en van andere projectleden.
 
 
 
