@@ -54,6 +54,18 @@ namespace SomerenUI
             }
             try
             {
+                if (!username.Contains('@'))
+                {
+                    MessageBox.Show("Please make sure to enter a valid email address. You are missing an '@' ");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            try
+            {
                 if (password != passwordReenter)
                 {
                     MessageBox.Show("Password is not the same, please try again");
