@@ -14,18 +14,17 @@ namespace SomerenDAL
         public List<Register> GetAllRegisters() 
         {
             // GROUP BY & HAVING. Boolean returnen met 0(false) of 1(true); 
-            string query = "SELECT [username] [password] [passwordAgain] [licenseKey] [question] [answer] FROM [Register]";
+            string query = "SELECT [username] [password] [passwordAgain] [question] [answer] FROM [Register]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        public void AddRowRegister(string username, string password, string licenseKey, string question, string answer)
+        public void AddRowRegister(string username, string password, string question, string answer)
         {
-            string query = "INSERT INTO [Users](username, [password], licenseKey, question, answer) VALUES (@username, @password, @licenseKey, @question, @answer)";
-            SqlParameter[] sqlParameters = new SqlParameter[5];
+            string query = "INSERT INTO [Users](username, [password], question, answer) VALUES (@username, @password, @question, @answer)";
+            SqlParameter[] sqlParameters = new SqlParameter[4];
             sqlParameters[0] = new SqlParameter("@username", username);
             sqlParameters[1] = new SqlParameter("@password", password);
-            sqlParameters[2] = new SqlParameter("@licenseKey", licenseKey);
             sqlParameters[3] = new SqlParameter("@question", question);
             sqlParameters[4] = new SqlParameter("@answer", answer);
             ExecuteEditQuery(query, sqlParameters);
