@@ -162,6 +162,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.labelParticipantsPnlTitle = new System.Windows.Forms.Label();
             this.buttonAddParticipant = new System.Windows.Forms.Button();
+            this.welcomeLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlRevenueReportPanel.SuspendLayout();
             this.pnlRoomPanel.SuspendLayout();
@@ -196,7 +197,7 @@
             this.barServiceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1318, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1318, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -257,21 +258,21 @@
             // supervisorsToolStripMenuItem
             // 
             this.supervisorsToolStripMenuItem.Name = "supervisorsToolStripMenuItem";
-            this.supervisorsToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.supervisorsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.supervisorsToolStripMenuItem.Text = "Supervisors";
             this.supervisorsToolStripMenuItem.Click += new System.EventHandler(this.supervisorsToolStripMenuItem_Click_1);
             // 
             // participantsToolStripMenuItem
             // 
             this.participantsToolStripMenuItem.Name = "participantsToolStripMenuItem";
-            this.participantsToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.participantsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.participantsToolStripMenuItem.Text = "Participants";
             this.participantsToolStripMenuItem.Click += new System.EventHandler(this.participantsToolStripMenuItem_Click);
             // 
             // editActivitiesToolStripMenuItem
             // 
             this.editActivitiesToolStripMenuItem.Name = "editActivitiesToolStripMenuItem";
-            this.editActivitiesToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.editActivitiesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.editActivitiesToolStripMenuItem.Text = "Edit activities";
             this.editActivitiesToolStripMenuItem.Click += new System.EventHandler(this.editActivitiesToolStripMenuItem_Click);
             // 
@@ -295,21 +296,21 @@
             // revenueReportToolStripMenuItem
             // 
             this.revenueReportToolStripMenuItem.Name = "revenueReportToolStripMenuItem";
-            this.revenueReportToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.revenueReportToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.revenueReportToolStripMenuItem.Text = "Revenue report";
             this.revenueReportToolStripMenuItem.Click += new System.EventHandler(this.revenueReportToolStripMenuItem_Click);
             // 
             // CashregistertoolStripMenuItem
             // 
             this.CashregistertoolStripMenuItem.Name = "CashregistertoolStripMenuItem";
-            this.CashregistertoolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.CashregistertoolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.CashregistertoolStripMenuItem.Text = "Cash register";
             this.CashregistertoolStripMenuItem.Click += new System.EventHandler(this.CashregistertoolStripMenuItem_Click);
             // 
             // drinksToolStripMenuItem
             // 
             this.drinksToolStripMenuItem.Name = "drinksToolStripMenuItem";
-            this.drinksToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.drinksToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.drinksToolStripMenuItem.Text = "Drinks";
             this.drinksToolStripMenuItem.Click += new System.EventHandler(this.drinksToolStripMenuItem_Click_1);
             // 
@@ -517,6 +518,7 @@
             // pnlDashboard
             // 
             this.pnlDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.pnlDashboard.Controls.Add(this.welcomeLabel);
             this.pnlDashboard.Controls.Add(this.lbl_Dashboard_welcome);
             this.pnlDashboard.Controls.Add(this.imgDashboard);
             this.pnlDashboard.Location = new System.Drawing.Point(1, 29);
@@ -1511,6 +1513,17 @@
             this.buttonAddParticipant.UseVisualStyleBackColor = true;
             this.buttonAddParticipant.Click += new System.EventHandler(this.buttonAddParticipant_Click);
             // 
+            // welcomeLabel
+            // 
+            this.welcomeLabel.AutoSize = true;
+            this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.welcomeLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.welcomeLabel.Location = new System.Drawing.Point(81, 324);
+            this.welcomeLabel.Name = "welcomeLabel";
+            this.welcomeLabel.Size = new System.Drawing.Size(660, 36);
+            this.welcomeLabel.TabIndex = 2;
+            this.welcomeLabel.Text = "If you are seeing this, please contact support.";
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1518,8 +1531,8 @@
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1318, 622);
             this.Controls.Add(this.pnlDashboard);
-            this.Controls.Add(this.pnlRoomPanel);
             this.Controls.Add(this.pnlParticipants);
+            this.Controls.Add(this.pnlRoomPanel);
             this.Controls.Add(this.pnlSupervisors);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnlActivities);
@@ -1707,6 +1720,7 @@
         private System.Windows.Forms.Label labeltext;
         private System.Windows.Forms.Label textLabel;
         private System.Windows.Forms.ToolStripMenuItem editActivitiesToolStripMenuItem;
+        private System.Windows.Forms.Label welcomeLabel;
     }
 }
 

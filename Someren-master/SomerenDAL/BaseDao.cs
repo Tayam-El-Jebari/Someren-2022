@@ -96,6 +96,7 @@ namespace SomerenDAL
                 adapter.SelectCommand = command;
                 adapter.Fill(dataSet);
                 dataTable = dataSet.Tables[0];
+                command.Parameters.Clear();
             }
             catch (SqlException e)
             {

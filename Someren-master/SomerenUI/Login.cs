@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SomerenLogic;
+using SomerenModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +25,23 @@ namespace SomerenUI
             FormRegisterScreen formRegisterScreen = new FormRegisterScreen();
             formRegisterScreen.ShowDialog();
             this.Close(); 
+        }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            LoginService loginService = new LoginService();
+            try
+            {
+                SomerenUI somerenUIScreen = new SomerenUI(loginService.LoginUser(textBoxUsernameLogin.Text, textBoxPasswordLogin.Text));
+                this.Hide();
+                somerenUIScreen.ShowDialog();
+                this.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                textBoxPasswordLogin.Clear();
+            }
         }
     }
 }

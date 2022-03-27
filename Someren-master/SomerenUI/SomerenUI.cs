@@ -15,9 +15,19 @@ namespace SomerenUI
     public partial class SomerenUI : Form
     {
         LogService logService = new LogService();
-        public SomerenUI()
+        public SomerenUI(User user)
         {
             InitializeComponent();
+            welcomeLabel.Text = $"Welcome back {user.FirstName} {user.LastName}";
+            if (!user.IsAdmin)
+            {
+                foreach (ToolStripMenuItem tsmi in activitiesToolStripMenuItem.DropDownItems)
+                {
+                    tsmi.Visible = false;
+                }
+                barServiceToolStripMenuItem.Visible = false;
+
+            }
         }
 
         private void SomerenUI_Load(object sender, EventArgs e)
