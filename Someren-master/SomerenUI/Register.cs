@@ -38,9 +38,7 @@ namespace SomerenUI
             string licenseKey = textBoxLicenseKey.Text;
             string question = textBoxQuestionRegister.Text;
             string answer = textBoxAnswerRegister.Text;
-            string correctLicenseKey = "XsZAbtgz3PsDqYh69unWQCEx";
-            string correctLicenseKeyAlternative = "XsZAb-tgz3PsD-qYh69un-WQCEx";
-            string correctLicenseKeyAlternative2 = "XsZAb - tgz3PsD - qYh69un - WQCEx";
+            string correctLicenseKey = "XsZAb - tgz3PsD - qYh69un - WQCEx";
             try
             {
                 if (username == "" || password == "" || passwordReenter == "" || licenseKey == "" || question == "" || answer == "")
@@ -79,13 +77,14 @@ namespace SomerenUI
             }
             try
             {
-                if (licenseKey == correctLicenseKey || licenseKey == correctLicenseKeyAlternative || licenseKey == correctLicenseKeyAlternative2)
+                if (licenseKey != correctLicenseKey)
                 {
 
                 }
                 else
                 {
-                    MessageBox.Show("This is not the right license key! Please try again");
+                    MessageBox.Show("This is not the right license key! Please try again. Make sure you enter the licensekey as following" +
+                        "'XXXXX - XXXXX - XXXXX - XXXXX'");
                     textBoxLicenseKey.Clear();
                 }
             }
