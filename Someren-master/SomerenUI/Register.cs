@@ -55,6 +55,7 @@ namespace SomerenUI
                 if (!username.Contains('@'))
                 {
                     MessageBox.Show("Please make sure to enter a valid email address. You are missing an '@' ");
+                    textBoxUsernameRegister.Clear();
                 }
             }
             catch (Exception)
@@ -79,13 +80,13 @@ namespace SomerenUI
             {
                 if (licenseKey != correctLicenseKey)
                 {
-
-                }
-                else
-                {
                     MessageBox.Show("This is not the right license key! Please try again. Make sure you enter the licensekey as following" +
                         "'XXXXX - XXXXX - XXXXX - XXXXX'");
                     textBoxLicenseKey.Clear();
+                }
+                else
+                { 
+
                 }
             }
             catch (Exception)
