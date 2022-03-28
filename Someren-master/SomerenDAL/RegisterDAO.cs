@@ -14,7 +14,7 @@ namespace SomerenDAL
         public List<Register> GetAllRegisters() 
         {
             // GROUP BY & HAVING. Boolean returnen met 0(false) of 1(true); 
-            string query = "SELECT [username] [password] [passwordAgain] [question] [answer] FROM [Register]";
+            string query = "SELECT [username] [password] [question] [answer] FROM [Register]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
