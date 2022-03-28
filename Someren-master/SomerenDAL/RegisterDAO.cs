@@ -21,12 +21,12 @@ namespace SomerenDAL
 
         public void AddRowRegister(string username, string password, string question, string answer)
         {
-            string query = "INSERT INTO [Users](username, [password], question, answer) VALUES (@username, @password, @question, @answer)";
+            string query = "INSERT INTO [Users]([username], [password], question, answer) VALUES (@username, @password, @question, @answer)";
             SqlParameter[] sqlParameters = new SqlParameter[4];
             sqlParameters[0] = new SqlParameter("@username", username);
             sqlParameters[1] = new SqlParameter("@password", password);
-            sqlParameters[3] = new SqlParameter("@question", question);
-            sqlParameters[4] = new SqlParameter("@answer", answer);
+            sqlParameters[2] = new SqlParameter("@question", question);
+            sqlParameters[3] = new SqlParameter("@answer", answer);
             ExecuteEditQuery(query, sqlParameters);
         }
 
