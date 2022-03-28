@@ -42,8 +42,6 @@ namespace SomerenDAL
                     {
                         Username = (string)dr["username"],
                         Password = (string)dr["password"],
-                        PasswordAgain = (string)dr["passwordAgain"],
-                        LicenseKey = (string)dr["licenseKey"],
                         Question = (string)dr["question"],
                         Answer = (string)dr["answer"]
                     };
