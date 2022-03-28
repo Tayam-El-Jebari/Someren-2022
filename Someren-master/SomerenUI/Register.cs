@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SomerenDAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -60,8 +61,7 @@ namespace SomerenUI
             }
             catch (Exception)
             {
-
-                throw;
+                MessageBox.Show("Please make sure to enter a valid email address. You are missing an '@' ");
             }
             try
             {
@@ -81,12 +81,8 @@ namespace SomerenUI
                 if (licenseKey != correctLicenseKey)
                 {
                     MessageBox.Show("This is not the right license key! Please try again. Make sure you enter the licensekey as following" +
-                        "'XXXXX - XXXXX - XXXXX - XXXXX'");
+                        " 'XXXXX - XXXXX - XXXXX - XXXXX'");
                     textBoxLicenseKey.Clear();
-                }
-                else
-                { 
-
                 }
             }
             catch (Exception)
@@ -105,6 +101,9 @@ namespace SomerenUI
             {
                 MessageBox.Show("You are missing a question mark in the question. Please try again");
             }
+
+            RegisterDAO registerDAO = new RegisterDAO();
+            registerDAO.AddRowRegister(username, password, question, answer);
         }
 
     }
