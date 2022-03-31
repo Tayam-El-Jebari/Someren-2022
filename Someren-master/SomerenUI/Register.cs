@@ -103,6 +103,15 @@ namespace SomerenUI
             {
                 MessageBox.Show("You are missing a question mark in the question. Please try again");
             }
+            MessageBox.Show("Succesfully registered");
+            textBoxFirstnameRegister.Clear();
+            textBoxLastnameRegister.Clear();
+            textBoxUsernameRegister.Clear();
+            textBoxPasswordRegister.Clear();
+            textBoxPasswordReenterRegister.Clear();
+            textBoxLicenseKey.Clear();
+            textBoxQuestionRegister.Clear();
+            textBoxAnswerRegister.Clear();
 
             RegisterDAO registerDAO = new RegisterDAO();
             registerDAO.AddRowRegister(firstName, lastName, email, password, question, answer);

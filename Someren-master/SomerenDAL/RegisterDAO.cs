@@ -21,7 +21,7 @@ namespace SomerenDAL
 
         public void AddRowRegister(string firstName, string lastName, string email, string password, string question, string answer)
         {
-            string query = "INSERT INTO [Users]([firstName], [lastName], [email], [password], question, answer) VALUES (@firstName, @lastName, @email, @password, @question, @answer)";
+            string query = "declare @salt uniqueidentifier = newid(); INSERT INTO [Users]([firstName], [lastName], [email], [password], [salt], question, answer, [adminStatus]) VALUES (@firstName, @lastName, @email, hashbytes('sha2_512', @password + cast(@salt as nvarchar(36))), @salt, @question, @answer, 0)";
             SqlParameter[] sqlParameters = new SqlParameter[6];
             sqlParameters[0] = new SqlParameter("@firstName", firstName);
             sqlParameters[1] = new SqlParameter("@lastName", lastName);
