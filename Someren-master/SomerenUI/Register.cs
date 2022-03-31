@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SomerenDAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,18 +33,18 @@ namespace SomerenUI
 
         private void buttonRegisterRegister_Click(object sender, EventArgs e)
         {
-            string username = textBoxUsernameRegister.Text;
+            string firstName = textBoxFirstnameRegister.Text;
+            string lastName = textBoxLastnameRegister.Text;
+            string email = textBoxUsernameRegister.Text;
             string password = textBoxPasswordRegister.Text;
             string passwordReenter = textBoxPasswordReenterRegister.Text;
             string licenseKey = textBoxLicenseKey.Text;
             string question = textBoxQuestionRegister.Text;
             string answer = textBoxAnswerRegister.Text;
-            string correctLicenseKey = "XsZAbtgz3PsDqYh69unWQCEx";
-            string correctLicenseKeyAlternative = "XsZAb-tgz3PsD-qYh69un-WQCEx";
-            string correctLicenseKeyAlternative2 = "XsZAb - tgz3PsD - qYh69un - WQCEx";
+            string correctLicenseKey = "XsZAb - tgz3PsD - qYh69un - WQCEx";
             try
             {
-                if (username == "" || password == "" || passwordReenter == "" || licenseKey == "" || question == "" || answer == "")
+                if (firstName == "" || lastName == "" || email == "" || password == "" || passwordReenter == "" || licenseKey == "" || question == "" || answer == "")
                 {
                     MessageBox.Show("Please make sure to enter all the data in the fields");
                 }
@@ -54,15 +55,15 @@ namespace SomerenUI
             }
             try
             {
-                if (!username.Contains('@'))
+                if (!email.Contains('@'))
                 {
                     MessageBox.Show("Please make sure to enter a valid email address. You are missing an '@' ");
+                    textBoxUsernameRegister.Clear();
                 }
             }
             catch (Exception)
             {
-
-                throw;
+                MessageBox.Show("Please make sure to enter a valid email address. You are missing an '@' ");
             }
             try
             {
@@ -79,13 +80,10 @@ namespace SomerenUI
             }
             try
             {
-                if (licenseKey == correctLicenseKey || licenseKey == correctLicenseKeyAlternative || licenseKey == correctLicenseKeyAlternative2)
+                if (licenseKey != correctLicenseKey)
                 {
-
-                }
-                else
-                {
-                    MessageBox.Show("This is not the right license key! Please try again");
+                    MessageBox.Show("This is not the right license key! Please try again. Make sure you enter the licensekey as following" +
+                        " 'XXXXX - XXXXX - XXXXX - XXXXX'");
                     textBoxLicenseKey.Clear();
                 }
             }
@@ -105,6 +103,18 @@ namespace SomerenUI
             {
                 MessageBox.Show("You are missing a question mark in the question. Please try again");
             }
+            MessageBox.Show("Succesfully registered");
+            textBoxFirstnameRegister.Clear();
+            textBoxLastnameRegister.Clear();
+            textBoxUsernameRegister.Clear();
+            textBoxPasswordRegister.Clear();
+            textBoxPasswordReenterRegister.Clear();
+            textBoxLicenseKey.Clear();
+            textBoxQuestionRegister.Clear();
+            textBoxAnswerRegister.Clear();
+
+            RegisterDAO registerDAO = new RegisterDAO();
+            registerDAO.AddRowRegister(firstName, lastName, email, password, question, answer);
         }
 
     }
