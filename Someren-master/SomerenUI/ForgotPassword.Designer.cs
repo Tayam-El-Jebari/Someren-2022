@@ -42,6 +42,7 @@ namespace SomerenUI
             this.labelConfirmNewPasswordLabel = new System.Windows.Forms.Label();
             this.buttonNewPassword = new System.Windows.Forms.Button();
             this.buttonCodeForgotPassword = new System.Windows.Forms.Button();
+            this.buttonQuestionLoad = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxAnswerForgotPassword
@@ -158,11 +159,23 @@ namespace SomerenUI
             this.buttonCodeForgotPassword.UseVisualStyleBackColor = true;
             this.buttonCodeForgotPassword.Click += new System.EventHandler(this.buttonCodeForgotPassword_Click);
             // 
+            // buttonQuestionLoad
+            // 
+            this.buttonQuestionLoad.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonQuestionLoad.Location = new System.Drawing.Point(0, 312);
+            this.buttonQuestionLoad.Name = "buttonQuestionLoad";
+            this.buttonQuestionLoad.Size = new System.Drawing.Size(438, 46);
+            this.buttonQuestionLoad.TabIndex = 27;
+            this.buttonQuestionLoad.Text = "Enter Username and load in the question";
+            this.buttonQuestionLoad.UseVisualStyleBackColor = true;
+            this.buttonQuestionLoad.Click += new System.EventHandler(this.buttonQuestionLoad_Click);
+            // 
             // ForgotPasswordScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(438, 450);
+            this.Controls.Add(this.buttonQuestionLoad);
             this.Controls.Add(this.buttonCodeForgotPassword);
             this.Controls.Add(this.buttonNewPassword);
             this.Controls.Add(this.textBoxConfirmPassword);
@@ -199,5 +212,6 @@ namespace SomerenUI
         private System.Windows.Forms.Label labelConfirmNewPasswordLabel;
         private System.Windows.Forms.Button buttonNewPassword;
         private System.Windows.Forms.Button buttonCodeForgotPassword;
+        private System.Windows.Forms.Button buttonQuestionLoad;
     }
 }

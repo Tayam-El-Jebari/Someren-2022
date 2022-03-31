@@ -22,5 +22,10 @@ namespace SomerenLogic
             List<ForgotPassword> forgotPasswords = forgotPassworddb.GetAllForgotPassword();
             return forgotPasswords;
         }
+        public string Question(string username)
+        {
+            string question = forgotPassworddb.GetQuestion(username);
+            return question;
+        }
     }
 }

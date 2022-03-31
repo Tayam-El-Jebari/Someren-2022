@@ -18,13 +18,22 @@ namespace SomerenDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-
+        public string GetQuestion(string username)
+        {
+            string query = $"SELECT question FROM [Users] WHERE email = @email";
+            SqlParameter[] sqlParameters = new SqlParameter[1]
+            {
+                new SqlParameter ("@email", username)
+            };
+            string question = (string)ExecuteSelectQuery(query, sqlParameters).Rows[0]["question"];
+            return question;
+        }
         public void AddRowForgotPassword(string username, string password, string licenseKey, string question, string answer)
         {
             string query = "INSERT INTO [Users](email, [password], question, answer) VALUES (@username, @password, @question, @answer)";
             SqlParameter[] sqlParameters = new SqlParameter[4] {
 
-            new SqlParameter("@username", username),
+            new SqlParameter("@email", username),
             new SqlParameter("@password", password),
             new SqlParameter ("@question", question),
             new SqlParameter ("@answer", answer)
