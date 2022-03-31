@@ -37,6 +37,7 @@ namespace SomerenUI
             this.buttonLogin = new System.Windows.Forms.Button();
             this.buttonRegister = new System.Windows.Forms.Button();
             this.labelRegister = new System.Windows.Forms.Label();
+            this.buttonForgotPassword = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelWelcomeLogin
@@ -109,11 +110,23 @@ namespace SomerenUI
             this.labelRegister.TabIndex = 7;
             this.labelRegister.Text = "Please register if you are here for the first time";
             // 
+            // buttonForgotPassword
+            // 
+            this.buttonForgotPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonForgotPassword.Location = new System.Drawing.Point(41, 312);
+            this.buttonForgotPassword.Name = "buttonForgotPassword";
+            this.buttonForgotPassword.Size = new System.Drawing.Size(105, 38);
+            this.buttonForgotPassword.TabIndex = 8;
+            this.buttonForgotPassword.Text = "Forgot Password";
+            this.buttonForgotPassword.UseVisualStyleBackColor = true;
+            this.buttonForgotPassword.Click += new System.EventHandler(this.buttonForgotPassword_Click);
+            // 
             // FormLoginRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonForgotPassword);
             this.Controls.Add(this.labelRegister);
             this.Controls.Add(this.buttonRegister);
             this.Controls.Add(this.buttonLogin);
@@ -139,5 +152,6 @@ namespace SomerenUI
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.Label labelRegister;
+        private System.Windows.Forms.Button buttonForgotPassword;
     }
 }

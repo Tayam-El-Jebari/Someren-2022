@@ -49,6 +49,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="ForgotPassword.cs" />
     <Compile Include="Register.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Room.cs" />
