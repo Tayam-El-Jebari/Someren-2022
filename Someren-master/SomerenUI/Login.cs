@@ -43,5 +43,13 @@ namespace SomerenUI
                 textBoxPasswordLogin.Clear();
             }
         }
+
+        private void checkBoxShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxShowPassword.Checked)
+                textBoxPasswordLogin.PasswordChar = '\0';
+            else
+                textBoxPasswordLogin.PasswordChar = '*';
+        }
     }
 }

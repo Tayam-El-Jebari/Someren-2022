@@ -19,13 +19,13 @@ namespace SomerenDAL
             sqlParameters[1] = new SqlParameter("@password", password);
             if (ExecuteSelectQuery(query, sqlParameters).Rows.Count == 0)
             {
-                throw new Exception("Username not found in database, please make sure you have spelled everything correctly and you have entered an correct email address.");
+                throw new Exception("incorrect username or password, please make sure you have spelled everything correctly.");
             }
             
             query = "SELECT firstName, lastName, adminStatus FROM Users WHERE email = @username AND password = hashbytes('sha2_512', @password + cast((SELECT salt FROM Users WHERE email = @username) AS NVARCHAR(36)))";
             if (ExecuteSelectQuery(query, sqlParameters).Rows.Count == 0)
             {
-                throw new Exception("Incorrect password, please try again or press the forgot password button.");
+                throw new Exception("incorrect username or password, please make sure you have spelled everything correctly.");
             }
             else
             {

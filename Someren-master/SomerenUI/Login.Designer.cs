@@ -37,6 +37,7 @@ namespace SomerenUI
             this.buttonLogin = new System.Windows.Forms.Button();
             this.buttonRegister = new System.Windows.Forms.Button();
             this.labelRegister = new System.Windows.Forms.Label();
+            this.checkBoxShowPassword = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // labelWelcomeLogin
@@ -77,6 +78,7 @@ namespace SomerenUI
             // 
             this.textBoxPasswordLogin.Location = new System.Drawing.Point(170, 130);
             this.textBoxPasswordLogin.Name = "textBoxPasswordLogin";
+            this.textBoxPasswordLogin.PasswordChar = '*';
             this.textBoxPasswordLogin.Size = new System.Drawing.Size(159, 22);
             this.textBoxPasswordLogin.TabIndex = 4;
             // 
@@ -109,11 +111,24 @@ namespace SomerenUI
             this.labelRegister.TabIndex = 7;
             this.labelRegister.Text = "Please register if you are here for the first time";
             // 
+            // checkBoxShowPassword
+            // 
+            this.checkBoxShowPassword.AutoSize = true;
+            this.checkBoxShowPassword.BackColor = System.Drawing.SystemColors.Control;
+            this.checkBoxShowPassword.Location = new System.Drawing.Point(360, 130);
+            this.checkBoxShowPassword.Name = "checkBoxShowPassword";
+            this.checkBoxShowPassword.Size = new System.Drawing.Size(123, 21);
+            this.checkBoxShowPassword.TabIndex = 8;
+            this.checkBoxShowPassword.Text = "View password";
+            this.checkBoxShowPassword.UseVisualStyleBackColor = false;
+            this.checkBoxShowPassword.CheckedChanged += new System.EventHandler(this.checkBoxShowPassword_CheckedChanged);
+            // 
             // FormLoginRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBoxShowPassword);
             this.Controls.Add(this.labelRegister);
             this.Controls.Add(this.buttonRegister);
             this.Controls.Add(this.buttonLogin);
@@ -139,5 +154,6 @@ namespace SomerenUI
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.Label labelRegister;
+        private System.Windows.Forms.CheckBox checkBoxShowPassword;
     }
 }
