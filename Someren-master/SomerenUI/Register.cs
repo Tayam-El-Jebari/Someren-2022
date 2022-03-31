@@ -33,7 +33,9 @@ namespace SomerenUI
 
         private void buttonRegisterRegister_Click(object sender, EventArgs e)
         {
-            string username = textBoxUsernameRegister.Text;
+            string firstName = textBoxFirstnameRegister.Text;
+            string lastName = textBoxLastnameRegister.Text;
+            string email = textBoxUsernameRegister.Text;
             string password = textBoxPasswordRegister.Text;
             string passwordReenter = textBoxPasswordReenterRegister.Text;
             string licenseKey = textBoxLicenseKey.Text;
@@ -42,7 +44,7 @@ namespace SomerenUI
             string correctLicenseKey = "XsZAb - tgz3PsD - qYh69un - WQCEx";
             try
             {
-                if (username == "" || password == "" || passwordReenter == "" || licenseKey == "" || question == "" || answer == "")
+                if (firstName == "" || lastName == "" || email == "" || password == "" || passwordReenter == "" || licenseKey == "" || question == "" || answer == "")
                 {
                     MessageBox.Show("Please make sure to enter all the data in the fields");
                 }
@@ -53,7 +55,7 @@ namespace SomerenUI
             }
             try
             {
-                if (!username.Contains('@'))
+                if (!email.Contains('@'))
                 {
                     MessageBox.Show("Please make sure to enter a valid email address. You are missing an '@' ");
                     textBoxUsernameRegister.Clear();
@@ -103,7 +105,7 @@ namespace SomerenUI
             }
 
             RegisterDAO registerDAO = new RegisterDAO();
-            registerDAO.AddRowRegister(username, password, question, answer);
+            registerDAO.AddRowRegister(firstName, lastName, email, password, question, answer);
         }
 
     }
