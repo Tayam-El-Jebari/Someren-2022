@@ -30,16 +30,16 @@ namespace SomerenUI
         private void InitializeComponent()
         {
             this.textBoxAnswerForgotPassword = new System.Windows.Forms.TextBox();
-            this.labelAnswerRegister = new System.Windows.Forms.Label();
-            this.labelQuestionRegister = new System.Windows.Forms.Label();
+            this.labelAnswerLabel = new System.Windows.Forms.Label();
+            this.labelQuestionLabel = new System.Windows.Forms.Label();
             this.labelDisplayQuestion = new System.Windows.Forms.Label();
             this.labelInstruction = new System.Windows.Forms.Label();
             this.textBoxUsernameForgotPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxNewPassword = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelEnterNewPasswordLabel = new System.Windows.Forms.Label();
             this.textBoxConfirmPassword = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelConfirmNewPasswordLabel = new System.Windows.Forms.Label();
             this.buttonNewPassword = new System.Windows.Forms.Button();
             this.buttonCodeForgotPassword = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -51,23 +51,23 @@ namespace SomerenUI
             this.textBoxAnswerForgotPassword.Size = new System.Drawing.Size(174, 22);
             this.textBoxAnswerForgotPassword.TabIndex = 16;
             // 
-            // labelAnswerRegister
+            // labelAnswerLabel
             // 
-            this.labelAnswerRegister.AutoSize = true;
-            this.labelAnswerRegister.Location = new System.Drawing.Point(74, 266);
-            this.labelAnswerRegister.Name = "labelAnswerRegister";
-            this.labelAnswerRegister.Size = new System.Drawing.Size(58, 17);
-            this.labelAnswerRegister.TabIndex = 15;
-            this.labelAnswerRegister.Text = "Answer:";
+            this.labelAnswerLabel.AutoSize = true;
+            this.labelAnswerLabel.Location = new System.Drawing.Point(74, 266);
+            this.labelAnswerLabel.Name = "labelAnswerLabel";
+            this.labelAnswerLabel.Size = new System.Drawing.Size(58, 17);
+            this.labelAnswerLabel.TabIndex = 15;
+            this.labelAnswerLabel.Text = "Answer:";
             // 
-            // labelQuestionRegister
+            // labelQuestionLabel
             // 
-            this.labelQuestionRegister.AutoSize = true;
-            this.labelQuestionRegister.Location = new System.Drawing.Point(74, 230);
-            this.labelQuestionRegister.Name = "labelQuestionRegister";
-            this.labelQuestionRegister.Size = new System.Drawing.Size(69, 17);
-            this.labelQuestionRegister.TabIndex = 13;
-            this.labelQuestionRegister.Text = "Question:";
+            this.labelQuestionLabel.AutoSize = true;
+            this.labelQuestionLabel.Location = new System.Drawing.Point(74, 230);
+            this.labelQuestionLabel.Name = "labelQuestionLabel";
+            this.labelQuestionLabel.Size = new System.Drawing.Size(69, 17);
+            this.labelQuestionLabel.TabIndex = 13;
+            this.labelQuestionLabel.Text = "Question:";
             // 
             // labelDisplayQuestion
             // 
@@ -97,7 +97,7 @@ namespace SomerenUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 186);
+            this.label1.Location = new System.Drawing.Point(101, 186);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 17);
             this.label1.TabIndex = 19;
@@ -105,35 +105,36 @@ namespace SomerenUI
             // 
             // textBoxNewPassword
             // 
-            this.textBoxNewPassword.Location = new System.Drawing.Point(203, 225);
+            this.textBoxNewPassword.Location = new System.Drawing.Point(203, 230);
             this.textBoxNewPassword.Name = "textBoxNewPassword";
             this.textBoxNewPassword.Size = new System.Drawing.Size(159, 22);
             this.textBoxNewPassword.TabIndex = 22;
             // 
-            // label2
+            // labelEnterNewPasswordLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(47, 230);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(147, 17);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Enter a new password";
+            this.labelEnterNewPasswordLabel.AutoSize = true;
+            this.labelEnterNewPasswordLabel.Location = new System.Drawing.Point(35, 230);
+            this.labelEnterNewPasswordLabel.Name = "labelEnterNewPasswordLabel";
+            this.labelEnterNewPasswordLabel.Size = new System.Drawing.Size(147, 17);
+            this.labelEnterNewPasswordLabel.TabIndex = 21;
+            this.labelEnterNewPasswordLabel.Text = "Enter a new password";
+            this.labelEnterNewPasswordLabel.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBoxConfirmPassword
             // 
-            this.textBoxConfirmPassword.Location = new System.Drawing.Point(203, 268);
+            this.textBoxConfirmPassword.Location = new System.Drawing.Point(203, 266);
             this.textBoxConfirmPassword.Name = "textBoxConfirmPassword";
             this.textBoxConfirmPassword.Size = new System.Drawing.Size(159, 22);
             this.textBoxConfirmPassword.TabIndex = 24;
             // 
-            // label3
+            // labelConfirmNewPasswordLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 273);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 17);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Confirm new password";
+            this.labelConfirmNewPasswordLabel.AutoSize = true;
+            this.labelConfirmNewPasswordLabel.Location = new System.Drawing.Point(33, 271);
+            this.labelConfirmNewPasswordLabel.Name = "labelConfirmNewPasswordLabel";
+            this.labelConfirmNewPasswordLabel.Size = new System.Drawing.Size(149, 17);
+            this.labelConfirmNewPasswordLabel.TabIndex = 23;
+            this.labelConfirmNewPasswordLabel.Text = "Confirm new password";
             // 
             // buttonNewPassword
             // 
@@ -153,7 +154,7 @@ namespace SomerenUI
             this.buttonCodeForgotPassword.Name = "buttonCodeForgotPassword";
             this.buttonCodeForgotPassword.Size = new System.Drawing.Size(438, 46);
             this.buttonCodeForgotPassword.TabIndex = 26;
-            this.buttonCodeForgotPassword.Text = "Enter code";
+            this.buttonCodeForgotPassword.Text = "Enter code/answer";
             this.buttonCodeForgotPassword.UseVisualStyleBackColor = true;
             this.buttonCodeForgotPassword.Click += new System.EventHandler(this.buttonCodeForgotPassword_Click);
             // 
@@ -165,16 +166,16 @@ namespace SomerenUI
             this.Controls.Add(this.buttonCodeForgotPassword);
             this.Controls.Add(this.buttonNewPassword);
             this.Controls.Add(this.textBoxConfirmPassword);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelConfirmNewPasswordLabel);
             this.Controls.Add(this.textBoxNewPassword);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelEnterNewPasswordLabel);
             this.Controls.Add(this.textBoxUsernameForgotPassword);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelInstruction);
             this.Controls.Add(this.labelDisplayQuestion);
             this.Controls.Add(this.textBoxAnswerForgotPassword);
-            this.Controls.Add(this.labelAnswerRegister);
-            this.Controls.Add(this.labelQuestionRegister);
+            this.Controls.Add(this.labelAnswerLabel);
+            this.Controls.Add(this.labelQuestionLabel);
             this.Name = "ForgotPasswordScreen";
             this.Text = "ForgotPassword";
             this.Load += new System.EventHandler(this.ForgotPassword_Load);
@@ -186,16 +187,16 @@ namespace SomerenUI
         #endregion
 
         private System.Windows.Forms.TextBox textBoxAnswerForgotPassword;
-        private System.Windows.Forms.Label labelAnswerRegister;
-        private System.Windows.Forms.Label labelQuestionRegister;
+        private System.Windows.Forms.Label labelAnswerLabel;
+        private System.Windows.Forms.Label labelQuestionLabel;
         private System.Windows.Forms.Label labelDisplayQuestion;
         private System.Windows.Forms.Label labelInstruction;
         private System.Windows.Forms.TextBox textBoxUsernameForgotPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxNewPassword;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelEnterNewPasswordLabel;
         private System.Windows.Forms.TextBox textBoxConfirmPassword;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelConfirmNewPasswordLabel;
         private System.Windows.Forms.Button buttonNewPassword;
         private System.Windows.Forms.Button buttonCodeForgotPassword;
     }

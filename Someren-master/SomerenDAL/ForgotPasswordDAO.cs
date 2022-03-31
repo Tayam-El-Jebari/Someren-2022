@@ -14,14 +14,14 @@ namespace SomerenDAL
         public List<ForgotPassword> GetAllForgotPassword() 
         {
             // GROUP BY & HAVING. Boolean returnen met 0(false) of 1(true); 
-            string query = "SELECT [username] [password] [passwordAgain] [licenseKey] [question] [answer] FROM [Register]";
+            string query = "SELECT email, [password], [question], [answer] FROM [Users]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public void AddRowForgotPassword(string username, string password, string licenseKey, string question, string answer)
         {
-            string query = "INSERT INTO [Users](username, [password], question, answer) VALUES (@username, @password, @question, @answer)";
+            string query = "INSERT INTO [Users](email, [password], question, answer) VALUES (@username, @password, @question, @answer)";
             SqlParameter[] sqlParameters = new SqlParameter[4] {
 
             new SqlParameter("@username", username),
@@ -31,7 +31,14 @@ namespace SomerenDAL
         };
             ExecuteEditQuery(query, sqlParameters);
         }
-
+        public void UpdatePassword(string password, string newPassword)
+        {
+            string query = "UPDATE Users SET password=@newPassword WHERE password=@password";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@newPassword", newPassword);
+            sqlParameters[1] = new SqlParameter("@password", password);
+            ExecuteEditQuery(query, sqlParameters);
+        }
         private List<ForgotPassword> ReadTables(DataTable dataTable)
         {
             try
@@ -44,7 +51,6 @@ namespace SomerenDAL
                     {
                         Username = (string)dr["username"],
                         Password = (string)dr["password"],
-                        ConfirmPassword = (string)dr["confirmPassword"],
                         Question = (string)dr["question"],
                         Answer = (string)dr["answer"]
                     };
