@@ -59,7 +59,7 @@ INF1C
 652543
 
 week 1:
-- Input gegeven op ERD, controle en last check uitgevoerd op de ERD
+- Input gegeven op ERD, controle en last check uitgevoerd op de ERD.
 - Grote inbreng gebracht in de querries. Aangepast, werkend gemaakt en controle uitgevoerd op alles.
 
 Week 2: opdracht B; teachers
@@ -89,6 +89,14 @@ Ik heb het volgende gedaan voor week 4:
 - Mergen en conflicten opgelost.
 - UI updates, mooier gemaakt en code geschreven voor mij en andere projectleden waarbij je een responsive listview hebt.
 - Bugs opgelost van mijn code en van andere projectleden.
+
+Week 5 Opdracht A; Login scherm
+
+Ik heb het volgende gedaan voor week 5:
+- UI aanpassingen.
+- Alle eisen van de opdracht voldaan.
+- Database aangepast om salt, wachtwoord en adminstatus te bevatten.
+- Groepsleden kort geholpen met code.
 
 
 
