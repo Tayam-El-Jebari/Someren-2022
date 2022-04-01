@@ -38,6 +38,7 @@ namespace SomerenUI
             this.buttonRegister = new System.Windows.Forms.Button();
             this.labelRegister = new System.Windows.Forms.Label();
             this.checkBoxShowPassword = new System.Windows.Forms.CheckBox();
+            this.buttonForgotPassword = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelWelcomeLogin
@@ -122,6 +123,17 @@ namespace SomerenUI
             this.checkBoxShowPassword.Text = "View password";
             this.checkBoxShowPassword.UseVisualStyleBackColor = false;
             this.checkBoxShowPassword.CheckedChanged += new System.EventHandler(this.checkBoxShowPassword_CheckedChanged);
+
+            // buttonForgotPassword
+            // 
+            this.buttonForgotPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonForgotPassword.Location = new System.Drawing.Point(41, 312);
+            this.buttonForgotPassword.Name = "buttonForgotPassword";
+            this.buttonForgotPassword.Size = new System.Drawing.Size(105, 38);
+            this.buttonForgotPassword.TabIndex = 8;
+            this.buttonForgotPassword.Text = "Forgot Password";
+            this.buttonForgotPassword.UseVisualStyleBackColor = true;
+            this.buttonForgotPassword.Click += new System.EventHandler(this.buttonForgotPassword_Click);
             // 
             // FormLoginRegister
             // 
@@ -129,6 +141,7 @@ namespace SomerenUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.checkBoxShowPassword);
+            this.Controls.Add(this.buttonForgotPassword);
             this.Controls.Add(this.labelRegister);
             this.Controls.Add(this.buttonRegister);
             this.Controls.Add(this.buttonLogin);
@@ -155,5 +168,6 @@ namespace SomerenUI
         private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.Label labelRegister;
         private System.Windows.Forms.CheckBox checkBoxShowPassword;
+        private System.Windows.Forms.Button buttonForgotPassword;
     }
 }

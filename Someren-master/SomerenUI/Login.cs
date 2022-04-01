@@ -51,5 +51,12 @@ namespace SomerenUI
             else
                 textBoxPasswordLogin.PasswordChar = '*';
         }
+        private void buttonForgotPassword_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ForgotPasswordScreen forgotPassword = new ForgotPasswordScreen();
+            forgotPassword.ShowDialog();
+            this.Close();
+        }
     }
 }
