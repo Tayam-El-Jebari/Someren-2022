@@ -106,7 +106,7 @@ namespace SomerenUI
             // 
             // textBoxNewPassword
             // 
-            this.textBoxNewPassword.Location = new System.Drawing.Point(203, 230);
+            this.textBoxNewPassword.Location = new System.Drawing.Point(203, 227);
             this.textBoxNewPassword.Name = "textBoxNewPassword";
             this.textBoxNewPassword.Size = new System.Drawing.Size(159, 22);
             this.textBoxNewPassword.TabIndex = 22;
