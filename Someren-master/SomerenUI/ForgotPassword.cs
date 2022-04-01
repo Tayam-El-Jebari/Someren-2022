@@ -33,6 +33,8 @@ namespace SomerenUI
             textBoxConfirmPassword.Hide();
             buttonNewPassword.Hide();
             buttonCodeForgotPassword.Hide();
+            buttonQuestionLoad.Show();
+
 
         }
 
@@ -73,18 +75,23 @@ namespace SomerenUI
             }
             try
             {
-                if (newPassword != confirmNewPassword)
-                {
-                    MessageBox.Show("Password is not the same, please try again");
-                    textBoxNewPassword.Clear();
-                    textBoxConfirmPassword.Clear();
-                }
-                else
+                if (newPassword == confirmNewPassword)
                 {
                     ForgotPassword password = new ForgotPassword();
                     ForgotPasswordDAO forgotPasswordDAO = new ForgotPasswordDAO();
                     ForgotPasswordService forgotPasswordService = new ForgotPasswordService();
                     forgotPasswordDAO.UpdatePassword(password.Password, newPassword);
+                    MessageBox.Show("You have successfully changed your password, you will now be redirected to the loginpage");
+                    this.Hide();
+                    FormLoginRegister loginPage = new FormLoginRegister();
+                    loginPage.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Password is not the same, please try again");
+                    textBoxNewPassword.Clear();
+                    textBoxConfirmPassword.Clear();
                 }
             }
             catch (Exception)
@@ -114,7 +121,8 @@ namespace SomerenUI
                     labelEnterNewPasswordLabel.Show();
                     labelConfirmNewPasswordLabel.Show();
                     buttonCodeForgotPassword.Hide();
-                    buttonNewPassword.Hide();
+                    buttonNewPassword.Show();
+                    buttonQuestionLoad.Hide();
 
                     textBoxNewPassword.Show();
                     textBoxConfirmPassword.Show();
@@ -140,16 +148,7 @@ namespace SomerenUI
         {
             string username = textBoxUsernameForgotPassword.Text;
 
-            labelDisplayQuestion.Show();
-            labelQuestionLabel.Show();
-            labelAnswerLabel.Show();
-            textBoxAnswerForgotPassword.Show();
-            labelEnterNewPasswordLabel.Hide();
-            labelConfirmNewPasswordLabel.Hide();
-            textBoxNewPassword.Hide();
-            textBoxConfirmPassword.Hide();
-            buttonNewPassword.Hide();
-            buttonCodeForgotPassword.Show();
+
             ForgotPassword password = new ForgotPassword();
             if (textBoxUsernameForgotPassword.Text == password.Username)
             {
@@ -167,6 +166,20 @@ namespace SomerenUI
                     MessageBox.Show("Please make sure to enter a valid email address. You are missing an '@' ");
                     return;
 
+                }
+                else
+                {
+                    labelDisplayQuestion.Show();
+                    labelQuestionLabel.Show();
+                    labelAnswerLabel.Show();
+                    textBoxAnswerForgotPassword.Show();
+                    labelEnterNewPasswordLabel.Hide();
+                    labelConfirmNewPasswordLabel.Hide();
+                    textBoxNewPassword.Hide();
+                    textBoxConfirmPassword.Hide();
+                    buttonNewPassword.Hide();
+                    buttonCodeForgotPassword.Show();
+                    buttonQuestionLoad.Hide();
                 }
             }
             catch (Exception)
