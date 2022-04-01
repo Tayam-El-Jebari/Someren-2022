@@ -48,6 +48,12 @@ ActivityDAO aangemaakt en queries geschreven voor CRUD.
 ActivityService aangemaakt en deze als doorgeef luik laten fungeren. 
 In de SomerenUI code geschreven, waardoor de gebruiker op een gebruiksvriendelijke manier activiteiten kan toevoegen, aanpassen of verwijderen. 
 
+Week 5:
+Mijn deel was opdracht B: Register
+Als eerst een Login scherm aangemaakt (klein gedeelte opdracht A), om vervolgens een registerknop aan te maken op dit scherm zodat wij later als groep niet in de knoop kwamen met mergen.
+Register UI aangemaakt, met alle benodige knoppen. De code hiervoor geschreven zodat gebruikers zich kunnen registeren. 
+Verder de ERD aangepast met de groep gezamenlijk. 
+
 Tayam El Jebari
 INF1C
 652543
