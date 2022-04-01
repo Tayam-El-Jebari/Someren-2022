@@ -40,64 +40,40 @@ namespace SomerenUI
 
         private void buttonNewPassword_Click(object sender, EventArgs e)
         {
-            string username = textBoxUsernameForgotPassword.Text;
-            string newPassword = textBoxNewPassword.Text;
-            string confirmNewPassword = textBoxConfirmPassword.Text;
-            buttonNewPassword.Show();
 
-            try
-            {
+                string username = textBoxUsernameForgotPassword.Text;
+                string newPassword = textBoxNewPassword.Text;
+                string confirmNewPassword = textBoxConfirmPassword.Text;
+                buttonNewPassword.Show();
+
+
                 if (username == "" || newPassword == "" || confirmNewPassword == "")
                 {
                     MessageBox.Show("Please make sure to enter all the data in the fields");
                     return;
                 }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Please make sure to enter all the data in the fields");
-                return;
-
-            }
-            try
-            {
-                if (!username.Contains('@'))
+                else if (!username.Contains('@'))
                 {
                     MessageBox.Show("Please make sure to enter a valid email address. You are missing an '@' ");
                     return;
-
                 }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            try
-            {
-                if (newPassword == confirmNewPassword)
+                else if (newPassword == confirmNewPassword)
                 {
-                    ForgotPassword password = new ForgotPassword();
-                    ForgotPasswordDAO forgotPasswordDAO = new ForgotPasswordDAO();
                     ForgotPasswordService forgotPasswordService = new ForgotPasswordService();
-                    forgotPasswordDAO.UpdatePassword(password.Password, newPassword);
+                    forgotPasswordService.UpdatePassword(username, newPassword);
                     MessageBox.Show("You have successfully changed your password, you will now be redirected to the loginpage");
                     this.Hide();
                     FormLoginRegister loginPage = new FormLoginRegister();
                     loginPage.ShowDialog();
                     this.Close();
                 }
-                else
+                /*else
                 {
-                    MessageBox.Show("Password is not the same, please try again");
+                    MessageBox.Show("Something went wrong while changing your password, please try again");
                     textBoxNewPassword.Clear();
                     textBoxConfirmPassword.Clear();
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Password is not the same, please try again");
-            }
+                }*/
+
         }
         private void buttonCodeForgotPassword_Click(object sender, EventArgs e)
         {

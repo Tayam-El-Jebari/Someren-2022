@@ -27,5 +27,9 @@ namespace SomerenLogic
             string question = forgotPassworddb.GetQuestion(username);
             return question;
         }
+        public void UpdatePassword(string newPassword, string username)
+        {
+            forgotPassworddb.UpdatePassword(username, newPassword);
+        }
     }
 }

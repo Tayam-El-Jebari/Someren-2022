@@ -40,11 +40,11 @@ namespace SomerenDAL
         };
             ExecuteEditQuery(query, sqlParameters);
         }
-        public void UpdatePassword(string password, string newPassword)
+        public void UpdatePassword(string username, string password)
         {
-            string query = "UPDATE Users SET password=@newPassword WHERE password=@password";
+            string query = "declare @salt uniqueidentifier = newid(); UPDATE Users SET password=hashbytes('sha2_512', @password + cast(@salt as nvarchar(36))) WHERE email=@email; UPDATE Users SET salt=@salt WHERE email=@email";
             SqlParameter[] sqlParameters = new SqlParameter[2];
-            sqlParameters[0] = new SqlParameter("@newPassword", newPassword);
+            sqlParameters[0] = new SqlParameter("@email", username);
             sqlParameters[1] = new SqlParameter("@password", password);
             ExecuteEditQuery(query, sqlParameters);
         }
